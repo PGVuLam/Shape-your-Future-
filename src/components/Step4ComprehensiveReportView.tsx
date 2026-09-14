@@ -226,27 +226,49 @@ Bạn có thắc mắc gì về điểm chuẩn các trường, phương thức 
     const reportElement = document.getElementById('career-report-export-container');
     if (!reportElement || isExportingPdf) return;
 
+    let exportClone: HTMLElement | null = null;
+
     try {
       setIsExportingPdf(true);
       setPdfSuccess(false);
       setPdfError(null);
 
-      // Scroll immediately to top for accurate coordinate capture
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-      await new Promise(resolve => setTimeout(resolve, 150));
+      await document.fonts?.ready;
+      await new Promise<void>(resolve => {
+        requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
+      });
 
-      // High-definition render of the report container matching the exact layout
-      const canvas = await html2canvas(reportElement, {
-        scale: 1.6,
+      exportClone = reportElement.cloneNode(true) as HTMLElement;
+      exportClone.removeAttribute('id');
+      exportClone.style.position = 'absolute';
+      exportClone.style.left = '-100000px';
+      exportClone.style.top = '0';
+      exportClone.style.width = '794px';
+      exportClone.style.maxWidth = '794px';
+      exportClone.style.margin = '0';
+      exportClone.style.padding = '24px';
+      exportClone.style.background = '#f8fafc';
+      exportClone.style.boxSizing = 'border-box';
+      exportClone.style.overflow = 'visible';
+      document.body.appendChild(exportClone);
+
+      exportClone.querySelectorAll('[data-pdf-ignore="true"]').forEach(element => {
+        element.remove();
+      });
+      exportClone.querySelectorAll<HTMLElement>('.max-h-\\[500px\\]').forEach(element => {
+        element.style.maxHeight = 'none';
+        element.style.overflow = 'visible';
+      });
+
+      const canvas = await html2canvas(exportClone, {
+        scale: 1.35,
         useCORS: true,
-        allowTaint: true,
+        allowTaint: false,
         logging: false,
         backgroundColor: '#f8fafc',
+        imageTimeout: 15000,
         scrollX: 0,
-        scrollY: 0,
-        ignoreElements: (el) => {
-          return el.getAttribute('data-pdf-ignore') === 'true';
-        }
+        scrollY: 0
       });
 
       const pageWidthMm = 210;
@@ -263,50 +285,59 @@ Bạn có thắc mắc gì về điểm chuẩn các trường, phương thức 
       const pageHeightInPx = Math.floor((canvasWidth * pageHeightMm) / pageWidthMm);
       const totalPages = Math.max(1, Math.ceil(canvasHeight / pageHeightInPx));
 
-      for (let page = 0; page < totalPages; page++) {
-        const srcY = page * pageHeightInPx;
-        const srcH = Math.min(pageHeightInPx, canvasHeight - srcY);
-
+      for (let page = 0; page < totalPages; page += 1) {
+        const sourceY = page * pageHeightInPx;
+        const sourceHeight = Math.min(pageHeightInPx, canvasHeight - sourceY);
         const pageCanvas = document.createElement('canvas');
         pageCanvas.width = canvasWidth;
         pageCanvas.height = pageHeightInPx;
-        const pageCtx = pageCanvas.getContext('2d');
+        const pageContext = pageCanvas.getContext('2d');
 
-        if (pageCtx) {
-          pageCtx.fillStyle = '#f8fafc';
-          pageCtx.fillRect(0, 0, canvasWidth, pageHeightInPx);
-          pageCtx.drawImage(
-            canvas,
-            0,
-            srcY,
-            canvasWidth,
-            srcH,
-            0,
-            0,
-            canvasWidth,
-            srcH
-          );
+        if (!pageContext) continue;
 
-          const pageImgData = pageCanvas.toDataURL('image/jpeg', 0.94);
-          if (page > 0) {
-            pdf.addPage('a4', 'portrait');
-          }
-          pdf.addImage(pageImgData, 'JPEG', 0, 0, pageWidthMm, pageHeightMm, undefined, 'FAST');
+        pageContext.fillStyle = '#f8fafc';
+        pageContext.fillRect(0, 0, canvasWidth, pageHeightInPx);
+        pageContext.drawImage(
+          canvas,
+          0,
+          sourceY,
+          canvasWidth,
+          sourceHeight,
+          0,
+          0,
+          canvasWidth,
+          sourceHeight
+        );
+
+        if (page > 0) {
+          pdf.addPage('a4', 'portrait');
         }
+        pdf.addImage(
+          pageCanvas.toDataURL('image/jpeg', 0.92),
+          'JPEG',
+          0,
+          0,
+          pageWidthMm,
+          pageHeightMm,
+          undefined,
+          'FAST'
+        );
       }
 
       const safeName = profile.name && profile.name.trim() !== ''
-        ? profile.name.trim().replace(/[^a-zA-Z0-9\u00C0-\u024F\u1EA0-\u1EF9]/g, '_')
+        ? profile.name.trim().replace(/[^a-zA-Z0-9\\u00C0-\\u024F\\u1EA0-\\u1EF9]/g, '_')
         : 'HocSinh';
 
       pdf.save(`Ket-qua-khao-sat-huong-nghiep-${safeName}.pdf`);
       setPdfSuccess(true);
       setTimeout(() => setPdfSuccess(false), 4000);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Lỗi khi xuất file PDF:', err);
-      setPdfError('Trình duyệt gặp khó khăn khi xuất PDF ảnh. Bạn có thể thử lại hoặc phóng to cửa sổ.');
-      setTimeout(() => setPdfError(null), 6000);
+      const message = err instanceof Error ? err.message : 'Không xác định';
+      setPdfError(`Không thể tạo PDF lúc này (${message}). Bạn hãy thử lại.`);
+      setTimeout(() => setPdfError(null), 7000);
     } finally {
+      exportClone?.remove();
       setIsExportingPdf(false);
     }
   };
