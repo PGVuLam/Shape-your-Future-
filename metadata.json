@@ -1,0 +1,6 @@
+{
+  "name": "Shape Your Future!",
+  "description": "Hệ thống hỗ trợ khám phá sở thích & xu hướng nghề nghiệp",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

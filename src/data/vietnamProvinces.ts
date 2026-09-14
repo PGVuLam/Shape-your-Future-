@@ -1,0 +1,76 @@
+export interface ProvinceItem {
+  id: string;
+  name: string;
+  region: 'Bắc' | 'Trung' | 'Nam';
+}
+
+export const VIETNAM_PROVINCES: ProvinceItem[] = [
+  // Miền Bắc (25 tỉnh/thành)
+  { id: 'ha-noi', name: 'Hà Nội', region: 'Bắc' },
+  { id: 'hai-phong', name: 'Hải Phòng', region: 'Bắc' },
+  { id: 'quang-ninh', name: 'Quảng Ninh', region: 'Bắc' },
+  { id: 'bac-ninh', name: 'Bắc Ninh', region: 'Bắc' },
+  { id: 'hai-duong', name: 'Hải Dương', region: 'Bắc' },
+  { id: 'hung-yen', name: 'Hưng Yên', region: 'Bắc' },
+  { id: 'thai-binh', name: 'Thái Bình', region: 'Bắc' },
+  { id: 'nam-dinh', name: 'Nam Định', region: 'Bắc' },
+  { id: 'ninh-binh', name: 'Ninh Bình', region: 'Bắc' },
+  { id: 'ha-nam', name: 'Hà Nam', region: 'Bắc' },
+  { id: 'vinh-phuc', name: 'Vĩnh Phúc', region: 'Bắc' },
+  { id: 'phu-tho', name: 'Phú Thọ', region: 'Bắc' },
+  { id: 'thai-nguyen', name: 'Thái Nguyên', region: 'Bắc' },
+  { id: 'bac-giang', name: 'Bắc Giang', region: 'Bắc' },
+  { id: 'lang-son', name: 'Lạng Sơn', region: 'Bắc' },
+  { id: 'tuyen-quang', name: 'Tuyên Quang', region: 'Bắc' },
+  { id: 'ha-giang', name: 'Hà Giang', region: 'Bắc' },
+  { id: 'cao-bang', name: 'Cao Bằng', region: 'Bắc' },
+  { id: 'bac-kan', name: 'Bắc Kạn', region: 'Bắc' },
+  { id: 'lao-cai', name: 'Lào Cai', region: 'Bắc' },
+  { id: 'yen-bai', name: 'Yên Bái', region: 'Bắc' },
+  { id: 'dien-bien', name: 'Điện Biên', region: 'Bắc' },
+  { id: 'lai-chau', name: 'Lai Châu', region: 'Bắc' },
+  { id: 'son-la', name: 'Sơn La', region: 'Bắc' },
+  { id: 'hoa-binh', name: 'Hòa Bình', region: 'Bắc' },
+
+  // Miền Trung & Tây Nguyên (19 tỉnh/thành)
+  { id: 'thanh-hoa', name: 'Thanh Hóa', region: 'Trung' },
+  { id: 'nghe-an', name: 'Nghệ An', region: 'Trung' },
+  { id: 'ha-tinh', name: 'Hà Tĩnh', region: 'Trung' },
+  { id: 'quang-binh', name: 'Quảng Bình', region: 'Trung' },
+  { id: 'quang-tri', name: 'Quảng Trị', region: 'Trung' },
+  { id: 'thua-thien-hue', name: 'Thừa Thiên Huế', region: 'Trung' },
+  { id: 'da-nang', name: 'Đà Nẵng', region: 'Trung' },
+  { id: 'quang-nam', name: 'Quảng Nam', region: 'Trung' },
+  { id: 'quang-ngai', name: 'Quảng Ngãi', region: 'Trung' },
+  { id: 'binh-dinh', name: 'Bình Định', region: 'Trung' },
+  { id: 'phu-yen', name: 'Phú Yên', region: 'Trung' },
+  { id: 'khanh-hoa', name: 'Khánh Hòa', region: 'Trung' },
+  { id: 'ninh-thuan', name: 'Ninh Thuận', region: 'Trung' },
+  { id: 'binh-thuan', name: 'Bình Thuận', region: 'Trung' },
+  { id: 'kon-tum', name: 'Kon Tum', region: 'Trung' },
+  { id: 'gia-lai', name: 'Gia Lai', region: 'Trung' },
+  { id: 'dak-lak', name: 'Đắk Lắk', region: 'Trung' },
+  { id: 'dak-nong', name: 'Đắk Nông', region: 'Trung' },
+  { id: 'lam-dong', name: 'Lâm Đồng', region: 'Trung' },
+
+  // Miền Nam (19 tỉnh/thành)
+  { id: 'tp-ho-chi-minh', name: 'TP. Hồ Chí Minh', region: 'Nam' },
+  { id: 'binh-duong', name: 'Bình Dương', region: 'Nam' },
+  { id: 'dong-nai', name: 'Đồng Nai', region: 'Nam' },
+  { id: 'ba-ria-vung-tau', name: 'Bà Rịa - Vũng Tàu', region: 'Nam' },
+  { id: 'tay-ninh', name: 'Tây Ninh', region: 'Nam' },
+  { id: 'binh-phuoc', name: 'Bình Phước', region: 'Nam' },
+  { id: 'long-an', name: 'Long An', region: 'Nam' },
+  { id: 'tien-giang', name: 'Tiền Giang', region: 'Nam' },
+  { id: 'ben-tre', name: 'Bến Tre', region: 'Nam' },
+  { id: 'tra-vinh', name: 'Trà Vinh', region: 'Nam' },
+  { id: 'vinh-long', name: 'Vĩnh Long', region: 'Nam' },
+  { id: 'dong-thap', name: 'Đồng Tháp', region: 'Nam' },
+  { id: 'an-giang', name: 'An Giang', region: 'Nam' },
+  { id: 'kien-giang', name: 'Kiên Giang', region: 'Nam' },
+  { id: 'can-tho', name: 'Cần Thơ', region: 'Nam' },
+  { id: 'hau-giang', name: 'Hậu Giang', region: 'Nam' },
+  { id: 'soc-trang', name: 'Sóc Trăng', region: 'Nam' },
+  { id: 'bac-lieu', name: 'Bạc Liêu', region: 'Nam' },
+  { id: 'ca-mau', name: 'Cà Mau', region: 'Nam' }
+];
