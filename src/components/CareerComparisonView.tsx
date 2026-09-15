@@ -94,7 +94,7 @@ export const CareerComparisonView: React.FC<CareerComparisonViewProps> = ({
             }}
             className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition-colors"
           >
-            {language === 'vi' ? 'Phần mềm vs Robot vs AI' : 'Software vs Robotics vs AI'}
+            {'Phần mềm vs Robot vs AI'}
           </button>
           <button
             onClick={() => {
@@ -104,7 +104,7 @@ export const CareerComparisonView: React.FC<CareerComparisonViewProps> = ({
             }}
             className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition-colors"
           >
-            {language === 'vi' ? 'Quản lý Sản phẩm vs Thiết kế UI/UX' : 'Product vs UI/UX Design'}
+            {'Quản lý Sản phẩm vs Thiết kế UI/UX'}
           </button>
           <button
             onClick={() => {
@@ -114,7 +114,7 @@ export const CareerComparisonView: React.FC<CareerComparisonViewProps> = ({
             }}
             className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition-colors"
           >
-            {language === 'vi' ? 'Bác sĩ Lâm sàng vs Kỹ sư Y sinh' : 'Clinical Medicine vs Biomedical Eng'}
+            {'Bác sĩ Lâm sàng vs Kỹ sư Y sinh'}
           </button>
         </div>
       </div>
@@ -151,7 +151,7 @@ export const CareerComparisonView: React.FC<CareerComparisonViewProps> = ({
                     </div>
                     {rec && (
                       <div className="mt-2 inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 font-bold text-xs">
-                        <span>{language === 'vi' ? 'Mức hợp:' : 'Fit:'} {rec.overallScore}%</span>
+                        <span>{'Mức hợp:'} {rec.overallScore}%</span>
                       </div>
                     )}
                   </th>
@@ -181,9 +181,9 @@ export const CareerComparisonView: React.FC<CareerComparisonViewProps> = ({
                 return (
                   <td key={c.id} className="p-4 border-l border-slate-200">
                     <div className="flex items-center justify-between mb-1">
-                      <span className="font-bold text-indigo-700">{gap.overallReadiness}% {language === 'vi' ? 'Sẵn sàng' : 'Ready'}</span>
+                      <span className="font-bold text-indigo-700">{gap.overallReadiness}% {'Sẵn sàng'}</span>
                       <span className="text-[10px] text-rose-600 font-semibold">
-                        {gap.missingSkills.length} {language === 'vi' ? 'kỹ năng cần bù' : 'skills to bridge'}
+                        {gap.missingSkills.length} {'kỹ năng cần bù'}
                       </span>
                     </div>
                     <div className="w-full bg-slate-100 rounded-full h-1.5">
@@ -253,7 +253,7 @@ export const CareerComparisonView: React.FC<CareerComparisonViewProps> = ({
                     <span>{t.salaryTier} {c.salaryInfo.levelIndicator}</span>
                   </div>
                   <p className="text-[10px] text-slate-500 leading-tight">
-                    {language === 'vi' ? t.salaryDisclaimer : c.salaryInfo.disclaimer}
+                    {true ? t.salaryDisclaimer : c.salaryInfo.disclaimer}
                   </p>
                 </td>
               ))}
@@ -278,7 +278,7 @@ export const CareerComparisonView: React.FC<CareerComparisonViewProps> = ({
 
             {/* Row 8: Action row */}
             <tr>
-              <td className="p-4 font-bold text-slate-700 bg-slate-50/50">{language === 'vi' ? 'Thao tác' : 'Action'}</td>
+              <td className="p-4 font-bold text-slate-700 bg-slate-50/50">{'Thao tác'}</td>
               {comparedCareers.map(c => (
                 <td key={c.id} className="p-4 border-l border-slate-200">
                   <button

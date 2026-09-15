@@ -48,24 +48,50 @@ export const LearningRoadmapView: React.FC<LearningRoadmapViewProps> = ({
               </h2>
             </div>
             <p className="text-xs text-slate-500 mt-1">
-              {language === 'vi'
+              {true
                 ? `Lộ trình theo giai đoạn được tối ưu riêng cho nhóm tuổi ${profile.ageGroup}, thời gian tự học và khoảng trống kỹ năng.`
                 : `Phased roadmap calibrated for your age group (${profile.ageGroup}), available study time, and current skill gaps.`}
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3">
-            {/* Career Selector */}
-            <div className="flex items-center space-x-2">
-              <span className="text-xs font-medium text-slate-600">
-                {language === 'vi' ? 'Lộ trình cho nghề:' : 'Roadmap for:'}
-              </span>
+          <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
+            {/* Career Selector (Tabs for top recommendations) */}
+            <div className="flex items-center space-x-1 bg-slate-100 p-1 rounded-xl overflow-x-auto custom-scrollbar max-w-full">
+              {recommendations.slice(0, 3).map(rec => {
+                const c = CAREER_DATABASE.find(x => x.id === rec.careerId);
+                if (!c) return null;
+                return (
+                  <button
+                    key={c.id}
+                    onClick={() => setSelectedCareerId(c.id)}
+                    className={`shrink-0 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                      selectedCareerId === c.id
+                        ? 'bg-white text-indigo-700 shadow-sm border border-slate-200'
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50 border border-transparent'
+                    }`}
+                  >
+                    {getCareerTitle(c.id, c.title)}
+                  </button>
+                );
+              })}
+              
+              <div className="h-4 w-px bg-slate-300 mx-1"></div>
+              
               <select
-                value={selectedCareerId}
+                value={
+                  !recommendations.slice(0, 3).find(r => r.careerId === selectedCareerId)
+                    ? selectedCareerId
+                    : ""
+                }
                 onChange={e => setSelectedCareerId(e.target.value)}
-                className="text-xs font-semibold px-3 py-1.5 rounded-xl border border-slate-300 bg-white text-slate-800 focus:outline-none"
+                className={`shrink-0 text-xs font-semibold px-2 py-1.5 rounded-lg border-none focus:outline-none cursor-pointer transition-all ${
+                  !recommendations.slice(0, 3).find(r => r.careerId === selectedCareerId) 
+                    ? 'bg-white text-indigo-700 shadow-sm border border-slate-200' 
+                    : 'bg-transparent text-slate-500 hover:text-slate-800 hover:bg-slate-200/50'
+                }`}
               >
-                {CAREER_DATABASE.map(c => (
+                <option value="" disabled>Nghề khác...</option>
+                {CAREER_DATABASE.filter(c => !recommendations.slice(0, 3).find(r => r.careerId === c.id)).map(c => (
                   <option key={c.id} value={c.id}>
                     {getCareerTitle(c.id, c.title)}
                   </option>
@@ -121,7 +147,7 @@ export const LearningRoadmapView: React.FC<LearningRoadmapViewProps> = ({
 
               <div className="flex items-center space-x-2">
                 <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-                  {language === 'vi' ? 'Có cột mốc đánh giá' : 'Target Milestone Included'}
+                  {'Có cột mốc đánh giá'}
                 </span>
               </div>
             </div>

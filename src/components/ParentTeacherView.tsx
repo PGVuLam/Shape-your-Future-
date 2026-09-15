@@ -48,7 +48,7 @@ export const ParentTeacherView: React.FC<ParentTeacherViewProps> = ({
             {t.explorationPrinciple}
           </span>
           <p className="text-slate-100 leading-relaxed">
-            {language === 'vi'
+            {true
               ? 'Hướng nghiệp là một hành trình dài hạn tìm kiếm sự hòa hợp giữa đam mê, năng lực cá nhân và nhu cầu xã hội — tuyệt đối không nên vội vã quyết định một chiều. Vai trò của gia đình và thầy cô là khơi gợi, đồng hành và tạo không gian an toàn để con tự tin trải nghiệm.'
               : summary.guidingPhilosophy}
           </p>
@@ -66,7 +66,7 @@ export const ParentTeacherView: React.FC<ParentTeacherViewProps> = ({
 
           <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
             <span className="text-[11px] font-bold text-indigo-700">
-              {language === 'vi' ? 'Giai đoạn phát triển nhận thức:' : 'Stage of Growth:'}
+              {'Giai đoạn phát triển nhận thức:'}
             </span>
             <p className="text-slate-800 font-semibold">{summary.developmentStage}</p>
           </div>
@@ -94,7 +94,7 @@ export const ParentTeacherView: React.FC<ParentTeacherViewProps> = ({
           </div>
 
           <p className="text-slate-500">
-            {language === 'vi'
+            {true
               ? 'Dựa trên xu hướng tính cách Holland và thế mạnh môn học, các lĩnh vực sau mang lại nhiều cơ hội phát huy tiềm năng:'
               : 'Based on current psychometric curiosity, these fields offer enriching opportunities to explore:'}
           </p>
@@ -107,7 +107,7 @@ export const ParentTeacherView: React.FC<ParentTeacherViewProps> = ({
               >
                 <span>{domain}</span>
                 <span className="text-[10px] px-2 py-0.5 rounded bg-indigo-200/80 text-indigo-800 font-semibold">
-                  {language === 'vi' ? 'Rất tiềm năng' : 'Promising Fit'}
+                  {'Rất tiềm năng'}
                 </span>
               </div>
             ))}

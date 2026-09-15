@@ -50,13 +50,13 @@ export const Step3EngineView: React.FC<Step3EngineViewProps> = ({
         <div>
           <div className="flex items-center space-x-2 text-purple-600 font-bold text-xs uppercase tracking-wider mb-1">
             <Cpu className="w-4 h-4" />
-            <span>{language === 'vi' ? 'BƯỚC 3: LÕI TÍNH ĐIỂM GỢI Ý & CƠ SỞ TRI THỨC' : 'STEP 3: RECOMMENDATION ENGINE & KB'}</span>
+            <span>{'BƯỚC 3: LÕI TÍNH ĐIỂM GỢI Ý & CƠ SỞ TRI THỨC'}</span>
           </div>
           <h1 className="text-xl font-bold text-slate-900">
-            {language === 'vi' ? 'Mô hình Tính điểm Trọng số Tất định' : 'Deterministic Multi-Criteria Weighted Engine'}
+            {'Mô hình Tính điểm Trọng số Tất định'}
           </h1>
           <p className="text-xs text-slate-500 mt-0.5">
-            {language === 'vi'
+            {true
               ? 'Lõi toán học tính độ tương đồng Cosine vector RIASEC và đối sánh ma trận 16 nghề chuẩn hóa trong Cơ sở tri thức.'
               : 'Mathematical engine computing RIASEC vector cosine similarity matched against 16 standardized careers in Knowledge Base.'}
           </p>
@@ -77,7 +77,7 @@ export const Step3EngineView: React.FC<Step3EngineViewProps> = ({
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2 font-bold text-xs text-slate-800 uppercase tracking-wider">
               <Calculator className="w-4 h-4 text-purple-600" />
-              <span>{language === 'vi' ? 'Công thức Trọng số Điểm số' : 'Scoring Weight Distribution'}</span>
+              <span>{'Công thức Trọng số Điểm số'}</span>
             </div>
             <span className="text-[10px] font-bold text-purple-600 bg-purple-50 px-2 py-0.5 rounded-md">
               Tổng: 100%
@@ -140,7 +140,7 @@ export const Step3EngineView: React.FC<Step3EngineViewProps> = ({
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2 font-bold text-xs text-slate-800 uppercase tracking-wider">
               <Database className="w-4 h-4 text-emerald-600" />
-              <span>{language === 'vi' ? '4. Cơ sở Tri thức Nghề nghiệp' : '4. Career Knowledge Base'}</span>
+              <span>{'4. Cơ sở Tri thức Nghề nghiệp'}</span>
             </div>
             <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">
               Đã đồng bộ
@@ -148,7 +148,7 @@ export const Step3EngineView: React.FC<Step3EngineViewProps> = ({
           </div>
 
           <p className="text-xs text-slate-600">
-            {language === 'vi'
+            {true
               ? 'Lõi đối chiếu hồ sơ học sinh với 16 nghề nghiệp chuẩn hóa. Dưới đây là mô phỏng điểm tương thích sơ bộ:'
               : 'Engine evaluates student profile against 16 standardized careers. Preliminary score preview:'}
           </p>
@@ -198,7 +198,7 @@ export const Step3EngineView: React.FC<Step3EngineViewProps> = ({
           className="px-4 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 font-semibold text-xs flex items-center space-x-2 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
-          <span>{language === 'vi' ? 'Quay lại Bước 2 (Xem hồ sơ)' : 'Back to Step 2 (View profile)'}</span>
+          <span>{'Quay lại Bước 2 (Xem hồ sơ)'}</span>
         </button>
 
         <button
@@ -210,11 +210,11 @@ export const Step3EngineView: React.FC<Step3EngineViewProps> = ({
           {isSimulating ? (
             <>
               <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-              <span>{language === 'vi' ? 'Đang tổng hợp Báo cáo...' : 'Compiling Output...'}</span>
+              <span>{'Đang tổng hợp Báo cáo...'}</span>
             </>
           ) : (
             <>
-              <span>{language === 'vi' ? 'Hoàn tất Tính toán ➡️ Xuất Báo cáo Kết quả (Bước 4)' : 'Complete Scoring ➡️ View Output (Step 4)'}</span>
+              <span>{'Hoàn tất Tính toán ➡️ Xuất Báo cáo Kết quả (Bước 4)'}</span>
               <ArrowRight className="w-4 h-4" />
             </>
           )}

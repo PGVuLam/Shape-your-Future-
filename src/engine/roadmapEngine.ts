@@ -17,7 +17,7 @@ export function generateLearningRoadmap(
     phases = [
       {
         phaseNumber: 0,
-        name: 'Phase 0: Play & Curiosity',
+        name: 'Giai đoạn 0: Vui chơi & Tò mò',
         duration: '1–2 Months',
         objectives: [
           `Discover the joyful wonders of ${career.careerCluster}`,
@@ -25,7 +25,7 @@ export function generateLearningRoadmap(
           'Explore stories, books, and cartoons about inventors and creators'
         ],
         skillsToLearn: ['Creative Imagination', 'Curiosity', 'Safe Tool Handling'],
-        projects: ['Build a dream machine out of cardboard and recycled boxes', 'Draw an illustrated comic book about a day in this career'],
+        projects: ['Chế tạo cỗ máy mơ ước từ bìa cứng và hộp tái chế', 'Vẽ truyện tranh về một ngày làm việc trong nghề này'],
         recommendedActivities: [
           'Visit a local science center, maker museum, or botanical garden',
           'Watch educational YouTube channels (SciShow Kids, Mark Rober, Nat Geo Kids)'
@@ -34,14 +34,14 @@ export function generateLearningRoadmap(
       },
       {
         phaseNumber: 1,
-        name: 'Phase 1: Junior Maker & Discoverer',
+        name: 'Giai đoạn 1: Nhà sáng chế & Khám phá nhí',
         duration: '2–3 Months',
         objectives: [
           'Learn basic visual building blocks (LEGO robotics, Scratch coding, or clay modeling)',
           'Follow simple guided experiment kits with parents'
         ],
         skillsToLearn: ['Pattern Recognition', 'Basic Trial & Error', 'Sharing Ideas with Friends'],
-        projects: ['Create a mini interactive Scratch animation or game', 'Conduct 3 simple home science experiments'],
+        projects: ['Tạo một trò chơi hoặc hoạt hình Scratch tương tác nhỏ', 'Thực hiện 3 thí nghiệm khoa học đơn giản tại nhà'],
         recommendedActivities: [
           'Join a school art, robotics, or nature club',
           'Play puzzle games (Minecraft creative mode, Lightbot)'
@@ -50,24 +50,24 @@ export function generateLearningRoadmap(
       },
       {
         phaseNumber: 2,
-        name: 'Phase 2: Fun Challenge Quests',
+        name: 'Giai đoạn 2: Thử thách Vui nhộn',
         duration: 'Ongoing',
         objectives: [
           'Team up with siblings or classmates for playful creative challenges',
           'Celebrate learning from failed attempts without giving up'
         ],
         skillsToLearn: ['Teamwork', 'Patience', 'Observation'],
-        projects: ['Build a cardboard marble run with 3 ramps and a loop', 'Grow a mini indoor garden and record daily leaf heights'],
+        projects: ['Làm đường đua bi lăn bằng bìa cứng với 3 dốc và 1 vòng lặp', 'Trồng một khu vườn mini trong nhà và ghi lại chiều cao lá hàng ngày'],
         recommendedActivities: ['Read age-appropriate biographies of scientists, artists, and builders'],
         milestone: 'Earn a junior explorer badge for curiosity and kindness!'
       }
     ];
   } else if (ageGroup === '11-14') {
-    tailoredNote = `Middle School Exploration (Ages 11–14): Building foundational strengths, exploring hobby clubs, and trying micro-projects to uncover personal passions.`;
+    tailoredNote = `Khám phá THCS (11–14 Tuổi): Xây dựng thế mạnh nền tảng, tham gia câu lạc bộ sở thích và thử sức với các dự án nhỏ để khám phá đam mê.`;
     phases = [
       {
         phaseNumber: 0,
-        name: 'Phase 0: Exploration & First Taste',
+        name: 'Giai đoạn 0: Khám phá & Trải nghiệm đầu tiên',
         duration: '3–4 Weeks',
         objectives: [
           `Test whether you actually enjoy the daily reality of ${career.title}`,
@@ -80,11 +80,11 @@ export function generateLearningRoadmap(
           'Explore online introductory workshops (Code.org, Khan Academy)',
           'Read popular science or industry articles'
         ],
-        milestone: 'Decide if you want to invest 3 months of hobby time into building skills here.'
+        milestone: 'Decide if you want to invest 3 tháng of hobby time into building skills here.'
       },
       {
         phaseNumber: 1,
-        name: 'Phase 1: Core Fundamentals & Tools',
+        name: 'Giai đoạn 1: Kiến thức cốt lõi & Công cụ',
         duration: `${Math.round(2 * durationMultiplier)} Months`,
         objectives: [
           `Master fundamental tools: ${career.requiredSkills.slice(0, 2).join(', ')}`,
@@ -100,14 +100,14 @@ export function generateLearningRoadmap(
       },
       {
         phaseNumber: 2,
-        name: 'Phase 2: Competitions & Team Collaborations',
+        name: 'Giai đoạn 2: Các cuộc thi & Làm việc nhóm',
         duration: `${Math.round(3 * durationMultiplier)} Months`,
         objectives: [
           'Collaborate with peers on a team project or school science fair',
           'Learn to take constructive feedback and iterate'
         ],
         skillsToLearn: ['Team Communication', 'Presentation', 'Basic Versioning / Documentation'],
-        projects: ['A community science fair entry or game jam submission'],
+        projects: ['Sản phẩm dự thi hội chợ khoa học hoặc Game Jam'],
         recommendedActivities: [
           'Enter a regional youth competition (FIRST LEGO League, youth hackathons, art exhibitions)'
         ],
@@ -120,14 +120,14 @@ export function generateLearningRoadmap(
     phases = [
       {
         phaseNumber: 0,
-        name: 'Phase 0: Reality Check & Micro-Experimentation',
+        name: 'Giai đoạn 0: Đánh giá thực tế & Thử nghiệm nhỏ',
         duration: '2–3 Weeks',
         objectives: [
           `Validate your true affinity for ${career.title} beyond romanticized impressions`,
           'Complete hands-on micro-experiments and evaluate frustration tolerance'
         ],
         skillsToLearn: ['Basic Industry Workflows', 'Fundamental Terminology'],
-        projects: [career.experiments[0]?.title || 'Introductory Hands-on Mini Project'],
+        projects: [career.experiments[0]?.title || 'Dự án mini thực hành nhập môn'],
         recommendedActivities: [
           'Watch 3 unfiltered day-in-the-life industry videos',
           'Audit free introductory university lectures (MIT OpenCourseWare / Coursera)'
@@ -136,7 +136,7 @@ export function generateLearningRoadmap(
       },
       {
         phaseNumber: 1,
-        name: 'Phase 1: Academic & Foundational Mastery',
+        name: 'Giai đoạn 1: Nắm vững học thuật & Nền tảng',
         duration: `${Math.round(3 * durationMultiplier)} Months`,
         objectives: [
           `Strengthen foundational academic subjects: ${career.relevantSubjects.slice(0, 2).join(', ')}`,
@@ -148,18 +148,18 @@ export function generateLearningRoadmap(
           'Form or lead a specialized school study group',
           'Dedicate 4 hours every weekend to structured project building'
         ],
-        milestone: 'Complete two standalone guided projects with documented GitHub/Behance repositories.'
+        milestone: 'Hoàn thành hai dự án có hướng dẫn với kho lưu trữ GitHub/Behance được tài liệu hóa.'
       },
       {
         phaseNumber: 2,
-        name: 'Phase 2: Substantive Portfolio & Competitions',
+        name: 'Giai đoạn 2: Hồ sơ năng lực thực tế & Cuộc thi',
         duration: `${Math.round(4 * durationMultiplier)} Months`,
         objectives: [
           'Build an original, non-trivial capstone project addressing a real problem',
           'Prepare for regional or national science/technology/business competitions'
         ],
         skillsToLearn: career.recommendedSkills.slice(0, 2),
-        projects: [career.portfolioExamples[0] || 'Original community capstone project'],
+        projects: [career.portfolioExamples[0] || 'Dự án tốt nghiệp (capstone) cộng đồng độc đáo'],
         recommendedActivities: [
           'Compete in Intel ISEF / National Science Fair / Hackathons',
           'Reach out to university faculty or alumni for informational interviews'
@@ -168,7 +168,7 @@ export function generateLearningRoadmap(
       },
       {
         phaseNumber: 3,
-        name: 'Phase 3: Pathway & Admissions Preparation',
+        name: 'Giai đoạn 3: Lộ trình & Chuẩn bị tuyển sinh',
         duration: `${Math.round(3 * durationMultiplier)} Months`,
         objectives: [
           `Select target educational paths: ${career.educationPaths.map(p => p.type).join(' or ')}`,
@@ -176,7 +176,7 @@ export function generateLearningRoadmap(
           'Draft compelling personal statements highlighting unique project journey'
         ],
         skillsToLearn: ['Professional Interviewing', 'Academic Portfolio Presentation'],
-        projects: ['Consolidated personal digital portfolio showcasing complete progression'],
+        projects: ['Hồ sơ năng lực kỹ thuật số cá nhân thể hiện toàn bộ quá trình phát triển'],
         recommendedActivities: [
           'Attend university open days and admissions webinars',
           'Prepare scholarship applications and portfolio dossiers'
@@ -190,20 +190,20 @@ export function generateLearningRoadmap(
     phases = [
       {
         phaseNumber: 0,
-        name: 'Phase 0: Professional Gap Diagnostic',
+        name: 'Giai đoạn 0: Chẩn đoán Lỗ hổng chuyên môn',
         duration: '2 Weeks',
         objectives: [
           'Audit current resume and GitHub/Figma against current market job descriptions',
           `Identify critical missing skills: ${skillGap?.missingSkills.slice(0, 2).map(s => s.skill).join(', ') || 'Industry frameworks'}`
         ],
         skillsToLearn: ['Industry Git Workflows', 'Clean Architecture Standards'],
-        projects: ['Refactor an existing college project into production code standards'],
+        projects: ['Cấu trúc lại một dự án đại học theo tiêu chuẩn mã nguồn thực tế'],
         recommendedActivities: ['Review 10 entry-level job specs on LinkedIn for required tech stacks'],
         milestone: 'Actionable 6-month skill sprint checklist.'
       },
       {
         phaseNumber: 1,
-        name: 'Phase 1: Production-Grade Project Sprint',
+        name: 'Giai đoạn 1: Dự án Cấp độ Thực tế (Sprint)',
         duration: `${Math.round(3 * durationMultiplier)} Months`,
         objectives: [
           `Master high-priority missing skills: ${career.technicalSkills.slice(0, 3).join(', ')}`,
@@ -219,7 +219,7 @@ export function generateLearningRoadmap(
       },
       {
         phaseNumber: 2,
-        name: 'Phase 2: Internship & Interview Readiness',
+        name: 'Giai đoạn 2: Thực tập & Sẵn sàng Phỏng vấn',
         duration: `${Math.round(2 * durationMultiplier)} Months`,
         objectives: [
           'Master technical interview coding questions (LeetCode / System Design / Case Studies)',
@@ -227,7 +227,7 @@ export function generateLearningRoadmap(
           'Target 20 curated internship / junior role applications'
         ],
         skillsToLearn: ['Technical Interviewing', 'System Design Basics', 'STAR Storytelling'],
-        projects: ['Curated 1-page resume + polished LinkedIn profile + live portfolio site'],
+        projects: ['Sơ yếu lý lịch 1 trang + hồ sơ LinkedIn trau chuốt + trang portfolio trực tuyến'],
         recommendedActivities: [
           'Participate in company hackathons and university recruitment career fairs',
           'Conduct 5 cold-outreach informational coffee chats with practitioners'
@@ -241,7 +241,7 @@ export function generateLearningRoadmap(
     phases = [
       {
         phaseNumber: 0,
-        name: 'Phase 0: Transferable Skills & Feasibility Audit',
+        name: 'Giai đoạn 0: Kỹ năng Chuyển đổi & Đánh giá Khả thi',
         duration: '2–3 Weeks',
         objectives: [
           `Map previous experience (${profile.currentOccupation || 'Current domain'}) to ${career.title}`,
@@ -249,20 +249,20 @@ export function generateLearningRoadmap(
           `Schedule realistic study hours (${hoursPerWeek} hrs/week) without risking burnout`
         ],
         skillsToLearn: ['Domain Terminology', 'Modern Digital Tooling'],
-        projects: ['A 1-page Career Transition Strategy Brief'],
+        projects: ['Bản Tóm tắt Chiến lược Chuyển đổi Nghề nghiệp (1 trang)'],
         recommendedActivities: ['Informational interviews with 2 career changers who made this exact pivot'],
         milestone: 'Clear timeline commitment and baseline tool installation.'
       },
       {
         phaseNumber: 1,
-        name: 'Phase 1: Targeted High-Leverage Reskilling',
+        name: 'Giai đoạn 1: Tái đào tạo Nhắm mục tiêu Hiệu quả cao',
         duration: `${Math.round(4 * durationMultiplier)} Months`,
         objectives: [
           `Focus exclusively on the highest priority missing skills: ${skillGap?.missingSkills.slice(0, 3).map(s => s.skill).join(', ') || career.requiredSkills.slice(0, 2).join(', ')}`,
           'Skip low-utility academic theory in favor of practical applied frameworks'
         ],
         skillsToLearn: career.requiredSkills.slice(0, 3),
-        projects: [career.beginnerProjects[0] || 'Applied real-world workflow automation'],
+        projects: [career.beginnerProjects[0] || 'Ứng dụng tự động hóa quy trình làm việc thực tế'],
         recommendedActivities: [
           'Enroll in an intensive, project-driven certificate course or cohort bootcamp',
           'Dedicate structured mornings/evenings to hands-on coding/designing'
@@ -271,7 +271,7 @@ export function generateLearningRoadmap(
       },
       {
         phaseNumber: 2,
-        name: 'Phase 2: Hybrid Portfolio & Strategic Networking',
+        name: 'Giai đoạn 2: Hồ sơ Kết hợp & Kết nối Chiến lược',
         duration: `${Math.round(3 * durationMultiplier)} Months`,
         objectives: [
           'Create 2 hybrid portfolio case studies that prove your cross-domain superiority over entry-level grads',
@@ -279,7 +279,7 @@ export function generateLearningRoadmap(
           'Target specialized roles that value your prior industry background'
         ],
         skillsToLearn: ['Personal Branding', 'Strategic Career Transition Pitching'],
-        projects: [career.portfolioExamples[0] || 'Comprehensive business/tech bridge case study'],
+        projects: [career.portfolioExamples[0] || 'Nghiên cứu tình huống toàn diện về cầu nối kinh doanh/công nghệ'],
         recommendedActivities: [
           'Attend local industry meetups and participate in specialized Discord/Slack communities',
           'Offer freelance or volunteer pro-bono work for non-profits to gain real domain references'

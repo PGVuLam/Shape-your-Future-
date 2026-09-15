@@ -93,7 +93,7 @@ export const CareerExplorerView: React.FC<CareerExplorerViewProps> = ({
 
           <div className="flex items-center space-x-2">
             <span className="text-xs text-slate-500 font-medium">
-              {language === 'vi' ? 'Sắp xếp:' : 'Sort by:'}
+              {'Sắp xếp:'}
             </span>
             <select
               value={sortBy}
@@ -176,7 +176,7 @@ export const CareerExplorerView: React.FC<CareerExplorerViewProps> = ({
                   </span>
                   {rec && (
                     <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
-                      {score}% {language === 'vi' ? 'Hợp' : 'Match'}
+                      {score}% {'Hợp'}
                     </span>
                   )}
                 </div>

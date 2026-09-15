@@ -31,8 +31,8 @@ import {
   Lightbulb,
   Layers
 } from 'lucide-react';
-import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
+import { toCanvas, toPng } from 'html-to-image';
 import { UserProfile, Career, LLMConfig, LLMProviderType } from '../types';
 import { CAREER_DATABASE } from '../data/careers';
 import { generateRecommendations } from '../engine/recommendationEngine';
@@ -245,8 +245,9 @@ Bạn cần tư vấn về chiến lược đăng ký trường đại học, ph
       exportClone = reportElement.cloneNode(true) as HTMLElement;
       exportClone.removeAttribute('id');
       exportClone.style.position = 'absolute';
-      exportClone.style.left = '-100000px';
+      exportClone.style.left = '0';
       exportClone.style.top = '0';
+      exportClone.style.zIndex = '-9999';
       exportClone.style.width = '794px';
       exportClone.style.maxWidth = '794px';
       exportClone.style.margin = '0';
@@ -264,16 +265,39 @@ Bạn cần tư vấn về chiến lược đăng ký trường đại học, ph
         element.style.overflow = 'visible';
       });
 
-      const canvas = await html2canvas(exportClone, {
-        scale: 1.35,
-        useCORS: true,
-        allowTaint: false,
-        logging: false,
-        backgroundColor: '#f8fafc',
-        imageTimeout: 15000,
-        scrollX: 0,
-        scrollY: 0
-      });
+      // Allow browser to calculate layout and styles
+      await new Promise(resolve => setTimeout(resolve, 300));
+
+      let canvas: HTMLCanvasElement;
+      try {
+        canvas = await toCanvas(exportClone, {
+          backgroundColor: '#f8fafc',
+          pixelRatio: 1.5,
+          cacheBust: true,
+        });
+      } catch (err) {
+        console.warn('toCanvas failed, falling back to toPng:', err);
+        const dataUrl = await toPng(exportClone, {
+          backgroundColor: '#f8fafc',
+          pixelRatio: 1.5,
+          cacheBust: true,
+        });
+        const img = new Image();
+        img.src = dataUrl;
+        await new Promise((res, rej) => {
+          img.onload = () => res(null);
+          img.onerror = rej;
+        });
+        canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.fillStyle = '#f8fafc';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0);
+        }
+      }
 
       const pageWidthMm = 210;
       const pageHeightMm = 297;
@@ -287,52 +311,85 @@ Bạn cần tư vấn về chiến lược đăng ký trường đại học, ph
       const canvasWidth = canvas.width;
       const canvasHeight = canvas.height;
       const pageHeightInPx = Math.floor((canvasWidth * pageHeightMm) / pageWidthMm);
-      const totalPages = Math.max(1, Math.ceil(canvasHeight / pageHeightInPx));
 
-      for (let page = 0; page < totalPages; page += 1) {
-        const sourceY = page * pageHeightInPx;
-        const sourceHeight = Math.min(pageHeightInPx, canvasHeight - sourceY);
+      const parentRect = exportClone.getBoundingClientRect();
+      const scaleY = canvasHeight / parentRect.height;
+      
+      const avoidNodes = Array.from(exportClone.querySelectorAll('.pdf-page-break-avoid')) as HTMLElement[];
+      const avoidRects = avoidNodes.map(node => {
+        const rect = node.getBoundingClientRect();
+        return {
+          top: (rect.top - parentRect.top) * scaleY,
+          bottom: (rect.bottom - parentRect.top) * scaleY,
+          height: rect.height * scaleY
+        };
+      });
+
+      let currentY = 0;
+      let pageCount = 0;
+
+      while (currentY < canvasHeight) {
+        let splitY = currentY + pageHeightInPx;
+        
+        if (splitY < canvasHeight) {
+          const cutElement = avoidRects.find(r => r.top + 5 < splitY && r.bottom - 5 > splitY);
+          
+          if (cutElement) {
+            if (cutElement.height < pageHeightInPx) {
+              splitY = cutElement.top;
+              if (splitY <= currentY) {
+                splitY = currentY + pageHeightInPx;
+              }
+            }
+          }
+        }
+
+        const sourceHeight = Math.min(splitY - currentY, canvasHeight - currentY);
+        
         const pageCanvas = document.createElement('canvas');
         pageCanvas.width = canvasWidth;
         pageCanvas.height = pageHeightInPx;
         const pageContext = pageCanvas.getContext('2d');
 
-        if (!pageContext) continue;
+        if (pageContext) {
+          pageContext.fillStyle = '#f8fafc';
+          pageContext.fillRect(0, 0, canvasWidth, pageHeightInPx);
+          pageContext.drawImage(
+            canvas,
+            0,
+            currentY,
+            canvasWidth,
+            sourceHeight,
+            0,
+            0,
+            canvasWidth,
+            sourceHeight
+          );
 
-        pageContext.fillStyle = '#f8fafc';
-        pageContext.fillRect(0, 0, canvasWidth, pageHeightInPx);
-        pageContext.drawImage(
-          canvas,
-          0,
-          sourceY,
-          canvasWidth,
-          sourceHeight,
-          0,
-          0,
-          canvasWidth,
-          sourceHeight
-        );
-
-        if (page > 0) {
-          pdf.addPage('a4', 'portrait');
+          if (pageCount > 0) {
+            pdf.addPage('a4', 'portrait');
+          }
+          pdf.addImage(
+            pageCanvas.toDataURL('image/jpeg', 0.95),
+            'JPEG',
+            0,
+            0,
+            pageWidthMm,
+            pageHeightMm,
+            undefined,
+            'FAST'
+          );
         }
-        pdf.addImage(
-          pageCanvas.toDataURL('image/jpeg', 0.92),
-          'JPEG',
-          0,
-          0,
-          pageWidthMm,
-          pageHeightMm,
-          undefined,
-          'FAST'
-        );
+        
+        currentY = splitY;
+        pageCount++;
       }
 
       const safeName = profile.name && profile.name.trim() !== ''
-        ? profile.name.trim().replace(/[^a-zA-Z0-9\\u00C0-\\u024F\\u1EA0-\\u1EF9]/g, '_')
-        : 'HocSinh';
+        ? profile.name.trim().replace(/[^a-zA-Z0-9\\u00C0-\\u024F\\u1EA0-\\u1EF9]/g, '-')
+        : 'Khong-Ten';
 
-      pdf.save(`Ket-qua-khao-sat-huong-nghiep-${safeName}.pdf`);
+      pdf.save(`Ket-qua-huong-nghiep-${safeName}.pdf`);
       setPdfSuccess(true);
       setTimeout(() => setPdfSuccess(false), 4000);
     } catch (err: unknown) {
@@ -349,7 +406,7 @@ Bạn cần tư vấn về chiến lược đăng ký trường đại học, ph
   return (
     <div id="career-report-export-container" className="space-y-8 max-w-5xl mx-auto pb-12">
       {/* Header Banner */}
-      <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className="pdf-page-break-avoid bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="space-y-2">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-semibold">
             <ShieldCheck className="w-3.5 h-3.5" />
@@ -416,7 +473,7 @@ Bạn cần tư vấn về chiến lược đăng ký trường đại học, ph
       )}
 
       {/* MỤC 1: BẢNG TỔNG HỢP TOÀN BỘ KẾT QUẢ ĐÃ KIỂM TRA */}
-      <div className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs space-y-4">
+      <div className="pdf-page-break-avoid bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs space-y-4">
         <div className="flex items-center justify-between border-b border-slate-100 pb-3">
           <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
             <User className="w-4 h-4 text-indigo-600" />
@@ -498,7 +555,7 @@ Bạn cần tư vấn về chiến lược đăng ký trường đại học, ph
       </div>
 
       {/* BANNER NGUYÊN TẮC HƯỚNG NGHIỆP: ĐẠI HỌC KHÔNG PHẢI LÀ CON ĐƯỜNG DUY NHẤT */}
-      <div className="bg-gradient-to-br from-emerald-50 via-teal-50/60 to-white rounded-3xl p-6 border border-emerald-200/80 shadow-xs space-y-4">
+      <div className="pdf-page-break-avoid bg-gradient-to-br from-emerald-50 via-teal-50/60 to-white rounded-3xl p-6 border border-emerald-200/80 shadow-xs space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-emerald-100 pb-3">
           <div className="flex items-center space-x-2.5">
             <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-xs">
@@ -567,7 +624,7 @@ Bạn cần tư vấn về chiến lược đăng ký trường đại học, ph
 
       {/* MỤC 2: TOP NGÀNH NGHỀ PHÙ HỢP NHẤT (TÍNH ĐIỂM KHOA HỌC) */}
       <div className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+        <div className="pdf-page-break-avoid flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
           <div>
             <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
               <Briefcase className="w-5 h-5 text-indigo-600" />
@@ -590,7 +647,7 @@ Bạn cần tư vấn về chiến lược đăng ký trường đại học, ph
             return (
               <div
                 key={c.id}
-                className="p-4.5 rounded-2xl bg-slate-50/80 border border-slate-200/80 hover:border-indigo-300 transition-all flex flex-col gap-3 text-xs"
+                className="pdf-page-break-avoid p-4.5 rounded-2xl bg-slate-50/80 border border-slate-200/80 hover:border-indigo-300 transition-all flex flex-col gap-3 text-xs"
               >
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
                   <div className="space-y-1.5 flex-1">
@@ -683,7 +740,7 @@ Bạn cần tư vấn về chiến lược đăng ký trường đại học, ph
 
       {/* MỤC 3: GỢI Ý CÁC TRƯỜNG ĐẠI HỌC TOP VÀ CÁC TRƯỜNG ĐÀO TẠO KHÁC TẠI VIỆT NAM */}
       <div className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs space-y-5">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
+        <div className="pdf-page-break-avoid flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
           <div>
             <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
               <School className="w-5 h-5 text-emerald-600" />
@@ -714,7 +771,7 @@ Bạn cần tư vấn về chiến lược đăng ký trường đại học, ph
 
         {/* NHÓM 1: CÁC TRƯỜNG TOP 1 TRỌNG ĐIỂM */}
         <div className="space-y-3">
-          <div className="flex items-center space-x-2">
+          <div className="pdf-page-break-avoid flex items-center space-x-2">
             <span className="px-2.5 py-0.5 rounded-md bg-rose-50 text-rose-800 text-[11px] font-bold border border-rose-200">
               NHÓM 1
             </span>
@@ -727,7 +784,7 @@ Bạn cần tư vấn về chiến lược đăng ký trường đại học, ph
             {top1Universities.map(uni => (
               <div
                 key={uni.id}
-                className="p-4 rounded-2xl bg-gradient-to-br from-white to-slate-50/50 border border-slate-200/90 shadow-2xs space-y-2 text-xs hover:border-indigo-400 transition-colors"
+                className="pdf-page-break-avoid p-4 rounded-2xl bg-gradient-to-br from-white to-slate-50/50 border border-slate-200/90 shadow-2xs space-y-2 text-xs hover:border-indigo-400 transition-colors"
               >
                 <div className="flex items-start justify-between gap-2">
                   <div>
@@ -792,7 +849,7 @@ Bạn cần tư vấn về chiến lược đăng ký trường đại học, ph
 
         {/* NHÓM 2: CÁC TRƯỜNG ĐÀO TẠO UY TÍN & CHUYÊN SÂU KHÁC */}
         <div className="space-y-3 pt-4 border-t border-slate-100">
-          <div className="flex items-center space-x-2">
+          <div className="pdf-page-break-avoid flex items-center space-x-2">
             <span className="px-2.5 py-0.5 rounded-md bg-blue-50 text-blue-800 text-[11px] font-bold border border-blue-200">
               NHÓM 2
             </span>
@@ -805,7 +862,7 @@ Bạn cần tư vấn về chiến lược đăng ký trường đại học, ph
             {top2Universities.map(uni => (
               <div
                 key={uni.id}
-                className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-2xs space-y-2 text-xs hover:border-blue-400 transition-colors"
+                className="pdf-page-break-avoid p-4 rounded-2xl bg-white border border-slate-200/80 shadow-2xs space-y-2 text-xs hover:border-blue-400 transition-colors"
               >
                 <div className="flex items-start justify-between gap-2">
                   <div>
@@ -862,7 +919,7 @@ Bạn cần tư vấn về chiến lược đăng ký trường đại học, ph
 
         {/* NHÓM 3: TRƯỜNG CAO ĐẲNG & HỌC NGHỀ THỰC HÀNH UY TÍN (ĐẠI HỌC KHÔNG PHẢI LÀ CON ĐƯỜNG DUY NHẤT) */}
         <div className="space-y-3 pt-4 border-t border-slate-100">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div className="pdf-page-break-avoid flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div className="flex items-center space-x-2">
               <span className="px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-800 text-[11px] font-bold border border-emerald-200">
                 NHÓM 3
@@ -885,7 +942,7 @@ Bạn cần tư vấn về chiến lược đăng ký trường đại học, ph
             {vocationalColleges.map(uni => (
               <div
                 key={uni.id}
-                className="p-4 rounded-2xl bg-gradient-to-br from-emerald-50/30 to-white border border-emerald-200/80 shadow-2xs space-y-2 text-xs hover:border-emerald-400 transition-colors"
+                className="pdf-page-break-avoid p-4 rounded-2xl bg-gradient-to-br from-emerald-50/30 to-white border border-emerald-200/80 shadow-2xs space-y-2 text-xs hover:border-emerald-400 transition-colors"
               >
                 <div className="flex items-start justify-between gap-2">
                   <div>

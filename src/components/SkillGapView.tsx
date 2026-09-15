@@ -70,10 +70,10 @@ export const SkillGapView: React.FC<SkillGapViewProps> = ({
       <div className="bg-gradient-to-r from-slate-900 to-indigo-950 rounded-2xl p-6 text-white shadow-lg grid md:grid-cols-3 gap-6 items-center">
         <div className="md:col-span-2 space-y-2">
           <span className="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/30 text-indigo-200 border border-indigo-400/30">
-            {language === 'vi' ? `Chỉ số tương thích nghề: ${locTitle}` : `${selectedCareer.title} Readiness`}
+            {`Chỉ số tương thích nghề: ${locTitle}`}
           </span>
           <h3 className="text-2xl font-bold">
-            {language === 'vi'
+            {true
               ? `Bạn đã đạt ${skillGap.overallReadiness}% năng lực yêu cầu của nghề`
               : `You match ${skillGap.overallReadiness}% of target competencies`}
           </h3>
@@ -113,7 +113,7 @@ export const SkillGapView: React.FC<SkillGapViewProps> = ({
             </span>
           </div>
           <p className="text-xs text-slate-500">
-            {language === 'vi' ? 'Các kỹ năng cốt lõi hiện chưa có trong hồ sơ tự đánh giá của bạn.' : 'Prerequisites currently absent from your documented profile.'}
+            {'Các kỹ năng cốt lõi hiện chưa có trong hồ sơ tự đánh giá của bạn.'}
           </p>
 
           <div className="space-y-3">
@@ -139,7 +139,7 @@ export const SkillGapView: React.FC<SkillGapViewProps> = ({
             ))}
             {skillGap.missingSkills.length === 0 && (
               <p className="text-xs text-slate-400 italic">
-                {language === 'vi' ? 'Không có kỹ năng còn thiếu!' : 'No missing skills detected!'}
+                {'Không có kỹ năng còn thiếu!'}
               </p>
             )}
           </div>
@@ -157,7 +157,7 @@ export const SkillGapView: React.FC<SkillGapViewProps> = ({
             </span>
           </div>
           <p className="text-xs text-slate-500">
-            {language === 'vi' ? 'Bạn đã có nền tảng cơ bản, cần thực hành thêm dự án để đạt mức chuyên sâu.' : 'Competencies where you possess preliminary exposure or theory.'}
+            {'Bạn đã có nền tảng cơ bản, cần thực hành thêm dự án để đạt mức chuyên sâu.'}
           </p>
 
           <div className="space-y-3">
@@ -169,7 +169,7 @@ export const SkillGapView: React.FC<SkillGapViewProps> = ({
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-amber-950">{item.skill}</span>
                   <span className="text-[10px] px-2 py-0.5 rounded bg-amber-200 text-amber-900 font-medium">
-                    {language === 'vi' ? 'Cần thực hành' : 'Expand Practice'}
+                    {'Cần thực hành'}
                   </span>
                 </div>
                 <p className="text-amber-800 text-[11px]">{item.recommendedAction}</p>
@@ -177,7 +177,7 @@ export const SkillGapView: React.FC<SkillGapViewProps> = ({
             ))}
             {skillGap.developingSkills.length === 0 && (
               <p className="text-xs text-slate-400 italic">
-                {language === 'vi' ? 'Không có kỹ năng đang phát triển.' : 'No skills currently marked as developing.'}
+                {'Không có kỹ năng đang phát triển.'}
               </p>
             )}
           </div>
@@ -195,7 +195,7 @@ export const SkillGapView: React.FC<SkillGapViewProps> = ({
             </span>
           </div>
           <p className="text-xs text-slate-500">
-            {language === 'vi' ? 'Thế mạnh đã được chứng minh qua học tập hoặc sản phẩm thực tế.' : 'Verified competencies meeting or exceeding professional requirements.'}
+            {'Thế mạnh đã được chứng minh qua học tập hoặc sản phẩm thực tế.'}
           </p>
 
           <div className="space-y-3">
@@ -212,7 +212,7 @@ export const SkillGapView: React.FC<SkillGapViewProps> = ({
             ))}
             {skillGap.strongSkills.length === 0 && (
               <p className="text-xs text-slate-400 italic">
-                {language === 'vi' ? 'Chưa có kỹ năng ghi nhận thế mạnh.' : 'No strong competencies mapped yet.'}
+                {'Chưa có kỹ năng ghi nhận thế mạnh.'}
               </p>
             )}
           </div>

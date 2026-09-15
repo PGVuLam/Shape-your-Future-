@@ -52,21 +52,21 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           <div className="space-y-2">
             <div className="flex flex-wrap items-center gap-2">
               <span className="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/30 text-indigo-200 border border-indigo-400/30">
-                {t.ageGroup} {profile.ageGroup} ({profile.age} {language === 'vi' ? 'tuổi' : 'years old'})
+                {t.ageGroup} {profile.ageGroup} ({profile.age} {'tuổi'})
               </span>
               <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center space-x-1">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>{t.hollandCode} {profile.riaSecProfile?.code || 'IRC'}</span>
               </span>
               <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-slate-200">
-                {language === 'vi' ? 'Độ tin cậy:' : 'Confidence:'} {language === 'vi' ? 'Cao (92%)' : top1?.confidence || 'High'}
+                {'Độ tin cậy:'} 'Cao (92%)'
               </span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
-              {language === 'vi' ? `Hồ sơ Hướng nghiệp của ${profile.name}` : `${profile.name}'s Career Exploration`}
+              {`Hồ sơ Hướng nghiệp của ${profile.name}`}
             </h1>
             <p className="text-slate-300 text-sm max-w-2xl leading-relaxed">
-              {language === 'vi'
+              {true
                 ? 'Định hướng cá nhân hóa dựa trên trắc nghiệm tâm lý học nghề nghiệp Holland RIASEC, sở thích môn học và năng lực tự đánh giá.'
                 : profile.riaSecProfile?.description ||
                   'Personalized career discovery based on Holland RIASEC psychometrics, academic interests, and self-rated competencies.'}
@@ -78,7 +78,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
               onClick={() => onNavigateTab('assessment')}
               className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold border border-white/20 transition-all text-center"
             >
-              {language === 'vi'
+              {true
                 ? `Cập nhật Đánh giá (${profile.completenessPercentage || 100}%)`
                 : `Update Assessment (${profile.completenessPercentage || 90}%)`}
             </button>
@@ -101,7 +101,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             <span>{t.disambiguationNotice}</span>
           </div>
           <p className="text-xs text-amber-800">
-            {language === 'vi'
+            {true
               ? `${getCareerTitle(top1.career.id, top1.career.title)} (${top1.overallScore}%) và ${getCareerTitle(top2.career.id, top2.career.title)} (${top2.overallScore}%) có điểm số rất sát nhau. Trả lời câu hỏi này để hệ thống hiệu chỉnh thứ hạng:`
               : `${top1.career.title} (${top1.overallScore}%) and ${top2.career.title} (${top2.overallScore}%) both scored very closely against your profile. Answering this quick disambiguation question sharpens the final recommendation:`}
           </p>
@@ -115,7 +115,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                 onClick={() => {
                   onDisambiguate(opt.favorsCareerId);
                   setDisambiguatedNotice(
-                    language === 'vi'
+                    true
                       ? `Đã áp dụng phân giải! Ưu tiên tăng cường cho nghề ${getCareerTitle(opt.favorsCareerId, opt.favorsCareerId)}.`
                       : `Disambiguation applied! Recommendation weighted toward ${opt.favorsCareerId}.`
                   );
@@ -150,7 +150,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
               </p>
             </div>
             <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full border border-indigo-100">
-              {language === 'vi' ? 'Trục chính:' : 'Primary:'} {profile.riaSecProfile?.primary || 'I'}
+              {'Trục chính:'} {profile.riaSecProfile?.primary || 'I'}
             </span>
           </div>
 
@@ -180,17 +180,17 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           <div className="space-y-4">
             <h3 className="text-base font-bold text-slate-900 flex items-center space-x-2">
               <Award className="w-4 h-4 text-amber-500" />
-              <span>{language === 'vi' ? 'Chỉ số Đảm bảo & Độ tin cậy' : 'Assessment Reliability'}</span>
+              <span>{'Chỉ số Đảm bảo & Độ tin cậy'}</span>
             </h3>
 
             {/* Confidence metric */}
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
               <div className="flex items-center justify-between text-xs">
-                <span className="font-semibold text-slate-700">{language === 'vi' ? 'Độ tin cậy thuật toán' : 'Recommendation Confidence'}</span>
-                <span className="font-bold text-emerald-600">{language === 'vi' ? 'Rất Cao (94%)' : top1?.confidence || 'High'}</span>
+                <span className="font-semibold text-slate-700">{'Độ tin cậy thuật toán'}</span>
+                <span className="font-bold text-emerald-600">'Rất Cao (94%)'</span>
               </div>
               <p className="text-[11px] text-slate-500 leading-relaxed">
-                {language === 'vi'
+                {true
                   ? 'Độ tin cậy cao dựa trên sự tương thích đa biến giữa môn học yêu thích, kỹ năng thực tế và vector RIASEC.'
                   : top1?.confidenceReason ||
                     'High confidence based on verified subject affinity and extensive skill self-assessments.'}
@@ -215,13 +215,13 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
           <div className="pt-4 border-t border-slate-100">
             <div className="text-xs text-slate-500 mb-2">
-              {language === 'vi' ? 'Thử nghiệm giả định thay đổi môn học hoặc kỹ năng?' : 'Want to see how changes affect rankings?'}
+              {'Thử nghiệm giả định thay đổi môn học hoặc kỹ năng?'}
             </div>
             <button
               onClick={() => onNavigateTab('simulate')}
               className="w-full py-2 px-3 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-800 text-xs font-semibold flex items-center justify-center space-x-1 transition-colors"
             >
-              <span>{language === 'vi' ? 'Khởi chạy Mô phỏng "What-If"' : 'Launch What-If Simulation'}</span>
+              <span>{'Khởi chạy Mô phỏng "What-If"'}</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -280,7 +280,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
                     <div className="flex items-baseline space-x-1">
                       <span className="text-xl font-extrabold text-slate-900">{rec.overallScore}%</span>
-                      <span className="text-[10px] text-slate-400 font-medium">{language === 'vi' ? 'Hợp' : 'Fit'}</span>
+                      <span className="text-[10px] text-slate-400 font-medium">{'Hợp'}</span>
                     </div>
                   </div>
 
@@ -302,8 +302,8 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                     </div>
                     <div className="flex justify-between text-[10px] text-slate-400">
                       <span>RIASEC: {rec.breakdown.riasec}%</span>
-                      <span>{language === 'vi' ? 'Kỹ năng:' : 'Skills:'} {rec.breakdown.skills}%</span>
-                      <span>{language === 'vi' ? 'Sở thích:' : 'Interests:'} {rec.breakdown.interests}%</span>
+                      <span>{'Kỹ năng:'} {rec.breakdown.skills}%</span>
+                      <span>{'Sở thích:'} {rec.breakdown.interests}%</span>
                     </div>
                   </div>
 
@@ -317,7 +317,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                 {/* Actions */}
                 <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                   <span className="text-[11px] font-medium text-slate-500">
-                    {language === 'vi' ? 'Mức lương:' : 'Salary:'} {rec.career.salaryInfo.levelIndicator}
+                    {'Mức lương:'} {rec.career.salaryInfo.levelIndicator}
                   </span>
                   <button
                     onClick={() => onSelectCareer(rec.career)}

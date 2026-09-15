@@ -180,6 +180,7 @@ export interface Career {
   challenges: string[];
   advantages: string[];
   futureTrends: string;
+  aiImpact?: string;
   salaryInfo: {
     rangeDescription: string;
     disclaimer: string; // "Example / illustrative information - requires local verification"

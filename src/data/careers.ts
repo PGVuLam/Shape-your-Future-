@@ -1,1224 +1,2961 @@
-import { Career } from '../types';
+import { Career } from '../types/index';
 
 export const CAREER_DATABASE: Career[] = [
   {
-    id: 'software-engineer',
-    title: 'Software Engineer',
-    aliases: ['Software Developer', 'Full-Stack Engineer', 'Application Programmer'],
-    description: 'Designs, develops, tests, and maintains software applications, algorithms, and computing systems across web, mobile, and cloud platforms.',
-    careerCluster: 'Software & Computing',
-    industry: 'Information Technology',
-    tasks: [
-      'Write clean, maintainable, and efficient code in modern languages',
-      'Design modular software architectures and APIs',
-      'Debug issues, write unit tests, and optimize performance',
-      'Collaborate in agile sprint teams with code reviews and pair programming',
-      'Deploy applications to cloud infrastructure and monitor uptime'
+    "id": "software-engineer",
+    "title": "Kỹ sư Phần mềm",
+    "aliases": [
+      "Lập trình viên Phần mềm",
+      "Kỹ sư Full-Stack",
+      "Kỹ sư Hệ thống"
     ],
-    responsibilities: [
-      'Delivering scalable software features on schedule',
-      'Maintaining software quality and code documentation',
-      'Safeguarding application security and data privacy'
+    "description": "Thiết kế, phát triển, kiểm thử và bảo trì các ứng dụng phần mềm, thuật toán và hệ thống máy tính trên web, thiết bị di động và đám mây.",
+    "careerCluster": "Công nghệ Thông tin",
+    "industry": "Phần mềm & Dịch vụ Số",
+    "tasks": [
+      "Viết mã nguồn sạch, tối ưu và dễ bảo trì bằng các ngôn ngữ hiện đại (TypeScript, Python, Go, Java)",
+      "Thiết kế kiến trúc hệ thống mô-đun, vi dịch vụ (Microservices) và API bảo mật",
+      "Gỡ lỗi, viết kiểm thử tự động và tối ưu hóa hiệu năng phần mềm",
+      "Cộng tác nhóm Agile/Scrum và đánh giá chất lượng mã nguồn (Code Review)",
+      "Triển khai ứng dụng lên hạ tầng đám mây và thiết lập quy trình tự động hóa CI/CD"
     ],
-    workEnvironment: ['Modern collaborative office', 'Remote / Work-from-home friendly', 'High screen time', 'Agile team environment'],
-    requiredSkills: ['Programming (Python, JS/TS, or Java)', 'Algorithms & Data Structures', 'Problem Solving', 'Git Version Control'],
-    recommendedSkills: ['Database Design (SQL/NoSQL)', 'REST APIs', 'Cloud Computing (GCP/AWS)', 'Testing & CI/CD'],
-    softSkills: ['Analytical Thinking', 'Team Communication', 'Continuous Learning', 'Adaptability'],
-    technicalSkills: ['TypeScript', 'Python', 'React', 'Docker', 'Linux', 'SQL'],
-    relevantSubjects: ['Computer Science', 'Mathematics', 'Physics', 'Information Technology', 'English'],
-    relevantInterests: ['Programming', 'Problem Solving', 'Building Software', 'Technology', 'Puzzles & Logic'],
-    riaSecProfile: { R: 0.55, I: 0.90, A: 0.45, S: 0.35, E: 0.40, C: 0.70 },
-    mbtiCompatibility: ['INTJ', 'INTP', 'ISTJ', 'ENTP'],
-    educationPaths: [
+    "responsibilities": [
+      "Phát triển các tính năng phần mềm ổn định và có khả năng mở rộng đúng thời hạn",
+      "Duy trì tiêu chuẩn chất lượng mã nguồn và tài liệu kỹ thuật toàn diện",
+      "Bảo vệ an ninh ứng dụng và quyền riêng tư dữ liệu người dùng"
+    ],
+    "workEnvironment": [
+      "Văn phòng hiện đại, sáng tạo và hợp tác",
+      "Linh hoạt làm việc từ xa (Remote / Hybrid)",
+      "Thời lượng làm việc với máy tính cao",
+      "Văn hóa đội ngũ linh hoạt Agile"
+    ],
+    "requiredSkills": [
+      "Lập trình hướng đối tượng & Hàm (Python, JS/TS hoặc Java)",
+      "Cấu trúc dữ liệu & Thuật toán",
+      "Tư duy giải quyết vấn đề logic",
+      "Quản lý mã nguồn với Git & GitHub"
+    ],
+    "recommendedSkills": [
+      "Thiết kế cơ sở dữ liệu SQL & NoSQL",
+      "Xây dựng REST & GraphQL API",
+      "Điện toán đám mây (AWS, GCP, Azure)",
+      "Kiểm thử tự động & CI/CD Pipeline"
+    ],
+    "softSkills": [
+      "Tư duy phân tích phản biện",
+      "Giao tiếp & Làm việc nhóm",
+      "Khả năng tự học công nghệ mới liên tục",
+      "Thích ứng linh hoạt với thay đổi"
+    ],
+    "technicalSkills": [
+      "TypeScript",
+      "Python",
+      "React",
+      "Node.js",
+      "Docker",
+      "Linux",
+      "PostgreSQL",
+      "Git"
+    ],
+    "relevantSubjects": [
+      "Tin học / Khoa học Máy tính",
+      "Toán học",
+      "Vật lý",
+      "Công nghệ Thông tin",
+      "Tiếng Anh chuyên ngành"
+    ],
+    "relevantInterests": [
+      "Lập trình máy tính",
+      "Xây dựng ứng dụng & trang web",
+      "Giải quyết câu đố logic",
+      "Công nghệ phần mềm"
+    ],
+    "riaSecProfile": {
+      "R": 0.55,
+      "I": 0.9,
+      "A": 0.45,
+      "S": 0.35,
+      "E": 0.4,
+      "C": 0.7
+    },
+    "mbtiCompatibility": [
+      "INTJ",
+      "INTP",
+      "ISTJ",
+      "ENTP"
+    ],
+    "educationPaths": [
       {
-        type: 'University',
-        duration: '4 Years (B.S. in Computer Science or Software Engineering)',
-        description: 'Comprehensive theoretical foundations in computational theory, operating systems, compilers, and advanced mathematics.',
-        tradeoffs: 'High depth of theory and strong campus recruiting, but higher financial tuition and slower direct hands-on industry iteration.'
+        "type": "University",
+        "duration": "4 Năm",
+        "description": "Nền tảng lý thuyết chuyên sâu về cấu trúc máy tính, hệ điều hành, toán rời rạc và thuật toán tối ưu.",
+        "tradeoffs": "Nền tảng học thuật vững chắc nhất cho sự nghiệp lâu dài."
       },
       {
-        type: 'College/Vocational',
-        duration: '2-3 Years (Associate Degree / Applied IT)',
-        description: 'Focus on applied web and app development, enterprise frameworks, and direct vocational training.',
-        tradeoffs: 'Quicker market entry with lower cost, but might face resume screening hurdles at top-tier deep-tech research labs.'
+        "type": "University",
+        "duration": "2.5 - 3 Năm",
+        "description": "Tập trung thực hành lập trình ứng dụng thực tế, framework doanh nghiệp và thực tập sớm.",
+        "tradeoffs": "Thời gian đào tạo nhanh, thực chiến cao."
       },
       {
-        type: 'Self-Taught / Portfolio',
-        duration: '1-2 Years intensive self-study',
-        description: 'Mastering coding bootcamps, open-source contributions, personal GitHub repositories, and freelance projects.',
-        tradeoffs: 'Maximum flexibility and lowest financial cost, but requires exceptional self-discipline and networking grit.'
+        "type": "University",
+        "duration": "6 - 12 Tháng",
+        "description": "Học tập cường độ cao, làm dự án thực tế, xây dựng hồ sơ GitHub.",
+        "tradeoffs": "Tiết kiệm thời gian; đòi hỏi tính tự giác và kỷ luật cá nhân cao."
       }
     ],
-    relatedMajors: ['Computer Science', 'Software Engineering', 'Information Technology', 'Computer Engineering', 'Computational Mathematics'],
-    vocationalPaths: ['Junior Web Developer', 'QA Automation Tester', 'Technical Support Engineer'],
-    certifications: ['AWS Certified Developer', 'Google Cloud Professional Cloud Architect', 'Oracle Java Associate'],
-    portfolioExamples: ['Full-stack task management web application', 'Open-source CLI tool for data parsing', 'Mobile personal budget tracker'],
-    beginnerProjects: ['Build an interactive personal calculator', 'Create a text-based adventure game in Python', 'Develop a responsive personal portfolio site'],
-    progressionPath: {
-      entry: 'Junior Software Engineer (bug fixing, implementing small features under senior guidance)',
-      mid: 'Mid-Level Engineer (independently owning entire services, mentoring juniors)',
-      senior: 'Senior Engineer / Staff Architect / Engineering Manager (system design, tech roadmap, org leadership)'
+    "relatedMajors": [
+      "Khoa học Máy tính",
+      "Kỹ thuật Phần mềm",
+      "Hệ thống Thông tin Quản lý",
+      "Công nghệ Thông tin"
+    ],
+    "vocationalPaths": [
+      "Khóa đào tạo chuyên sâu Lập trình Full-Stack (Bootcamp)",
+      "Chứng chỉ Lập trình Ứng dụng & Web Cao đẳng"
+    ],
+    "certifications": [
+      "AWS Certified Solutions Architect",
+      "Google Cloud Associate Cloud Engineer",
+      "Meta Certified Developer"
+    ],
+    "portfolioExamples": [
+      "Ứng dụng Web Full-Stack theo thời gian thực (nhắn tin, bảng quản lý công việc)",
+      "Thư viện mã nguồn mở hoặc công cụ dòng lệnh CLI trên GitHub",
+      "Hệ thống API mô phỏng thanh toán hoặc phân tích dữ liệu"
+    ],
+    "beginnerProjects": [
+      "Tạo một trang web danh mục cá nhân tương tác bằng HTML, CSS, JavaScript",
+      "Viết chương trình Python tự động hóa phân loại tệp tin hoặc giải đố thuật toán",
+      "Xây dựng ứng dụng Todo-List có lưu trữ dữ liệu và thống kê công việc"
+    ],
+    "progressionPath": {
+      "entry": "Lập trình viên Tập sự / Junior Developer (0 - 2 Năm): Xây dựng tính năng theo hướng dẫn, sửa lỗi hệ thống và nắm vững quy trình làm việc chuẩn.",
+      "mid": "Kỹ sư Phần mềm Mid-level (2 - 5 Năm): Chủ động thiết kế và phát triển các mô-đun lớn, tham gia đánh giá mã và tối ưu hiệu năng.",
+      "senior": "Kiến trúc sư Trưởng / Quản lý Kỹ thuật (Principal Architect / Engineering Director): Định hướng chiến lược công nghệ cho toàn bộ doanh nghiệp và lãnh đạo đội ngũ kỹ thuật."
     },
-    workStyle: 'Analytical, project-oriented, collaborative sprints with independent deep-focus blocks',
-    challenges: ['Fast-paced tech turnover requiring relentless upskilling', 'Sedentary screen hours', 'Debugging complex edge cases'],
-    advantages: ['High global demand and mobility', 'Strong compensation', 'High autonomy and creative satisfaction in building systems'],
-    futureTrends: 'Increasing leverage through AI coding assistants; growing focus on distributed systems, security, and developer productivity.',
-    salaryInfo: {
-      rangeDescription: 'Varies widely by region; typically in the top 20% of professional starting salaries.',
-      disclaimer: 'Example / illustrative information - requires local verification with regional labor authorities.',
-      levelIndicator: 'Very High'
+    "workStyle": "Phân tích, định hướng dự án, các đợt chạy nước rút hợp tác với các khoảng thời gian tập trung làm việc độc lập",
+    "challenges": [
+      "Công nghệ và framework thay đổi nhanh, cần duy trì thói quen học tập liên tục",
+      "Áp lực tiến độ phát hành sản phẩm và xử lý sự cố hệ thống khi phát sinh lỗi",
+      "Thời gian ngồi làm việc liên tục trước màn hình máy tính"
+    ],
+    "advantages": [
+      "Nhu cầu tuyển dụng toàn cầu rất lớn, mức thu nhập và chế độ đãi ngộ hấp dẫn",
+      "Cơ hội làm việc từ xa linh hoạt cho các tổ chức, doanh nghiệp đa quốc gia",
+      "Trực tiếp tạo ra các sản phẩm công nghệ phục vụ hàng triệu người dùng"
+    ],
+    "futureTrends": "Lập trình tăng cường bởi Trí tuệ Nhân tạo (AI-Assisted Engineering). Kiến trúc Serverless và Điện toán biên (Edge Computing). Hệ thống phân tán có khả năng tự phục hồi và bảo mật theo thiết kế",
+    "salaryInfo": {
+      "rangeDescription": "Khởi điểm: 12 - 20 Triệu VNĐ/tháng, Trung cấp: 25 - 45 Triệu VNĐ/tháng, Cao cấp: 55 - 90+ Triệu VNĐ/tháng",
+      "disclaimer": "Mức lương tham chiếu thực tế tại thị trường Việt Nam & khu vực, biến thiên theo năng lực và địa phương.",
+      "levelIndicator": "Very High"
     },
-    experiments: [
+    "experiments": [
       {
-        title: 'Hour of Code & Mini Python Automation',
-        duration: '2 Hours',
-        difficulty: 'Beginner',
-        description: 'Write a Python script that automates renaming 20 files or solves 5 logic puzzles on LeetCode/Codecademy.',
-        steps: ['Install Python or use an online browser REPL', 'Complete basic variables, loops, and condition tutorials', 'Write a script to compute factorial or parse text'],
-        expectedOutcome: 'Understand if you enjoy the step-by-step logic and patience needed to track down errors.'
+        "title": "Giờ Lập trình & Viết Script Python Tự động",
+        "duration": "2 - 3 Giờ",
+        "difficulty": "Beginner",
+        "description": "Viết một chương trình Python tự động hóa việc đổi tên 20 tệp ảnh hoặc giải 5 câu đố logic cơ bản.",
+        "steps": [
+          "Mở Google Colab hoặc cài đặt Python",
+          "Học các lệnh cơ bản: biến số, vòng lặp, điều kiện",
+          "Viết script thao tác với chuỗi và in kết quả ra màn hình"
+        ],
+        "expectedOutcome": "Hiểu rõ các kỹ năng cốt lõi và niềm vui khi giải quyết vấn đề thực tế trong ngành.",
+        "evaluationQuestion": "Bạn có cảm thấy hào hứng và tràn đầy năng lượng khi vượt qua thử thách này không?"
       },
       {
-        title: 'Deploy a Web Page to GitHub Pages',
-        duration: '1 Weekend',
-        difficulty: 'Beginner',
-        description: 'Build a single-page website using HTML/CSS/JavaScript and publish it live on the web for friends to see.',
-        steps: ['Create HTML structure', 'Style with CSS', 'Add a JavaScript button click counter', 'Push to GitHub and enable Pages'],
-        expectedOutcome: 'Experience the tangible thrill of seeing your code accessible to anyone in the world.'
+        "title": "Xuất bản Trang Web Cá nhân lên GitHub Pages",
+        "duration": "1 Buổi",
+        "difficulty": "Beginner",
+        "description": "Tạo một trang web giới thiệu bản thân bằng HTML/CSS và đưa trực tiếp lên Internet.",
+        "steps": [
+          "Tạo tài khoản GitHub",
+          "Viết file index.html và style.css",
+          "Bật tính năng GitHub Pages để nhận tên miền web công khai"
+        ],
+        "expectedOutcome": "Hiểu rõ các kỹ năng cốt lõi và niềm vui khi giải quyết vấn đề thực tế trong ngành.",
+        "evaluationQuestion": "Bạn có cảm thấy hào hứng và tràn đầy năng lượng khi vượt qua thử thách này không?"
       }
     ],
-    alternativeCareers: [
-      { careerId: 'robotics-engineer', title: 'Robotics Engineer', similarityReason: 'Both write software to automate tasks', distinction: 'Robotics interfaces directly with physical actuators and real-time hardware constraints.' },
-      { careerId: 'data-scientist', title: 'AI & Data Scientist', similarityReason: 'Both rely heavily on programming and algorithms', distinction: 'Data science emphasizes statistical modeling, data cleaning, and probabilistic inference over software architectures.' },
-      { careerId: 'cybersecurity-specialist', title: 'Cybersecurity Specialist', similarityReason: 'Both need deep system and code comprehension', distinction: 'Cybersecurity focuses on threat models, vulnerability discovery, defensive posture, and compliance.' }
-    ],
-    source: 'EduPath Career Knowledge Base v2.4 (O*NET 15-1252.00 & STEM Edu benchmarks)',
-    lastUpdated: '2026-09'
-  },
-  {
-    id: 'ai-data-scientist',
-    title: 'AI & Data Scientist',
-    aliases: ['Machine Learning Engineer', 'Data Scientist', 'AI Researcher'],
-    description: 'Extracts actionable insights from large-scale datasets, constructs predictive machine learning models, and develops artificial intelligence systems.',
-    careerCluster: 'AI & Data',
-    industry: 'Information Technology / Advanced Analytics',
-    tasks: [
-      'Clean, preprocess, and explore structured and unstructured data',
-      'Train, fine-tune, and evaluate machine learning & deep learning models',
-      'Conduct statistical experiments and A/B hypothesis tests',
-      'Collaborate with product teams to translate business problems into mathematical formulations',
-      'Deploy models as scalable inference microservices'
-    ],
-    responsibilities: [
-      'Ensuring model accuracy, robustness, and ethical fairness',
-      'Communicating statistical findings clearly to non-technical stakeholders',
-      'Guarding against data leakage and biases in training sets'
-    ],
-    workEnvironment: ['Tech campus / Research laboratory', 'Hybrid / Remote friendly', 'Data-rich analytical workstations'],
-    requiredSkills: ['Python & Data Science Libraries (NumPy, Pandas, Scikit-Learn)', 'Applied Statistics & Linear Algebra', 'Data Visualization', 'SQL'],
-    recommendedSkills: ['PyTorch or TensorFlow', 'Big Data (Spark)', 'Feature Engineering', 'MLOps (MLflow, Docker)'],
-    softSkills: ['Scientific Curiosity', 'Critical Skepticism', 'Data Storytelling', 'Business Acumen'],
-    technicalSkills: ['Python', 'SQL', 'PyTorch', 'Jupyter', 'Pandas', 'Docker'],
-    relevantSubjects: ['Mathematics', 'Statistics', 'Computer Science', 'Physics', 'Logic'],
-    relevantInterests: ['Data Analysis', 'Artificial Intelligence', 'Mathematics & Modeling', 'Finding Patterns', 'Research'],
-    riaSecProfile: { R: 0.35, I: 0.95, A: 0.40, S: 0.30, E: 0.45, C: 0.75 },
-    mbtiCompatibility: ['INTJ', 'INTP', 'INFJ', 'ENTP'],
-    educationPaths: [
+    "alternativeCareers": [
       {
-        type: 'University',
-        duration: '4-6 Years (B.S. + M.S. in Data Science, CS, or Applied Statistics)',
-        description: 'Rigorous mathematical background in multivariate calculus, Bayesian inference, and neural network architectures.',
-        tradeoffs: 'Premier qualification for competitive R&D labs; requires high commitment to academic rigor.'
+        "careerId": "ai-data-scientist",
+        "title": "ai-data-scientist",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
       },
       {
-        type: 'College/Vocational',
-        duration: '2-3 Years (Applied Data Analytics)',
-        description: 'Focus on business intelligence dashboards, SQL reporting, and tabular analytics.',
-        tradeoffs: 'Excellent for business data analyst roles, but may require bridge degrees for senior research engineering.'
-      }
-    ],
-    relatedMajors: ['Data Science', 'Statistics', 'Computer Science', 'Applied Mathematics', 'Cognitive Science'],
-    vocationalPaths: ['Junior Data Analyst', 'BI Dashboard Developer', 'Data Quality Specialist'],
-    certifications: ['Google Professional Data Engineer', 'TensorFlow Developer Certificate', 'AWS Machine Learning Specialty'],
-    portfolioExamples: ['End-to-end sentiment classification pipeline', 'House price prediction model with feature importance analysis', 'Customer churn predictive dashboard'],
-    beginnerProjects: ['Analyze Titanic survivor dataset with Pandas', 'Train an image classifier to detect cats vs dogs in 50 lines of code', 'Scrape real-estate listings and visualize price distributions'],
-    progressionPath: {
-      entry: 'Junior Data Analyst / Associate Data Scientist (data wrangling, baseline models)',
-      mid: 'Data Scientist (owning end-to-end model development, experiment design)',
-      senior: 'Principal Data Scientist / Head of AI (strategic vision, cutting-edge R&D)'
-    },
-    workStyle: 'Hypothesis-driven, deeply analytical, iterative experimentation with statistical verification',
-    challenges: ['Noisy or missing real-world data', 'Balancing model explainability against black-box complexity', 'Managing stakeholder expectations around AI'],
-    advantages: ['Massive technological relevance', 'Intellectually invigorating challenges', 'High industry compensation'],
-    futureTrends: 'Autonomous agent frameworks, multimodal generative intelligence, domain-specialized small language models.',
-    salaryInfo: {
-      rangeDescription: 'Consistently ranks among the top echelon of STEM compensations.',
-      disclaimer: 'Example / illustrative information - requires local verification.',
-      levelIndicator: 'Very High'
-    },
-    experiments: [
-      {
-        title: 'Exploratory Data Analysis of Spotify Hits',
-        duration: '3 Hours',
-        difficulty: 'Beginner',
-        description: 'Download an open dataset of Spotify songs from Kaggle. Plot danceability vs popularity using Seaborn/Matplotlib in Google Colab.',
-        steps: ['Open Google Colab (free)', 'Load dataset with pandas.read_csv', 'Plot correlations and find interesting music trends'],
-        expectedOutcome: 'See if discovering hidden stories in rows and columns excites your curiosity.'
-      }
-    ],
-    alternativeCareers: [
-      { careerId: 'software-engineer', title: 'Software Engineer', similarityReason: 'Shares programming tools and infrastructure', distinction: 'Software engineering focuses on software reliability and code architecture rather than statistical inference.' },
-      { careerId: 'quantitative-analyst', title: 'Quantitative Financial Analyst', similarityReason: 'Both use heavy mathematics and Python modeling', distinction: 'Quants focus exclusively on algorithmic trading, financial markets, and risk arbitration.' }
-    ],
-    source: 'EduPath Career Knowledge Base v2.4 (O*NET 15-2051.00)',
-    lastUpdated: '2026-09'
-  },
-  {
-    id: 'robotics-engineer',
-    title: 'Robotics & Automation Engineer',
-    aliases: ['Mechatronics Engineer', 'Automation Specialist', 'Robotics Systems Designer'],
-    description: 'Bridges mechanical, electrical, and computer engineering to create autonomous machines and robotic systems for manufacturing, medicine, exploration, and logistics.',
-    careerCluster: 'Robotics & Automation',
-    industry: 'Advanced Manufacturing & Robotics',
-    tasks: [
-      'Design mechanical kinematics, chassis, and gripper mechanisms',
-      'Integrate sensors (LiDAR, cameras, IMUs) with microcontrollers',
-      'Program motion planning, feedback loops (PID), and state machines',
-      'Simulate robotic behaviors in ROS (Robot Operating System) and Gazebo',
-      'Calibrate hardware and troubleshoot electrical wiring and servos'
-    ],
-    responsibilities: [
-      'Ensuring human safety in collaborative robot (cobot) work zones',
-      'Guaranteeing high reliability and sub-millimeter positioning precision',
-      'Documenting mechanical blueprints and electrical wiring schematics'
-    ],
-    workEnvironment: ['Robotics lab / Prototyping workshop', 'Factory automation floor', 'R&D testing arenas with hardware in the loop'],
-    requiredSkills: ['C++ / Python Programming', 'Circuit Design & Microcontrollers (Arduino/STM32/ESP32)', 'Physics & Kinematics', 'CAD 3D Modeling (SolidWorks/Fusion 360)'],
-    recommendedSkills: ['ROS / ROS2', 'Control Theory (PID, Kalman Filter)', 'Computer Vision (OpenCV)', 'PCB Layout'],
-    softSkills: ['Hands-on Problem Solving', 'Interdisciplinary Teamwork', 'Patience with Physical Hardware', 'Attention to Detail'],
-    technicalSkills: ['C++', 'Python', 'ROS2', 'Fusion 360', 'C/Embedded', 'Soldering'],
-    relevantSubjects: ['Physics', 'Mathematics', 'Computer Science', 'Design & Technology', 'Mechanics'],
-    relevantInterests: ['Building Gadgets', 'Robotics & Mechanics', 'Electronics & Arduino', 'Hands-on Tinkering', '3D Printing'],
-    riaSecProfile: { R: 0.95, I: 0.85, A: 0.35, S: 0.25, E: 0.40, C: 0.65 },
-    mbtiCompatibility: ['ISTP', 'INTJ', 'INTP', 'ESTP'],
-    educationPaths: [
-      {
-        type: 'University',
-        duration: '4-5 Years (B.S. in Mechatronics, Robotics, Electrical, or Mechanical Engineering)',
-        description: 'Comprehensive study of dynamics, signals and systems, microprocessors, and modern control theory.',
-        tradeoffs: 'Solid multi-disciplinary credential; demanding workload spanning mechanics, electronics, and code.'
+        "careerId": "cybersecurity-specialist",
+        "title": "cybersecurity-specialist",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
       },
       {
-        type: 'College/Vocational',
-        duration: '2-3 Years (Robotics & Automation Technician Diploma)',
-        description: 'Hands-on training in PLC programming, industrial robotic arm maintenance (Fanuc/KUKA), and pneumatics.',
-        tradeoffs: 'Immediate employability in high-demand factories, but less focus on autonomous algorithm research.'
-      }
-    ],
-    relatedMajors: ['Mechatronics Engineering', 'Robotics Engineering', 'Mechanical Engineering', 'Electrical Engineering'],
-    vocationalPaths: ['Industrial Automation Technician', 'Field Service Technician', 'Rapid Prototyping Specialist'],
-    certifications: ['Certified Automation Professional (CAP)', 'FANUC Robot Operator Certification', 'SolidWorks CSWA/CSWP'],
-    portfolioExamples: ['Autonomous line-following and obstacle-avoiding rover', '3D printed 4-DOF robotic arm controlled via Bluetooth', 'Inverted pendulum balancer with PID control'],
-    beginnerProjects: ['Build an Arduino obstacle-avoiding robot chassis with ultrasonic sensors', 'Design and 3D print a custom robotic gripper in Tinkercad', 'Simulate a turtle robot path in ROS Turtlesim'],
-    progressionPath: {
-      entry: 'Junior Automation Engineer (firmware testing, wiring prototypes, component assembly)',
-      mid: 'Robotics Engineer (full subsystem integration, motion planning, sensor fusion)',
-      senior: 'Lead Robotics Architect (autonomous vehicle fleet architecture, safety compliance)'
-    },
-    workStyle: 'Splits time between code editor, CAD software, soldering iron, and physical test floor',
-    challenges: ['Physical hardware bugs take longer to fix than pure software', 'Supply chain lead times for parts', 'Strict safety tolerances'],
-    advantages: ['Tangible physical realization of your intellectual work', 'Cross-disciplinary versatility', 'High growth in smart manufacturing & logistics'],
-    futureTrends: 'Humanoid robots, collaborative cobots in surgery, warehouse autonomy, edge AI sensor integration.',
-    salaryInfo: {
-      rangeDescription: 'High demand across aerospace, automotive, electronics, and medical robotics.',
-      disclaimer: 'Example / illustrative information - requires local verification.',
-      levelIndicator: 'High'
-    },
-    experiments: [
-      {
-        title: 'Build a Virtual Robot in Tinkercad Circuits',
-        duration: '2 Hours',
-        difficulty: 'Beginner',
-        description: 'Use Tinkercad (free web app) to wire a virtual Arduino, servo motor, and distance sensor, and write C code to turn the motor when an object approaches.',
-        steps: ['Open Tinkercad Circuits', 'Drag Arduino Uno and Ultrasonic Sensor', 'Write block or C++ code to read distance', 'Simulate!'],
-        expectedOutcome: 'Understand how code translates into physical movement in real-time.'
-      }
-    ],
-    alternativeCareers: [
-      { careerId: 'semiconductor-engineer', title: 'Semiconductor Hardware Engineer', similarityReason: 'Both deal with advanced electronic hardware and physics', distinction: 'Semiconductor engineers focus on micro-scale silicon chips rather than macro mechanical movement.' },
-      { careerId: 'software-engineer', title: 'Software Engineer', similarityReason: 'Both write algorithms and compile code', distinction: 'Software engineers work purely in the digital domain without mechanical or thermal constraints.' }
-    ],
-    source: 'EduPath Career Knowledge Base v2.4 (O*NET 17-2199.08)',
-    lastUpdated: '2026-09'
-  },
-  {
-    id: 'semiconductor-engineer',
-    title: 'Semiconductor Hardware Engineer',
-    aliases: ['VLSI Design Engineer', 'Microchip Engineer', 'ASIC/FPGA Engineer'],
-    description: 'Designs, verifies, and fabricates microchips, integrated circuits, and processors powering modern smartphones, computers, automotive, and AI accelerators.',
-    careerCluster: 'Electronics & Semiconductor',
-    industry: 'Semiconductor & Microelectronics',
-    tasks: [
-      'Write hardware description code (Verilog / SystemVerilog / VHDL)',
-      'Simulate digital logic and conduct formal timing and power verification',
-      'Design physical layouts, transistor routing, and tape-out masks',
-      'Characterize silicon wafers in cleanroom or post-silicon test labs',
-      'Optimize silicon power, performance, and area (PPA metrics)'
-    ],
-    responsibilities: [
-      'Zero-defect tolerance before multi-million dollar silicon manufacturing',
-      'Adhering to strict semiconductor design rules and thermal limits',
-      'Coordinating with fabrication foundries (TSMC, Intel, Samsung)'
-    ],
-    workEnvironment: ['High-tech semiconductor design office', 'Cleanroom fabrication facility', 'Advanced electronics test lab'],
-    requiredSkills: ['Digital Logic Design', 'Verilog / SystemVerilog', 'Computer Architecture', 'Electronic Circuits'],
-    recommendedSkills: ['FPGA Prototyping', 'Static Timing Analysis (STA)', 'Python / Tcl Scripting', 'Semiconductor Physics'],
-    softSkills: ['Extreme Precision', 'Methodical Root-Cause Analysis', 'Patience', 'Team Coordination'],
-    technicalSkills: ['SystemVerilog', 'Verilog', 'Tcl', 'Linux', 'Cadence/Synopsys EDA tools', 'FPGA'],
-    relevantSubjects: ['Physics', 'Mathematics', 'Electrical Engineering', 'Chemistry', 'Computer Science'],
-    relevantInterests: ['Microchips & Hardware', 'Digital Electronics', 'Physics & Nanotechnology', 'High Performance Computing'],
-    riaSecProfile: { R: 0.80, I: 0.95, A: 0.25, S: 0.20, E: 0.40, C: 0.85 },
-    mbtiCompatibility: ['INTJ', 'INTP', 'ISTJ'],
-    educationPaths: [
-      {
-        type: 'University',
-        duration: '4-6 Years (B.S. or M.S. in Electrical, Electronics, or Microelectronics Engineering)',
-        description: 'Deep grounding in solid-state physics, semiconductor fabrication processes, electromagnetic theory, and VLSI design.',
-        tradeoffs: 'High barriers to entry and intense coursework; unmatched strategic global career security.'
-      }
-    ],
-    relatedMajors: ['Electrical Engineering', 'Electronics & Telecommunications', 'Microelectronics', 'Computer Engineering', 'Materials Science'],
-    vocationalPaths: ['Cleanroom Process Operator', 'Wafer Test Technician', 'PCB Assembly Technician'],
-    certifications: ['Arm Accredited Engineer', 'IEEE Microelectronics Professional Development'],
-    portfolioExamples: ['8-bit RISC CPU implemented in Verilog on an FPGA board', 'UART communication controller with parity check', 'Digital ALU with pipeline registers'],
-    beginnerProjects: ['Design a digital 4-bit adder using logic gates in an online simulator', 'Program an FPGA board to display numbers on a 7-segment display', 'Write a Verilog testbench for a traffic light controller'],
-    progressionPath: {
-      entry: 'Junior Design/Verification Engineer (testbench writing, regression debugging)',
-      mid: 'Senior Silicon Engineer (block-level owner, RTL synthesis, timing closure)',
-      senior: 'Principal Chip Architect (full-chip architecture, tape-out signoff)'
-    },
-    workStyle: 'Deeply disciplined, analytical, using specialized EDA software with multi-day simulation runs',
-    challenges: ['Silicon mistakes cost millions to re-spin', 'Steep learning curve with proprietary EDA tools', 'Global geopolitical sensitivity'],
-    advantages: ['Critical national-security and global infrastructure domain', 'Exceptional job stability and compensation', 'Frontier of nanotechnology'],
-    futureTrends: 'AI accelerator chipsets, chiplets and 3D packaging, 2nm/sub-2nm gate-all-around architectures.',
-    salaryInfo: {
-      rangeDescription: 'High starting salary with strong bonuses driven by global semiconductor talent shortage.',
-      disclaimer: 'Example / illustrative information - requires local verification.',
-      levelIndicator: 'Very High'
-    },
-    experiments: [
-      {
-        title: 'Simulate Logic Gates and Build an ALU Online',
-        duration: '2 Hours',
-        difficulty: 'Beginner',
-        description: 'Use the free online tool circuitverse.org to connect AND, OR, and XOR gates into a 1-bit full adder and test the truth table.',
-        steps: ['Open CircuitVerse', 'Drag switches, XOR gates, and an LED bulb', 'Verify addition of 1 + 1 = 10 (binary)'],
-        expectedOutcome: 'Discover if you love understanding how computing works at the physical transistor level.'
-      }
-    ],
-    alternativeCareers: [
-      { careerId: 'robotics-engineer', title: 'Robotics Engineer', similarityReason: 'Both deal with circuits and microcontrollers', distinction: 'Robotics integrates ready-made chips into mechanical systems, whereas semiconductor engineers design the chips themselves.' },
-      { careerId: 'cybersecurity-specialist', title: 'Cybersecurity Specialist', similarityReason: 'Both look for low-level architecture vulnerabilities', distinction: 'Semiconductor focuses on physical silicon design; cybersecurity on software/network threat defense.' }
-    ],
-    source: 'EduPath Career Knowledge Base v2.4 (O*NET 17-2072.00)',
-    lastUpdated: '2026-09'
-  },
-  {
-    id: 'cybersecurity-specialist',
-    title: 'Cybersecurity Specialist',
-    aliases: ['Information Security Analyst', 'Security Engineer', 'Penetration Tester / Ethical Hacker'],
-    description: 'Protects computer networks, cloud infrastructure, and sensitive data from cyber attacks, unauthorized access, ransomware, and vulnerabilities.',
-    careerCluster: 'Cybersecurity',
-    industry: 'Information Security / Defense & Enterprise',
-    tasks: [
-      'Monitor networks for security breaches and analyze alert telemetry',
-      'Conduct vulnerability assessments and penetration testing on systems',
-      'Configure firewalls, encryption keys, and identity management policies',
-      'Lead incident response and root-cause forensics during security incidents',
-      'Train employees and audit systems for regulatory security compliance'
-    ],
-    responsibilities: [
-      'Defending critical digital infrastructure 24/7 from sophisticated adversaries',
-      'Preserving data confidentiality, integrity, and availability (CIA triad)',
-      'Documenting compliance with ISO 27001, SOC2, or NIST cybersecurity frameworks'
-    ],
-    workEnvironment: ['Security Operations Center (SOC)', 'Corporate tech environment', 'Remote / hybrid friendly', 'High-readiness standby for incidents'],
-    requiredSkills: ['Computer Networking (TCP/IP, DNS, Routing)', 'Operating Systems (Linux & Windows Internals)', 'Security Principles (Cryptography, Firewalls)', 'Scripting (Python, Bash)'],
-    recommendedSkills: ['Penetration Testing Tools (Wireshark, Burp Suite, Nmap)', 'Cloud Security (AWS/Azure IAM)', 'SIEM Tools (Splunk)', 'Reverse Engineering'],
-    softSkills: ['Investigative Mindset', 'Calm Under Pressure', 'Integrity & Ethics', 'Clear Risk Communication'],
-    technicalSkills: ['Linux', 'Wireshark', 'Python', 'Nmap', 'Bash', 'Docker'],
-    relevantSubjects: ['Computer Science', 'Information Technology', 'Mathematics', 'English', 'Law & Ethics'],
-    relevantInterests: ['Hacking & Defense', 'Computer Networks', 'Puzzles & Mystery Solving', 'Privacy & Rights', 'Technology Security'],
-    riaSecProfile: { R: 0.60, I: 0.90, A: 0.30, S: 0.30, E: 0.50, C: 0.80 },
-    mbtiCompatibility: ['INTJ', 'ISTP', 'INTP', 'ENTP'],
-    educationPaths: [
-      {
-        type: 'University',
-        duration: '4 Years (B.S. in Cybersecurity, Computer Science, or Network Engineering)',
-        description: 'Deep study of cryptography, computer architecture, network protocols, and secure coding practices.',
-        tradeoffs: 'Prestigious degree pathway, but practical hands-on lab experience (CTFs) remains mandatory alongside coursework.'
+        "careerId": "product-manager",
+        "title": "product-manager",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
       },
       {
-        type: 'Certifications',
-        duration: '6-18 Months self-paced with practical labs',
-        description: 'Industry certifications (CompTIA Security+, CEH, OSCP) combined with active participation in HackTheBox and CTF competitions.',
-        tradeoffs: 'Rapid entry into junior SOC roles; top offensive certifications (OSCP) carry enormous practical industry respect.'
+        "careerId": "ux-designer",
+        "title": "ux-designer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
       }
     ],
-    relatedMajors: ['Cybersecurity', 'Computer Science', 'Information Assurance', 'Computer Networks'],
-    vocationalPaths: ['SOC Analyst Tier 1', 'Junior IT Security Administrator', 'Helpdesk Security Support'],
-    certifications: ['CompTIA Security+', 'Certified Ethical Hacker (CEH)', 'Offensive Security Certified Professional (OSCP)', 'CISSP'],
-    portfolioExamples: ['Documented penetration test write-up on a simulated vulnerable VM', 'Custom Python port scanner and packet analyzer', 'Secure home network lab with pfSense firewall and Snort IDS'],
-    beginnerProjects: ['Solve beginner challenges on OverTheWire Bandit to master Linux commands', 'Capture and inspect HTTP vs HTTPS traffic in Wireshark', 'Set up a virtual lab using VirtualBox with a Kali Linux attacker and Ubuntu target'],
-    progressionPath: {
-      entry: 'Tier 1 SOC Analyst (triaging automated alerts, identifying false positives)',
-      mid: 'Security Engineer / Penetration Tester (hunting threats, conducting full pentests)',
-      senior: 'Lead Incident Responder / Chief Information Security Officer (CISO)'
-    },
-    workStyle: 'Adversarial thinking, forensic analysis, constant vigilance and rapid response',
-    challenges: ['Attackers only need one mistake; defenders must protect everything', 'On-call stress during suspected breaches', 'Fast-evolving threats'],
-    advantages: ['Immense job security—every industry requires cybersecurity', 'Exciting cat-and-mouse intellectual game', 'Strong compensation'],
-    futureTrends: 'AI-powered automated malware and deepfake fraud, zero-trust network architectures, quantum-safe post-quantum cryptography.',
-    salaryInfo: {
-      rangeDescription: 'High demand worldwide with persistent talent deficit across enterprise and government.',
-      disclaimer: 'Example / illustrative information - requires local verification.',
-      levelIndicator: 'Very High'
-    },
-    experiments: [
-      {
-        title: 'OverTheWire Bandit Linux Wargame',
-        duration: '2 Hours',
-        difficulty: 'Beginner',
-        description: 'Play levels 0 to 5 of the free online Bandit game (overthewire.org) using SSH to find hidden passwords in files.',
-        steps: ['Open terminal or browser SSH', 'Connect to bandit.labs.overthewire.org', 'Use ls, cat, and grep to locate the flags'],
-        expectedOutcome: 'Test your patience and curiosity for investigative detective work in text systems.'
-      }
-    ],
-    alternativeCareers: [
-      { careerId: 'software-engineer', title: 'Software Engineer', similarityReason: 'Both write code and understand OS concepts', distinction: 'Cybersecurity focuses on finding ways systems fail or can be subverted rather than feature building.' },
-      { careerId: 'corporate-lawyer', title: 'Corporate & Tech IP Lawyer', similarityReason: 'Both deal with compliance, regulations, and risk prevention', distinction: 'Cybersecurity enforces technical guardrails; lawyers interpret legal statutes.' }
-    ],
-    source: 'EduPath Career Knowledge Base v2.4 (O*NET 15-1212.00)',
-    lastUpdated: '2026-09'
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 15-1252.00 & STEM Edu benchmarks)",
+    "lastUpdated": "2026-09",
+    "aiImpact": "AI nâng cao năng suất viết mã; kỹ sư tập trung sâu hơn vào kiến trúc hệ thống phức tạp, đánh giá bảo mật và bài toán nghiệp vụ."
   },
   {
-    id: 'biomedical-engineer',
-    title: 'Biomedical Engineer',
-    aliases: ['Bioengineer', 'Medical Device Engineer', 'Tissue Engineer'],
-    description: 'Applies engineering principles and design concepts to medicine and biology for healthcare purposes, such as artificial organs, prosthetics, and medical diagnostics.',
-    careerCluster: 'Medicine & Health',
-    industry: 'Healthcare Technology & Medical Devices',
-    tasks: [
-      'Design biomedical devices such as pacemakers, ventilators, and MRI machines',
-      'Conduct biocompatibility tests on biomaterials and surgical implants',
-      'Program biosignal acquisition and filtering algorithms (ECG, EEG)',
-      'Interface with clinicians, surgeons, and regulatory bodies (FDA, CE)',
-      'Supervise clinical trials and ensure patient safety protocols'
+    "id": "ai-data-scientist",
+    "title": "Nhà khoa học Dữ liệu & AI",
+    "aliases": [
+      "Kỹ sư Học máy (Machine Learning Engineer)",
+      "Chuyên viên Phân tích Dữ liệu Cao cấp",
+      "Nhà nghiên cứu AI"
     ],
-    responsibilities: [
-      'Ensuring medical device reliability and life-critical patient safety',
-      'Complying with strict biomedical quality standards (ISO 13485)',
-      'Translating medical doctor requirements into engineering tolerances'
+    "description": "Khai phá tri thức từ tập dữ liệu lớn, xây dựng các mô hình học máy dự đoán và phát triển các hệ thống trí tuệ nhân tạo thông minh.",
+    "careerCluster": "Công nghệ Thông tin",
+    "industry": "Trí tuệ Nhân tạo & Dữ liệu",
+    "tasks": [
+      "Thu thập, tiền xử lý và làm sạch khối lượng dữ liệu khổng lồ từ nhiều nguồn",
+      "Xây dựng và huấn luyện mô hình Học máy (Machine Learning) và Học sâu (Deep Learning)",
+      "Thiết kế thuật toán Xử lý Ngôn ngữ Tự nhiên (NLP) và Thị giác Máy tính (Computer Vision)",
+      "Tối ưu hóa và kiểm thử độ chính xác, độ hội tụ và giảm thiểu thiên kiến (Bias) của mô hình AI",
+      "Triển khai mô hình AI thành API phục vụ sản phẩm thực tế theo thời gian thực"
     ],
-    workEnvironment: ['Hospital biomedical engineering unit', 'Medical device R&D clean lab', 'Biotechnology research center'],
-    requiredSkills: ['Human Anatomy & Physiology Basics', 'Electronics & Biosensors', 'Biomechanics / Biomaterials', 'CAD Modeling & Prototyping'],
-    recommendedSkills: ['Signal Processing (MATLAB/Python)', 'Medical Device Regulations (FDA 510k)', '3D Bioprinting', 'Microfluidics'],
-    softSkills: ['Empathy for Patients', 'Cross-disciplinary Communication', 'Methodical Documentation', 'Ethical Responsibility'],
-    technicalSkills: ['MATLAB', 'SolidWorks', 'Python', 'LabVIEW', 'C++', '3D Printing'],
-    relevantSubjects: ['Biology', 'Physics', 'Mathematics', 'Chemistry', 'Computer Science'],
-    relevantInterests: ['Healthcare & Medicine', 'Engineering & Technology', 'Helping Sick People', 'Biotechnology', 'Human Body Function'],
-    riaSecProfile: { R: 0.70, I: 0.90, A: 0.35, S: 0.65, E: 0.35, C: 0.70 },
-    mbtiCompatibility: ['INFJ', 'INTJ', 'INTP', 'ENFJ'],
-    educationPaths: [
+    "responsibilities": [
+      "Chuyển đổi bài toán thực tế thành giải pháp dữ liệu và mô hình AI khả thi",
+      "Đảm bảo tính tin cậy, giải thích được (Explainable AI) và an toàn dữ liệu",
+      "Trực quan hóa thông tin chi tiết và trình bày khuyến nghị cho các bên liên quan"
+    ],
+    "workEnvironment": [
+      "Phòng lab nghiên cứu AI và công ty công nghệ cao",
+      "Môi trường phân tích định lượng chuyên sâu",
+      "Linh hoạt làm việc từ xa kết hợp văn phòng",
+      "Cộng tác chặt chẽ với kỹ sư phần mềm và chuyên gia nghiệp vụ"
+    ],
+    "requiredSkills": [
+      "Toán học, Thống kê xác suất & Đại số tuyến tính",
+      "Lập trình Python (NumPy, Pandas, Scikit-Learn)",
+      "Khung làm việc Học sâu (PyTorch hoặc TensorFlow)",
+      "Truy vấn và thiết kế cơ sở dữ liệu SQL chuyên sâu"
+    ],
+    "recommendedSkills": [
+      "Mô hình Ngôn ngữ Lớn (LLMs), RAG & Kỹ thuật Prompt",
+      "Quy trình triển khai MLOps (MLflow, Kubeflow, Docker)",
+      "Nền tảng dữ liệu lớn Big Data (Spark, Kafka)",
+      "Trực quan hóa dữ liệu (Tableau, PowerBI, Plotly)"
+    ],
+    "softSkills": [
+      "Tư duy nghiên cứu khoa học",
+      "Kể chuyện bằng dữ liệu (Data Storytelling)",
+      "Tính tò mò khám phá quy luật ẩn",
+      "Giao tiếp liên ngành hiệu quả"
+    ],
+    "technicalSkills": [
+      "Python",
+      "PyTorch",
+      "TensorFlow",
+      "Pandas",
+      "SQL",
+      "Scikit-Learn",
+      "Docker",
+      "Jupyter"
+    ],
+    "relevantSubjects": [
+      "Toán học & Giải tích",
+      "Thống kê Xác suất",
+      "Tin học / Khoa học Máy tính",
+      "Vật lý",
+      "Tiếng Anh"
+    ],
+    "relevantInterests": [
+      "Mô hình toán học",
+      "Phân tích xu hướng & dự đoán",
+      "Thuật toán trí tuệ nhân tạo",
+      "Thí nghiệm khoa học"
+    ],
+    "riaSecProfile": {
+      "R": 0.35,
+      "I": 0.95,
+      "A": 0.4,
+      "S": 0.3,
+      "E": 0.45,
+      "C": 0.75
+    },
+    "mbtiCompatibility": [
+      "INTJ",
+      "INTP",
+      "INFJ",
+      "ENTP"
+    ],
+    "educationPaths": [
       {
-        type: 'University',
-        duration: '4-6 Years (B.S. or M.S. in Biomedical Engineering or Bioengineering)',
-        description: 'Balanced curriculum covering engineering physics, organic chemistry, physiology, and medical device design.',
-        tradeoffs: 'Direct alignment with healthcare technology; requires broad mastery across both biology and engineering.'
+        "type": "University",
+        "duration": "4 - 6 Năm",
+        "description": "Học sâu về đại số tuyến tính, giải tích đa biến, xác suất và kiến trúc mạng nơ-ron.",
+        "tradeoffs": "Được các tập đoàn công nghệ lớn săn đón; yêu cầu nền tảng toán tốt."
       }
     ],
-    relatedMajors: ['Biomedical Engineering', 'Bioengineering', 'Mechanical Engineering (Biomedical concentration)', 'Electrical Engineering'],
-    vocationalPaths: ['Hospital Clinical Equipment Specialist', 'Medical Device Calibration Technician', 'Quality Control Inspector'],
-    certifications: ['Certified Biomedical Equipment Technician (CBET)', 'Regulatory Affairs Certification (RAC)'],
-    portfolioExamples: ['Low-cost 3D printed prosthetic hand with EMG muscle sensor activation', 'Pulse oximeter circuit and display built from scratch', 'Finite element stress analysis of a titanium hip implant'],
-    beginnerProjects: ['Wire a pulse sensor to an Arduino to measure your own heart rate', 'Design a customized ergonomic wrist brace in Tinkercad', 'Model blood flow resistance in an artery using a basic physics simulator'],
-    progressionPath: {
-      entry: 'Junior Biomedical Engineer (bench testing, component verification, documentation)',
-      mid: 'Medical Device R&D Engineer (designing new instruments, managing clinical trials)',
-      senior: 'Chief Medical Device Architect / Director of Clinical Engineering'
+    "relatedMajors": [
+      "Khoa học Dữ liệu",
+      "Trí tuệ Nhân tạo",
+      "Toán Ứng dụng & Thống kê",
+      "Khoa học Máy tính"
+    ],
+    "vocationalPaths": [
+      "Khóa đào tạo Chuyên viên Dữ liệu & BI",
+      "Chứng chỉ Phân tích Dữ liệu Thực chiến"
+    ],
+    "certifications": [
+      "TensorFlow Developer Certificate",
+      "AWS Certified Machine Learning - Specialty",
+      "Google Professional Data Engineer"
+    ],
+    "portfolioExamples": [
+      "Dự án phân loại hình ảnh hoặc nhận diện bệnh lý trên ảnh chụp y tế bằng CNN",
+      "Hệ thống gợi ý sản phẩm cá nhân hóa theo hành vi người dùng",
+      "Trợ lý ảo hỏi đáp thông minh kết hợp mô hình LLM với dữ liệu riêng (RAG)"
+    ],
+    "beginnerProjects": [
+      "Tải tập dữ liệu từ Kaggle và phân tích dữ liệu bằng Google Colab",
+      "Xây dựng mô hình dự đoán giá nhà ở dựa trên diện tích, vị trí và số phòng",
+      "Tạo bot phân tích cảm xúc (tích cực/tiêu cực) của bình luận phim ảnh"
+    ],
+    "progressionPath": {
+      "entry": "Chuyên viên Phân tích Dữ liệu / Junior ML Engineer (0 - 2 Năm): Xử lý dữ liệu, xây dựng báo cáo phân tích và thử nghiệm mô hình cơ bản.",
+      "mid": "Nhà khoa học Dữ liệu Mid-level (Data Scientist) (2 - 5 Năm): Thiết kế các mô hình học máy chuyên sâu, tối ưu thuật toán cho hệ thống thực tế.",
+      "senior": "Trưởng phòng Nghiên cứu AI / Giám đốc Dữ liệu (Chief AI Officer): Định hình chiến lược dữ liệu và AI toàn diện cho tổ chức."
     },
-    workStyle: 'Disciplined laboratory testing, clinical validation, high humanitarian purpose',
-    challenges: ['Long regulatory approval cycles before devices reach patients', 'Extensive paperwork and validation testing', 'High moral gravity'],
-    advantages: ['Direct, tangible impact on saving human lives', 'Exciting intersection of medicine and technology', 'Growing elder-care demographic demand'],
-    futureTrends: 'Brain-computer interfaces (BCI), wearable non-invasive health monitors, organ-on-a-chip, robotic assisted surgery.',
-    salaryInfo: {
-      rangeDescription: 'Competitive engineering compensation with steady growth in healthcare sector.',
-      disclaimer: 'Example / illustrative information - requires local verification.',
-      levelIndicator: 'Above Average'
+    "workStyle": "Hypothesis-driven, deeply analytical, iterative experimentation with statistical verification",
+    "challenges": [
+      "Dữ liệu thực tế thường lộn xộn, thiếu sót và đòi hỏi nhiều công sức làm sạch",
+      "Mô hình AI có thể phức tạp và khó giải thích chi tiết nguyên nhân dự đoán",
+      "Cần liên tục cập nhật các công bố nghiên cứu mới xuất hiện thường xuyên"
+    ],
+    "advantages": [
+      "Thuộc nhóm ngành có tốc độ tăng trưởng và mức đãi ngộ hàng đầu thế giới",
+      "Tạo ra ảnh hưởng trực tiếp đến bước nhảy vọt công nghệ của nhân loại",
+      "Môi trường làm việc kích thích trí tuệ và sự sáng tạo không giới hạn"
+    ],
+    "futureTrends": "AI tạo sinh (Generative AI) và Mô hình nền tảng đa phương thức. Hệ thống tự trị (Autonomous Agents) và AI giải thích được. Tính toán biên hiệu năng cao cho thiết bị thông minh",
+    "salaryInfo": {
+      "rangeDescription": "Khởi điểm: 15 - 25 Triệu VNĐ/tháng, Trung cấp: 30 - 55 Triệu VNĐ/tháng, Cao cấp: 65 - 110+ Triệu VNĐ/tháng",
+      "disclaimer": "Mức lương tham chiếu thực tế tại thị trường Việt Nam & khu vực, biến thiên theo năng lực và địa phương.",
+      "levelIndicator": "Very High"
     },
-    experiments: [
+    "experiments": [
       {
-        title: 'Build a DIY Heart Rate Monitor with Microcontroller',
-        duration: '3 Hours',
-        difficulty: 'Beginner',
-        description: 'Connect an optical pulse sensor (or use your smartphone camera) to measure and plot beats per minute on screen.',
-        steps: ['Obtain a photoplethysmography sensor or phone app', 'Observe how blood flow changes light absorption', 'Calculate heart rate variability'],
-        expectedOutcome: 'Understand how physiological biology converts into electrical data signals.'
+        "title": "Phân tích Khám phá Dữ liệu với Python",
+        "duration": "1 Buổi",
+        "difficulty": "Beginner",
+        "description": "Sử dụng Google Colab và Pandas để tìm ra bài hát được nghe nhiều nhất.",
+        "steps": [
+          "Mở Google Colab miễn phí",
+          "Nhập thư viện Pandas và Seaborn",
+          "Vẽ biểu đồ tương quan và rút ra kết luận"
+        ],
+        "expectedOutcome": "Hiểu rõ các kỹ năng cốt lõi và niềm vui khi giải quyết vấn đề thực tế trong ngành.",
+        "evaluationQuestion": "Bạn có cảm thấy hào hứng và tràn đầy năng lượng khi vượt qua thử thách này không?"
       }
     ],
-    alternativeCareers: [
-      { careerId: 'physician-doctor', title: 'Physician / Clinical Doctor', similarityReason: 'Both are dedicated to human health and healing', distinction: 'Doctors treat individual patients directly; biomedical engineers create the tools doctors use to treat thousands.' },
-      { careerId: 'robotics-engineer', title: 'Robotics Engineer', similarityReason: 'Both design electro-mechanical systems', distinction: 'Biomedical engineering must respect living human tissue, sterilizability, and patient safety constraints.' }
-    ],
-    source: 'EduPath Career Knowledge Base v2.4 (O*NET 17-2031.00)',
-    lastUpdated: '2026-09'
-  },
-  {
-    id: 'physician-doctor',
-    title: 'Physician / Clinical Doctor',
-    aliases: ['Medical Doctor (MD)', 'General Practitioner', 'Medical Specialist'],
-    description: 'Diagnoses illnesses, prescribes treatments, performs medical procedures, and counsels patients on preventive health and disease management.',
-    careerCluster: 'Medicine & Health',
-    industry: 'Clinical Healthcare & Hospitals',
-    tasks: [
-      'Examine patients, take comprehensive medical histories, and order diagnostic tests',
-      'Diagnose complex conditions based on laboratory tests, imaging, and clinical symptoms',
-      'Formulate tailored treatment plans, prescribe medications, and monitor recovery',
-      'Communicate empathetically with anxious patients and their family members',
-      'Coordinate patient care across multidisciplinary teams of nurses and specialists'
-    ],
-    responsibilities: [
-      'Upholding the Hippocratic oath: patient well-being and do no harm',
-      'Maintaining precise patient medical records and diagnostic justifications',
-      'Adhering strictly to medical ethics, consent, and patient confidentiality'
-    ],
-    workEnvironment: ['Hospitals and emergency departments', 'Outpatient community clinics', 'High-pressure clinical settings', 'Irregular / on-call shift work'],
-    requiredSkills: ['Clinical Diagnostics & Anatomy', 'Pharmacology & Pathology', 'Active Listening & Empathy', 'Critical Decision Making Under Pressure'],
-    recommendedSkills: ['Emergency Resuscitation (BLS/ACLS)', 'Medical Research Literacy', 'Patient Counseling', 'Electronic Health Records (EHR)'],
-    softSkills: ['Compassion', 'Emotional Resilience', 'Clear Communication', 'Dedication to Lifelong Study'],
-    technicalSkills: ['Stethoscope Examination', 'Suturing & Minor Procedures', 'Interpreting X-rays/Blood Tests', 'Clinical Protocols'],
-    relevantSubjects: ['Biology', 'Chemistry', 'Physics', 'Psychology', 'English'],
-    relevantInterests: ['Human Biology & Health', 'Helping People', 'Medical Science', 'Hospital Work', 'Lifelong Learning'],
-    riaSecProfile: { R: 0.40, I: 0.90, A: 0.30, S: 0.90, E: 0.50, C: 0.60 },
-    mbtiCompatibility: ['ISFJ', 'ESFJ', 'INFJ', 'ENFJ', 'ISTJ'],
-    educationPaths: [
+    "alternativeCareers": [
       {
-        type: 'University',
-        duration: '6-10+ Years (Pre-med/B.S. + Medical School MD + Residency Training)',
-        description: 'Rigorous medical curriculum followed by supervised hospital residency training in specialty.',
-        tradeoffs: 'Longest, most demanding educational commitment; unmatched professional prestige, trust, and career fulfillment.'
-      }
-    ],
-    relatedMajors: ['Medicine', 'Pre-Med / Biomedical Sciences', 'Human Biology', 'Biochemistry'],
-    vocationalPaths: ['Emergency Medical Technician (EMT)', 'Medical Assistant', 'Phlebotomist'],
-    certifications: ['Medical License (National Medical Board Examination)', 'USMLE / GMC Registration', 'Board Specialty Certification'],
-    portfolioExamples: ['Published case report in student medical journal', 'Community health screening volunteer leadership', 'Undergraduate biology thesis on antibiotic resistance'],
-    beginnerProjects: ['Complete a certified First Aid & CPR course', 'Volunteer at a local hospital or nursing home to observe patient interactions', 'Shadow a family physician for a day to observe real clinical workflow'],
-    progressionPath: {
-      entry: 'Medical Resident (hands-on hospital rounds under attending physician supervision)',
-      mid: 'Attending Physician (independent practice, specialty diagnosis)',
-      senior: 'Chief of Department / Medical Director / Professor of Medicine'
-    },
-    workStyle: 'Intense human connection, fast-paced clinical diagnostic decisions, long hours requiring high stamina',
-    challenges: ['High emotional stress and burnout risk', 'Long educational path before independent practice', 'Heavy administrative burden'],
-    advantages: ['Highest societal respect and profound emotional reward', 'Recession-proof employment anywhere in the world', 'High lifelong earnings'],
-    futureTrends: 'AI-assisted medical imaging and diagnostic triage, telemedicine remote care, personalized genomic therapies.',
-    salaryInfo: {
-      rangeDescription: 'Top tier professional compensation once residency training is completed.',
-      disclaimer: 'Example / illustrative information - requires local verification.',
-      levelIndicator: 'Very High'
-    },
-    experiments: [
-      {
-        title: 'Take a Free Online First Aid & CPR Training Module',
-        duration: '2 Hours',
-        difficulty: 'Beginner',
-        description: 'Learn the primary DRSABCD emergency response protocol and practice pulse checking and triage decision trees.',
-        steps: ['Register for an introductory Red Cross / St John First Aid course', 'Learn how to recognize stroke (FAST protocol)', 'Practice on a volunteer mannequin or family member'],
-        expectedOutcome: 'Discover how you react to emergency protocols and caring for biological needs.'
-      }
-    ],
-    alternativeCareers: [
-      { careerId: 'biomedical-engineer', title: 'Biomedical Engineer', similarityReason: 'Both dedicated to advancing human health', distinction: 'Biomedical engineers build technology; doctors apply it to patients face-to-face.' },
-      { careerId: 'clinical-psychologist', title: 'Clinical Child & Adolescent Psychologist', similarityReason: 'Both diagnose and care for human ailments', distinction: 'Psychologists specialize in mental health, emotional development, and psychotherapy without pharmaceutical surgery.' }
-    ],
-    source: 'EduPath Career Knowledge Base v2.4 (O*NET 29-1229.00)',
-    lastUpdated: '2026-09'
-  },
-  {
-    id: 'product-manager',
-    title: 'Product Manager (Tech & Digital)',
-    aliases: ['Digital Product Manager', 'Associate Product Manager (APM)', 'Technical Product Manager'],
-    description: 'Drives the strategy, roadmap, and execution of technology products by aligning software engineers, UI/UX designers, and business executives around user needs.',
-    careerCluster: 'Business',
-    industry: 'Technology & Enterprise Business',
-    tasks: [
-      'Interview customers and analyze usage metrics to identify core user pain points',
-      'Define product requirements, user stories, and acceptance criteria in agile PRDs',
-      'Prioritize product backlog and feature releases based on business impact and engineering effort',
-      'Collaborate closely with tech leads and UX designers during sprint planning',
-      'Track key product KPIs (retention, conversion, revenue, NPS) and iterate post-launch'
-    ],
-    responsibilities: [
-      'Delivering product-market fit and maximizing user value',
-      'Aligning cross-functional stakeholders without direct authority',
-      'Ensuring features align with corporate strategic goals and profitability'
-    ],
-    workEnvironment: ['Tech company headquarters', 'Dynamic open collaborative spaces', 'Hybrid / Remote friendly', 'Frequent meetings and presentations'],
-    requiredSkills: ['Product Strategy & Roadmapping', 'User Research & Empathy', 'Data Analytics (SQL, Mixpanel, Amplitude)', 'Agile / Scrum Methodologies'],
-    recommendedSkills: ['Basic Technical Understanding (APIs, System Architecture)', 'Wireframing (Figma)', 'A/B Testing Methodology', 'Financial Modeling'],
-    softSkills: ['Influence Without Authority', 'Strategic Prioritization', 'Clear Storytelling', 'Conflict Resolution'],
-    technicalSkills: ['Jira', 'Figma', 'SQL', 'Mixpanel', 'Notion / Confluence', 'Google Analytics'],
-    relevantSubjects: ['Business Studies', 'Computer Science', 'Economics', 'Psychology', 'English & Communication'],
-    relevantInterests: ['Business & Startups', 'Technology Products', 'Leadership & Strategy', 'Understanding How Things Work', 'Team Projects'],
-    riaSecProfile: { R: 0.25, I: 0.70, A: 0.55, S: 0.65, E: 0.95, C: 0.60 },
-    mbtiCompatibility: ['ENTJ', 'ENTP', 'ENFJ', 'INTJ'],
-    educationPaths: [
-      {
-        type: 'University',
-        duration: '4 Years (B.S. in Computer Science, Business Administration, or Engineering)',
-        description: 'Combination of technical computational fundamentals and business strategy or finance.',
-        tradeoffs: 'Prepares for top APM programs (Google, Meta, Uber); requires balance of technical and soft leadership.'
-      }
-    ],
-    relatedMajors: ['Business Administration', 'Computer Science', 'Management Information Systems (MIS)', 'Economics', 'Industrial Engineering'],
-    vocationalPaths: ['Associate Product Specialist', 'Agile Scrum Master', 'Customer Success Analyst'],
-    certifications: ['Certified Scrum Product Owner (CSPO)', 'Product School PMC Certification', 'Pragmatic Institute Certified'],
-    portfolioExamples: ['Comprehensive Product Requirements Document (PRD) for a new Spotify feature', 'Redesign teardown of Airbnb onboarding with metric hypotheses', 'Side-project app launched with 500 active beta users'],
-    beginnerProjects: ['Analyze your favorite mobile app: identify 1 glaring flaw and write a 1-page proposal on how to fix it', 'Create a clickable interactive Figma prototype of a new student homework planner', 'Conduct 3 user interviews with classmates about their biggest frustration with school apps'],
-    progressionPath: {
-      entry: 'Associate Product Manager (APM) (feature scoping, analytics tracking, daily standups)',
-      mid: 'Product Manager (owning complete product modules, metric outcomes)',
-      senior: 'VP of Product / Chief Product Officer (CPO) (company product portfolio and vision)'
-    },
-    workStyle: 'High cross-functional communication, synthesizing data with intuition, decisive prioritization',
-    challenges: ['High responsibility without direct line-management authority', 'Context switching across meetings', 'Ambiguity and shifting trade-offs'],
-    advantages: ['Direct influence over what gets built and how people interact with technology', 'Mini-CEO experience', 'Strong executive path'],
-    futureTrends: 'AI-first product management, automated telemetry analysis, hyper-personalized consumer experiences.',
-    salaryInfo: {
-      rangeDescription: 'High compensation comparable to senior software engineering tracks.',
-      disclaimer: 'Example / illustrative information - requires local verification.',
-      levelIndicator: 'Very High'
-    },
-    experiments: [
-      {
-        title: 'Conduct an App Teardown and Write a 1-Page PRD',
-        duration: '3 Hours',
-        difficulty: 'Beginner',
-        description: 'Pick an app you use daily (e.g. YouTube or Duolingo). Identify one feature that annoys you, interview 2 friends, and draft a 1-page solution doc.',
-        steps: ['Draft Problem Statement', 'Describe target persona', 'Propose solution with 3 core user stories', 'Define success metric (e.g. +5% completion)'],
-        expectedOutcome: 'Experience how product managers turn messy ideas into actionable engineering blueprints.'
-      }
-    ],
-    alternativeCareers: [
-      { careerId: 'software-engineer', title: 'Software Engineer', similarityReason: 'Both build digital software products', distinction: 'Engineers focus on how to build it robustly; PMs focus on what to build and why it matters to users.' },
-      { careerId: 'ux-designer', title: 'UI/UX Product Designer', similarityReason: 'Both obsess over user experience and user journeys', distinction: 'Designers craft visual layouts and emotional interaction; PMs manage business viability, scope, and technical trade-offs.' }
-    ],
-    source: 'EduPath Career Knowledge Base v2.4 (O*NET 11-1021.00 & Product Org Standards)',
-    lastUpdated: '2026-09'
-  },
-  {
-    id: 'ux-designer',
-    title: 'UI/UX Product Designer',
-    aliases: ['User Experience Designer', 'Interaction Designer', 'Product Designer'],
-    description: 'Researches user behaviors and crafts intuitive, accessible, and visually captivating digital interfaces for websites, mobile applications, and software tools.',
-    careerCluster: 'Design',
-    industry: 'Design & Creative Technology',
-    tasks: [
-      'Conduct user interviews, usability testing, and persona research',
-      'Create wireframes, user flow diagrams, and interactive clickable prototypes in Figma',
-      'Build and maintain scalable design systems with reusable components, typography, and color tokens',
-      'Collaborate with developers to ensure pixel-perfect design implementation',
-      'Advocate for digital accessibility (WCAG) and seamless cognitive clarity'
-    ],
-    responsibilities: [
-      'Transforming complex technical workflows into effortless user experiences',
-      'Validating design hypotheses with empirical usability testing',
-      'Maintaining brand aesthetic consistency across digital touchpoints'
-    ],
-    workEnvironment: ['Creative design studio or tech office', 'High collaborative design reviews', 'Remote / freelance friendly', 'Visual dual-monitor setups'],
-    requiredSkills: ['UI Design (Figma, Sketch)', 'User Research & Usability Testing', 'Interaction Design & Wireframing', 'Information Architecture'],
-    recommendedSkills: ['Design Systems & Component Libraries', 'Basic HTML/CSS/JS knowledge', 'Motion & Micro-interactions', 'Accessibility Standards (WCAG)'],
-    softSkills: ['Deep Empathy', 'Aesthetic Sensitivity', 'Active Listening', 'Giving & Receiving Constructive Critique'],
-    technicalSkills: ['Figma', 'Prototyping', 'Design Systems', 'HTML/CSS Basics', 'User Journey Mapping', 'Miro'],
-    relevantSubjects: ['Art & Graphic Design', 'Psychology', 'Computer Science', 'Communication', 'English'],
-    relevantInterests: ['Drawing & Visual Arts', 'Technology & Mobile Apps', 'Human Psychology', 'Graphic Layouts', 'Creativity & Aesthetics'],
-    riaSecProfile: { R: 0.25, I: 0.65, A: 0.95, S: 0.65, E: 0.45, C: 0.50 },
-    mbtiCompatibility: ['INFP', 'ENFP', 'ISFP', 'INFJ'],
-    educationPaths: [
-      {
-        type: 'University',
-        duration: '4 Years (B.Des. in Interaction Design, Human-Computer Interaction (HCI), or Graphic Design)',
-        description: 'Comprehensive design studio critiques, cognitive psychology, typography, and portfolio synthesis.',
-        tradeoffs: 'Strong conceptual foundation and peer network; portfolio quality remains the ultimate hiring gatekeeper.'
+        "careerId": "software-engineer",
+        "title": "software-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
       },
       {
-        type: 'Self-Taught / Portfolio',
-        duration: '6-12 Months intensive portfolio development',
-        description: 'Mastering Figma tutorials, completing real client redesigns, and publishing case studies on Behance/Dribbble.',
-        tradeoffs: 'High viability in design industry where demonstrable portfolio outshines traditional degrees.'
-      }
-    ],
-    relatedMajors: ['Interaction Design', 'Human-Computer Interaction (HCI)', 'Graphic Design', 'Cognitive Psychology', 'Digital Media'],
-    vocationalPaths: ['Junior UI Designer', 'Graphic & Web Designer', 'Design Production Specialist'],
-    certifications: ['Google UX Design Professional Certificate', 'Nielsen Norman Group UX Master Certified', 'Interaction Design Foundation Certifications'],
-    portfolioExamples: ['Case study redesigning a municipal transport ticketing mobile app with user testing metrics', 'E-commerce mobile checkout flow with 30% fewer taps', 'Comprehensive dark/light design system with 50+ Figma variants'],
-    beginnerProjects: ['Pick a bad website and redesign its homepage layout in Figma', 'Create a 5-screen mobile app for tracking daily water intake with smooth interactions', 'Conduct a 15-minute usability test on a family member navigating a shopping website and document their struggles'],
-    progressionPath: {
-      entry: 'Junior UX/UI Designer (wireframing, UI asset production, user test notes)',
-      mid: 'Product Designer (owning complete user journeys, managing design system)',
-      senior: 'Staff Designer / Head of Design (design strategy, brand language, creative direction)'
-    },
-    workStyle: 'Visual, iterative, high empathy, sketching and testing continuously',
-    challenges: ['Subjective aesthetic feedback from stakeholders', 'Keeping up with changing platform design guidelines (iOS/Android)', 'Advocating for user needs against commercial pressures'],
-    advantages: ['Tangible creative output that millions of people touch every day', 'Thriving freelance and global remote opportunities', 'High career satisfaction'],
-    futureTrends: 'Generative AI design tools, spatial computing (AR/VR) interface design, conversational and voice UI, adaptive dynamic layouts.',
-    salaryInfo: {
-      rangeDescription: 'Strong compensation in tech, with senior designers commanding parity with senior software engineers.',
-      disclaimer: 'Example / illustrative information - requires local verification.',
-      levelIndicator: 'High'
-    },
-    experiments: [
-      {
-        title: 'Create Your First Interactive Mobile Prototype in Figma',
-        duration: '2 Hours',
-        difficulty: 'Beginner',
-        description: 'Sign up for free at Figma.com. Follow a 30-minute tutorial to design 2 mobile app screens and connect them with an interactive click transition.',
-        steps: ['Open Figma', 'Use an iPhone frame template', 'Add buttons, text, and an image', 'Use Prototype tab to connect Screen 1 to Screen 2 and hit Play'],
-        expectedOutcome: 'Feel the magic of tapping a screen and having an app you created respond.'
-      }
-    ],
-    alternativeCareers: [
-      { careerId: 'product-manager', title: 'Product Manager', similarityReason: 'Both champion user needs and design interfaces', distinction: 'Designers focus on visual interaction and usability; PMs manage the overall business viability, schedule, and revenue.' },
-      { careerId: 'game-designer', title: 'Game Designer & Developer', similarityReason: 'Both design interactive digital experiences', distinction: 'Game designers focus on player fun, emotional game mechanics, and world rules rather than utility productivity.' }
-    ],
-    source: 'EduPath Career Knowledge Base v2.4 (O*NET 27-1024.00)',
-    lastUpdated: '2026-09'
-  },
-  {
-    id: 'game-designer',
-    title: 'Game Designer & Developer',
-    aliases: ['Video Game Designer', 'Gameplay Programmer', 'Level Designer'],
-    description: 'Conceptualizes and programs gameplay mechanics, rules, balance, narrative worlds, and interactive audio-visual systems for video games on PC, console, and mobile.',
-    careerCluster: 'Arts',
-    industry: 'Video Game Entertainment & Interactive Media',
-    tasks: [
-      'Design core game mechanics, reward loops, and progression systems',
-      'Script gameplay logic and character movement in Unity (C#) or Unreal Engine (C++/Blueprints)',
-      'Design levels, encounter layouts, and environmental storytelling',
-      'Conduct playtesting sessions and analyze player telemetry to tune game balance',
-      'Collaborate with concept artists, 3D animators, and sound designers'
-    ],
-    responsibilities: [
-      'Creating fun, engaging, and memorable interactive player experiences',
-      'Balancing game difficulty and pacing to avoid player boredom or frustration',
-      'Optimizing game performance to maintain smooth frame rates on target devices'
-    ],
-    workEnvironment: ['Game development studio', 'Creative collaborative setting', 'High screen time with gamepad/keyboard testing', 'Game jams and demo milestones'],
-    requiredSkills: ['Game Engine (Unity or Unreal Engine)', 'Scripting (C# or C++)', 'Game Balance & Systems Design', 'Level Design & Spatial Awareness'],
-    recommendedSkills: ['3D Math & Physics for Games', 'Shaders & Visual Effects', 'Sound Design Integration', 'Narrative Storytelling'],
-    softSkills: ['Creative Imagination', 'Patience with Bug Fixing', 'Receptive to Player Feedback', 'Passionate Drive'],
-    technicalSkills: ['Unity', 'C#', 'Unreal Engine', 'Blender Basics', 'Git', 'Photoshop Basics'],
-    relevantSubjects: ['Computer Science', 'Art & Design', 'Mathematics & Physics', 'Literature & Creative Writing', 'Music'],
-    relevantInterests: ['Video Games', 'Storytelling & Worldbuilding', 'Drawing & Animation', 'Coding & Math', 'Puzzles & Board Games'],
-    riaSecProfile: { R: 0.50, I: 0.65, A: 0.95, S: 0.35, E: 0.50, C: 0.40 },
-    mbtiCompatibility: ['INFP', 'INTP', 'ENFP', 'ENTP'],
-    educationPaths: [
-      {
-        type: 'University',
-        duration: '4 Years (B.S. in Game Design, Computer Science, or Interactive Media)',
-        description: 'Combines rigorous programming with game history, 3D graphics theory, and multi-semester group game production.',
-        tradeoffs: 'Great environment for shipping team capstone games; a finished playable game is the true ticket to employment.'
+        "careerId": "financial-analyst",
+        "title": "financial-analyst",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
       },
       {
-        type: 'Self-Taught / Portfolio',
-        duration: '1-2 Years participating in Global Game Jams and publishing on Itch.io',
-        description: 'Building small complete games in Godot, Unity, or Pico-8 and publishing them online.',
-        tradeoffs: 'Proven path in indie game development where shipped playable games speak louder than diplomas.'
-      }
-    ],
-    relatedMajors: ['Game Design & Development', 'Computer Science', 'Interactive Media Arts', 'Animation & Digital Arts'],
-    vocationalPaths: ['Game QA Playtester', 'Junior Level Scripter', '3D Asset Integrator'],
-    certifications: ['Unity Certified User / Professional Programmer', 'Unreal Engine Certified Creator'],
-    portfolioExamples: ['Playable 2D platformer published on Itch.io with custom mechanics', 'Unity puzzle game demonstrating procedural level generation', 'Game Design Document (GDD) with economy balance spreadsheet'],
-    beginnerProjects: ['Create a Flappy Bird clone in Scratch or Unity following a beginner tutorial', 'Design a playable tabletop board game using index cards and test it with 3 friends', 'Participate in a 48-hour weekend online Game Jam (e.g. Ludum Dare)'],
-    progressionPath: {
-      entry: 'Junior Gameplay Programmer / Assistant Level Designer (scripting events, fixing collision bugs)',
-      mid: 'Game Designer / Senior Programmer (owning core combat or economy systems)',
-      senior: 'Creative Director / Game Director (overall vision, art style, franchise leadership)'
-    },
-    workStyle: 'High creativity blended with rigorous logic, frequent playtest iterations',
-    challenges: ['Competitive industry with intense release cycles (crunch)', 'Balancing creative ambition with technical budget', 'Harsh online player reviews'],
-    advantages: ['Immense joy seeing players emotionally engaged in worlds you created', 'Billion-dollar global industry surpassing film and music', 'Endless room for artistic innovation'],
-    futureTrends: 'Procedural world generation with generative AI, virtual reality experiences, cross-platform cloud streaming games.',
-    salaryInfo: {
-      rangeDescription: 'Wide variance between indie self-publishing and major AAA corporate studios.',
-      disclaimer: 'Example / illustrative information - requires local verification.',
-      levelIndicator: 'Above Average'
-    },
-    experiments: [
-      {
-        title: 'Make a 2D Game in Scratch or Godot in One Afternoon',
-        duration: '3 Hours',
-        difficulty: 'Beginner',
-        description: 'Go to scratch.mit.edu and build a simple game where a character dodges falling objects and tracks score.',
-        steps: ['Create sprite character and backdrop', 'Code arrow keys for movement', 'Code falling apples with clone blocks', 'Add game over condition and score counter'],
-        expectedOutcome: 'Discover how game mechanics, rules, and instant player feedback loop together.'
-      }
-    ],
-    alternativeCareers: [
-      { careerId: 'software-engineer', title: 'Software Engineer', similarityReason: 'Both write clean code and build digital systems', distinction: 'Software engineers focus on enterprise reliability and business logic; game devs focus on player sensation and 60fps rendering.' },
-      { careerId: 'ux-designer', title: 'UI/UX Product Designer', similarityReason: 'Both care about user interaction and cognitive feedback', distinction: 'UX designers remove friction; game designers deliberately introduce fun challenges and calibrated friction.' }
-    ],
-    source: 'EduPath Career Knowledge Base v2.4 (O*NET 15-1255.01)',
-    lastUpdated: '2026-09'
-  },
-  {
-    id: 'environmental-scientist',
-    title: 'Environmental & Climate Scientist',
-    aliases: ['Environmental Specialist', 'Conservation Scientist', 'Climate Data Analyst'],
-    description: 'Studies the natural environment, analyzes pollutants, assesses climate change impacts, and designs conservation and remediation strategies for a sustainable planet.',
-    careerCluster: 'Environment',
-    industry: 'Environmental Science & Sustainability',
-    tasks: [
-      'Collect soil, water, air, and plant samples during field expeditions',
-      'Perform chemical and biological assays in analytical laboratories',
-      'Analyze geospatial satellite imagery and climate models using GIS',
-      'Draft Environmental Impact Assessments (EIA) for infrastructure projects',
-      'Advise government agencies and corporations on environmental compliance and carbon reduction'
-    ],
-    responsibilities: [
-      'Protecting public ecosystems, wildlife habitats, and human drinking water',
-      'Delivering scientifically defensible environmental audit reports',
-      'Communicating urgent climate findings objectively to policy makers'
-    ],
-    workEnvironment: ['Field expeditions (rivers, forests, industrial sites)', 'Analytical chemistry laboratory', 'Office workstation with GIS mapping software'],
-    requiredSkills: ['Ecology & Environmental Chemistry', 'Fieldwork & Sampling Protocols', 'GIS (Geographic Information Systems)', 'Data Analysis & Statistics'],
-    recommendedSkills: ['Remote Sensing & Satellite Imagery', 'Environmental Law & Policy', 'Hydrology Modeling', 'Python/R for Environmental Data'],
-    softSkills: ['Scientific Rigor', 'Passion for Nature & Conservation', 'Clear Technical Writing', 'Physical Resilience Outdoors'],
-    technicalSkills: ['QGIS / ArcGIS', 'R / Python', 'Spectrophotometry', 'Water Quality Meters', 'GPS Mapping'],
-    relevantSubjects: ['Biology', 'Chemistry', 'Geography', 'Physics', 'Mathematics'],
-    relevantInterests: ['Nature & Outdoors', 'Climate Action & Conservation', 'Science Experiments', 'Wildlife Protection', 'Geography & Maps'],
-    riaSecProfile: { R: 0.75, I: 0.90, A: 0.35, S: 0.60, E: 0.40, C: 0.65 },
-    mbtiCompatibility: ['INFJ', 'INFP', 'INTJ', 'ISFP'],
-    educationPaths: [
-      {
-        type: 'University',
-        duration: '4-6 Years (B.S. or M.S. in Environmental Science, Ecology, or Earth Sciences)',
-        description: 'Comprehensive study of earth systems, geochemical cycles, environmental policy, and field ecology research.',
-        tradeoffs: 'Core pathway for scientific credibility and consulting licenses; M.S. often preferred for senior research.'
-      }
-    ],
-    relatedMajors: ['Environmental Science', 'Ecology', 'Earth & Planetary Sciences', 'Environmental Engineering', 'Geography'],
-    vocationalPaths: ['Environmental Sampling Technician', 'Wastewater Treatment Operator', 'Forest Ranger Assistant'],
-    certifications: ['Certified Environmental Scientist (CES)', 'OSHA HAZWOPER Certification', 'GIS Professional (GISP)'],
-    portfolioExamples: ['Local watershed nitrate pollution investigation report with GIS maps', 'Urban heat island analysis using satellite thermal bands in Google Earth Engine', 'Biodiversity census of native pollinators in a regional park'],
-    beginnerProjects: ['Test tap water and local pond water using a home pH and chemical test kit', 'Map tree canopy coverage in your neighborhood using Google Earth Engine', 'Conduct a 1-week home plastic waste audit and calculate carbon footprint'],
-    progressionPath: {
-      entry: 'Junior Field Scientist / Environmental Technician (collecting samples, lab testing, data logging)',
-      mid: 'Environmental Consultant / Project Scientist (managing EIA reports, remediation plans)',
-      senior: 'Principal Environmental Scientist / Director of Sustainability'
-    },
-    workStyle: 'Splits time between outdoor fieldwork in natural elements, clean lab analysis, and geospatial report writing',
-    challenges: ['Fieldwork in harsh weather conditions', 'Frustrations with slow policy implementation', 'Balancing commercial development with conservation'],
-    advantages: ['Working outdoors in nature', 'Deep moral alignment with safeguarding the planet for future generations', 'Rapidly growing ESG corporate demand'],
-    futureTrends: 'Carbon credit verification, satellite drone ecological monitoring, climate risk modeling for financial markets.',
-    salaryInfo: {
-      rangeDescription: 'Solid public sector and expanding corporate sustainability consulting compensation.',
-      disclaimer: 'Example / illustrative information - requires local verification.',
-      levelIndicator: 'Moderate'
-    },
-    experiments: [
-      {
-        title: 'Investigate Local Water Quality with a Test Kit',
-        duration: '2 Hours',
-        difficulty: 'Beginner',
-        description: 'Use a low-cost aquarium test strip kit to test tap water, bottled water, and local stream water for pH, hardness, and nitrates.',
-        steps: ['Dip test strips in 3 different water samples', 'Record values in a spreadsheet table', 'Compare results against WHO drinking water guidelines'],
-        expectedOutcome: 'Experience how environmental scientists collect physical data to monitor ecological health.'
-      }
-    ],
-    alternativeCareers: [
-      { careerId: 'architect-urban-planner', title: 'Architect & Sustainable Urban Planner', similarityReason: 'Both focus on human impact on habitats and sustainability', distinction: 'Architects design built structures; environmental scientists study and protect natural ecosystems.' },
-      { careerId: 'biomedical-scientist', title: 'Biomedical & Genomics Researcher', similarityReason: 'Both conduct rigorous laboratory assays and research', distinction: 'Biomedical scientists focus on human disease mechanisms; environmental scientists on ecological ecosystems.' }
-    ],
-    source: 'EduPath Career Knowledge Base v2.4 (O*NET 19-2041.00)',
-    lastUpdated: '2026-09'
-  },
-  {
-    id: 'architect-urban-planner',
-    title: 'Architect & Sustainable Urban Planner',
-    aliases: ['Architect', 'Urban Designer', 'City Planner'],
-    description: 'Plans, designs, and oversees the construction of buildings, urban spaces, and transit networks balancing aesthetics, environmental sustainability, structural safety, and human community needs.',
-    careerCluster: 'Architecture',
-    industry: 'Architecture, Construction & Urban Planning',
-    tasks: [
-      'Develop conceptual architectural drawings and physical/3D digital models',
-      'Coordinate with structural, mechanical, and civil engineers on building systems',
-      'Incorporate green building principles (solar orientation, natural ventilation, low-carbon materials)',
-      'Review municipal zoning laws, building codes, and accessibility compliance',
-      'Conduct site inspections during construction to ensure fidelity to blueprints'
-    ],
-    responsibilities: [
-      'Ensuring life-safety, fire resistance, and structural integrity of inhabited spaces',
-      'Designing functional spaces that enhance community well-being and reduce energy consumption',
-      'Managing client budgets and contractor relationships'
-    ],
-    workEnvironment: ['Architectural design studio', 'Active construction sites with hard hats', 'City hall planning hearings'],
-    requiredSkills: ['Architectural Drawing & Spatial Visualization', 'CAD & BIM Software (Revit, AutoCAD, Rhino)', 'Sustainable Building Concepts (LEED/BREEAM)', 'Building Codes & Structural Basics'],
-    recommendedSkills: ['Parametric Design (Grasshopper)', '3D Rendering (V-Ray, Lumion)', 'Urban GIS Mapping', 'Physical Model Making'],
-    softSkills: ['Creative Vision', 'Client Presentation', 'Diplomatic Collaboration', 'Spatial Intuition'],
-    technicalSkills: ['Revit', 'AutoCAD', 'Rhino', 'SketchUp', 'Photoshop', 'Lumion'],
-    relevantSubjects: ['Art & Design', 'Mathematics (Geometry)', 'Physics', 'Geography', 'History'],
-    relevantInterests: ['Drawing & Architecture', 'City Planning & Transit', 'Building Things', 'Sustainable Design', 'Art & Culture'],
-    riaSecProfile: { R: 0.65, I: 0.70, A: 0.95, S: 0.40, E: 0.55, C: 0.55 },
-    mbtiCompatibility: ['INTJ', 'INFJ', 'INFP', 'ENTP'],
-    educationPaths: [
-      {
-        type: 'University',
-        duration: '5 Years (B.Arch professional degree) or 4+2 Years (B.A. + M.Arch)',
-        description: 'Accredited professional architectural degree with heavy studio design coursework, structural engineering, and history.',
-        tradeoffs: 'Mandatory pathway for licensed professional architect stamping rights; intensive studio hours.'
-      }
-    ],
-    relatedMajors: ['Architecture', 'Urban Planning', 'Landscape Architecture', 'Interior Architecture', 'Civil Engineering'],
-    vocationalPaths: ['CAD Draftsperson', 'BIM Modeler', 'Construction Estimator'],
-    certifications: ['Licensed Registered Architect (AIA / RIBA / National Board)', 'LEED Green Associate / AP'],
-    portfolioExamples: ['Design portfolio featuring a community library with passive solar shading', 'Revit BIM model of a mixed-use apartment complex with material schedules', 'Urban redesign of a pedestrian street corridor with bike transit lanes'],
-    beginnerProjects: ['Draw scaled floor plans of your own bedroom and propose a creative furniture optimization', 'Build a 3D model of a modern house in free SketchUp or Minecraft Architecture mode', 'Photograph 5 historical and modern buildings in your town and analyze their structural style'],
-    progressionPath: {
-      entry: 'Junior Architectural Intern (drafting detail sections, 3D renderings, site measure-ups)',
-      mid: 'Project Architect (managing complete building design packages, coordinating consultants)',
-      senior: 'Partner / Principal Architect (winning major commissions, firm leadership)'
-    },
-    workStyle: 'Studio design culture, sketching by hand and on computer, collaborating with engineering specialists',
-    challenges: ['Long studio hours and demanding licensing exams', 'Balancing artistic vision against strict construction budgets', 'Liable for building safety'],
-    advantages: ['Leaving lasting physical monuments on the city skyline that stand for generations', 'Rare fusion of high art and rigorous engineering', 'Prestigious profession'],
-    futureTrends: 'Net-zero energy buildings, mass timber construction, automated AI generative layouts, resilient urban sponge cities.',
-    salaryInfo: {
-      rangeDescription: 'Steadily increasing compensation with licensure and firm partnership.',
-      disclaimer: 'Example / illustrative information - requires local verification.',
-      levelIndicator: 'Above Average'
-    },
-    experiments: [
-      {
-        title: 'Design a Tiny House in Free SketchUp Web',
-        duration: '3 Hours',
-        difficulty: 'Beginner',
-        description: 'Use the free browser version of SketchUp to design a 200 sq ft sustainable tiny house with a living room, loft bed, and solar roof.',
-        steps: ['Open SketchUp for Web', 'Draw the exterior foundation rectangle', 'Use Push/Pull tool to extrude 3D walls', 'Add windows, door, and solar panels'],
-        expectedOutcome: 'Experience how architects manipulate three-dimensional space and functional living layouts.'
-      }
-    ],
-    alternativeCareers: [
-      { careerId: 'environmental-scientist', title: 'Environmental & Climate Scientist', similarityReason: 'Both promote ecological sustainability and resource conservation', distinction: 'Architects design the built urban environment; environmental scientists analyze natural ecological systems.' },
-      { careerId: 'ux-designer', title: 'UI/UX Product Designer', similarityReason: 'Both design human spaces and user interactions', distinction: 'Architects build physical 3D spaces with concrete and glass; UX designers build digital 2D/spatial interfaces.' }
-    ],
-    source: 'EduPath Career Knowledge Base v2.4 (O*NET 17-1011.00)',
-    lastUpdated: '2026-09'
-  },
-  {
-    id: 'financial-analyst',
-    title: 'Quantitative Financial Analyst',
-    aliases: ['Financial Analyst', 'Quant Trader', 'Investment Analyst'],
-    description: 'Applies mathematical models, statistical algorithms, and financial data analysis to evaluate investment risks, value assets, and optimize financial portfolios.',
-    careerCluster: 'Finance',
-    industry: 'Financial Services & Investment Banking',
-    tasks: [
-      'Construct financial valuation models (DCF, Multiples) and algorithmic trading strategies',
-      'Analyze corporate balance sheets, quarterly earnings, and macroeconomic indicators',
-      'Write Python scripts to backtest trading hypotheses against historical market data',
-      'Present investment memoranda and risk assessment reports to portfolio managers',
-      'Monitor market volatility, interest rate fluctuations, and regulatory capital requirements'
-    ],
-    responsibilities: [
-      'Guarding capital against downside risk and liquidity crises',
-      'Delivering rigorous, objective financial valuation numbers',
-      'Maintaining compliance with securities regulations (SEC, FINRA)'
-    ],
-    workEnvironment: ['Financial district office / Investment bank', 'Fast-paced trading floor or asset management office', 'Dual/triple Bloomberg terminal screens'],
-    requiredSkills: ['Financial Modeling & Accounting Principles', 'Advanced Excel (VBA, PowerQuery)', 'Python or R for Financial Data', 'Statistics & Probability'],
-    recommendedSkills: ['Bloomberg Terminal / FactSet', 'Stochastic Calculus & Time-Series Analysis', 'SQL Database Querying', 'Corporate Finance Law'],
-    softSkills: ['High Analytical Acumen', 'Emotional Discipline Under Market Volatility', 'High Attention to Detail', 'Articulate Financial Presentation'],
-    technicalSkills: ['Excel', 'Python', 'SQL', 'Bloomberg Terminal', 'PowerBI', 'Pandas'],
-    relevantSubjects: ['Mathematics', 'Economics', 'Business Studies', 'Computer Science', 'Statistics'],
-    relevantInterests: ['Stock Market & Investing', 'Mathematics & Probability', 'Business & Economics', 'Strategic Decision Making', 'Puzzles & Odds'],
-    riaSecProfile: { R: 0.30, I: 0.85, A: 0.25, S: 0.35, E: 0.90, C: 0.85 },
-    mbtiCompatibility: ['ENTJ', 'INTJ', 'ESTJ', 'INTP'],
-    educationPaths: [
-      {
-        type: 'University',
-        duration: '4-5 Years (B.S. in Finance, Economics, Financial Mathematics, or Computer Science)',
-        description: 'Rigorous coursework in corporate valuation, options pricing, econometric statistics, and portfolio theory.',
-        tradeoffs: 'High recruiting intensity from major financial institutions; intense initial analyst work hours.'
-      }
-    ],
-    relatedMajors: ['Finance', 'Quantitative Finance', 'Economics', 'Applied Mathematics', 'Actuarial Science'],
-    vocationalPaths: ['Junior Bookkeeper', 'Credit Risk Assistant', 'Accounts Analyst'],
-    certifications: ['Chartered Financial Analyst (CFA)', 'Financial Risk Manager (FRM)', 'Series 7 / 63 Securities Licenses'],
-    portfolioExamples: ['Discounted Cash Flow (DCF) valuation model for Apple with sensitivity table', 'Python algorithmic backtester evaluating moving-average crossover strategies on S&P 500', 'Macroeconomic research note on inflation effects on technology equities'],
-    beginnerProjects: ['Build a personal budget and investment compound-interest spreadsheet in Google Sheets', 'Participate in a free online stock market simulator (Investopedia Simulator) with $100k virtual money', 'Analyze 1 public company annual report (10-K) and calculate revenue growth and gross margins'],
-    progressionPath: {
-      entry: 'Financial Analyst (data gathering, model updating, pitch book creation)',
-      mid: 'Senior Associate / Portfolio Analyst (independent sector coverage, thesis generation)',
-      senior: 'Portfolio Manager / Chief Investment Officer (CIO) (allocating millions in capital)'
-    },
-    workStyle: 'Data-intensive, fast-paced, high intellectual pressure during market hours',
-    challenges: ['High stress tied to market swings and financial losses', 'Long hours during quarterly reporting cycles', 'High competition'],
-    advantages: ['Among the highest compensation ceilings in the corporate world', 'Deep understanding of global economies and wealth generation', 'Meritocratic performance feedback'],
-    futureTrends: 'AI-driven sentiment analysis of financial filings, automated quantitative execution, decentralized finance risk modeling.',
-    salaryInfo: {
-      rangeDescription: 'Very high compensation with substantial performance-based bonus structures.',
-      disclaimer: 'Example / illustrative information - requires local verification.',
-      levelIndicator: 'Very High'
-    },
-    experiments: [
-      {
-        title: 'Run a Virtual Stock Portfolio for 2 Weeks',
-        duration: '1 Hour setup + daily check',
-        difficulty: 'Beginner',
-        description: 'Create a free paper-trading account on Investopedia.com. Research 3 companies in different sectors and track their performance.',
-        steps: ['Pick 1 tech company, 1 healthcare company, and 1 retail company', 'Read recent news on why their stock moved', 'Log your rationales in a journal'],
-        expectedOutcome: 'Understand how market psychology, company earnings, and numbers connect.'
-      }
-    ],
-    alternativeCareers: [
-      { careerId: 'ai-data-scientist', title: 'AI & Data Scientist', similarityReason: 'Both use advanced statistical modeling and Python scripts', distinction: 'Quants focus exclusively on financial capital and risk arbitrage; data scientists solve broad tech problems.' },
-      { careerId: 'corporate-lawyer', title: 'Corporate & Tech IP Lawyer', similarityReason: 'Both advise corporate executives on high-stakes transactions', distinction: 'Financial analysts focus on numbers, valuation, and market risk; lawyers focus on legal liability and contract structure.' }
-    ],
-    source: 'EduPath Career Knowledge Base v2.4 (O*NET 13-2051.00)',
-    lastUpdated: '2026-09'
-  },
-  {
-    id: 'clinical-psychologist',
-    title: 'Clinical Child & Adolescent Psychologist',
-    aliases: ['Child Psychologist', 'School Psychologist', 'Behavioral Therapist'],
-    description: 'Assesses, diagnoses, and treats mental health challenges, emotional difficulties, learning disabilities, and behavioral disorders in children and adolescents.',
-    careerCluster: 'Social Services',
-    industry: 'Mental Health & Healthcare',
-    tasks: [
-      'Conduct psychological evaluations, cognitive assessments, and behavioral observations',
-      'Provide evidence-based psychotherapy (CBT, Play Therapy, Family Therapy)',
-      'Formulate tailored treatment plans in collaboration with parents, pediatricians, and schools',
-      'Crisis intervention and suicide risk assessment for distressed youth',
-      'Write comprehensive clinical assessment reports with accommodation recommendations'
-    ],
-    responsibilities: [
-      'Protecting the emotional well-being and safety of vulnerable children',
-      'Maintaining strict patient confidentiality and mandatory reporting ethics',
-      'Empathic de-escalation of acute emotional distress'
-    ],
-    workEnvironment: ['Private clinical therapy practice', 'Children hospital / pediatric mental health ward', 'Schools and youth counseling centers'],
-    requiredSkills: ['Child Psychological Development Theories', 'Cognitive Behavioral Therapy (CBT)', 'Diagnostic Assessment (DSM-5)', 'Active Empathetic Listening'],
-    recommendedSkills: ['Play Therapy Techniques', 'Neurodivergence (ADHD / Autism) Assessment', 'Crisis Counseling', 'Family Systems Therapy'],
-    softSkills: ['Profound Empathy', 'Patience & Non-judgmental Warmth', 'Strong Emotional Boundaries', 'Perceptive Observation'],
-    technicalSkills: ['Standardized IQ/Cognitive Testing (WISC)', 'Play Therapy Tools', 'Electronic Clinical Notes', 'Behavioral Rating Scales'],
-    relevantSubjects: ['Psychology', 'Biology', 'English & Literature', 'Sociology', 'Statistics'],
-    relevantInterests: ['Understanding Human Behavior', 'Helping Troubled Children', 'Mental Health & Well-being', 'Listening & Counseling', 'Child Development'],
-    riaSecProfile: { R: 0.20, I: 0.85, A: 0.45, S: 0.95, E: 0.45, C: 0.50 },
-    mbtiCompatibility: ['INFJ', 'ENFJ', 'INFP', 'ISFJ'],
-    educationPaths: [
-      {
-        type: 'University',
-        duration: '7-9 Years (B.A./B.S. in Psychology + Ph.D./Psy.D. in Clinical Psychology + Clinical Internship)',
-        description: 'Doctoral level clinical training, dissertation research, and 2,000+ hours of supervised clinical psychotherapy practice.',
-        tradeoffs: 'Required for licensed clinical psychologist status and independent diagnostic authority.'
+        "careerId": "semiconductor-engineer",
+        "title": "semiconductor-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
       },
       {
-        type: 'University',
-        duration: '5-6 Years (B.S. + M.S. in School Counseling or Social Work LMFT/LCSW)',
-        description: 'Focus on school counseling, youth mental health support, and community therapy.',
-        tradeoffs: 'Faster entry into practice with lower tuition, though with slightly restricted scope compared to doctoral psychologists.'
+        "careerId": "educational-technologist",
+        "title": "educational-technologist",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
       }
     ],
-    relatedMajors: ['Psychology', 'Child Development', 'Social Work', 'Cognitive Science', 'Neuroscience'],
-    vocationalPaths: ['Mental Health Technician', 'Behavioral Aide / Paraprofessional', 'Youth Center Coordinator'],
-    certifications: ['Licensed Clinical Psychologist (State Licensing Board)', 'Board Certified Behavior Analyst (BCBA)'],
-    portfolioExamples: ['Undergraduate honors thesis on peer relationship effects on adolescent anxiety', 'Published psychoeducational guide for parents supporting ADHD teenagers', 'Supervised 100-hour practicum portfolio at a children community center'],
-    beginnerProjects: ['Volunteer with a supervised youth mentoring or crisis peer-support helpline', 'Read Viktor Frankl "Man Search for Meaning" or Daniel Kahneman "Thinking, Fast and Slow"', 'Conduct an observational study (ethically anonymous) on playground social dynamics during recess'],
-    progressionPath: {
-      entry: 'Clinical Psychology Intern / Resident (supervised psychotherapy sessions, diagnostic testing)',
-      mid: 'Licensed Clinical Psychologist (independent therapy practice, school district consultant)',
-      senior: 'Clinical Director / Professor of Child Psychology'
-    },
-    workStyle: 'Deep 1-on-1 human connection, careful emotional attunement, thoughtful clinical documentation',
-    challenges: ['Secondary traumatic stress and compassion fatigue', 'Navigating complicated and resistant family dynamics', 'Strict ethical responsibilities'],
-    advantages: ['Profoundly transforming a young person life trajectory and mental health', 'Deeply meaningful work', 'High autonomy in private practice'],
-    futureTrends: 'Digital mental health apps and tele-therapy, trauma-informed schooling, neurodivergence-affirming therapeutic models.',
-    salaryInfo: {
-      rangeDescription: 'Strong compensation especially in established private practice and specialized pediatric centers.',
-      disclaimer: 'Example / illustrative information - requires local verification.',
-      levelIndicator: 'Above Average'
-    },
-    experiments: [
-      {
-        title: 'Practice Active Listening and Empathy Mapping',
-        duration: '2 Hours',
-        difficulty: 'Beginner',
-        description: 'Have a 15-minute conversation with a friend going through stress without giving any advice. Practice reflective listening ("What I hear you saying is...") and note how it changes their demeanor.',
-        steps: ['Choose a quiet setting', 'Ask open questions without interrupting', 'Reflect emotions and summarize', 'Reflect on your own emotional state after the session'],
-        expectedOutcome: 'Discover whether holding emotional space for others energizes you or drains your energy.'
-      }
-    ],
-    alternativeCareers: [
-      { careerId: 'physician-doctor', title: 'Physician / Clinical Doctor', similarityReason: 'Both care for human health and diagnose conditions', distinction: 'Psychologists specialize in psychological therapy and cognitive behavior without prescribing surgeries or bodily medications.' },
-      { careerId: 'educational-technologist', title: 'Educational Technologist', similarityReason: 'Both seek to optimize youth learning and development', distinction: 'Educational technologists focus on digital learning tools; psychologists focus on deep emotional and cognitive well-being.' }
-    ],
-    source: 'EduPath Career Knowledge Base v2.4 (O*NET 19-3031.00)',
-    lastUpdated: '2026-09'
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 15-2051.00)",
+    "lastUpdated": "2026-09",
+    "aiImpact": "Là lĩnh vực trực tiếp sáng tạo các bước tiến AI; các công cụ tự động hóa giúp chuyên gia tập trung vào bài toán cốt lõi và kiến trúc mô hình mới."
   },
   {
-    id: 'educational-technologist',
-    title: 'Educational Technologist & Instructional Designer',
-    aliases: ['Learning Experience Designer (LXD)', 'Instructional Technologist', 'EdTech Specialist'],
-    description: 'Designs effective digital learning experiences, interactive curricula, and educational software integrating pedagogy with modern technology for schools, universities, and corporate training.',
-    careerCluster: 'Education',
-    industry: 'Education Technology & Online Learning',
-    tasks: [
-      'Analyze learner profiles and pedagogical needs to design curriculum structures',
-      'Create interactive e-learning modules, quizzes, and simulations using modern authoring tools',
-      'Integrate Learning Management Systems (Canvas, Blackboard, Moodle) with adaptive learning software',
-      'Train teachers, university professors, and corporate mentors on effective digital teaching methodologies',
-      'Evaluate learning analytics to identify where students struggle and refine educational content'
+    "id": "robotics-engineer",
+    "title": "Kỹ sư Robot & Tự động hóa",
+    "aliases": [
+      "Kỹ sư Cơ điện tử",
+      "Kỹ sư Hệ thống Tự động",
+      "Kỹ sư Điều khiển Tự động"
     ],
-    responsibilities: [
-      'Ensuring learning materials are cognitively engaging and pedagogically sound',
-      'Adhering to universal design for learning (UDL) and accessibility standards',
-      'Maximizing learner completion, retention, and skill mastery'
+    "description": "Thiết kế, chế tạo, lập trình và bảo trì các hệ thống robot, cánh tay cơ khí và dây chuyền tự động hóa thông minh.",
+    "careerCluster": "Kỹ thuật & Công nghệ",
+    "industry": "Cơ khí, Tự động hóa & Robot",
+    "tasks": [
+      "Thiết kế bản vẽ cơ khí 3D và khung cấu trúc robot bằng phần mềm CAD (SolidWorks, Inventor)",
+      "Thiết kế mạch điện tử, tích hợp cảm biến (LiDAR, Camera, Siêu âm) và động cơ điều khiển",
+      "Lập trình thuật toán điều khiển động học và hệ điều hành Robot ROS/ROS2",
+      "Phát triển hệ thống điều hướng tự hành SLAM và thuật toán tránh vật cản",
+      "Kiểm thử, hiệu chuẩn và bảo trì hệ thống robot trong môi trường công nghiệp"
     ],
-    workEnvironment: ['Universities and school districts', 'EdTech startups (Duolingo, Khan Academy, Coursera)', 'Remote / hybrid friendly', 'Creative multimedia production spaces'],
-    requiredSkills: ['Instructional Design Models (ADDIE, SAM)', 'Learning Management Systems (LMS)', 'E-learning Authoring Tools (Articulate Storyline, Rise)', 'Pedagogical Learning Theory'],
-    recommendedSkills: ['Multimedia Production (Video, Audio, Graphics)', 'Basic Web Development (HTML/CSS/JS)', 'Gamification in Education', 'Learning Analytics (xAPI / SCORM)'],
-    softSkills: ['Empathy for Diverse Learners', 'Pedagogical Clarity', 'Creative Communication', 'Patience & Mentorship'],
-    technicalSkills: ['Articulate Storyline', 'Canvas LMS', 'Camtasia / Premiere', 'Figma', 'Moodle', 'HTML/CSS'],
-    relevantSubjects: ['Education', 'Psychology', 'Computer Science', 'English & Communication', 'Art & Media'],
-    relevantInterests: ['Teaching & Explaining', 'Education & Technology', 'Making Learning Fun', 'Creative Writing & Multimedia', 'Helping Others Learn'],
-    riaSecProfile: { R: 0.30, I: 0.70, A: 0.80, S: 0.90, E: 0.55, C: 0.60 },
-    mbtiCompatibility: ['ENFJ', 'INFJ', 'ENFP', 'INFP'],
-    educationPaths: [
+    "responsibilities": [
+      "Đảm bảo robot hoạt động an toàn, chính xác và bền bỉ theo tiêu chuẩn kỹ thuật",
+      "Tối ưu hóa năng suất và chu kỳ vận hành của các dây chuyền tự động",
+      "Phối hợp nhịp nhàng giữa các mảng Cơ khí, Điện tử và Phần mềm điều khiển"
+    ],
+    "workEnvironment": [
+      "Phòng thí nghiệm chế tạo robot (Robotics Lab) và xưởng thử nghiệm",
+      "Nhà máy sản xuất thông minh công nghệ cao",
+      "Hiện trường lắp đặt và bảo trì tự động hóa",
+      "Kết hợp giữa làm việc trên máy tính và thao tác phần cứng thực tế"
+    ],
+    "requiredSkills": [
+      "Tư duy Cơ học, Động học & Động lực học",
+      "Lập trình C/C++ và Python nhúng",
+      "Thiết kế mô hình 3D CAD & Phân tích lực",
+      "Điện tử công suất & Mạch vi điều khiển (STM32, Arduino, ESP32)"
+    ],
+    "recommendedSkills": [
+      "Hệ điều hành Robot ROS / ROS2",
+      "Thị giác máy tính cho Robot (OpenCV)",
+      "Lập trình PLC công nghiệp (Siemens, Mitsubishi)",
+      "In 3D và Gia công Cơ khí Chính xác"
+    ],
+    "softSkills": [
+      "Kiên nhẫn và tỉ mỉ trong thực hành phần cứng",
+      "Giải quyết sự cố kỹ thuật thực tế",
+      "Làm việc nhóm đa ngành (Cơ - Điện - Phần mềm)",
+      "Tư duy an toàn lao động tuyệt đối"
+    ],
+    "technicalSkills": [
+      "C++",
+      "Python",
+      "ROS/ROS2",
+      "SolidWorks",
+      "Arduino",
+      "STM32",
+      "OpenCV",
+      "MATLAB/Simulink"
+    ],
+    "relevantSubjects": [
+      "Vật lý (Cơ & Điện)",
+      "Toán học (Hình học không gian & Giải tích)",
+      "Tin học",
+      "Công nghệ Kỹ thuật"
+    ],
+    "relevantInterests": [
+      "Lắp ráp mô hình & Mạch điện",
+      "Robot & Thiết bị tự hành",
+      "Chế tạo đồ chơi công nghệ",
+      "Khoa học vật lý ứng dụng"
+    ],
+    "riaSecProfile": {
+      "R": 0.95,
+      "I": 0.85,
+      "A": 0.35,
+      "S": 0.25,
+      "E": 0.4,
+      "C": 0.65
+    },
+    "mbtiCompatibility": [
+      "ISTP",
+      "INTJ",
+      "INTP",
+      "ESTP"
+    ],
+    "educationPaths": [
       {
-        type: 'University',
-        duration: '4-6 Years (B.A. in Education or Multimedia + M.S. in Instructional Design / EdTech)',
-        description: 'Comprehensive study of cognitive learning sciences, digital media creation, and educational measurement.',
-        tradeoffs: 'Gold standard for university instructional design jobs and senior corporate EdTech leadership.'
+        "type": "University",
+        "duration": "4 - 5 Năm",
+        "description": "Đào tạo liên ngành: lý thuyết điều khiển tự động, điện tử công suất, vi xử lý và thiết kế CAD/CAM.",
+        "tradeoffs": "Trang bị nền tảng vững chắc nhất để trở thành kỹ sư thiết kế hệ thống cao cấp."
       }
     ],
-    relatedMajors: ['Instructional Design', 'Educational Technology', 'Education / Pedagogy', 'Cognitive Science', 'Digital Media'],
-    vocationalPaths: ['E-Learning Content Developer', 'LMS Administrator', 'Corporate Training Coordinator'],
-    certifications: ['Certified Professional in Learning and Performance (CPLP)', 'ATD Instructional Design Certificate'],
-    portfolioExamples: ['Gamified interactive biology module on cell mitosis built in Articulate Storyline', 'Complete 4-week micro-learning course designed for mobile corporate training', 'Instructional design evaluation report on student dropout rates in an online math course'],
-    beginnerProjects: ['Create a 5-minute interactive video lesson teaching a topic you love (e.g. guitar basics or chess)', 'Build a fun interactive educational quiz on Kahoot! or Quizizz with feedback explanations', 'Redesign a confusing textbook chapter into a clear visual infographic summary'],
-    progressionPath: {
-      entry: 'Junior Instructional Designer / E-learning Developer (authoring modules, graphic assets)',
-      mid: 'Senior Learning Experience Designer (curriculum architecture, pedagogical consulting)',
-      senior: 'Director of Learning Innovation / Head of EdTech'
+    "relatedMajors": [
+      "Kỹ thuật Robot & Cơ điện tử",
+      "Kỹ thuật Điều khiển & Tự động hóa",
+      "Kỹ thuật Cơ khí",
+      "Kỹ thuật Điện - Điện tử"
+    ],
+    "vocationalPaths": [
+      "Cao đẳng Kỹ thuật Cơ điện tử & Tự động hóa",
+      "Chứng chỉ Vận hành & Lập trình Robot Công nghiệp"
+    ],
+    "certifications": [
+      "FANUC / ABB Robot Operator Certification",
+      "Certified SolidWorks Professional (CSWP)",
+      "Siemens Certified PLC Programmer"
+    ],
+    "portfolioExamples": [
+      "Cánh tay robot 4-6 bậc tự do có khả năng phân loại vật phẩm tự động bằng camera",
+      "Xe tự hành AGV trong nhà kho sử dụng cảm biến LiDAR và thuật toán SLAM",
+      "Hệ thống giám sát và điều khiển nhà thông minh IoT qua bảng điều khiển"
+    ],
+    "beginnerProjects": [
+      "Mô phỏng mạch Arduino với cảm biến siêu âm và động cơ servo trên Tinkercad Circuits",
+      "Lắp ráp xe robot 2 bánh tự tránh vật cản bằng kit vi điều khiển",
+      "Thiết kế một khớp nối cơ khí 3D trên Tinkercad hoặc Onshape"
+    ],
+    "progressionPath": {
+      "entry": "Kỹ sư Robot Tập sự / Kỹ thuật viên Tự động hóa (0 - 2 Năm): Lắp ráp, đo đạc mạch điện, lập trình vi điều khiển và hỗ trợ vận hành robot.",
+      "mid": "Kỹ sư Cơ điện tử / Robot Mid-level (2 - 5 Năm): Thiết kế trọn gói module robot, phát triển thuật toán điều khiển và tích hợp cảm biến.",
+      "senior": "Giám đốc Kỹ thuật Tự động hóa (Director of Automation Engineering): Hoạch định hạ tầng tự động hóa cho hệ thống nhà máy và các dự án robot lớn."
     },
-    workStyle: 'Collaborative, creative, focused on breaking down complex knowledge into joyful simple steps',
-    challenges: ['Educator resistance to new digital tools', 'Balancing flashy tech against genuine pedagogical efficacy', 'Tight production schedules'],
-    advantages: ['Direct impact on how future generations acquire knowledge', 'Rapidly growing global e-learning market', 'Creative and meaningful daily work'],
-    futureTrends: 'AI-personalized adaptive tutors, immersive VR educational field trips, micro-credential skill verification.',
-    salaryInfo: {
-      rangeDescription: 'Competitive compensation in corporate training and EdTech tech companies.',
-      disclaimer: 'Example / illustrative information - requires local verification.',
-      levelIndicator: 'Above Average'
+    "workStyle": "Đòi hỏi tư duy không gian tốt, kiên nhẫn khi xử lý các vấn đề giao thoa giữa phần cứng và phần mềm",
+    "challenges": [
+      "Kiểm tra và sửa lỗi phần cứng đòi hỏi thời gian đo đạc thực tế",
+      "Môi trường nhà máy công nghiệp có yêu cầu an toàn lao động nghiêm ngặt",
+      "Chi phí thử nghiệm phần cứng ban đầu tương đối tốn kém"
+    ],
+    "advantages": [
+      "Thỏa mãn niềm đam mê khi thấy cỗ máy do chính mình chế tạo vận hành thực tế",
+      "Nhu cầu tự động hóa công nghiệp trên toàn cầu đang gia tăng nhanh chóng",
+      "Sở hữu bộ kỹ năng toàn diện kết hợp cả cơ khí, điện tử và lập trình"
+    ],
+    "futureTrends": "Robot hình người (Humanoid Robots) trợ giúp cuộc sống và sản xuất. Robot cộng tác an toàn (Cobots) làm việc cùng con người. Hệ thống tự hành bầy đàn và thiết bị tự động hóa y tế",
+    "salaryInfo": {
+      "rangeDescription": "Khởi điểm: 12 - 20 Triệu VNĐ/tháng, Trung cấp: 22 - 40 Triệu VNĐ/tháng, Cao cấp: 45 - 80+ Triệu VNĐ/tháng",
+      "disclaimer": "Mức lương tham chiếu thực tế tại thị trường Việt Nam & khu vực, biến thiên theo năng lực và địa phương.",
+      "levelIndicator": "Very High"
     },
-    experiments: [
+    "experiments": [
       {
-        title: 'Design an Interactive Micro-Lesson on a Free Tool',
-        duration: '2 Hours',
-        difficulty: 'Beginner',
-        description: 'Use a free tool like Genially or Canva to design a 5-slide interactive lesson on any subject (e.g. how photosynthesis works). Add interactive clickable hotspots and a final check-for-understanding quiz.',
-        steps: ['Define 1 clear learning objective', 'Write concise explanatory text with visuals', 'Add a 3-question quiz with feedback explanations for wrong answers', 'Share with a friend and see if they learn the concept'],
-        expectedOutcome: 'Experience how instructional designers architect mental understanding through structured digital media.'
+        "title": "Xây dựng Mạch Robot Ảo trên Tinkercad Circuits",
+        "duration": "2 Giờ",
+        "difficulty": "Beginner",
+        "description": "Tự lắp ráp vi điều khiển Arduino ảo, kết nối cảm biến khoảng cách và lập trình còi báo động.",
+        "steps": [
+          "Truy cập Tinkercad Circuits miễn phí",
+          "Kéo thả Arduino Uno và cảm biến siêu âm",
+          "Viết mã C để kích hoạt còi khi có vật đến gần"
+        ],
+        "expectedOutcome": "Hiểu rõ các kỹ năng cốt lõi và niềm vui khi giải quyết vấn đề thực tế trong ngành.",
+        "evaluationQuestion": "Bạn có cảm thấy hào hứng và tràn đầy năng lượng khi vượt qua thử thách này không?"
       }
     ],
-    alternativeCareers: [
-      { careerId: 'ux-designer', title: 'UI/UX Product Designer', similarityReason: 'Both design human digital interfaces and reduce cognitive friction', distinction: 'UX designers focus on app utility and ease of use; EdTech specialists focus on long-term cognitive learning and knowledge retention.' },
-      { careerId: 'clinical-psychologist', title: 'Clinical Child & Adolescent Psychologist', similarityReason: 'Both understand child development and cognitive barriers', distinction: 'EdTech specialists build curriculum technology; psychologists provide clinical mental health therapy.' }
-    ],
-    source: 'EduPath Career Knowledge Base v2.4 (O*NET 25-9031.00)',
-    lastUpdated: '2026-09'
-  },
-  {
-    id: 'precision-automation-technician',
-    title: 'Precision Automation & CNC Specialist',
-    aliases: ['CNC Machinist / Programmer', 'Advanced Manufacturing Technician', 'Industrial Robotics Technician'],
-    description: 'Sets up, programs, and operates computer numerically controlled (CNC) machines, laser cutters, and automated fabrication systems to produce high-precision aerospace, medical, and automotive components.',
-    careerCluster: 'Manufacturing',
-    industry: 'Advanced Precision Manufacturing & Skilled Trades',
-    tasks: [
-      'Interpret engineering blueprints and geometric dimensioning & tolerancing (GD&T)',
-      'Program multi-axis CNC mills and lathes using CAM software (Mastercam, Fusion 360)',
-      'Set up cutting tools, work-holding fixtures, and calibrate automated robotic part loaders',
-      'Inspect machined parts using micrometers, calipers, and coordinate measuring machines (CMM)',
-      'Perform preventative maintenance on high-speed spindles and hydraulic systems'
-    ],
-    responsibilities: [
-      'Maintaining microscopic tolerances (often within 0.005 millimeters / 5 microns)',
-      'Preventing expensive machine tool crashes through thorough simulation verification',
-      'Upholding workshop safety and personal protective equipment standards'
-    ],
-    workEnvironment: ['High-tech climate-controlled manufacturing facility', 'Precision machine shop', 'Surrounded by multi-axis robotic machines and cutting fluid'],
-    requiredSkills: ['Blueprint Reading & GD&T', 'G-code & M-code Programming', 'Precision Measurement (Micrometers, CMM)', 'Machining Physics & Material Speeds/Feeds'],
-    recommendedSkills: ['CAM Software (Mastercam, Fusion 360)', '5-Axis Machining', 'Industrial Hydraulics & Pneumatics', 'Toolpath Optimization'],
-    softSkills: ['Spatial Visualization', 'Meticulous Attention to Detail', 'Problem Solving on the Shop Floor', 'Physical Reliability'],
-    technicalSkills: ['G-Code', 'Fusion 360 CAM', 'Mastercam', 'Micrometer / Caliper', 'CNC Mill / Lathe Operation'],
-    relevantSubjects: ['Design & Technology', 'Mathematics (Geometry & Trig)', 'Physics', 'Metalworking / Woodworking'],
-    relevantInterests: ['Hands-on Making', 'Machines & Tools', 'Metalworking & Fabrication', 'Precision Engineering', 'Car Engines & Mechanics'],
-    riaSecProfile: { R: 0.95, I: 0.60, A: 0.25, S: 0.20, E: 0.35, C: 0.85 },
-    mbtiCompatibility: ['ISTP', 'ISTJ', 'ESTP'],
-    educationPaths: [
+    "alternativeCareers": [
       {
-        type: 'College/Vocational',
-        duration: '1-2 Years (Vocational Certificate or Associate Degree in Precision Machining & CNC)',
-        description: 'Hands-on training in machine operation, tooling selection, CAM programming, and shop math.',
-        tradeoffs: 'Fastest path to debt-free, high-paying skilled trade employment with immense hiring demand.'
+        "careerId": "semiconductor-engineer",
+        "title": "semiconductor-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
       },
       {
-        type: 'Apprenticeship',
-        duration: '2-4 Years (Paid Apprenticeship combining on-the-job training with evening classes)',
-        description: 'Earn while you learn under the guidance of master toolmakers and machinists.',
-        tradeoffs: 'Zero student debt, immediate wage earnings, but requires physical stamina and reliable workshop attendance.'
-      }
-    ],
-    relatedMajors: ['Precision Machining Technology', 'Manufacturing Engineering Technology', 'Industrial Automation', 'Mechanical Technology'],
-    vocationalPaths: ['Entry-level Machine Operator', 'Quality Control Inspector', 'Tool & Die Apprentice'],
-    certifications: ['NIMS (National Institute for Metalworking Skills) Certifications', 'HAAS CNC Operator Certification'],
-    portfolioExamples: ['Finished precision aluminum chess piece machined on a 4-axis mill with 0.01mm tolerance', 'Custom titanium medical bone screw prototype with thread inspection sheet', 'Complete CAM toolpath simulation video showing collision-free cutting strategy'],
-    beginnerProjects: ['Visit a local maker space or vocational school and watch a CNC mill cut a part', 'Learn basic G-Code commands (G00, G01, G02) using a free online G-code simulator', 'Model a mechanical bracket in Fusion 360 and generate a 2D engineering drawing with dimensions'],
-    progressionPath: {
-      entry: 'CNC Operator (loading parts, deburring, checking dimensions with calipers)',
-      mid: 'CNC Programmer / Setup Specialist (writing CAM toolpaths, building custom fixtures)',
-      senior: 'Shop Floor Manager / Lead Manufacturing Engineer'
-    },
-    workStyle: 'Hands-on, tangible, pride in physical craftsmanship and mathematical precision',
-    challenges: ['Physical standing and shop noise (managed with PPE)', 'High cost of mistakes if a spindle crashes', 'Continuous need to keep up with automated robotic cells'],
-    advantages: ['Immense pride in fabricating tangible physical hardware that flies into space or goes into human bodies', 'Outstanding job security with huge shortages of skilled machinists', 'Rapid debt-free career launch'],
-    futureTrends: 'Lights-out autonomous manufacturing, hybrid additive (3D printing) + subtractive CNC machines, cobot automated loading.',
-    salaryInfo: {
-      rangeDescription: 'High starting wages for skilled programmers with overtime potential.',
-      disclaimer: 'Example / illustrative information - requires local verification.',
-      levelIndicator: 'Above Average'
-    },
-    experiments: [
+        "careerId": "software-engineer",
+        "title": "software-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
       {
-        title: 'Run a Virtual G-Code Simulator Online',
-        duration: '1.5 Hours',
-        difficulty: 'Beginner',
-        description: 'Use a free browser tool like ncviewer.com to write 10 lines of G-code to carve your initials into a virtual metal plate and watch the toolpath trace.',
-        steps: ['Open NCViewer.com', 'Write G00 X0 Y0 (rapid move), G01 Z-1 F200 (cut down), G01 X20 (cut line)', 'Trace your letter and inspect the 3D toolpath'],
-        expectedOutcome: 'Discover the satisfaction of using coordinates and code to shape physical materials.'
+        "careerId": "precision-automation-technician",
+        "title": "precision-automation-technician",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "biomedical-engineer",
+        "title": "biomedical-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
       }
     ],
-    alternativeCareers: [
-      { careerId: 'robotics-engineer', title: 'Robotics & Automation Engineer', similarityReason: 'Both work with automated factory systems and motors', distinction: 'Technicians specialize in precision tooling, physical fabrication, and direct machine setup; engineers design the wider systems.' },
-      { careerId: 'architect-urban-planner', title: 'Architect & Sustainable Urban Planner', similarityReason: 'Both read blueprints and manipulate geometric shapes', distinction: 'Machinists fabricate metal components with micron accuracy; architects design buildings.' }
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 17-2199.08)",
+    "lastUpdated": "2026-09",
+    "aiImpact": "AI nâng tầm robot từ việc chỉ lặp lại thao tác sang tự nhận thức môi trường, tự học qua mô phỏng và tương tác linh hoạt với con người."
+  },
+  {
+    "id": "semiconductor-engineer",
+    "title": "Kỹ sư Phần cứng Bán dẫn & Vi mạch",
+    "aliases": [
+      "Kỹ sư Thiết kế Vi mạch (IC Design Engineer)",
+      "Kỹ sư Thiết kế Phần cứng",
+      "Kỹ sư Kiểm định Vi mạch"
     ],
-    source: 'EduPath Career Knowledge Base v2.4 (O*NET 51-4041.00)',
-    lastUpdated: '2026-09'
+    "description": "Nghiên cứu, thiết kế, mô phỏng và kiểm thử các bộ vi xử lý, chip bán dẫn và mạch tích hợp (IC) cung cấp sức mạnh cho máy tính, điện thoại và thiết bị thông minh.",
+    "careerCluster": "Kỹ thuật & Công nghệ",
+    "industry": "Bán dẫn & Vi mạch Điện tử",
+    "tasks": [
+      "Viết mã mô tả phần cứng bằng ngôn ngữ chuyên dụng (Verilog, SystemVerilog, VHDL)",
+      "Thiết kế kiến trúc vi mô cho các khối xử lý tính toán và bộ nhớ",
+      "Xây dựng môi trường kiểm định tự động (UVM / SystemVerilog) để phát hiện lỗi vi mạch",
+      "Thực hiện tổng hợp logic, định tuyến mạch và phân tích thời gian thực (STA)",
+      "Thử nghiệm và đánh giá chất lượng vi mạch thực tế sau sản xuất"
+    ],
+    "responsibilities": [
+      "Đảm bảo vi mạch không có lỗi thiết kế trước khi gửi đi xưởng đúc chip",
+      "Tối ưu hóa diện tích chip, hiệu năng tốc độ xung nhịp và mức tiêu thụ điện năng",
+      "Tuân thủ nghiêm ngặt các tiêu chuẩn kiểm định công nghiệp quốc tế"
+    ],
+    "workEnvironment": [
+      "Phòng thiết kế vi mạch hiện đại trang bị máy trạm hiệu năng cao",
+      "Môi trường phòng sạch tại các nhà máy đóng gói và thử nghiệm chip",
+      "Văn hóa làm việc cẩn trọng, kỷ luật và chính xác cao",
+      "Hợp tác quốc tế với các trung tâm thiết kế hàng đầu thế giới"
+    ],
+    "requiredSkills": [
+      "Ngôn ngữ mô tả phần cứng (Verilog / SystemVerilog)",
+      "Kiến trúc máy tính & Thiết kế mạch số",
+      "Kỹ năng lập trình kịch bản tự động hóa (Python, TCL, Bash)",
+      "Quy trình sản xuất và thiết kế vi mạch bán dẫn"
+    ],
+    "recommendedSkills": [
+      "Phương pháp kiểm định vi mạch chuẩn công nghiệp UVM",
+      "Phân tích thời gian tĩnh STA",
+      "Kiến trúc tập lệnh vi xử lý (RISC-V, ARM)",
+      "Sử dụng phần mềm thiết kế chuyên dụng EDA (Synopsys, Cadence)"
+    ],
+    "softSkills": [
+      "Tính cẩn thận và tỉ mỉ đến từng chi tiết nhỏ nhất",
+      "Tư duy phân tích nguyên nhân gốc rễ",
+      "Khả năng làm việc tập trung và kỷ luật",
+      "Giao tiếp kỹ thuật chuyên nghiệp"
+    ],
+    "technicalSkills": [
+      "Verilog",
+      "SystemVerilog",
+      "UVM",
+      "RISC-V",
+      "Python",
+      "TCL",
+      "Linux",
+      "EDA Tools"
+    ],
+    "relevantSubjects": [
+      "Vật lý (Điện từ học & Bán dẫn)",
+      "Toán học (Đại số & Giải tích)",
+      "Tin học",
+      "Kỹ thuật Điện tử"
+    ],
+    "relevantInterests": [
+      "Cấu tạo vi xử lý máy tính",
+      "Thiết kế mạch điện tử",
+      "Công nghệ bán dẫn nano",
+      "Tối ưu hóa hiệu năng phần cứng"
+    ],
+    "riaSecProfile": {
+      "R": 0.8,
+      "I": 0.95,
+      "A": 0.25,
+      "S": 0.2,
+      "E": 0.4,
+      "C": 0.85
+    },
+    "mbtiCompatibility": [
+      "INTJ",
+      "INTP",
+      "ISTJ"
+    ],
+    "educationPaths": [
+      {
+        "type": "University",
+        "duration": "4 - 5.5 Năm",
+        "description": "Chương trình chuyên sâu về vật lý bán dẫn, thiết kế mạch tích hợp VLSI và ngôn ngữ phần cứng Verilog.",
+        "tradeoffs": "Con đường tiêu chuẩn vàng để làm việc tại các trung tâm thiết kế chip quốc tế."
+      }
+    ],
+    "relatedMajors": [
+      "Kỹ thuật Vi mạch & Bán dẫn",
+      "Kỹ thuật Điện tử - Viễn thông",
+      "Kỹ thuật Máy tính",
+      "Vật lý Kỹ thuật"
+    ],
+    "vocationalPaths": [
+      "Khóa đào tạo chuyên sâu Thiết kế Vi mạch Chuyển tiếp",
+      "Chứng chỉ Kiểm định Vi mạch Quốc tế"
+    ],
+    "certifications": [
+      "Synopsys / Cadence EDA Certified Designer",
+      "Arm Accredited Engineer (AAE)",
+      "RISC-V Fundamentals"
+    ],
+    "portfolioExamples": [
+      "Thiết kế bộ xử lý 32-bit theo chuẩn kiến trúc RISC-V viết bằng Verilog",
+      "Môi trường kiểm định UVM cho bộ điều khiển giao tiếp UART/SPI",
+      "Mô phỏng bộ gia tốc tính toán trên kit FPGA"
+    ],
+    "beginnerProjects": [
+      "Sử dụng CircuitVerse.org để thiết kế bộ cộng nhị phân và mạch đếm cơ bản",
+      "Mô phỏng mã Verilog của máy trạng thái đèn giao thông bằng Icarus Verilog",
+      "Thực hành nạp chương trình điều khiển đèn LED trên bo mạch FPGA"
+    ],
+    "progressionPath": {
+      "entry": "Kỹ sư Thiết kế / Kiểm định Vi mạch Junior (0 - 2 Năm): Viết module mạch nhỏ, phát triển testbench kiểm tra tính năng và chạy mô phỏng.",
+      "mid": "Kỹ sư Vi mạch Mid-level (2 - 5 Năm): Tự chủ thiết kế khối IP phức tạp, tối ưu hóa năng lượng và kiểm tra thời gian thực.",
+      "senior": "Kiến trúc sư Trưởng Vi mạch (Principal Architect): Định hình kiến trúc toàn diện cho các dòng chip xử lý thế hệ mới."
+    },
+    "workStyle": "Deeply disciplined, analytical, using specialized EDA software with multi-day simulation runs",
+    "challenges": [
+      "Quy trình thiết kế vi mạch yêu cầu độ chính xác tuyệt đối, tránh lỗi phát sinh",
+      "Phần mềm thiết kế chuyên ngành yêu cầu cấu hình máy tính cao",
+      "Đòi hỏi thời gian đào tạo chuyên sâu và tích lũy kinh nghiệm bài bản"
+    ],
+    "advantages": [
+      "Ngành công nghiệp chiến lược trọng điểm quốc gia với cơ hội phát triển vượt bậc",
+      "Mức thu nhập và chế độ đãi ngộ thuộc nhóm dẫn đầu khối kỹ thuật",
+      "Cơ hội làm việc tại các tập đoàn công nghệ bán dẫn hàng đầu toàn cầu"
+    ],
+    "futureTrends": "Chip chuyên dụng cho trí tuệ nhân tạo và tính toán lượng tử. Công nghệ đóng gói chip 3D và kiến trúc ghép nối Chiplet. Kiến trúc phần cứng mở RISC-V phát triển mạnh mẽ",
+    "salaryInfo": {
+      "rangeDescription": "Khởi điểm: 15 - 28 Triệu VNĐ/tháng, Trung cấp: 35 - 60 Triệu VNĐ/tháng, Cao cấp: 70 - 130+ Triệu VNĐ/tháng",
+      "disclaimer": "Mức lương tham chiếu thực tế tại thị trường Việt Nam & khu vực, biến thiên theo năng lực và địa phương.",
+      "levelIndicator": "Very High"
+    },
+    "experiments": [
+      {
+        "title": "Mô phỏng Mạch Logic trên Trình duyệt",
+        "duration": "1.5 Giờ",
+        "difficulty": "Beginner",
+        "description": "Sử dụng CircuitVerse để ghép nối các cổng AND, OR, XOR thành bộ giải mã nhị phân.",
+        "steps": [
+          "Mở CircuitVerse.org",
+          "Kéo thả các cổng logic và công tắc đầu vào",
+          "Quan sát tín hiệu đèn đầu ra"
+        ],
+        "expectedOutcome": "Hiểu rõ các kỹ năng cốt lõi và niềm vui khi giải quyết vấn đề thực tế trong ngành.",
+        "evaluationQuestion": "Bạn có cảm thấy hào hứng và tràn đầy năng lượng khi vượt qua thử thách này không?"
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "robotics-engineer",
+        "title": "robotics-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "software-engineer",
+        "title": "software-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "cybersecurity-specialist",
+        "title": "cybersecurity-specialist",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "precision-automation-technician",
+        "title": "precision-automation-technician",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 17-2072.00)",
+    "lastUpdated": "2026-09",
+    "aiImpact": "AI hỗ trợ tự động hóa bố trí linh kiện trên chip; đồng thời nhu cầu chip AI tạo ra cơ hội việc làm rất lớn cho kỹ sư bán dẫn."
+  },
+  {
+    "id": "cybersecurity-specialist",
+    "title": "Chuyên gia An toàn Thông tin & An ninh Mạng",
+    "aliases": [
+      "Kỹ sư An ninh Mạng",
+      "Chuyên viên Kiểm thử Xâm nhập (Pentester)",
+      "Chuyên viên SOC"
+    ],
+    "description": "Bảo vệ hệ thống mạng máy tính, máy chủ, dữ liệu đám mây và ứng dụng số khỏi các cuộc tấn công mạng, xâm nhập trái phép và rò rỉ thông tin.",
+    "careerCluster": "Công nghệ Thông tin",
+    "industry": "An toàn Thông tin & An ninh Mạng",
+    "tasks": [
+      "Giám sát lưu lượng mạng, phát hiện và ngăn chặn các hành vi xâm nhập bất thường qua hệ thống SIEM",
+      "Thực hiện đánh giá lỗ hổng bảo mật và kiểm thử xâm nhập (Penetration Testing)",
+      "Thiết lập tường lửa (Firewall), hệ thống xác thực bảo mật và mã hóa dữ liệu",
+      "Xử lý ứng cứu sự cố an ninh mạng (Incident Response) và điều tra số (Digital Forensics)",
+      "Đào tạo nhận thức an toàn thông tin và xây dựng chính sách bảo mật cho tổ chức"
+    ],
+    "responsibilities": [
+      "Bảo vệ an toàn tuyệt đối cho cơ sở hạ tầng số và dữ liệu nhạy cảm của doanh nghiệp",
+      "Tuân thủ các tiêu chuẩn an ninh thông tin quốc tế (ISO 27001, NIST, GDPR)",
+      "Liên tục cập nhật và phòng chống các mối đe dọa an ninh mạng mới xuất hiện"
+    ],
+    "workEnvironment": [
+      "Trung tâm điều hành an ninh mạng (SOC) hiện đại",
+      "Linh hoạt làm việc kết hợp từ xa và văn phòng",
+      "Sẵn sàng trực ca xử lý sự cố khẩn cấp khi có tấn công",
+      "Môi trường kỷ luật, bảo mật thông tin nghiêm ngặt"
+    ],
+    "requiredSkills": [
+      "Kiến thức mạng máy tính chuyên sâu (TCP/IP, Routing, DNS)",
+      "Quản trị hệ thống Linux và Windows Server",
+      "Lập trình kịch bản tự động (Python, Bash, PowerShell)",
+      "Hiểu biết về các hình thức tấn công và lỗ hổng OWASP Top 10"
+    ],
+    "recommendedSkills": [
+      "Công cụ kiểm thử bảo mật (Wireshark, Metasploit, Burp Suite, Nmap)",
+      "Hệ thống giám sát SIEM (Splunk, Elastic SIEM)",
+      "Bảo mật đám mây (Cloud Security AWS/GCP/Azure)",
+      "Kỹ thuật phân tích mã độc và điều tra số (Forensics)"
+    ],
+    "softSkills": [
+      "Tư duy phản biện và khả năng suy luận logic",
+      "Đạo đức nghề nghiệp và tính trung thực tuyệt đối",
+      "Bình tĩnh xử lý tình huống khẩn cấp",
+      "Giao tiếp và giải thích kỹ thuật dễ hiểu"
+    ],
+    "technicalSkills": [
+      "Python",
+      "Linux",
+      "Wireshark",
+      "Burp Suite",
+      "Nmap",
+      "Metasploit",
+      "Splunk",
+      "Docker"
+    ],
+    "relevantSubjects": [
+      "Tin học",
+      "Toán học (Mật mã học & Logic)",
+      "Vật lý",
+      "Tiếng Anh chuyên ngành"
+    ],
+    "relevantInterests": [
+      "Bảo mật máy tính",
+      "Tìm kiếm lỗ hổng phần mềm",
+      "Giải đố mật mã & CTF",
+      "Hệ thống mạng"
+    ],
+    "riaSecProfile": {
+      "R": 0.6,
+      "I": 0.9,
+      "A": 0.3,
+      "S": 0.3,
+      "E": 0.5,
+      "C": 0.8
+    },
+    "mbtiCompatibility": [
+      "INTJ",
+      "ISTP",
+      "INTP",
+      "ENTP"
+    ],
+    "educationPaths": [
+      {
+        "type": "University",
+        "duration": "4 Năm",
+        "description": "Đào tạo bài bản về mật mã học, kiến trúc mạng, hệ điều hành và kỹ thuật phòng thủ.",
+        "tradeoffs": "Nền tảng học thuật vững chắc để lấy các chứng chỉ quốc tế cấp cao."
+      }
+    ],
+    "relatedMajors": [
+      "An toàn Thông tin",
+      "Mạng Máy tính & Truyền thông",
+      "Khoa học Máy tính",
+      "Kỹ thuật Máy tính"
+    ],
+    "vocationalPaths": [
+      "Khóa đào tạo chuyên sâu An ninh Mạng Thực chiến",
+      "Chứng chỉ Quản trị Mạng & Bảo mật Cao đẳng"
+    ],
+    "certifications": [
+      "CompTIA Security+",
+      "Certified Ethical Hacker (CEH)",
+      "Offensive Security Certified Professional (OSCP)",
+      "CISSP"
+    ],
+    "portfolioExamples": [
+      "Báo cáo kiểm thử xâm nhập chi tiết mô phỏng trên hệ thống lab an toàn",
+      "Thành tích tham gia các cuộc thi giải đố an ninh mạng (Capture The Flag - CTF)",
+      "Công cụ tự động quét lỗ hổng mã nguồn mở viết bằng Python trên GitHub"
+    ],
+    "beginnerProjects": [
+      "Thiết lập phòng lab mạng ảo trên VirtualBox với máy ảo Kali Linux và Ubuntu",
+      "Sử dụng Wireshark để phân tích các gói tin mạng HTTP và DNS",
+      "Tham gia giải 5 thử thách CTF cơ bản trên trang web OverTheWire hoặc TryHackMe"
+    ],
+    "progressionPath": {
+      "entry": "Chuyên viên SOC L1 / Junior Security Analyst (0 - 2 Năm): Giám sát cảnh báo an ninh, phân tích nhật ký log và xử lý sự cố cơ bản.",
+      "mid": "Chuyên gia An ninh Mạng / Pentester Mid-level (2 - 5 Năm): Thực hiện kiểm thử xâm nhập toàn diện, thiết lập giải pháp phòng thủ chuyên sâu.",
+      "senior": "Giám đốc An toàn Thông tin (Chief Information Security Officer - CISO): Hoạch định chiến lược an ninh mạng và bảo vệ toàn diện tài sản thông tin của tổ chức."
+    },
+    "workStyle": "Cảnh giác, phân tích chi tiết, có kỷ luật và xử lý tình huống nhanh nhạy",
+    "challenges": [
+      "Tin tặc liên tục đổi mới phương thức tấn công, đòi hỏi nghiên cứu cập nhật không ngừng",
+      "Áp lực xử lý sự cố lớn khi hệ thống doanh nghiệp bị tấn công hoặc rò rỉ dữ liệu",
+      "Yêu cầu đạo đức nghề nghiệp và lý lịch minh bạch tuyệt đối"
+    ],
+    "advantages": [
+      "Nhu cầu tuyển dụng chuyên gia bảo mật luôn ở mức rất cao trong kỷ nguyên số",
+      "Mức lương và đãi ngộ hấp dẫn với cơ hội phát triển nghề nghiệp rộng mở",
+      "Cảm giác tự hào và giá trị xã hội khi bảo vệ cộng đồng và tài sản số"
+    ],
+    "futureTrends": "Bảo mật kiến trúc Zero-Trust (Không tin tưởng ai, luôn luôn xác thực). An ninh mạng tăng cường bởi Trí tuệ Nhân tạo (AI-Driven SecOps). Mật mã học kháng lượng tử (Post-Quantum Cryptography)",
+    "salaryInfo": {
+      "rangeDescription": "Khởi điểm: 13 - 22 Triệu VNĐ/tháng, Trung cấp: 28 - 50 Triệu VNĐ/tháng, Cao cấp: 55 - 100+ Triệu VNĐ/tháng",
+      "disclaimer": "Mức lương tham chiếu thực tế tại thị trường Việt Nam & khu vực, biến thiên theo năng lực và địa phương.",
+      "levelIndicator": "Very High"
+    },
+    "experiments": [
+      {
+        "title": "Bắt và Phân tích Gói tin Mạng với Wireshark",
+        "duration": "2 Giờ",
+        "difficulty": "Beginner",
+        "description": "Cài đặt Wireshark trên máy tính và quan sát cách dữ liệu truyền qua giao thức mạng.",
+        "steps": [
+          "Tải và mở Wireshark",
+          "Bắt đầu ghi lại lưu lượng mạng",
+          "Lọc các gói tin DNS và tìm hiểu cơ chế phân giải tên miền"
+        ],
+        "expectedOutcome": "Hiểu rõ các kỹ năng cốt lõi và niềm vui khi giải quyết vấn đề thực tế trong ngành.",
+        "evaluationQuestion": "Bạn có cảm thấy hào hứng và tràn đầy năng lượng khi vượt qua thử thách này không?"
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "software-engineer",
+        "title": "software-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "ai-data-scientist",
+        "title": "ai-data-scientist",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "semiconductor-engineer",
+        "title": "semiconductor-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "robotics-engineer",
+        "title": "robotics-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 15-1212.00)",
+    "lastUpdated": "2026-09",
+    "aiImpact": "AI hỗ trợ tự động phát hiện mã độc và bất thường mạng; chuyên gia an ninh tập trung xây dựng chiến lược phòng thủ chủ động và bảo vệ hệ thống AI."
+  },
+  {
+    "id": "biomedical-engineer",
+    "title": "Kỹ sư Kỹ thuật Y sinh",
+    "aliases": [
+      "Kỹ sư Thiết bị Y tế",
+      "Kỹ sư Công nghệ Sinh học",
+      "Kỹ sư Y sinh R&D"
+    ],
+    "description": "Kết hợp nguyên lý kỹ thuật, cơ điện tử và khoa học y sinh để thiết kế thiết bị y tế hiện đại, chi giả sinh học và hệ thống chẩn đoán sức khỏe con người.",
+    "careerCluster": "Y tế & Kỹ thuật",
+    "industry": "Thiết bị Y tế & Công nghệ Sinh học",
+    "tasks": [
+      "Nghiên cứu và thiết kế các thiết bị y tế chẩn đoán và điều trị (máy tạo nhịp tim, chi giả, thiết bị nội soi)",
+      "Phát triển phần mềm xử lý tín hiệu sinh học (điện tim ECG, điện não EEG)",
+      "Kiểm định độ an toàn sinh học và tương thích vật liệu sinh học theo chuẩn y tế",
+      "Lắp đặt, hiệu chuẩn và bảo trì hệ thống máy móc chẩn đoán hình ảnh tại bệnh viện (MRI, CT, Siêu âm)",
+      "Hợp tác với các bác sĩ và nhà khoa học để cải tiến giải pháp phẫu thuật và chăm sóc bệnh nhân"
+    ],
+    "responsibilities": [
+      "Đảm bảo thiết bị y tế hoạt động tuyệt đối chính xác và an toàn cho tính mạng bệnh nhân",
+      "Tuân thủ nghiêm ngặt các quy định và chứng nhận y tế quốc tế (FDA, CE, ISO 13485)",
+      "Thử nghiệm lâm sàng và ghi nhận phản hồi từ đội ngũ y bác sĩ"
+    ],
+    "workEnvironment": [
+      "Phòng lab nghiên cứu và phát triển (R&D) công nghệ y tế",
+      "Bệnh viện đa khoa và trung tâm chẩn đoán hình ảnh",
+      "Nhà máy sản xuất thiết bị y tế công nghệ cao",
+      "Môi trường nghiên cứu sạch sẽ, hiện đại và chuẩn mực y khoa"
+    ],
+    "requiredSkills": [
+      "Sinh lý học cơ bản và giải phẫu người",
+      "Điện tử y sinh và xử lý tín hiệu số",
+      "Thiết kế CAD 3D và vật liệu sinh học tương thích",
+      "Lập trình xử lý dữ liệu y tế (Python, MATLAB, C++)"
+    ],
+    "recommendedSkills": [
+      "Xử lý ảnh y khoa và thị giác máy tính",
+      "Tiêu chuẩn quản lý chất lượng thiết bị y tế ISO 13485",
+      "Công nghệ in 3D sinh học và mô phỏng sinh cơ học",
+      "Mạng lưới vạn vật y tế (IoMT) và thiết bị đeo theo dõi sức khỏe"
+    ],
+    "softSkills": [
+      "Lòng trắc ẩn và đạo đức y khoa sâu sắc",
+      "Giao tiếp liên ngành hiệu quả giữa kỹ sư và bác sĩ",
+      "Tính cẩn trọng và tỉ mỉ tuyệt đối",
+      "Tư duy giải quyết vấn đề sáng tạo"
+    ],
+    "technicalSkills": [
+      "MATLAB",
+      "Python",
+      "SolidWorks",
+      "C++",
+      "LabVIEW",
+      "ISO 13485",
+      "Arduino",
+      "3D Printing"
+    ],
+    "relevantSubjects": [
+      "Sinh học",
+      "Vật lý (Sóng & Điện tử)",
+      "Hóa học",
+      "Toán học",
+      "Tiếng Anh"
+    ],
+    "relevantInterests": [
+      "Thiết bị y tế cứu người",
+      "Giải phẫu cơ thể học",
+      "Công nghệ sinh học",
+      "Thiết kế mạch điện tử"
+    ],
+    "riaSecProfile": {
+      "R": 0.7,
+      "I": 0.9,
+      "A": 0.35,
+      "S": 0.65,
+      "E": 0.35,
+      "C": 0.7
+    },
+    "mbtiCompatibility": [
+      "INFJ",
+      "INTJ",
+      "INTP",
+      "ENFJ"
+    ],
+    "educationPaths": [
+      {
+        "type": "University",
+        "duration": "4.5 - 5 Năm",
+        "description": "Chương trình liên ngành kết hợp giải phẫu sinh lý, điện tử y sinh, vật liệu sinh học và xử lý ảnh y tế.",
+        "tradeoffs": "Nền tảng toàn diện nhất để làm việc tại các hãng thiết bị y tế lớn."
+      }
+    ],
+    "relatedMajors": [
+      "Kỹ thuật Y sinh",
+      "Kỹ thuật Điện tử Y sinh",
+      "Công nghệ Sinh học",
+      "Kỹ thuật Cơ khí"
+    ],
+    "vocationalPaths": [
+      "Cao đẳng Kỹ thuật Trang thiết bị Y tế",
+      "Chứng chỉ Vận hành & Bảo dưỡng Máy Y tế"
+    ],
+    "certifications": [
+      "Certified Biomedical Equipment Technician (CBET)",
+      "ISO 13485 Lead Auditor",
+      "Regulatory Affairs Certification (RAC)"
+    ],
+    "portfolioExamples": [
+      "Thiết kế mạch đo và hiển thị nhịp tim SpO2 trên màn hình thời gian thực",
+      "Mô hình chi giả ngón tay điều khiển bằng cảm biến cơ sinh học EMG",
+      "Thuật toán lọc nhiễu và phát hiện rối loạn nhịp tim từ dữ liệu ECG"
+    ],
+    "beginnerProjects": [
+      "Sử dụng cảm biến xung nhịp Pulse Sensor kết nối với Arduino để đo nhịp tim",
+      "Tìm hiểu cấu trúc một máy đo huyết áp điện tử và vẽ sơ đồ khối chức năng",
+      "Mô phỏng mô cấy ghép xương đùi chịu lực trên phần mềm mô phỏng 3D"
+    ],
+    "progressionPath": {
+      "entry": "Kỹ sư Y sinh Tập sự / Kỹ thuật viên Thiết bị Y tế (0 - 2 Năm): Lắp đặt, hiệu chuẩn máy móc y tế, hỗ trợ thử nghiệm trong phòng thí nghiệm.",
+      "mid": "Kỹ sư R&D Y sinh Mid-level (2 - 5 Năm): Thiết kế chi tiết linh kiện y tế, phát triển thuật toán xử lý tín hiệu sinh học.",
+      "senior": "Giám đốc Kỹ thuật Y sinh / Chuyên gia Tư vấn Thiết bị Y tế: Định hình danh mục sản phẩm y tế công nghệ cao và lãnh đạo các dự án y học đột phá."
+    },
+    "workStyle": "Disciplined laboratory testing, clinical validation, high humanitarian purpose",
+    "challenges": [
+      "Quy trình kiểm duyệt và cấp phép thiết bị y tế rất nghiêm ngặt và kéo dài",
+      "Đòi hỏi hiểu biết sâu sắc cả hai lĩnh vực Kỹ thuật chính xác và Y sinh học",
+      "Trách nhiệm đạo đức y khoa cực kỳ cao vì liên quan trực tiếp đến sức khỏe con người"
+    ],
+    "advantages": [
+      "Ý nghĩa nhân văn to lớn khi các sáng chế trực tiếp cứu chữa người bệnh",
+      "Ngành công nghệ cao có tốc độ phát triển mạnh mẽ và nhu cầu việc làm toàn cầu",
+      "Môi trường làm việc văn minh, tri thức cao và luôn đổi mới"
+    ],
+    "futureTrends": "Thiết bị đeo thông minh theo dõi sức khỏe liên tục 24/7. Nội tạng nhân tạo và in 3D mô sinh học. Robot phẫu thuật vi mô xâm lấn tối thiểu điều khiển từ xa",
+    "salaryInfo": {
+      "rangeDescription": "Khởi điểm: 12 - 20 Triệu VNĐ/tháng, Trung cấp: 24 - 42 Triệu VNĐ/tháng, Cao cấp: 48 - 85+ Triệu VNĐ/tháng",
+      "disclaimer": "Mức lương tham chiếu thực tế tại thị trường Việt Nam & khu vực, biến thiên theo năng lực và địa phương.",
+      "levelIndicator": "Very High"
+    },
+    "experiments": [
+      {
+        "title": "Đo Nhịp Tim Thực tế với Cảm biến Xung",
+        "duration": "2 Giờ",
+        "difficulty": "Beginner",
+        "description": "Kết nối cảm biến nhịp tim quang học với Arduino và xem đồ thị nhịp tim nhảy theo thời gian thực.",
+        "steps": [
+          "Chuẩn bị bo mạch Arduino và cảm biến Pulse Sensor",
+          "Nạp mã nguồn đọc dữ liệu tín hiệu analog",
+          "Mở Serial Plotter trên máy tính để thấy nhịp tim đập"
+        ],
+        "expectedOutcome": "Hiểu rõ các kỹ năng cốt lõi và niềm vui khi giải quyết vấn đề thực tế trong ngành.",
+        "evaluationQuestion": "Bạn có cảm thấy hào hứng và tràn đầy năng lượng khi vượt qua thử thách này không?"
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "physician-doctor",
+        "title": "physician-doctor",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "robotics-engineer",
+        "title": "robotics-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "environmental-scientist",
+        "title": "environmental-scientist",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "precision-automation-technician",
+        "title": "precision-automation-technician",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 17-2031.00)",
+    "lastUpdated": "2026-09",
+    "aiImpact": "AI hỗ trợ phân tích hình ảnh chẩn đoán bệnh sớm (phim X-quang, MRI) và tối ưu hóa thiết kế mô cấy ghép cá nhân hóa cho từng bệnh nhân."
+  },
+  {
+    "id": "physician-doctor",
+    "title": "Bác sĩ Đa khoa & Lâm sàng",
+    "aliases": [
+      "Bác sĩ Chuyên khoa",
+      "Bác sĩ Điều trị",
+      "Bác sĩ Gia đình"
+    ],
+    "description": "Khám bệnh, chẩn đoán, kê đơn, thực hiện thủ thuật điều trị và tư vấn chăm sóc sức khỏe toàn diện cho người bệnh.",
+    "careerCluster": "Y tế & Sức khỏe",
+    "industry": "Y tế & Chăm sóc Sức khỏe",
+    "tasks": [
+      "Thăm khám lâm sàng, hỏi bệnh sử và đánh giá triệu chứng thể chất của bệnh nhân",
+      "Chỉ định và phân tích kết quả xét nghiệm máu, chẩn đoán hình ảnh (X-quang, CT, MRI)",
+      "Lập phác đồ điều trị, kê đơn thuốc và theo dõi diễn tiến sức khỏe bệnh nhân",
+      "Thực hiện các thủ thuật y khoa, cấp cứu ban đầu hoặc tham gia phẫu thuật",
+      "Tư vấn chế độ dinh dưỡng, phòng ngừa bệnh tật và nâng cao sức khỏe cộng đồng"
+    ],
+    "responsibilities": [
+      "Bảo vệ sức khỏe và tính mạng của bệnh nhân với tinh thần trách nhiệm y đức cao nhất",
+      "Giữ bí mật tuyệt đối thông tin bệnh án của bệnh nhân theo pháp luật",
+      "Học tập liên tục để cập nhật phác đồ điều trị và tiến bộ y học mới"
+    ],
+    "workEnvironment": [
+      "Bệnh viện công lập, bệnh viện quốc tế và phòng khám chuyên khoa",
+      "Môi trường đòi hỏi sự tập trung cao độ và phản ứng nhanh",
+      "Trực ca đêm và xử lý các ca cấp cứu khẩn cấp",
+      "Giao tiếp trực tiếp hàng ngày với nhiều đối tượng bệnh nhân và người nhà"
+    ],
+    "requiredSkills": [
+      "Kiến thức y khoa giải phẫu, sinh lý bệnh và dược lý học sâu sắc",
+      "Kỹ năng thăm khám lâm sàng và chẩn đoán phân biệt",
+      "Xử trí tình huống cấp cứu và chăm sóc người bệnh",
+      "Giao tiếp thấu cảm và lắng nghe tích cực"
+    ],
+    "recommendedSkills": [
+      "Đọc và diễn giải hình ảnh học y khoa",
+      "Sử dụng phần mềm quản lý bệnh án điện tử (EMR)",
+      "Phương pháp nghiên cứu y học dựa trên bằng chứng (EBM)",
+      "Ngoại ngữ chuyên ngành y khoa để nghiên cứu tài liệu quốc tế"
+    ],
+    "softSkills": [
+      "Lòng nhân ái và thấu hiểu nỗi đau của người bệnh",
+      "Khả năng giữ bình tĩnh và ra quyết định dứt khoát dưới áp lực cao",
+      "Sức bền thể lực và tinh thần dẻo dai",
+      "Làm việc nhóm ăn ý với điều dưỡng và đồng nghiệp"
+    ],
+    "technicalSkills": [
+      "Khám lâm sàng",
+      "Đọc X-quang/CT",
+      "Hồi sức tim phổi CPR",
+      "Kê đơn an toàn",
+      "Bệnh án điện tử EMR"
+    ],
+    "relevantSubjects": [
+      "Sinh học",
+      "Hóa học",
+      "Toán học",
+      "Vật lý",
+      "Tiếng Anh"
+    ],
+    "relevantInterests": [
+      "Y học và cơ thể con người",
+      "Chăm sóc và giúp đỡ người bệnh",
+      "Nghiên cứu bệnh học",
+      "Sức khỏe cộng đồng"
+    ],
+    "riaSecProfile": {
+      "R": 0.4,
+      "I": 0.9,
+      "A": 0.3,
+      "S": 0.9,
+      "E": 0.5,
+      "C": 0.6
+    },
+    "mbtiCompatibility": [
+      "ISFJ",
+      "ESFJ",
+      "INFJ",
+      "ENFJ",
+      "ISTJ"
+    ],
+    "educationPaths": [
+      {
+        "type": "University",
+        "duration": "6 Năm",
+        "description": "Chương trình đào tạo y khoa toàn diện: giải phẫu, sinh lý, bệnh học nội - ngoại - sản - nhi và thực tập bệnh viện liên tục.",
+        "tradeoffs": "Con đường duy nhất bắt buộc để được cấp chứng chỉ hành nghề bác sĩ điều trị."
+      }
+    ],
+    "relatedMajors": [
+      "Y khoa (Bác sĩ Đa khoa)",
+      "Y học Cổ truyền",
+      "Răng Hàm Mặt",
+      "Y tế Công cộng"
+    ],
+    "vocationalPaths": [
+      "Cao đẳng Điều dưỡng / Kỹ thuật Y học",
+      "Bác sĩ Nội trú Chuyên khoa"
+    ],
+    "certifications": [
+      "Chứng chỉ Hành nghề Y khoa (CCHN)",
+      "Bác sĩ Chuyên khoa I / II",
+      "Chứng chỉ Cấp cứu Nâng cao (ACLS/BLS)"
+    ],
+    "portfolioExamples": [
+      "Khóa luận tốt nghiệp về dịch tễ học lâm sàng hoặc phác đồ điều trị mới",
+      "Báo cáo ca bệnh lâm sàng hiếm gặp được công bố trên tạp chí y học",
+      "Kinh nghiệm tình nguyện tại các chiến dịch khám chữa bệnh vùng cao"
+    ],
+    "beginnerProjects": [
+      "Tham gia khóa học sơ cấp cứu cơ bản và đạt chứng chỉ hồi sức tim phổi CPR",
+      "Lập sổ tay theo dõi và phân tích các chỉ số sức khỏe của người thân trong gia đình",
+      "Đọc và tóm tắt bài báo khoa học về cơ chế miễn dịch của cơ thể người"
+    ],
+    "progressionPath": {
+      "entry": "Bác sĩ Thực hành / Bác sĩ Nội trú (0 - 3 Năm): Thực hành lâm sàng tại các khoa bệnh viện, học hỏi dưới sự hướng dẫn của bác sĩ trưởng khoa.",
+      "mid": "Bác sĩ Điều trị Chính (Attending Physician) (3 - 7 Năm): Độc lập phụ trách buồng bệnh, chẩn đoán và trực tiếp thực hiện các ca điều trị phức tạp.",
+      "senior": "Trưởng khoa / Giám đốc Chuyên môn Bệnh viện: Điều hành hoạt động chuyên môn y tế toàn bệnh viện và dẫn dắt các chương trình y tế quốc gia."
+    },
+    "workStyle": "Intense human connection, fast-paced clinical diagnostic decisions, long hours requiring high stamina",
+    "challenges": [
+      "Thời gian đào tạo y khoa dài nhất trong các ngành nghề (6 năm đại học + đào tạo thực hành chuyên khoa)",
+      "Áp lực công việc cao, thường xuyên trực đêm và đối diện với ranh giới sinh tử",
+      "Đòi hỏi sự hy sinh cá nhân và tinh thần học hỏi suốt đời"
+    ],
+    "advantages": [
+      "Vị thế xã hội cao quý, được cộng đồng kính trọng và biết ơn sâu sắc",
+      "Giá trị nhân văn trực tiếp: mỗi ngày làm việc đều mang lại ý nghĩa cứu người",
+      "Sự nghiệp bền vững trọn đời, không bao giờ lỗi thời"
+    ],
+    "futureTrends": "Y học chính xác (Precision Medicine) điều trị theo bản đồ gen cá thể. Khám chữa bệnh từ xa (Telemedicine) kết nối chuyên gia toàn cầu. Phẫu thuật xâm lấn tối thiểu với sự hỗ trợ của robot thông minh",
+    "salaryInfo": {
+      "rangeDescription": "Khởi điểm: 10 - 18 Triệu VNĐ/tháng, Trung cấp: 25 - 50 Triệu VNĐ/tháng, Cao cấp: 60 - 120+ Triệu VNĐ/tháng",
+      "disclaimer": "Mức lương tham chiếu thực tế tại thị trường Việt Nam & khu vực, biến thiên theo năng lực và địa phương.",
+      "levelIndicator": "Very High"
+    },
+    "experiments": [
+      {
+        "title": "Học Sơ cứu Ban đầu & Kỹ thuật Băng bó",
+        "duration": "1 Buổi",
+        "difficulty": "Beginner",
+        "description": "Thực hành các kỹ thuật sơ cấp cứu: cầm máu vết thương, cố định gãy xương và xử lý dị vật đường thở.",
+        "steps": [
+          "Tìm hiểu nguyên tắc xử lý cấp cứu an toàn",
+          "Thực hành băng số 8 cố định khớp",
+          "Luyện tập thao tác ép tim hồi sức trên mô hình"
+        ],
+        "expectedOutcome": "Hiểu rõ các kỹ năng cốt lõi và niềm vui khi giải quyết vấn đề thực tế trong ngành.",
+        "evaluationQuestion": "Bạn có cảm thấy hào hứng và tràn đầy năng lượng khi vượt qua thử thách này không?"
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "biomedical-engineer",
+        "title": "biomedical-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "clinical-psychologist",
+        "title": "clinical-psychologist",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "environmental-scientist",
+        "title": "environmental-scientist",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "educational-technologist",
+        "title": "educational-technologist",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 29-1229.00)",
+    "lastUpdated": "2026-09",
+    "aiImpact": "AI đóng vai trò trợ lý đắc lực hỗ trợ đọc phim chẩn đoán sớm và cảnh báo tương tác thuốc; bác sĩ giữ vai trò quyết định lâm sàng và trao gửi sự thấu cảm nhân văn."
+  },
+  {
+    "id": "product-manager",
+    "title": "Giám đốc Sản phẩm Công nghệ",
+    "aliases": [
+      "Product Owner (PO)",
+      "Quản lý Sản phẩm Số",
+      "Technical Product Manager"
+    ],
+    "description": "Định hình tầm nhìn, chiến lược phát triển, lộ trình tính năng và dung hòa nhu cầu người dùng, công nghệ với mục tiêu kinh doanh của sản phẩm số.",
+    "careerCluster": "Kinh doanh & Công nghệ",
+    "industry": "Công nghệ Số & Sản phẩm Phần mềm",
+    "tasks": [
+      "Nghiên cứu thị trường, phân tích đối thủ cạnh tranh và khảo sát hành vi người dùng",
+      "Xây dựng tài liệu yêu cầu sản phẩm (PRD) và viết các câu chuyện người dùng (User Stories)",
+      "Ưu tiên thứ tự phát triển các tính năng dựa trên giá trị kinh doanh và tính khả thi kỹ thuật",
+      "Làm việc chặt chẽ hàng ngày với nhóm Kỹ sư (Dev), Nhà thiết kế (UI/UX) và Tiếp thị (Marketing)",
+      "Theo dõi các chỉ số đo lường hiệu quả sản phẩm (KPI, North Star Metric, Retention, Conversion)"
+    ],
+    "responsibilities": [
+      "Chịu trách nhiệm về sự thành bại toàn diện của sản phẩm số trên thị trường",
+      "Đảm bảo sản phẩm ra mắt đúng tiến độ, giải quyết đúng nỗi đau của khách hàng",
+      "Tối ưu hóa trải nghiệm người dùng và thúc đẩy doanh thu doanh nghiệp"
+    ],
+    "workEnvironment": [
+      "Văn phòng công ty công nghệ năng động, hiện đại",
+      "Linh hoạt làm việc kết hợp từ xa",
+      "Tương tác và giao tiếp liên tục với nhiều phòng ban khác nhau",
+      "Văn hóa ra quyết định dựa trên dữ liệu (Data-driven Culture)"
+    ],
+    "requiredSkills": [
+      "Tư duy chiến lược sản phẩm và mô hình kinh doanh",
+      "Hiểu biết về kiến trúc phần mềm và quy trình phát triển Agile/Scrum",
+      "Phân tích dữ liệu người dùng (Google Analytics, Mixpanel, Amplitude)",
+      "Kỹ năng phỏng vấn người dùng và thiết kế trải nghiệm khách hàng"
+    ],
+    "recommendedSkills": [
+      "Tạo mẫu sản phẩm nhanh (Wireframing / Figma cơ bản)",
+      "Kiểm thử giả thuyết A/B Testing",
+      "Tài chính sản phẩm và dự phóng tăng trưởng",
+      "Kỹ năng thuyết trình và đàm phán thuyết phục"
+    ],
+    "softSkills": [
+      "Năng lực lãnh đạo không cần quyền lực (Influence without Authority)",
+      "Giao tiếp xuất sắc giữa giới kinh doanh và kỹ thuật",
+      "Tư duy thấu cảm sâu sắc với khách hàng",
+      "Giải quyết xung đột và quản lý kỳ vọng"
+    ],
+    "technicalSkills": [
+      "Agile/Scrum",
+      "Jira",
+      "Figma",
+      "SQL cơ bản",
+      "Mixpanel",
+      "Google Analytics",
+      "A/B Testing",
+      "Notion"
+    ],
+    "relevantSubjects": [
+      "Tin học",
+      "Toán học & Thống kê",
+      "Kinh tế học",
+      "Ngữ văn & Truyền thông",
+      "Tiếng Anh"
+    ],
+    "relevantInterests": [
+      "Khởi nghiệp kinh doanh",
+      "Trải nghiệm ứng dụng mới",
+      "Chiến lược công nghệ",
+      "Tâm lý học hành vi người tiêu dùng"
+    ],
+    "riaSecProfile": {
+      "R": 0.25,
+      "I": 0.7,
+      "A": 0.55,
+      "S": 0.65,
+      "E": 0.95,
+      "C": 0.6
+    },
+    "mbtiCompatibility": [
+      "ENTJ",
+      "ENTP",
+      "ENFJ",
+      "INTJ"
+    ],
+    "educationPaths": [
+      {
+        "type": "University",
+        "duration": "4 Năm",
+        "description": "Tạo lập nền tảng hiểu biết công nghệ kết hợp với tư duy quản trị kinh doanh và tài chính.",
+        "tradeoffs": "Được các công ty công nghệ lớn đánh giá rất cao về khả năng liên ngành."
+      }
+    ],
+    "relatedMajors": [
+      "Quản trị Kinh doanh Công nghệ",
+      "Hệ thống Thông tin Quản lý",
+      "Khoa học Máy tính",
+      "Kinh tế & Marketing"
+    ],
+    "vocationalPaths": [
+      "Khóa đào tạo Chuyên sâu Product Management Thực chiến",
+      "Chứng chỉ Quản trị Sản phẩm Quốc tế"
+    ],
+    "certifications": [
+      "Professional Scrum Product Owner (PSPO)",
+      "Certified Product Manager (AIPMM)",
+      "Reforge Product Leadership"
+    ],
+    "portfolioExamples": [
+      "Tài liệu PRD hoàn chỉnh cho một tính năng mới của ứng dụng phổ biến",
+      "Bản đồ hành trình khách hàng (User Journey Map) và phân tích cải thiện tỷ lệ chuyển đổi",
+      "Báo cáo thử nghiệm A/B Testing giải quyết bài toán giữ chân người dùng"
+    ],
+    "beginnerProjects": [
+      "Chọn một ứng dụng bạn dùng hàng ngày (Grab, Shopee, Spotify), tìm ra 1 điểm bất tiện và viết tài liệu đề xuất giải pháp cải tiến",
+      "Vẽ sơ đồ khung xương (Wireframe) giải pháp trên giấy hoặc Figma",
+      "Thực hiện phỏng vấn 5 người bạn để kiểm chứng xem họ có gặp vấn đề tương tự không"
+    ],
+    "progressionPath": {
+      "entry": "Chuyên viên Phân tích Nghiệp vụ / Associate PM (APM) (0 - 2 Năm): Hỗ trợ viết User Stories, theo dõi chỉ số và điều phối công việc hàng ngày của nhóm dev.",
+      "mid": "Quản lý Sản phẩm Mid-level (Product Manager) (2 - 5 Năm): Độc lập phụ trách trọn vẹn một dòng sản phẩm hoặc tính năng cốt lõi của doanh nghiệp.",
+      "senior": "Giám đốc Khối Sản phẩm (Chief Product Officer - CPO): Định hình toàn bộ tầm nhìn chiến lược sản phẩm và văn hóa sản phẩm của tập đoàn."
+    },
+    "workStyle": "High cross-functional communication, synthesizing data with intuition, decisive prioritization",
+    "challenges": [
+      "Chịu trách nhiệm về sản phẩm nhưng không trực tiếp quản lý cấp trên của kỹ sư và nhà thiết kế",
+      "Phải thường xuyên đưa ra quyết định từ chối các yêu cầu để giữ sản phẩm tập trung",
+      "Áp lực cân bằng giữa kỳ vọng của ban lãnh đạo và phản hồi từ khách hàng"
+    ],
+    "advantages": [
+      "Vai trò như 'CEO thu nhỏ' của sản phẩm, có tiếng nói quyết định trực tiếp",
+      "Mức lương và cơ hội thăng tiến lên ban điều hành (CPO, CEO) rất cao",
+      "Được làm việc ở giao điểm thú vị nhất giữa Công nghệ, Kinh doanh và Nghệ thuật Thiết kế"
+    ],
+    "futureTrends": "Sản phẩm tích hợp AI bản địa (AI-native Products) cá nhân hóa từng người dùng. Tăng trưởng dẫn dắt bởi Sản phẩm (Product-Led Growth - PLG). Tự động hóa phân tích hành vi người dùng bằng mô hình học máy",
+    "salaryInfo": {
+      "rangeDescription": "Khởi điểm: 15 - 25 Triệu VNĐ/tháng, Trung cấp: 30 - 60 Triệu VNĐ/tháng, Cao cấp: 65 - 120+ Triệu VNĐ/tháng",
+      "disclaimer": "Mức lương tham chiếu thực tế tại thị trường Việt Nam & khu vực, biến thiên theo năng lực và địa phương.",
+      "levelIndicator": "Very High"
+    },
+    "experiments": [
+      {
+        "title": "Viết Bản Đề xuất Cải tiến Sản phẩm (Mini PRD)",
+        "duration": "2 Giờ",
+        "difficulty": "Beginner",
+        "description": "Chọn một tính năng bạn muốn cải tiến trên ứng dụng mạng xã hội và trình bày lý do, giải pháp và cách đo lường.",
+        "steps": [
+          "Xác định rõ vấn đề người dùng đang gặp phải",
+          "Mô tả giải pháp đề xuất kèm bản vẽ tay",
+          "Đặt ra 3 chỉ số để biết tính năng có thành công hay không"
+        ],
+        "expectedOutcome": "Hiểu rõ các kỹ năng cốt lõi và niềm vui khi giải quyết vấn đề thực tế trong ngành.",
+        "evaluationQuestion": "Bạn có cảm thấy hào hứng và tràn đầy năng lượng khi vượt qua thử thách này không?"
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "ux-designer",
+        "title": "ux-designer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "software-engineer",
+        "title": "software-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "ai-data-scientist",
+        "title": "ai-data-scientist",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "financial-analyst",
+        "title": "financial-analyst",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 11-1021.00 & Product Org Standards)",
+    "lastUpdated": "2026-09",
+    "aiImpact": "AI hỗ trợ tổng hợp phản hồi khách hàng và phân tích xu hướng; Product Manager tập trung vào chiến lược khác biệt hóa, định giá và tầm nhìn đột phá."
+  },
+  {
+    "id": "ux-designer",
+    "title": "Nhà thiết kế Trải nghiệm & Giao diện Người dùng",
+    "aliases": [
+      "UI/UX Designer",
+      "Product Designer",
+      "Nhà thiết kế Sản phẩm Số"
+    ],
+    "description": "Nghiên cứu hành vi người dùng, kiến trúc luồng trải nghiệm và thiết kế giao diện kỹ thuật số trực quan, đẹp mắt cho ứng dụng di động và trang web.",
+    "careerCluster": "Nghệ thuật & Thiết kế",
+    "industry": "Thiết kế Số & Trải nghiệm Người dùng",
+    "tasks": [
+      "Thực hiện nghiên cứu người dùng, phỏng vấn và xây dựng chân dung khách hàng (User Personas)",
+      "Vẽ sơ đồ luồng thông tin (User Flows) và khung dây giao diện (Wireframes)",
+      "Thiết kế giao diện tương tác có độ sắc nét cao (High-fidelity UI) trên Figma",
+      "Xây dựng và duy trì hệ thống thiết kế đồng bộ (Design System & Component Library)",
+      "Tạo bản mẫu thử nghiệm tương tác (Interactive Prototypes) và kiểm thử khả năng sử dụng (Usability Testing)"
+    ],
+    "responsibilities": [
+      "Đảm bảo sản phẩm số dễ sử dụng, dễ tiếp cận và mang lại trải nghiệm thú vị cho người dùng",
+      "Dung hòa giữa tính thẩm mỹ thị giác và tính khả thi khi lập trình giao diện",
+      "Phối hợp chặt chẽ với Kỹ sư phần mềm (Front-end) và Quản lý sản phẩm (PM)"
+    ],
+    "workEnvironment": [
+      "Studio thiết kế sáng tạo hoặc công ty công nghệ",
+      "Linh hoạt làm việc từ xa (Remote / Hybrid)",
+      "Không gian làm việc thị giác, bảng vẽ cảm ứng và công cụ đồ họa",
+      "Môi trường phản biện và đóng góp ý kiến thiết kế cởi mở"
+    ],
+    "requiredSkills": [
+      "Thành thạo công cụ thiết kế chuẩn công nghiệp Figma",
+      "Nguyên lý thiết kế thị giác (Màu sắc, Typography, Bố cục lưới Grid)",
+      "Phương pháp nghiên cứu định tính và kiểm thử trải nghiệm người dùng",
+      "Tư duy thiết kế lấy con người làm trung tâm (Human-Centered Design)"
+    ],
+    "recommendedSkills": [
+      "Hiểu biết cơ bản về HTML/CSS và khả năng hiển thị giao diện web",
+      "Thiết kế chuyển động vi tương tác (Micro-interactions & Animation)",
+      "Khả năng tiếp cận chuẩn quốc tế (Accessibility - WCAG)",
+      "Thiết kế trải nghiệm đa nền tảng (iOS Human Interface, Material Design)"
+    ],
+    "softSkills": [
+      "Khả năng thấu cảm sâu sắc với cảm xúc con người",
+      "Kỹ năng lắng nghe và tiếp nhận phản biện xây dựng",
+      "Trình bày và bảo vệ ý tưởng thiết kế thuyết phục",
+      "Tư duy quan sát chi tiết thẩm mỹ"
+    ],
+    "technicalSkills": [
+      "Figma",
+      "Design System",
+      "Wireframing",
+      "Prototyping",
+      "Usability Testing",
+      "HTML/CSS cơ bản",
+      "Miro",
+      "Principle"
+    ],
+    "relevantSubjects": [
+      "Mỹ thuật & Hội họa",
+      "Tin học",
+      "Tâm lý học",
+      "Ngữ văn",
+      "Tiếng Anh"
+    ],
+    "relevantInterests": [
+      "Hội họa và nghệ thuật thị giác",
+      "Thiết kế đồ họa",
+      "Trải nghiệm ứng dụng đẹp",
+      "Tâm lý học hành vi"
+    ],
+    "riaSecProfile": {
+      "R": 0.25,
+      "I": 0.65,
+      "A": 0.95,
+      "S": 0.65,
+      "E": 0.45,
+      "C": 0.5
+    },
+    "mbtiCompatibility": [
+      "INFP",
+      "ENFP",
+      "ISFP",
+      "INFJ"
+    ],
+    "educationPaths": [
+      {
+        "type": "University",
+        "duration": "4 Năm",
+        "description": "Đào tạo bài bản về tư duy mỹ thuật, phối màu, tỷ lệ vàng, tâm lý thị giác và công cụ số.",
+        "tradeoffs": "Nền tảng thẩm mỹ vững vàng giúp phát triển phong cách thiết kế độc đáo."
+      }
+    ],
+    "relatedMajors": [
+      "Thiết kế Đồ họa",
+      "Thiết kế Mỹ thuật Số",
+      "Tương tác Người - Máy (HCI)",
+      "Công nghệ Đa phương tiện"
+    ],
+    "vocationalPaths": [
+      "Khóa đào tạo Chuyên sâu UI/UX Product Design",
+      "Chứng chỉ Thiết kế Đồ họa & Web Cao đẳng"
+    ],
+    "certifications": [
+      "Google UX Design Professional Certificate",
+      "Interaction Design Foundation (IxDF) Certified",
+      "Figma Creator Certificate"
+    ],
+    "portfolioExamples": [
+      "Nghiên cứu tình huống (Case Study) thiết kế lại một ứng dụng đặt vé hoặc ngân hàng số",
+      "Hệ thống Design System hoàn chỉnh với bảng màu, kiểu chữ và các thành phần nút bấm",
+      "Bản mẫu Figma có thể click tương tác như ứng dụng thật"
+    ],
+    "beginnerProjects": [
+      "Mở Figma miễn phí và vẽ lại giao diện màn hình trang cá nhân của ứng dụng Instagram",
+      "Thiết kế lại bảng thực đơn của một quán cà phê bạn yêu thích thành ứng dụng di động",
+      "Phỏng vấn 3 người bạn về điểm họ chưa hài lòng ở một trang web trường học và vẽ bản phác thảo cải tiến"
+    ],
+    "progressionPath": {
+      "entry": "Nhà thiết kế Giao diện Tập sự / Junior UI/UX Designer (0 - 2 Năm): Thiết kế các màn hình phụ, làm icon, vẽ minh họa và hỗ trợ kiểm thử người dùng.",
+      "mid": "Nhà thiết kế Sản phẩm Mid-level (Product Designer) (2 - 5 Năm): Chủ trì trọn vẹn trải nghiệm cho tính năng chính, xây dựng Design System.",
+      "senior": "Giám đốc Thiết kế Sáng tạo (Head of Design / VP of Design): Hoạch định chiến lược thương hiệu thị giác và trải nghiệm khách hàng toàn tập đoàn."
+    },
+    "workStyle": "Visual, iterative, high empathy, sketching and testing continuously",
+    "challenges": [
+      "Ý kiến về cái đẹp mang tính chủ quan, cần dữ liệu nghiên cứu để bảo vệ thiết kế",
+      "Cần liên tục cập nhật các xu hướng thiết kế giao diện mới của thế giới",
+      "Phải tìm kiếm sự cân bằng giữa ý tưởng sáng tạo và giới hạn kỹ thuật lập trình"
+    ],
+    "advantages": [
+      "Cơ hội việc làm rộng mở tại các công ty công nghệ và agency quốc tế",
+      "Cực kỳ thỏa mãn khi thấy hàng triệu người tương tác hàng ngày với tác phẩm của mình",
+      "Môi trường làm việc tự do, sáng tạo và mức thu nhập hấp dẫn"
+    ],
+    "futureTrends": "Giao diện tương tác giọng nói và không gian (Spatial UI cho kính thực tế ảo AR/VR). Giao diện AI thích ứng tự động cá nhân hóa theo từng người dùng. Thiết kế bền vững và hòa nhập cho người khuyết tật",
+    "salaryInfo": {
+      "rangeDescription": "Khởi điểm: 12 - 20 Triệu VNĐ/tháng, Trung cấp: 24 - 45 Triệu VNĐ/tháng, Cao cấp: 50 - 90+ Triệu VNĐ/tháng",
+      "disclaimer": "Mức lương tham chiếu thực tế tại thị trường Việt Nam & khu vực, biến thiên theo năng lực và địa phương.",
+      "levelIndicator": "Very High"
+    },
+    "experiments": [
+      {
+        "title": "Tạo Bản Mẫu Giao diện Đầu Tiên trên Figma",
+        "duration": "2 Giờ",
+        "difficulty": "Beginner",
+        "description": "Mở Figma trên trình duyệt và thiết kế một màn hình đăng nhập ứng dụng với đầy đủ nút bấm và hình ảnh.",
+        "steps": [
+          "Tạo tài khoản Figma miễn phí",
+          "Chọn khung màn hình iPhone 15",
+          "Thêm khung nhập email, mật khẩu và nút 'Đăng nhập'"
+        ],
+        "expectedOutcome": "Hiểu rõ các kỹ năng cốt lõi và niềm vui khi giải quyết vấn đề thực tế trong ngành.",
+        "evaluationQuestion": "Bạn có cảm thấy hào hứng và tràn đầy năng lượng khi vượt qua thử thách này không?"
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "product-manager",
+        "title": "product-manager",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "game-designer",
+        "title": "game-designer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "software-engineer",
+        "title": "software-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "educational-technologist",
+        "title": "educational-technologist",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 27-1024.00)",
+    "lastUpdated": "2026-09",
+    "aiImpact": "AI hỗ trợ tạo mẫu giao diện nhanh và biến ý tưởng thành bố cục sơ bộ; nhà thiết kế tập trung vào thấu cảm sâu, tương tác cảm xúc và trải nghiệm người dùng tinh tế."
+  },
+  {
+    "id": "game-designer",
+    "title": "Nhà thiết kế & Lập trình Game",
+    "aliases": [
+      "Game Developer",
+      "Game Designer",
+      "Kỹ sư Phát triển Trò chơi Điện tử"
+    ],
+    "description": "Sáng tạo cốt truyện, luật chơi, cơ chế gameplay, thế giới ảo và lập trình hệ thống tương tác cho các trò chơi điện tử trên PC, Console và Mobile.",
+    "careerCluster": "Nghệ thuật & Công nghệ",
+    "industry": "Công nghiệp Trò chơi Điện tử & Giải trí Tương tác",
+    "tasks": [
+      "Viết tài liệu thiết kế trò chơi chi tiết (GDD - Game Design Document)",
+      "Thiết kế cơ chế chơi (Gameplay Mechanics), bảng cân bằng chỉ số nhân vật và phần thưởng",
+      "Lập trình logic trò chơi và vật lý chuyển động bằng công cụ chuyên dụng (Unity / Unreal Engine)",
+      "Thiết kế màn chơi (Level Design) và trải nghiệm thử thách hấp dẫn",
+      "Tối ưu hóa hiệu năng khung hình (FPS) và kiểm thử độ mượt mà của trò chơi"
+    ],
+    "responsibilities": [
+      "Tạo ra trải nghiệm chơi game cuốn hút, cân bằng và giữ chân người chơi",
+      "Đảm bảo trò chơi vận hành mượt mà, không gặp lỗi nghiêm trọng (Game-breaking Bugs)",
+      "Phối hợp nhịp nhàng giữa đội ngũ Lập trình, Họa sĩ 3D/2D và Âm thanh"
+    ],
+    "workEnvironment": [
+      "Studio phát triển game sôi động, đầy cảm hứng sáng tạo",
+      "Môi trường làm việc ngập tràn văn hóa game và văn hóa đại chúng",
+      "Thời lượng làm việc trên máy tính và chơi thử game kiểm tra cao",
+      "Linh hoạt làm việc kết hợp từ xa"
+    ],
+    "requiredSkills": [
+      "Thành thạo công cụ làm game hàng đầu (Unity với C# hoặc Unreal Engine với C++/Blueprints)",
+      "Tư duy thiết kế cơ chế gameplay và cân bằng toán học trò chơi",
+      "Lập trình hướng đối tượng và toán học không gian 3D (Vector, Ma trận, Góc quay)",
+      "Kỹ năng thiết kế màn chơi và trải nghiệm người chơi (Game UX)"
+    ],
+    "recommendedSkills": [
+      "Lập trình Shader và hiệu ứng hình ảnh VFX",
+      "Lập trình mạng cho game nhiều người chơi (Multiplayer Networking)",
+      "Mô hình hóa 3D cơ bản trên Blender",
+      "Thiết kế âm thanh và nhạc nền thích ứng (FMOD, Wwise)"
+    ],
+    "softSkills": [
+      "Đam mê mãnh liệt với nghệ thuật trò chơi điện tử",
+      "Tư duy kể chuyện và xây dựng thế giới giàu trí tưởng tượng",
+      "Khả năng tiếp nhận phản hồi từ cộng đồng game thủ",
+      "Kiên trì vượt qua các giai đoạn thử nghiệm liên tục"
+    ],
+    "technicalSkills": [
+      "Unity",
+      "C#",
+      "Unreal Engine",
+      "C++",
+      "Blueprints",
+      "Blender",
+      "Git",
+      "Level Design"
+    ],
+    "relevantSubjects": [
+      "Tin học",
+      "Toán học (Hình học không gian & Đại số)",
+      "Vật lý",
+      "Mỹ thuật",
+      "Tiếng Anh"
+    ],
+    "relevantInterests": [
+      "Chơi và phân tích trò chơi điện tử",
+      "Sáng tác cốt truyện thế giới giả tưởng",
+      "Lập trình đồ họa",
+      "Vẽ hoạt hình và 3D"
+    ],
+    "riaSecProfile": {
+      "R": 0.5,
+      "I": 0.65,
+      "A": 0.95,
+      "S": 0.35,
+      "E": 0.5,
+      "C": 0.4
+    },
+    "mbtiCompatibility": [
+      "INFP",
+      "INTP",
+      "ENFP",
+      "ENTP"
+    ],
+    "educationPaths": [
+      {
+        "type": "University",
+        "duration": "4 Năm",
+        "description": "Cung cấp nền tảng vững chắc về cấu trúc dữ liệu thuật toán máy tính kết hợp đồ họa không gian 3D.",
+        "tradeoffs": "Trang bị đầy đủ kiến thức để phát triển các dự án game quy mô lớn."
+      }
+    ],
+    "relatedMajors": [
+      "Kỹ thuật Phần mềm Game",
+      "Khoa học Máy tính",
+      "Thiết kế Mỹ thuật Đa phương tiện",
+      "Nghệ thuật Game 3D"
+    ],
+    "vocationalPaths": [
+      "Khóa đào tạo Lập trình Game Unity / Unreal",
+      "Chứng chỉ Thiết kế Game Chuyên nghiệp"
+    ],
+    "certifications": [
+      "Unity Certified Associate / Professional",
+      "Unreal Engine Authorized Instructor / Specialist"
+    ],
+    "portfolioExamples": [
+      "Bản chơi thử (Playable Demo) hoàn chỉnh của một game 2D hoặc 3D trên nền tảng Itch.io",
+      "Tài liệu Game Design Document hoàn chỉnh trình bày thế giới và cơ chế chơi",
+      "Video ghi lại cơ chế điều khiển nhân vật và câu đố màn chơi mượt mà"
+    ],
+    "beginnerProjects": [
+      "Sử dụng công cụ Scratch để tạo một trò chơi né vật cản đơn giản",
+      "Tải Unity Hub và làm theo hướng dẫn tạo game Platformer 2D cơ bản trong 1 ngày",
+      "Tạo một màn chơi câu đố trong Roblox Studio hoặc Minecraft để bạn bè cùng chơi"
+    ],
+    "progressionPath": {
+      "entry": "Lập trình viên / Thiết kế Game Junior (0 - 2 Năm): Lập trình cơ chế di chuyển, sửa lỗi giao diện, bố trí vật phẩm trong màn chơi.",
+      "mid": "Nhà phát triển Game Mid-level (2 - 5 Năm): Thiết kế trọn gói hệ thống chiến đấu, lập trình trí tuệ nhân tạo quái vật và tối ưu khung hình.",
+      "senior": "Giám đốc Sáng tạo Game (Creative Director / Game Director): Lãnh đạo toàn bộ tầm nhìn nghệ thuật, câu chuyện và thương hiệu trò chơi bom tấn."
+    },
+    "workStyle": "High creativity blended with rigorous logic, frequent playtest iterations",
+    "challenges": [
+      "Quy trình sản xuất game đòi hỏi khối lượng công việc khổng lồ và kiên trì",
+      "Giai đoạn hoàn thiện game sát ngày ra mắt có thể đối mặt với áp lực cao",
+      "Thị trường game cạnh tranh khốc liệt, đòi hỏi tính sáng tạo và đột phá"
+    ],
+    "advantages": [
+      "Biến sở thích chơi game thành sự nghiệp chuyên nghiệp mang lại thu nhập cao",
+      "Cảm giác tự hào to lớn khi chứng kiến hàng ngàn game thủ say mê thế giới do bạn tạo ra",
+      "Ngành công nghiệp giải trí có doanh thu toàn cầu lớn hơn cả điện ảnh và âm nhạc cộng lại"
+    ],
+    "futureTrends": "Thế giới mở rộng lớn với hệ thống NPC điều khiển bằng AI tạo sinh. Trò chơi thực tế ảo VR/AR nhập vai hoàn toàn. Công nghệ chơi game qua đám mây (Cloud Gaming) không cần máy tính cấu hình mạnh",
+    "salaryInfo": {
+      "rangeDescription": "Khởi điểm: 12 - 20 Triệu VNĐ/tháng, Trung cấp: 24 - 45 Triệu VNĐ/tháng, Cao cấp: 50 - 95+ Triệu VNĐ/tháng",
+      "disclaimer": "Mức lương tham chiếu thực tế tại thị trường Việt Nam & khu vực, biến thiên theo năng lực và địa phương.",
+      "levelIndicator": "Very High"
+    },
+    "experiments": [
+      {
+        "title": "Tạo Game 2D Đơn Giản Đầu Tiên trên Unity",
+        "duration": "1 Buổi",
+        "difficulty": "Beginner",
+        "description": "Cài đặt Unity và tạo một nhân vật quả bóng có thể nhảy và nhặt đồng xu vàng.",
+        "steps": [
+          "Tải Unity Hub và cài đặt phiên bản LTS",
+          "Tạo một mặt đất 2D và thêm quả bóng có thành phần Rigidbody2D",
+          "Viết script C# điều khiển chuyển động bằng các phím mũi tên"
+        ],
+        "expectedOutcome": "Hiểu rõ các kỹ năng cốt lõi và niềm vui khi giải quyết vấn đề thực tế trong ngành.",
+        "evaluationQuestion": "Bạn có cảm thấy hào hứng và tràn đầy năng lượng khi vượt qua thử thách này không?"
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "ux-designer",
+        "title": "ux-designer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "software-engineer",
+        "title": "software-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "educational-technologist",
+        "title": "educational-technologist",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "robotics-engineer",
+        "title": "robotics-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 15-1255.01)",
+    "lastUpdated": "2026-09",
+    "aiImpact": "AI hỗ trợ sinh nội dung nhanh (kết cấu bề mặt texture, mô hình 3D sơ bộ, hội thoại NPC thông minh); nhà làm game tập trung vào ý tưởng gameplay độc đáo và cảm xúc thăng hoa của người chơi."
+  },
+  {
+    "id": "environmental-scientist",
+    "title": "Nhà khoa học Môi trường & Khí hậu",
+    "aliases": [
+      "Chuyên gia Đánh giá Tác động Môi trường",
+      "Kỹ sư Môi trường & Bền vững",
+      "Nhà sinh thái học"
+    ],
+    "description": "Nghiên cứu các hệ sinh thái tự nhiên, quan trắc ô nhiễm nguồn nước và không khí, đánh giá biến đổi khí hậu và hoạch định giải pháp bảo tồn hành tinh.",
+    "careerCluster": "Khoa học & Môi trường",
+    "industry": "Bảo vệ Môi trường & Phát triển Bền vững",
+    "tasks": [
+      "Thu thập và phân tích mẫu đất, nước, không khí tại hiện trường thực địa",
+      "Sử dụng phần mềm GIS (Hệ thống Thông tin Địa lý) để lập bản đồ ô nhiễm và biến động rừng",
+      "Đánh giá tác động môi trường (ĐTM / EIA) cho các dự án xây dựng và khu công nghiệp",
+      "Xây dựng chiến lược giảm thiểu rác thải, chuyển đổi kinh tế tuần hoàn và năng lượng xanh",
+      "Tư vấn chính sách môi trường cho các cơ quan nhà nước và tổ chức phi chính phủ"
+    ],
+    "responsibilities": [
+      "Bảo vệ sức khỏe cộng đồng và sự cân bằng bền vững của hệ sinh thái tự nhiên",
+      "Đảm bảo các doanh nghiệp tuân thủ nghiêm ngặt luật bảo vệ môi trường",
+      "Cung cấp các bằng chứng khoa học chính xác về xu hướng biến đổi khí hậu"
+    ],
+    "workEnvironment": [
+      "Kết hợp hài hòa giữa nghiên cứu thực địa ngoài trời và phòng thí nghiệm",
+      "Trung tâm quan trắc tài nguyên môi trường",
+      "Văn phòng tư vấn phát triển bền vững và quản lý rủi ro khí hậu",
+      "Môi trường làm việc gần gũi với thiên nhiên và mang tính phụng sự xã hội"
+    ],
+    "requiredSkills": [
+      "Hóa học môi trường, sinh thái học và thổ nhưỡng học",
+      "Kỹ thuật lấy mẫu và phân tích trong phòng thí nghiệm đạt chuẩn",
+      "Phân tích dữ liệu không gian với ArcGIS hoặc QGIS",
+      "Nắm vững luật và các quy chuẩn kỹ thuật quốc gia về môi trường"
+    ],
+    "recommendedSkills": [
+      "Mô hình hóa biến đổi khí hậu và phát thải khí nhà kính (ESG / Carbon Accounting)",
+      "Sử dụng thiết bị cảm biến quan trắc tự động và máy bay không người lái (Drone)",
+      "Lập trình phân tích dữ liệu môi trường bằng Python hoặc R",
+      "Kỹ năng truyền thông và vận động chính sách cộng đồng"
+    ],
+    "softSkills": [
+      "Tình yêu sâu sắc và trách nhiệm với thiên nhiên",
+      "Tư duy hệ sinh thái toàn diện",
+      "Sức khỏe và sự dẻo dai trong các chuyến khảo sát thực địa",
+      "Giao tiếp và thuyết phục các bên liên quan bảo vệ môi trường"
+    ],
+    "technicalSkills": [
+      "GIS (ArcGIS/QGIS)",
+      "Phân tích mẫu môi trường",
+      "Python/R",
+      "Báo cáo ĐTM",
+      "Đo kiểm khí thải/nước thải",
+      "Carbon Accounting"
+    ],
+    "relevantSubjects": [
+      "Sinh học",
+      "Hóa học",
+      "Địa lý",
+      "Toán học",
+      "Tiếng Anh"
+    ],
+    "relevantInterests": [
+      "Bảo vệ thiên nhiên hoang dã",
+      "Khảo sát thực địa ngoài trời",
+      "Nghiên cứu biến đổi khí hậu",
+      "Năng lượng xanh"
+    ],
+    "riaSecProfile": {
+      "R": 0.75,
+      "I": 0.9,
+      "A": 0.35,
+      "S": 0.6,
+      "E": 0.4,
+      "C": 0.65
+    },
+    "mbtiCompatibility": [
+      "INFJ",
+      "INFP",
+      "INTJ",
+      "ISFP"
+    ],
+    "educationPaths": [
+      {
+        "type": "University",
+        "duration": "4 Năm",
+        "description": "Đào tạo bài bản về sinh thái học, hóa phân tích, vi sinh môi trường, công nghệ xử lý nước và rác thải.",
+        "tradeoffs": "Nền tảng học thuật chuẩn mực để làm việc tại các viện nghiên cứu và tổ chức quốc tế."
+      }
+    ],
+    "relatedMajors": [
+      "Khoa học Môi trường",
+      "Quản lý Tài nguyên & Môi trường",
+      "Kỹ thuật Môi trường",
+      "Biến đổi Khí hậu & Phát triển Bền vững"
+    ],
+    "vocationalPaths": [
+      "Cao đẳng Kỹ thuật Quan trắc Môi trường",
+      "Chứng chỉ Kiểm kê Khí nhà kính & Báo cáo ESG"
+    ],
+    "certifications": [
+      "Chuyên viên Đánh giá Môi trường Quốc tế (IEMA)",
+      "Chứng chỉ Kiểm kê Carbon (GHG Protocol Lead)",
+      "LEED Green Associate"
+    ],
+    "portfolioExamples": [
+      "Bản đồ GIS phân tích biến động thảm thực vật rừng tại một khu bảo tồn qua ảnh vệ tinh",
+      "Báo cáo đánh giá chất lượng nguồn nước ngầm tại khu vực nông thôn kèm giải pháp lọc sinh học",
+      "Đề tài nghiên cứu ứng dụng thực vật để hấp thụ kim loại nặng trong đất"
+    ],
+    "beginnerProjects": [
+      "Sử dụng bộ thử nước nhanh đo độ pH và nồng độ chất hòa tan (TDS) nguồn nước sinh hoạt gia đình",
+      "Tải phần mềm mã nguồn mở QGIS và tải dữ liệu bản đồ địa phương để hiển thị các con sông",
+      "Lập kế hoạch giảm thiểu rác thải nhựa trong 30 ngày cho gia đình và đo lường lượng rác cắt giảm"
+    ],
+    "progressionPath": {
+      "entry": "Chuyên viên Quan trắc / Khảo sát Môi trường Junior (0 - 2 Năm): Lấy mẫu thực địa, thực hiện thí nghiệm đo lường các chỉ số ô nhiễm tại phòng lab.",
+      "mid": "Chuyên gia Tư vấn Môi trường Mid-level (2 - 5 Năm): Lập báo cáo đánh giá tác động môi trường ĐTM, phân tích dữ liệu bản đồ GIS.",
+      "senior": "Giám đốc Phát triển Bền vững (Chief Sustainability Officer - CSO): Định hình toàn bộ chiến lược phát triển xanh và trách nhiệm môi trường của tập đoàn."
+    },
+    "workStyle": "Splits time between outdoor fieldwork in natural elements, clean lab analysis, and geospatial report writing",
+    "challenges": [
+      "Khảo sát thực địa có thể phải di chuyển đến các vùng sâu, vùng xa trong điều kiện thời tiết khắc nghiệt",
+      "Đôi khi phải đấu tranh bảo vệ môi trường trước các lợi ích kinh tế ngắn hạn",
+      "Cần kiên nhẫn trong các nghiên cứu theo dõi diễn biến sinh thái dài hạn"
+    ],
+    "advantages": [
+      "Công việc mang lại ý nghĩa cao cả, trực tiếp gìn giữ hành tinh cho các thế hệ tương lai",
+      "Nhu cầu tuyển dụng chuyên gia phát triển bền vững và kiểm kê carbon (ESG) đang bùng nổ",
+      "Môi trường làm việc đa dạng, không bị gò bó hoàn toàn trong văn phòng"
+    ],
+    "futureTrends": "Thị trường tín chỉ carbon quốc tế và công nghệ thu giữ carbon. Ứng dụng ảnh vệ tinh AI theo dõi đa dạng sinh học toàn cầu theo thời gian thực. Kinh tế tuần hoàn và công nghệ xử lý ô nhiễm bằng vi sinh vật thông minh",
+    "salaryInfo": {
+      "rangeDescription": "Khởi điểm: 10 - 18 Triệu VNĐ/tháng, Trung cấp: 20 - 38 Triệu VNĐ/tháng, Cao cấp: 42 - 75+ Triệu VNĐ/tháng",
+      "disclaimer": "Mức lương tham chiếu thực tế tại thị trường Việt Nam & khu vực, biến thiên theo năng lực và địa phương.",
+      "levelIndicator": "Very High"
+    },
+    "experiments": [
+      {
+        "title": "Đo Kiểm và Đánh giá Chất lượng Nước",
+        "duration": "1 Buổi",
+        "difficulty": "Beginner",
+        "description": "Sử dụng giấy quỳ hoặc bút đo TDS để kiểm tra chất lượng nước mưa, nước máy và nước ao hồ.",
+        "steps": [
+          "Thu thập 3 mẫu nước vào các lọ sạch",
+          "Đo độ pH và ghi chép sự khác biệt màu sắc",
+          "Phân tích nguyên nhân dẫn đến sự chênh lệch chất lượng"
+        ],
+        "expectedOutcome": "Hiểu rõ các kỹ năng cốt lõi và niềm vui khi giải quyết vấn đề thực tế trong ngành.",
+        "evaluationQuestion": "Bạn có cảm thấy hào hứng và tràn đầy năng lượng khi vượt qua thử thách này không?"
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "biomedical-engineer",
+        "title": "biomedical-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "architect-urban-planner",
+        "title": "architect-urban-planner",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "physician-doctor",
+        "title": "physician-doctor",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "educational-technologist",
+        "title": "educational-technologist",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 19-2041.00)",
+    "lastUpdated": "2026-09",
+    "aiImpact": "AI và ảnh vệ tinh giúp tự động cảnh báo phá rừng, cháy rừng và dự báo sớm hạn hán; nhà khoa học môi trường tập trung xây dựng chính sách phục hồi sinh thái."
+  },
+  {
+    "id": "architect-urban-planner",
+    "title": "Kiến trúc sư & Quy hoạch Đô thị Bền vững",
+    "aliases": [
+      "Kiến trúc sư Công trình",
+      "Chuyên gia Thiết kế Đô thị",
+      "Kiến trúc sư Xanh"
+    ],
+    "description": "Lên ý tưởng, thiết kế phối cảnh, bản vẽ kết cấu không gian sống, công trình kiến trúc và quy hoạch mạng lưới đô thị thông minh, hài hòa với thiên nhiên.",
+    "careerCluster": "Kiến trúc & Xây dựng",
+    "industry": "Kiến trúc, Xây dựng & Quy hoạch Đô thị",
+    "tasks": [
+      "Khảo sát địa hình, bối cảnh văn hóa và nhu cầu sử dụng công trình của khách hàng",
+      "Phác thảo ý tưởng kiến trúc sơ bộ và phối cảnh 3D bằng phần mềm chuyên dụng (AutoCAD, Revit, SketchUp)",
+      "Mô hình hóa thông tin công trình BIM (Building Information Modeling) chuẩn xác",
+      "Thiết kế giải pháp vi khí hậu: tối ưu thông gió tự nhiên, chiếu sáng và vật liệu tiết kiệm năng lượng",
+      "Giám sát tác giả tại công trường đảm bảo thi công đúng theo bản vẽ thiết kế"
+    ],
+    "responsibilities": [
+      "Đảm bảo công trình an toàn tuyệt đối về kết cấu, phòng cháy chữa cháy và công năng sử dụng",
+      "Tạo ra các không gian kiến trúc có tính thẩm mỹ nghệ thuật cao và bền vững với môi trường",
+      "Tuân thủ nghiêm ngặt các quy chuẩn xây dựng và quy hoạch đô thị của nhà nước"
+    ],
+    "workEnvironment": [
+      "Văn phòng kiến trúc sáng tạo với bàn vẽ và mô hình trưng bày",
+      "Hiện trường công trình xây dựng thực tế để giám sát",
+      "Làm việc theo nhóm dự án kết hợp với kỹ sư kết cấu, cơ điện (MEP) và chủ đầu tư",
+      "Không gian làm việc giao thoa giữa nghệ thuật và khoa học kỹ thuật"
+    ],
+    "requiredSkills": [
+      "Tư duy hình học không gian 3D và khiếu thẩm mỹ kiến trúc",
+      "Thành thạo phần mềm đồ họa kiến trúc (AutoCAD, Revit BIM, SketchUp, 3ds Max/Lumion)",
+      "Kiến thức về vật liệu xây dựng, kết cấu công trình và vi khí hậu",
+      "Kỹ năng phác thảo ý tưởng nhanh bằng tay (Freehand Sketching)"
+    ],
+    "recommendedSkills": [
+      "Thiết kế tham số thuật toán (Computational Design với Rhino / Grasshopper)",
+      "Tiêu chuẩn công trình xanh (Lotus, LEED, EDGE)",
+      "Phân tích năng lượng công trình và mô phỏng bóng đổ mặt trời",
+      "Quy hoạch không gian đô thị và mạng lưới giao thông bền vững"
+    ],
+    "softSkills": [
+      "Khả năng sáng tạo nghệ thuật độc đáo",
+      "Giao tiếp và thuyết trình ý tưởng thiết kế truyền cảm hứng",
+      "Kiên nhẫn và cẩn thận trong việc lập hồ sơ bản vẽ chi tiết",
+      "Thương lượng và làm việc nhóm hiệu quả với nhà thầu"
+    ],
+    "technicalSkills": [
+      "AutoCAD",
+      "Revit (BIM)",
+      "SketchUp",
+      "Lumion/Enscape",
+      "Rhino/Grasshopper",
+      "Photoshop",
+      "Quy chuẩn Xây dựng"
+    ],
+    "relevantSubjects": [
+      "Toán học (Hình học không gian)",
+      "Vật lý (Cơ học kết cấu)",
+      "Mỹ thuật & Vẽ hình họa",
+      "Địa lý",
+      "Lịch sử kiến trúc"
+    ],
+    "relevantInterests": [
+      "Vẽ tranh và phác thảo nhà cửa",
+      "Chiêm ngưỡng các công trình đẹp",
+      "Mô hình lego và xếp hình không gian",
+      "Bảo vệ môi trường đô thị"
+    ],
+    "riaSecProfile": {
+      "R": 0.65,
+      "I": 0.7,
+      "A": 0.95,
+      "S": 0.4,
+      "E": 0.55,
+      "C": 0.55
+    },
+    "mbtiCompatibility": [
+      "INTJ",
+      "INFJ",
+      "INFP",
+      "ENTP"
+    ],
+    "educationPaths": [
+      {
+        "type": "University",
+        "duration": "5 Năm",
+        "description": "Chương trình đào tạo toàn diện: đồ án kiến trúc, cấu tạo kiến trúc, lịch sử mỹ thuật, kết cấu và quy chuẩn xây dựng.",
+        "tradeoffs": "Điều kiện bắt buộc để được cấp chứng chỉ hành nghề kiến trúc sư sau khi tốt nghiệp."
+      }
+    ],
+    "relatedMajors": [
+      "Kiến trúc Công trình",
+      "Quy hoạch Vùng & Đô thị",
+      "Kiến trúc Cảnh quan",
+      "Kỹ thuật Xây dựng Dân dụng"
+    ],
+    "vocationalPaths": [
+      "Cao đẳng Họa viên Kiến trúc & Thiết kế Nội thất",
+      "Chứng chỉ Diễn họa 3D Kiến trúc"
+    ],
+    "certifications": [
+      "Chứng chỉ Hành nghề Kiến trúc sư",
+      "Chứng nhận Chuyên gia Công trình Xanh LEED AP / EDGE Expert",
+      "Autodesk Certified Professional (Revit)"
+    ],
+    "portfolioExamples": [
+      "Hồ sơ đồ án thiết kế một nhà ở sinh thái tích hợp vườn trên mái và thông gió tự nhiên",
+      "Đồ án quy hoạch khu dân cư xanh ven sông với hệ thống giao thông đi bộ thuận tiện",
+      "Bản vẽ chi tiết triển khai thi công và hình ảnh render 3D chân thực"
+    ],
+    "beginnerProjects": [
+      "Sử dụng phần mềm SketchUp miễn phí để dựng mô hình 3D phòng ngủ mơ ước của bạn",
+      "Vẽ phác thảo tay mặt bằng ngôi nhà của bạn và tính toán diện tích từng phòng",
+      "Chụp ảnh 5 công trình kiến trúc độc đáo trong thành phố bạn sống và phân tích phong cách thiết kế"
+    ],
+    "progressionPath": {
+      "entry": "Kiến trúc sư Tập sự / Họa viên Kiến trúc (0 - 2 Năm): Vẽ triển khai chi tiết bản vẽ kỹ thuật, dựng mô hình 3D phối cảnh và làm mô hình giấy.",
+      "mid": "Kiến trúc sư Thiết kế Mid-level (2 - 5 Năm): Độc lập lên ý tưởng concept công trình, phối hợp với kỹ sư kết cấu và bảo vệ phương án trước khách hàng.",
+      "senior": "Giám đốc Thiết kế / Kiến trúc sư Trưởng (Design Director): Định hình phong cách kiến trúc độc quyền cho văn phòng và dẫn dắt các đồ án quy hoạch tầm cỡ quốc gia."
+    },
+    "workStyle": "Studio design culture, sketching by hand and on computer, collaborating with engineering specialists",
+    "challenges": [
+      "Thời gian học tập và hoàn thiện đồ án đại học đòi hỏi thức đêm và tập trung cao",
+      "Áp lực dung hòa giữa ý tưởng bay bổng của kiến trúc sư và ngân sách tài chính của khách hàng",
+      "Trách nhiệm pháp lý cao về an toàn sinh mạng của người sử dụng công trình"
+    ],
+    "advantages": [
+      "Cảm xúc tự hào vô giá khi nhìn thấy công trình trên bản vẽ trở thành hiện thực sừng sững giữa bầu trời",
+      "Nghề nghiệp danh giá kết hợp đỉnh cao giữa Nghệ thuật và Khoa học kỹ thuật",
+      "Cơ hội để lại di sản kiến trúc bền vững cho xã hội và nhiều thế hệ mai sau"
+    ],
+    "futureTrends": "Đô thị thông minh (Smart Cities) tự vận hành với năng lượng tái tạo. Công nghệ in 3D bê tông xây dựng nhà ở siêu tốc. Kiến trúc sinh học (Biophilic Design) hòa quyện thiên nhiên và con người",
+    "salaryInfo": {
+      "rangeDescription": "Khởi điểm: 10 - 18 Triệu VNĐ/tháng, Trung cấp: 22 - 42 Triệu VNĐ/tháng, Cao cấp: 48 - 90+ Triệu VNĐ/tháng",
+      "disclaimer": "Mức lương tham chiếu thực tế tại thị trường Việt Nam & khu vực, biến thiên theo năng lực và địa phương.",
+      "levelIndicator": "Very High"
+    },
+    "experiments": [
+      {
+        "title": "Dựng Mô hình 3D Ngôi Nhà trên SketchUp",
+        "duration": "2 Giờ",
+        "difficulty": "Beginner",
+        "description": "Mở phần mềm SketchUp trực tuyến miễn phí và dựng một căn nhà 1 tầng có cửa sổ và mái dốc.",
+        "steps": [
+          "Mở SketchUp Free trên trình duyệt",
+          "Vẽ hình chữ nhật kích thước 5m x 10m và dùng công cụ Push/Pull để kéo cao 3.5m",
+          "Vẽ mái dốc và khoét cửa sổ lấy sáng"
+        ],
+        "expectedOutcome": "Hiểu rõ các kỹ năng cốt lõi và niềm vui khi giải quyết vấn đề thực tế trong ngành.",
+        "evaluationQuestion": "Bạn có cảm thấy hào hứng và tràn đầy năng lượng khi vượt qua thử thách này không?"
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "environmental-scientist",
+        "title": "environmental-scientist",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "ux-designer",
+        "title": "ux-designer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "robotics-engineer",
+        "title": "robotics-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "precision-automation-technician",
+        "title": "precision-automation-technician",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 17-1011.00)",
+    "lastUpdated": "2026-09",
+    "aiImpact": "AI hỗ trợ sinh các phương án phối cảnh nhanh và phân tích tối ưu hóa năng lượng; kiến trúc sư giữ vai trò linh hồn trong việc thổi hồn văn hóa, cảm xúc và công năng sống cho công trình."
+  },
+  {
+    "id": "financial-analyst",
+    "title": "Chuyên viên Phân tích Định lượng & Tài chính",
+    "aliases": [
+      "Chuyên viên Phân tích Đầu tư",
+      "Quantitative Analyst (Quant)",
+      "Chuyên viên Thẩm định Tài chính"
+    ],
+    "description": "Ứng dụng mô hình toán học, thuật toán thống kê và phân tích báo cáo tài chính để đánh giá rủi ro đầu tư, định giá tài sản và tối ưu hóa danh mục tài chính.",
+    "careerCluster": "Kinh doanh & Tài chính",
+    "industry": "Tài chính, Ngân hàng Đầu tư & Chứng khoán",
+    "tasks": [
+      "Xây dựng mô hình tài chính dự báo dòng tiền (DCF) và định giá cổ phiếu, trái phiếu",
+      "Lập trình thuật toán giao dịch tự động và kiểm thử hiệu quả trên dữ liệu lịch sử (Backtesting)",
+      "Phân tích báo cáo tài chính của các công ty niêm yết và đánh giá tình hình kinh tế vĩ mô",
+      "Thực hiện đo lường và quản trị rủi ro danh mục đầu tư (Value at Risk - VaR, Stress Testing)",
+      "Viết báo cáo khuyến nghị đầu tư chuyên sâu gửi đến các quỹ đầu tư và khách hàng cá nhân"
+    ],
+    "responsibilities": [
+      "Đưa ra các phân tích định lượng chuẩn xác hỗ trợ quyết định phân bổ hàng triệu USD",
+      "Tuân thủ nghiêm ngặt các quy định pháp luật về thị trường chứng khoán và phòng chống gian lận",
+      "Bảo mật thông tin giao dịch tài chính nội bộ"
+    ],
+    "workEnvironment": [
+      "Quỹ đầu tư mạo hiểm, công ty quản lý quỹ và công ty chứng khoán",
+      "Văn phòng hiện đại tại các trung tâm tài chính lớn",
+      "Môi trường phân tích số liệu với cường độ làm việc nhanh và tính cạnh tranh cao",
+      "Thời lượng theo dõi bảng giá và chỉ số thị trường chứng khoán cao"
+    ],
+    "requiredSkills": [
+      "Phân tích báo cáo tài chính doanh nghiệp và kế toán quản trị",
+      "Xây dựng mô hình tài chính trên Microsoft Excel nâng cao",
+      "Toán tài chính, Thống kê xác suất và Kinh tế lượng",
+      "Lập trình xử lý dữ liệu tài chính (Python, R, SQL)"
+    ],
+    "recommendedSkills": [
+      "Lập trình chiến lược giao dịch định lượng thuật toán (Algorithmic Trading)",
+      "Sử dụng thiết bị đầu cuối dữ liệu tài chính Bloomberg / Refinitiv Terminal",
+      "Kinh tế học vĩ mô và chính sách tiền tệ của ngân hàng trung ương",
+      "Tư duy đầu tư giá trị và phân tích hành vi thị trường"
+    ],
+    "softSkills": [
+      "Tư duy logic định lượng cực kỳ sắc sảo",
+      "Khả năng giữ cái đầu lạnh và quản trị cảm xúc khi thị trường biến động",
+      "Kỹ năng thuyết trình và bảo vệ luận điểm đầu tư chặt chẽ",
+      "Tính cẩn trọng và chuẩn xác tuyệt đối với con số"
+    ],
+    "technicalSkills": [
+      "Excel nâng cao",
+      "Python (Pandas/NumPy)",
+      "SQL",
+      "Mô hình DCF",
+      "Kinh tế lượng",
+      "Bloomberg Terminal",
+      "PowerBI"
+    ],
+    "relevantSubjects": [
+      "Toán học & Thống kê",
+      "Kinh tế học",
+      "Tin học",
+      "Ngữ văn & Hùng biện",
+      "Tiếng Anh chuyên ngành tài chính"
+    ],
+    "relevantInterests": [
+      "Thị trường chứng khoán",
+      "Đọc báo cáo tài chính",
+      "Mô hình toán học ứng dụng",
+      "Kinh doanh và đầu tư tiền tệ"
+    ],
+    "riaSecProfile": {
+      "R": 0.3,
+      "I": 0.85,
+      "A": 0.25,
+      "S": 0.35,
+      "E": 0.9,
+      "C": 0.85
+    },
+    "mbtiCompatibility": [
+      "ENTJ",
+      "INTJ",
+      "ESTJ",
+      "INTP"
+    ],
+    "educationPaths": [
+      {
+        "type": "University",
+        "duration": "4 Năm",
+        "description": "Đào tạo bài bản về kinh tế vi mô/vĩ mô, tài chính doanh nghiệp, thị trường phái sinh và thống kê.",
+        "tradeoffs": "Nền tảng học thuật vững chắc nhất để chinh phục chứng chỉ quốc tế CFA Level 1-3."
+      }
+    ],
+    "relatedMajors": [
+      "Tài chính - Ngân hàng",
+      "Toán Tài chính / Kỹ thuật Tài chính (Financial Engineering)",
+      "Kinh tế Đối ngoại",
+      "Kế toán & Kiểm toán"
+    ],
+    "vocationalPaths": [
+      "Khóa đào tạo Chuyên viên Phân tích Đầu tư Chứng khoán",
+      "Chứng chỉ Môi giới & Tư vấn Đầu tư Tài chính"
+    ],
+    "certifications": [
+      "Chartered Financial Analyst (CFA)",
+      "Financial Risk Manager (FRM)",
+      "Chứng chỉ Hành nghề Chứng khoán (UBCK)"
+    ],
+    "portfolioExamples": [
+      "Báo cáo định giá chi tiết một công ty niêm yết trên sàn chứng khoán với mô hình tài chính đầy đủ",
+      "Chiến lược giao dịch định lượng theo xu hướng được kiểm thử bằng mã Python",
+      "Báo cáo phân tích tác động của lãi suất ngân hàng đến ngành bất động sản"
+    ],
+    "beginnerProjects": [
+      "Tải báo cáo tài chính năm gần nhất của công ty Vinamilk hoặc FPT và tính toán 3 chỉ số tài chính cơ bản: ROE, ROA, Biên lợi nhuận gộp",
+      "Sử dụng tài khoản chứng khoán ảo (Paper Trading) để thử nghiệm phân bổ danh mục đầu tư với số vốn giả định",
+      "Viết script Python cơ bản để vẽ biểu đồ biến động giá cổ phiếu trong 1 năm"
+    ],
+    "progressionPath": {
+      "entry": "Chuyên viên Phân tích Nghiên cứu Junior (Research Analyst) (0 - 2 Năm): Thu thập số liệu doanh nghiệp, cập nhật mô hình tài chính và hỗ trợ viết báo cáo ngành.",
+      "mid": "Chuyên viên Phân tích Đầu tư Mid-level (Equity Analyst) (2 - 5 Năm): Độc lập phụ trách phân tích một nhóm ngành trọng điểm, trực tiếp đưa ra khuyến nghị mua/bán.",
+      "senior": "Giám đốc Đầu tư / Giám đốc Tài chính (CIO / CFO): Hoạch định toàn bộ chiến lược tài chính, phân bổ vốn và huy động vốn của tập đoàn."
+    },
+    "workStyle": "Data-intensive, fast-paced, high intellectual pressure during market hours",
+    "challenges": [
+      "Thị trường tài chính biến động khó lường, áp lực sinh lời và rủi ro thua lỗ cao",
+      "Thời gian ôn thi các chứng chỉ quốc tế như CFA đòi hỏi hàng trăm giờ tự học nghiêm túc",
+      "Cường độ làm việc có thể rất căng thẳng trong mùa công bố báo cáo kết quả kinh doanh"
+    ],
+    "advantages": [
+      "Một trong những ngành nghề có mức thu nhập và thưởng hiệu suất (Bonus) cao nhất thị trường",
+      "Hiểu sâu về dòng tiền và cách thức vận hành của nền kinh tế toàn cầu, mang lại tư duy tài chính cá nhân vượt trội",
+      "Mạng lưới quan hệ chất lượng cao với các doanh nhân, nhà đầu tư và lãnh đạo doanh nghiệp"
+    ],
+    "futureTrends": "Tài chính định lượng kết hợp Trí tuệ Nhân tạo (AI-Driven Quantitative Finance). Đầu tư có trách nhiệm xã hội và tiêu chuẩn môi trường (ESG Investing). Công nghệ tài chính phi tập trung (DeFi) và tài sản số được thể chế hóa",
+    "salaryInfo": {
+      "rangeDescription": "Khởi điểm: 12 - 22 Triệu VNĐ/tháng, Trung cấp: 28 - 55 Triệu VNĐ/tháng, Cao cấp: 60 - 130+ Triệu VNĐ/tháng (chưa bao gồm thưởng quỹ)",
+      "disclaimer": "Mức lương tham chiếu thực tế tại thị trường Việt Nam & khu vực, biến thiên theo năng lực và địa phương.",
+      "levelIndicator": "Very High"
+    },
+    "experiments": [
+      {
+        "title": "Phân tích 3 Chỉ số Tài chính Cơ bản của một Doanh nghiệp",
+        "duration": "2 Giờ",
+        "difficulty": "Beginner",
+        "description": "Tải báo cáo tài chính của một doanh nghiệp niêm yết trên website Vietstock và tự tính toán tỷ suất sinh lời ROE.",
+        "steps": [
+          "Mở website Vietstock.vn và tìm mã cổ phiếu yêu thích",
+          "Tìm mục 'Báo cáo tài chính' và xem bảng Cân đối kế toán",
+          "Lấy Lợi nhuận sau thuế chia cho Vốn chủ sở hữu để tính ROE"
+        ],
+        "expectedOutcome": "Hiểu rõ các kỹ năng cốt lõi và niềm vui khi giải quyết vấn đề thực tế trong ngành.",
+        "evaluationQuestion": "Bạn có cảm thấy hào hứng và tràn đầy năng lượng khi vượt qua thử thách này không?"
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "ai-data-scientist",
+        "title": "ai-data-scientist",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "product-manager",
+        "title": "product-manager",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "software-engineer",
+        "title": "software-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "clinical-psychologist",
+        "title": "clinical-psychologist",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 13-2051.00)",
+    "lastUpdated": "2026-09",
+    "aiImpact": "AI tự động hóa việc thu thập số liệu và sàng lọc cổ phiếu cơ bản; chuyên gia phân tích tập trung vào đánh giá chiến lược lãnh đạo doanh nghiệp, các kịch bản địa chính trị và mô hình rủi ro bất đối xứng."
+  },
+  {
+    "id": "clinical-psychologist",
+    "title": "Chuyên gia Tâm lý học Trẻ em & Vị thành niên",
+    "aliases": [
+      "Nhà tâm lý học lâm sàng",
+      "Chuyên viên Tham vấn Tâm lý Học đường",
+      "Nhà trị liệu Tâm lý"
+    ],
+    "description": "Thăm khám, đánh giá tâm lý, chẩn đoán và thực hiện trị liệu cho trẻ em, thanh thiếu niên và phụ huynh gặp khó khăn về cảm xúc, căng thẳng và rối loạn hành vi.",
+    "careerCluster": "Y tế & Xã hội",
+    "industry": "Tâm lý học, Sức khỏe Tinh thần & Giáo dục",
+    "tasks": [
+      "Thực hiện phỏng vấn lâm sàng và đánh giá tâm lý bằng các bài kiểm tra trắc nghiệm tiêu chuẩn",
+      "Chẩn đoán các rối loạn tâm lý thường gặp (lo âu, trầm cảm, ADHD, rối loạn phổ tự kỷ)",
+      "Thiết kế và thực hiện các liệu trình tâm lý trị liệu (Liệu pháp Nhận thức Hành vi - CBT, Liệu pháp Chơi)",
+      "Tham vấn và hướng dẫn kỹ năng đồng hành cho cha mẹ và giáo viên",
+      "Tổ chức các buổi tọa đàm nâng cao nhận thức về chăm sóc sức khỏe tâm thần học đường"
+    ],
+    "responsibilities": [
+      "Bảo vệ an toàn tâm lý và tính mạng của thân chủ với tinh thần đạo đức y đức cao nhất",
+      "Giữ bí mật tuyệt đối mọi thông tin và nội dung chia sẻ của thân chủ theo quy định pháp luật",
+      "Thực hiện giám sát chuyên môn định kỳ (Supervision) để đảm bảo chất lượng can thiệp"
+    ],
+    "workEnvironment": [
+      "Phòng tham vấn tâm lý riêng tư, ấm áp và an toàn",
+      "Bệnh viện tâm thần, khoa tâm lý bệnh viện nhi và phòng khám chuyên khoa",
+      "Trường học quốc tế và trung tâm can thiệp sớm cho trẻ em",
+      "Không gian làm việc tĩnh lặng, giàu tính lắng nghe và tương tác trực tiếp"
+    ],
+    "requiredSkills": [
+      "Kiến thức sâu sắc về tâm lý học phát triển và bệnh học tâm thần",
+      "Kỹ năng lắng nghe tích cực và thấu cảm sâu sắc (Empathy)",
+      "Thành thạo liệu pháp nhận thức hành vi (CBT) và các công cụ đánh giá tâm lý",
+      "Kỹ năng xử lý khủng hoảng tâm lý và nguy cơ tự hại"
+    ],
+    "recommendedSkills": [
+      "Liệu pháp nghệ thuật và liệu pháp chơi cho trẻ nhỏ (Play Therapy)",
+      "Tâm lý học gia đình và trị liệu hệ thống",
+      "Kỹ năng giao tiếp và làm việc với phụ huynh khó tính",
+      "Phương pháp nghiên cứu khoa học tâm lý định tính và định lượng"
+    ],
+    "softSkills": [
+      "Lòng trắc ẩn và sự bao dung vô điều kiện",
+      "Khả năng tự chăm sóc sức khỏe tinh thần bản thân (Self-care)",
+      "Kiên nhẫn và không phán xét",
+      "Bảo mật thông tin và đạo đức nghề nghiệp mẫu mực"
+    ],
+    "technicalSkills": [
+      "Đánh giá tâm lý DSM-5",
+      "Trắc nghiệm WISC/Beck",
+      "Liệu pháp CBT",
+      "Tham vấn học đường",
+      "Can thiệp khủng hoảng"
+    ],
+    "relevantSubjects": [
+      "Tâm lý học & Giáo dục công dân",
+      "Sinh học (Hệ thần kinh)",
+      "Ngữ văn",
+      "Xã hội học",
+      "Tiếng Anh"
+    ],
+    "relevantInterests": [
+      "Lắng nghe và chia sẻ tâm sự với bạn bè",
+      "Tìm hiểu tâm lý con người",
+      "Đọc sách về phát triển bản thân",
+      "Giúp đỡ người gặp khó khăn"
+    ],
+    "riaSecProfile": {
+      "R": 0.2,
+      "I": 0.85,
+      "A": 0.45,
+      "S": 0.95,
+      "E": 0.45,
+      "C": 0.5
+    },
+    "mbtiCompatibility": [
+      "INFJ",
+      "ENFJ",
+      "INFP",
+      "ISFJ"
+    ],
+    "educationPaths": [
+      {
+        "type": "University",
+        "duration": "4 - 6 Năm",
+        "description": "Chương trình chuyên sâu về các trường phái tâm lý học, sinh lý thần kinh, bệnh học tâm thần và hàng ngàn giờ thực hành lâm sàng.",
+        "tradeoffs": "Điều kiện cần thiết để trở thành chuyên gia tâm lý trị liệu chuyên nghiệp."
+      }
+    ],
+    "relatedMajors": [
+      "Tâm lý học Lâm sàng",
+      "Tâm lý học Giáo dục",
+      "Công tác Xã hội",
+      "Y học Tâm thần"
+    ],
+    "vocationalPaths": [
+      "Khóa đào tạo Chuyên viên Can thiệp Sớm cho Trẻ Rối loạn Phổ Tự kỷ",
+      "Chứng chỉ Kỹ năng Tham vấn Học đường"
+    ],
+    "certifications": [
+      "Chứng chỉ Hành nghề Tham vấn / Trị liệu Tâm lý",
+      "Chứng nhận Chuyên gia Trị liệu CBT Quốc tế",
+      "Chứng chỉ Đánh giá Tâm lý Tiêu chuẩn"
+    ],
+    "portfolioExamples": [
+      "Hồ sơ nghiên cứu ca bệnh lâm sàng (Case Study) ẩn danh mô tả quá trình hỗ trợ một học sinh vượt qua khủng hoảng lo âu",
+      "Cẩm nang hướng dẫn cha mẹ nhận biết sớm dấu hiệu căng thẳng ở con tuổi dậy thì",
+      "Khóa luận tốt nghiệp về mối liên hệ giữa mạng xã hội và lòng tự trắc ẩn ở thanh thiếu niên"
+    ],
+    "beginnerProjects": [
+      "Đọc một cuốn sách kinh điển về tâm lý học (ví dụ: 'Đi tìm lẽ sống' của Viktor Frankl) và viết bài cảm nhận",
+      "Thực hành bài tập lắng nghe tích cực trong 15 phút với một người bạn mà hoàn toàn không đưa ra lời khuyên hay phán xét",
+      "Lập sổ nhật ký cảm xúc theo dõi tâm trạng của bản thân trong 7 ngày liên tiếp"
+    ],
+    "progressionPath": {
+      "entry": "Chuyên viên Tham vấn Tâm lý Thực tập (0 - 2 Năm): Hỗ trợ đánh giá tâm lý sơ bộ, tham gia quan sát các ca trị liệu dưới sự hướng dẫn của chuyên gia giám sát.",
+      "mid": "Nhà Tâm lý học Lâm sàng Độc lập (2 - 5 Năm): Trực tiếp thực hiện các ca trị liệu cá nhân và gia đình, xây dựng phác đồ can thiệp chuyên biệt.",
+      "senior": "Giám đốc Trung tâm Tâm lý / Trưởng khoa Tâm lý Lâm sàng: Điều hành viện nghiên cứu, trung tâm trị liệu tâm lý và định hình chính sách chăm sóc sức khỏe tâm thần."
+    },
+    "workStyle": "Deep 1-on-1 human connection, careful emotional attunement, thoughtful clinical documentation",
+    "challenges": [
+      "Có thể bị mệt mỏi thấu cảm (Compassion Fatigue) nếu không biết cách chăm sóc ranh giới cảm xúc cá nhân",
+      "Quy trình đào tạo chuyên sâu đòi hỏi bằng cấp thạc sĩ và hàng trăm giờ thực hành có giám sát",
+      "Xã hội đôi khi vẫn còn những định kiến chưa đúng về sức khỏe tâm thần"
+    ],
+    "advantages": [
+      "Ý nghĩa nhân văn sâu sắc: trực tiếp chữa lành những vết thương tâm hồn và tái sinh niềm hy vọng cho người khác",
+      "Nhu cầu xã hội về chăm sóc sức khỏe tinh thần ngày càng tăng cao rõ rệt",
+      "Sự thấu hiểu tâm lý sâu sắc giúp cuộc sống cá nhân và các mối quan hệ của chính bạn trở nên viên mãn hơn"
+    ],
+    "futureTrends": "Tham vấn tâm lý trực tuyến (Tele-therapy) xóa nhòa khoảng cách địa lý. Ứng dụng công nghệ thực tế ảo VR trong điều trị nỗi sợ và giải tỏa lo âu. Chương trình chăm sóc sức khỏe tinh thần toàn diện tích hợp trong trường học và doanh nghiệp",
+    "salaryInfo": {
+      "rangeDescription": "Khởi điểm: 10 - 18 Triệu VNĐ/tháng, Trung cấp: 22 - 40 Triệu VNĐ/tháng, Cao cấp: 45 - 80+ Triệu VNĐ/tháng (tùy thuộc vào số giờ tham vấn chuyên gia)",
+      "disclaimer": "Mức lương tham chiếu thực tế tại thị trường Việt Nam & khu vực, biến thiên theo năng lực và địa phương.",
+      "levelIndicator": "Very High"
+    },
+    "experiments": [
+      {
+        "title": "Thực hành Lắng nghe Thấu cảm Không Phán xét",
+        "duration": "1 Buổi",
+        "difficulty": "Beginner",
+        "description": "Mời một người bạn kể về một chuyện vui hoặc buồn trong 15 phút, bạn chỉ tập trung lắng nghe và nhắc lại cảm xúc của bạn mình.",
+        "steps": [
+          "Thống nhất nguyên tắc không ngắt lời và không đưa ra lời khuyên",
+          "Gật đầu và duy trì ánh mắt quan tâm chân thành",
+          "Hỏi lại: 'Có phải bạn đang cảm thấy rất vui / rất buồn vì điều đó không?'"
+        ],
+        "expectedOutcome": "Hiểu rõ các kỹ năng cốt lõi và niềm vui khi giải quyết vấn đề thực tế trong ngành.",
+        "evaluationQuestion": "Bạn có cảm thấy hào hứng và tràn đầy năng lượng khi vượt qua thử thách này không?"
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "educational-technologist",
+        "title": "educational-technologist",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "physician-doctor",
+        "title": "physician-doctor",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "ux-designer",
+        "title": "ux-designer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "financial-analyst",
+        "title": "financial-analyst",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 19-3031.00)",
+    "lastUpdated": "2026-09",
+    "aiImpact": "AI hỗ trợ sàng lọc sơ bộ triệu chứng tâm lý qua chatbot; nhà tâm lý học giữ vai trò cốt lõi không thể thay thế nhờ năng lực thấu cảm chân thành, ánh mắt đồng cảm và kết nối con người đích thực."
+  },
+  {
+    "id": "educational-technologist",
+    "title": "Chuyên gia Công nghệ Giáo dục & Thiết kế Bài giảng",
+    "aliases": [
+      "Instructional Designer",
+      "EdTech Specialist",
+      "Chuyên gia Phát triển Chương trình Đào tạo Số"
+    ],
+    "description": "Thiết kế trải nghiệm học tập kỹ thuật số, chương trình đào tạo tương tác và ứng dụng công nghệ hiện đại để nâng cao hiệu quả giáo dục cho học sinh và doanh nghiệp.",
+    "careerCluster": "Giáo dục & Công nghệ",
+    "industry": "Công nghệ Giáo dục (EdTech) & Đào tạo Doanh nghiệp",
+    "tasks": [
+      "Phân tích nhu cầu học tập và xác định mục tiêu đào tạo theo thang đo Bloom",
+      "Thiết kế cấu trúc bài giảng số hóa và kịch bản tương tác (Storyboarding)",
+      "Sử dụng công cụ tác giả (Articulate Storyline, Adobe Captivate) để xây dựng bài học E-learning",
+      "Tích hợp yếu tố trò chơi hóa (Gamification) và câu đố kích thích người học",
+      "Quản trị hệ thống quản lý học tập (LMS như Canvas, Moodle) và phân tích dữ liệu học tập (Learning Analytics)"
+    ],
+    "responsibilities": [
+      "Tạo ra các khóa học hấp dẫn, dễ hiểu và giúp người học đạt được năng lực thực tế",
+      "Đảm bảo chương trình đào tạo phù hợp với tâm lý lứa tuổi và phương pháp sư phạm hiện đại",
+      "Đo lường và cải tiến liên tục hiệu quả học tập dựa trên dữ liệu phản hồi"
+    ],
+    "workEnvironment": [
+      "Công ty khởi nghiệp công nghệ giáo dục (EdTech Startups)",
+      "Phòng đào tạo và phát triển nhân tài (L&D) của các tập đoàn lớn",
+      "Trường đại học và các tổ chức giáo dục trực tuyến",
+      "Linh hoạt làm việc từ xa kết hợp văn phòng sáng tạo"
+    ],
+    "requiredSkills": [
+      "Lý thuyết học tập và phương pháp sư phạm hiện đại (ADDIE Model, Backward Design)",
+      "Thành thạo công cụ thiết kế bài giảng số (Articulate 360, Captivate, Canva)",
+      "Thiết kế trải nghiệm người học (Learner Experience Design - LXD)",
+      "Quản trị và cấu hình hệ thống LMS (Moodle, Canvas, Blackboard)"
+    ],
+    "recommendedSkills": [
+      "Biên tập video bài giảng và đồ họa tương tác cơ bản",
+      "Ứng dụng AI tạo sinh trong việc soạn thảo câu hỏi và kịch bản học tập",
+      "Phân tích dữ liệu học tập và đánh giá hiệu quả khóa học (Kirkpatrick Model)",
+      "Thiết kế học tập vi mô (Microlearning) và học tập trên thiết bị di động"
+    ],
+    "softSkills": [
+      "Tư duy sư phạm thấu hiểu tâm lý người học",
+      "Kỹ năng kể chuyện và đơn giản hóa kiến thức phức tạp",
+      "Giao tiếp hiệu quả với các chuyên gia nội dung (Subject Matter Experts - SME)",
+      "Tính sáng tạo và đổi mới liên tục phương pháp giảng dạy"
+    ],
+    "technicalSkills": [
+      "Articulate Storyline",
+      "Moodle / Canvas LMS",
+      "Canva",
+      "LXD Design",
+      "Mô hình ADDIE",
+      "Camtasia Video",
+      "Gamification"
+    ],
+    "relevantSubjects": [
+      "Sư phạm & Giáo dục học",
+      "Tin học & Công nghệ",
+      "Ngữ văn & Truyền thông",
+      "Tâm lý học",
+      "Tiếng Anh"
+    ],
+    "relevantInterests": [
+      "Học tập trực tuyến",
+      "Chia sẻ kiến thức và dạy học",
+      "Thiết kế đồ họa và video bài giảng",
+      "Công nghệ giáo dục EdTech"
+    ],
+    "riaSecProfile": {
+      "R": 0.3,
+      "I": 0.7,
+      "A": 0.8,
+      "S": 0.9,
+      "E": 0.55,
+      "C": 0.6
+    },
+    "mbtiCompatibility": [
+      "ENFJ",
+      "INFJ",
+      "ENFP",
+      "INFP"
+    ],
+    "educationPaths": [
+      {
+        "type": "University",
+        "duration": "4 Năm",
+        "description": "Trang bị lý thuyết giáo dục học, tâm lý học lứa tuổi, phương pháp giảng dạy kết hợp thiết kế đồ họa số.",
+        "tradeoffs": "Nền tảng sư phạm chuẩn mực giúp xây dựng các khóa học có chiều sâu học thuật."
+      }
+    ],
+    "relatedMajors": [
+      "Công nghệ Giáo dục",
+      "Sư phạm Kỹ thuật / Sư phạm Tin học",
+      "Khoa học Giáo dục",
+      "Công nghệ Đa phương tiện"
+    ],
+    "vocationalPaths": [
+      "Khóa đào tạo Chuyên sâu Thiết kế Bài giảng E-Learning",
+      "Chứng chỉ Quản trị Hệ thống Đào tạo Doanh nghiệp"
+    ],
+    "certifications": [
+      "Certified Professional in Learning and Performance (ATD CPLP)",
+      "Instructional Design Certificate (IDOL)",
+      "Articulate Certified Creator"
+    ],
+    "portfolioExamples": [
+      "Khóa học E-learning tương tác hoàn chỉnh có bài tập kéo thả và điểm số trên Articulate Storyline",
+      "Kịch bản sư phạm (Storyboard) chi tiết chuyển đổi một tài liệu PDF 50 trang thành chuỗi video hoạt hình 5 phút",
+      "Khung chương trình đào tạo tích hợp trò chơi hóa Gamification cho học sinh THPT"
+    ],
+    "beginnerProjects": [
+      "Chọn một chủ đề bạn rất am hiểu (ví dụ: mẹo học tiếng Anh) và thiết kế một bài thuyết trình tương tác 5 trang trên Canva",
+      "Tạo một bài kiểm tra trắc nghiệm tương tác thú vị trên nền tảng Kahoot hoặc Quizizz",
+      "Quay một video ngắn 3 phút hướng dẫn giải một bài toán theo phong cách dễ hiểu nhất"
+    ],
+    "progressionPath": {
+      "entry": "Chuyên viên Phát triển Nội dung E-learning Junior (0 - 2 Năm): Thiết kế slide bài giảng tương tác, dựng video học tập và tải bài lên hệ thống LMS.",
+      "mid": "Chuyên gia Thiết kế Bài giảng Mid-level (Instructional Designer) (2 - 5 Năm): Chủ trì xây dựng toàn bộ khung chương trình khóa học, phối hợp với chuyên gia nội dung SME.",
+      "senior": "Giám đốc Đào tạo & Phát triển (Head of L&D / Chief Learning Officer): Hoạch định toàn bộ chiến lược phát triển năng lực và văn hóa học tập của tổ chức."
+    },
+    "workStyle": "Collaborative, creative, focused on breaking down complex knowledge into joyful simple steps",
+    "challenges": [
+      "Phải thường xuyên làm việc với các chuyên gia chuyên ngành để chắt lọc kiến thức chuyên môn khó",
+      "Cần liên tục tìm kiếm cách thức mới để thu hút sự chú ý của người học trực tuyến",
+      "Đòi hỏi sự cân bằng tinh tế giữa yếu tố công nghệ và phương pháp sư phạm cốt lõi"
+    ],
+    "advantages": [
+      "Góp phần cách mạng hóa nền giáo dục và giúp hàng triệu người tiếp cận tri thức dễ dàng hơn",
+      "Thị trường EdTech và đào tạo số trong doanh nghiệp đang phát triển với tốc độ phi mã",
+      "Công việc sáng tạo, linh hoạt và tràn ngập niềm vui lan tỏa tri thức"
+    ],
+    "futureTrends": "Học tập thích ứng hỗ trợ bởi AI (AI-Powered Adaptive Learning). Lớp học thực tế ảo nhập vai (Immersive VR Classrooms). Học tập vi mô trên nền tảng di động và chứng chỉ số hóa (Digital Badges)",
+    "salaryInfo": {
+      "rangeDescription": "Khởi điểm: 10 - 18 Triệu VNĐ/tháng, Trung cấp: 22 - 38 Triệu VNĐ/tháng, Cao cấp: 42 - 75+ Triệu VNĐ/tháng",
+      "disclaimer": "Mức lương tham chiếu thực tế tại thị trường Việt Nam & khu vực, biến thiên theo năng lực và địa phương.",
+      "levelIndicator": "Very High"
+    },
+    "experiments": [
+      {
+        "title": "Thiết kế Bài giảng Tương tác trên Canva",
+        "duration": "1.5 Giờ",
+        "difficulty": "Beginner",
+        "description": "Tạo một bài học ngắn gồm 5 trang slide có hình ảnh minh họa sinh động và câu hỏi trắc nghiệm tương tác.",
+        "steps": [
+          "Mở Canva.com và chọn mẫu 'Bản thuyết trình giáo dục'",
+          "Soạn nội dung một chủ đề bạn yêu thích",
+          "Thêm các hình ảnh động và nút liên kết câu hỏi"
+        ],
+        "expectedOutcome": "Hiểu rõ các kỹ năng cốt lõi và niềm vui khi giải quyết vấn đề thực tế trong ngành.",
+        "evaluationQuestion": "Bạn có cảm thấy hào hứng và tràn đầy năng lượng khi vượt qua thử thách này không?"
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "ux-designer",
+        "title": "ux-designer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "clinical-psychologist",
+        "title": "clinical-psychologist",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "game-designer",
+        "title": "game-designer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "software-engineer",
+        "title": "software-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 25-9031.00)",
+    "lastUpdated": "2026-09",
+    "aiImpact": "AI tự động hóa việc dịch thuật bài giảng, tạo bài kiểm tra trắc nghiệm và gợi ý lộ trình học cá nhân hóa; chuyên gia EdTech tập trung vào kiến trúc trải nghiệm học sâu sắc và động lực nội tại của người học."
+  },
+  {
+    "id": "precision-automation-technician",
+    "title": "Kỹ thuật viên Tự động hóa Chính xác & Vận hành CNC",
+    "aliases": [
+      "Kỹ thuật viên Gia công Cơ khí Chính xác",
+      "Kỹ sư Lập trình & Vận hành Máy CNC",
+      "Chuyên viên Chế tạo Cơ điện tử"
+    ],
+    "description": "Lập trình, thiết lập và vận hành máy công cụ điều khiển kỹ thuật số (CNC 3-5 trục), máy cắt laser và dây chuyền chế tạo tự động để sản xuất các linh kiện cơ khí siêu chính xác cho ngành hàng không, y tế và ô tô điện.",
+    "careerCluster": "Kỹ thuật & Sản xuất",
+    "industry": "Cơ khí Chính xác & Chế tạo Công nghệ Cao",
+    "tasks": [
+      "Đọc hiểu bản vẽ kỹ thuật cơ khí 2D/3D và ký hiệu dung sai hình học (GD&T)",
+      "Lập trình đường chạy dao (Toolpath) bằng phần mềm CAM (Mastercam, Fusion 360, NX CAM)",
+      "Gá đặt phôi kim loại, căn chỉnh gốc tọa độ máy và lựa chọn dao cắt chuyên dụng",
+      "Vận hành máy tiện, phay CNC 3-5 trục và kiểm soát quá trình cắt gọt kim loại",
+      "Đo kiểm kích thước sản phẩm bằng dụng cụ đo chính xác cao (thước panme, đồng hồ so, máy đo quang học CMM)"
+    ],
+    "responsibilities": [
+      "Đảm bảo sản phẩm cơ khí đạt độ chính xác đến từng micromet (μm) theo đúng bản vẽ thiết kế",
+      "Tuân thủ nghiêm ngặt quy trình an toàn lao động và bảo hộ tại xưởng sản xuất",
+      "Bảo trì định kỳ máy móc CNC để hạn chế tối đa thời gian dừng máy (Downtime)"
+    ],
+    "workEnvironment": [
+      "Xưởng gia công cơ khí chính xác hiện đại có điều hòa nhiệt độ ổn định",
+      "Nhà máy chế tạo linh kiện hàng không và thiết bị bán dẫn công nghệ cao",
+      "Môi trường kỷ luật cơ khí cao, trang bị đồ bảo hộ và thiết bị đo chuẩn mực",
+      "Kết hợp làm việc trên phần mềm máy tính và thao tác máy công cụ thực tế"
+    ],
+    "requiredSkills": [
+      "Đọc hiểu bản vẽ kỹ thuật cơ khí và dung sai lắp ghép GD&T",
+      "Lập trình mã G-code / M-code trên máy CNC",
+      "Sử dụng phần mềm thiết kế và lập trình gia công CAD/CAM (Fusion 360, Mastercam)",
+      "Sử dụng thành thạo các dụng cụ đo lường cơ khí chính xác (Panme, Thước cặp điện tử)"
+    ],
+    "recommendedSkills": [
+      "Gia công nhiều trục đồng thời (CNC 4-5 trục phức tạp)",
+      "Kiến thức sâu về chế độ cắt gọt và tính chất vật liệu kim loại (Nhôm hàng không, Titan, Thép hợp kim)",
+      "Lập trình và tích hợp cánh tay robot gắp nhả phôi tự động",
+      "Vận hành máy đo tọa độ quang học không gian CMM"
+    ],
+    "softSkills": [
+      "Tính cẩn thận, kỷ luật và tỉ mỉ đến từng chi tiết nhỏ nhất",
+      "Tư duy không gian hình học thực tế",
+      "Khả năng tập trung cao độ và xử lý sự cố kẹt phôi/gãy dao nhanh chóng",
+      "Ý thức an toàn lao động tuyệt đối"
+    ],
+    "technicalSkills": [
+      "G-code/M-code",
+      "Mastercam",
+      "Fusion 360 CAM",
+      "Vận hành CNC 3-5 trục",
+      "Đo kiểm CMM",
+      "Dung sai GD&T",
+      "SolidWorks"
+    ],
+    "relevantSubjects": [
+      "Vật lý (Cơ học & Kim loại)",
+      "Toán học (Hình học không gian)",
+      "Công nghệ & Kỹ thuật",
+      "Tin học ứng dụng"
+    ],
+    "relevantInterests": [
+      "Gia công chế tạo máy móc",
+      "Lắp ráp cơ khí và động cơ",
+      "Chế tạo mô hình kim loại",
+      "Công nghệ tự động hóa xưởng"
+    ],
+    "riaSecProfile": {
+      "R": 0.95,
+      "I": 0.6,
+      "A": 0.25,
+      "S": 0.2,
+      "E": 0.35,
+      "C": 0.85
+    },
+    "mbtiCompatibility": [
+      "ISTP",
+      "ISTJ",
+      "ESTP"
+    ],
+    "educationPaths": [
+      {
+        "type": "University",
+        "duration": "2.5 - 3 Năm",
+        "description": "Đào tạo thực hành chuyên sâu tại xưởng: lập trình CAM, vận hành máy phay/tiện CNC, công nghệ đo lường CMM và bảo dưỡng máy.",
+        "tradeoffs": "Thời gian học ngắn, ra trường làm việc thực chiến ngay lập tức với mức lương hấp dẫn."
+      },
+      {
+        "type": "University",
+        "duration": "4 - 4.5 Năm",
+        "description": "Trang bị lý thuyết sâu về khoa học vật liệu, sức bền vật liệu, thủy lực khí nén và thiết kế máy.",
+        "tradeoffs": "Cơ hội thăng tiến lên các vị trí quản lý sản xuất và kỹ sư R&D thiết kế cơ khí."
+      }
+    ],
+    "relatedMajors": [
+      "Kỹ thuật Cơ khí Chế tạo máy",
+      "Công nghệ Kỹ thuật Cơ điện tử",
+      "Gia công Cơ khí Chính xác CNC"
+    ],
+    "vocationalPaths": [
+      "Cao đẳng Nghề Cơ khí Chế tạo & Vận hành Máy CNC",
+      "Chứng chỉ Nghề Lập trình Gia công CAM Quốc tế"
+    ],
+    "certifications": [
+      "National Institute for Metalworking Skills (NIMS) CNC Certification",
+      "Autodesk Certified Professional: CAM for 2.5/3-Axis Milling",
+      "Siemens / Fanuc CNC Operator Certificate"
+    ],
+    "portfolioExamples": [
+      "Chi tiết cơ khí phức tạp (như cánh quạt tuabin hoặc lốc máy nhôm) gia công trên máy phay CNC 4 trục kèm bản vẽ dung sai CMM",
+      "File lập trình CAM mô phỏng đường chạy dao hoàn chỉnh không bị va chạm trên Fusion 360",
+      "Mẫu chi tiết gá đặt kẹp phôi tự động tối ưu hóa thời gian sản xuất"
+    ],
+    "beginnerProjects": [
+      "Tải phần mềm Autodesk Fusion 360 (bản học sinh miễn phí) và tự tạo đường chạy dao CAM phay một khối kim loại có chữ nổi",
+      "Tập viết tay một đoạn mã G-code đơn giản để di chuyển đầu dao cắt một hình vuông 50mm x 50mm",
+      "Tìm hiểu cách đọc thang đo trên thước kẹp du xích cơ khí qua video mô phỏng"
+    ],
+    "progressionPath": {
+      "entry": "Kỹ thuật viên Vận hành Máy CNC Junior (0 - 2 Năm): Gá phôi, thay dao, vận hành máy chạy theo chương trình có sẵn và đo kiểm sản phẩm.",
+      "mid": "Kỹ thuật viên Lập trình CAM & CNC Mid-level (2 - 5 Năm): Tự chủ lập trình đường dao CAM phức tạp trên máy tính, thiết kế đồ gá chuyên dụng.",
+      "senior": "Quản đốc Phân xưởng / Giám đốc Sản xuất (Plant / Production Manager): Điều hành toàn bộ hoạt động nhà máy chế tạo cơ khí công nghệ cao và tự động hóa dây chuyền."
+    },
+    "workStyle": "Hands-on, tangible, pride in physical craftsmanship and mathematical precision",
+    "challenges": [
+      "Một lỗi sai nhỏ trong lập trình hoặc nhập tọa độ có thể làm gãy dao cắt đắt tiền hoặc hỏng máy",
+      "Công việc đòi hỏi đứng thao tác tại máy và môi trường có dung dịch làm mát kim loại",
+      "Cần thời gian tích lũy cảm giác dao và hiểu biết sâu sắc về hành vi biến dạng của từng loại kim loại"
+    ],
+    "advantages": [
+      "Nghề 'vàng' của ngành công nghiệp chế tạo, nhu cầu tuyển dụng cực kỳ cao cả trong nước và xuất khẩu lao động (Nhật Bản, Đức, Mỹ)",
+      "Mức lương tay nghề cao tăng trưởng rất nhanh theo số trục máy CNC bạn có thể làm chủ",
+      "Cảm giác tự hào và thỏa mãn tột độ khi tự tay biến một khối kim loại thô ráp thành một tác phẩm cơ khí sáng bóng, chuẩn xác"
+    ],
+    "futureTrends": "Sản xuất lai kết hợp (Hybrid Manufacturing: In 3D kim loại kết hợp phay CNC tinh xảo). Nhà máy thông minh không bóng người (Lights-out Manufacturing) tự động hóa 100%. Gia công vật liệu siêu nhẹ tiên tiến cho xe điện và tàu vũ trụ",
+    "salaryInfo": {
+      "rangeDescription": "Khởi điểm: 10 - 18 Triệu VNĐ/tháng, Trung cấp: 20 - 38 Triệu VNĐ/tháng, Cao cấp: 42 - 75+ Triệu VNĐ/tháng (thu nhập rất cao tại các thị trường quốc tế)",
+      "disclaimer": "Mức lương tham chiếu thực tế tại thị trường Việt Nam & khu vực, biến thiên theo năng lực và địa phương.",
+      "levelIndicator": "Very High"
+    },
+    "experiments": [
+      {
+        "title": "Mô phỏng Gia công CAM trên Fusion 360",
+        "duration": "2 Giờ",
+        "difficulty": "Beginner",
+        "description": "Sử dụng môi trường Manufacture trong phần mềm Fusion 360 để lập trình phay mặt phẳng và xem mô phỏng dao chạy ảo.",
+        "steps": [
+          "Mở Fusion 360 và vẽ một khối hộp chữ nhật 3D",
+          "Chuyển sang tab Manufacture và tạo Setup phôi mới",
+          "Chọn lệnh 2D Face Milling và bấm phím Play để xem dao di chuyển"
+        ],
+        "expectedOutcome": "Hiểu rõ các kỹ năng cốt lõi và niềm vui khi giải quyết vấn đề thực tế trong ngành.",
+        "evaluationQuestion": "Bạn có cảm thấy hào hứng và tràn đầy năng lượng khi vượt qua thử thách này không?"
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "robotics-engineer",
+        "title": "robotics-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "semiconductor-engineer",
+        "title": "semiconductor-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "architect-urban-planner",
+        "title": "architect-urban-planner",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      },
+      {
+        "careerId": "biomedical-engineer",
+        "title": "biomedical-engineer",
+        "similarityReason": "Có chung nhóm sở thích Holland RIASEC và kỹ năng nền tảng.",
+        "distinction": "Khác biệt về phạm vi công việc chuyên sâu và đối tượng khách hàng mục tiêu."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 51-4041.00)",
+    "lastUpdated": "2026-09",
+    "aiImpact": "AI hỗ trợ tối ưu hóa đường chạy dao thông minh và dự báo sớm độ mòn của mũi dao; kỹ thuật viên giữ vai trò quyết định trong việc thiết lập gá đặt tinh vi và kiểm soát chất lượng gia công."
   }
 ];
-
-export const CAREER_LOOKUP: Record<string, Career> = CAREER_DATABASE.reduce((acc, career) => {
-  acc[career.id] = career;
-  return acc;
-}, {} as Record<string, Career>);

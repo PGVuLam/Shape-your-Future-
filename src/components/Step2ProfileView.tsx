@@ -43,13 +43,13 @@ export const Step2ProfileView: React.FC<Step2ProfileViewProps> = ({
         <div>
           <div className="flex items-center space-x-2 text-blue-600 font-bold text-xs uppercase tracking-wider mb-1">
             <UserCheck className="w-4 h-4" />
-            <span>{language === 'vi' ? 'BƯỚC 2: HỒ SƠ HỌC SINH CẤU TRÚC' : 'STEP 2: STRUCTURED STUDENT PROFILE'}</span>
+            <span>{'BƯỚC 2: HỒ SƠ HỌC SINH CẤU TRÚC'}</span>
           </div>
           <h1 className="text-xl font-bold text-slate-900">
-            {language === 'vi' ? 'Chuẩn hóa Dữ liệu & Định danh Năng lực' : 'Standardized Competency & Trait Vectors'}
+            {'Chuẩn hóa Dữ liệu & Định danh Năng lực'}
           </h1>
           <p className="text-xs text-slate-500 mt-0.5">
-            {language === 'vi'
+            {true
               ? 'Dữ liệu thô từ khảo sát được chuyển đổi thành các vector toán học và danh mục chuẩn trước khi đưa vào lõi gợi ý.'
               : 'Survey raw inputs converted into normalized mathematical vectors ready for the recommendation engine.'}
           </p>
@@ -72,7 +72,7 @@ export const Step2ProfileView: React.FC<Step2ProfileViewProps> = ({
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2 font-bold text-xs text-slate-800 uppercase tracking-wider">
               <Compass className="w-4 h-4 text-indigo-600" />
-              <span>{language === 'vi' ? '1. Vector Tâm lý Holland (RIASEC)' : '1. RIASEC Psychological Vector'}</span>
+              <span>{'1. Vector Tâm lý Holland (RIASEC)'}</span>
             </div>
             <span className="text-[11px] font-bold text-indigo-600">Độ tin cậy: 92%</span>
           </div>
@@ -88,7 +88,7 @@ export const Step2ProfileView: React.FC<Step2ProfileViewProps> = ({
                   <div className="flex items-center justify-between text-xs">
                     <span className="font-semibold text-slate-700 flex items-center gap-1.5">
                       <span>{meta.icon}</span>
-                      <span>{dim} - {language === 'vi' ? meta.nameVi.split(' ')[0] : dim}</span>
+                      <span>{dim} - {true ? meta.nameVi.split(' ')[0] : dim}</span>
                     </span>
                     <span className="font-bold text-slate-900">{pct}%</span>
                   </div>
@@ -115,7 +115,7 @@ export const Step2ProfileView: React.FC<Step2ProfileViewProps> = ({
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2 font-bold text-xs text-slate-800 uppercase tracking-wider">
               <Sparkles className="w-4 h-4 text-purple-600" />
-              <span>{language === 'vi' ? '2. Phong cách Tư duy MBTI (Phụ)' : '2. MBTI Traits (Supplementary)'}</span>
+              <span>{'2. Phong cách Tư duy MBTI (Phụ)'}</span>
             </div>
             <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-200">
               Feature phụ đối chiếu
@@ -126,7 +126,7 @@ export const Step2ProfileView: React.FC<Step2ProfileViewProps> = ({
             <div>
               <div className="text-xl font-bold text-purple-900">{profile.mbtiType || 'INTJ'}</div>
               <div className="text-xs text-purple-700 mt-0.5">
-                {profile.mbtiResult?.notes || (language === 'vi' ? 'Tư duy chiến lược, độc lập, cấu trúc bài bản' : 'Strategic, independent, structured')}
+                {profile.mbtiResult?.notes || ('Tư duy chiến lược, độc lập, cấu trúc bài bản')}
               </div>
             </div>
             <div className="text-2xl">🧠</div>
@@ -164,12 +164,12 @@ export const Step2ProfileView: React.FC<Step2ProfileViewProps> = ({
         <div className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs space-y-3">
           <div className="flex items-center space-x-2 font-bold text-xs text-slate-800 uppercase tracking-wider">
             <BookOpen className="w-4 h-4 text-emerald-600" />
-            <span>{language === 'vi' ? '3. Kỹ năng & Môn học Thế mạnh' : '3. Skills & Favorite Subjects'}</span>
+            <span>{'3. Kỹ năng & Môn học Thế mạnh'}</span>
           </div>
 
           <div>
             <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1.5">
-              {language === 'vi' ? 'Môn học nổi bật:' : 'Top subjects:'}
+              {'Môn học nổi bật:'}
             </span>
             <div className="flex flex-wrap gap-1.5">
               {profile.favoriteSubjects.map(sub => (
@@ -185,7 +185,7 @@ export const Step2ProfileView: React.FC<Step2ProfileViewProps> = ({
 
           <div className="pt-2">
             <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1.5">
-              {language === 'vi' ? 'Kỹ năng đã kiểm định:' : 'Verified skills:'}
+              {'Kỹ năng đã kiểm định:'}
             </span>
             <div className="flex flex-wrap gap-1.5">
               {profile.skills.map(sk => (
@@ -204,7 +204,7 @@ export const Step2ProfileView: React.FC<Step2ProfileViewProps> = ({
         <div className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs space-y-3">
           <div className="flex items-center space-x-2 font-bold text-xs text-slate-800 uppercase tracking-wider">
             <Target className="w-4 h-4 text-amber-600" />
-            <span>{language === 'vi' ? '4. Mục tiêu & Môi trường Mong muốn' : '4. Goals & Work Preferences'}</span>
+            <span>{'4. Mục tiêu & Môi trường Mong muốn'}</span>
           </div>
 
           <div className="space-y-2 text-xs">
@@ -244,7 +244,7 @@ export const Step2ProfileView: React.FC<Step2ProfileViewProps> = ({
           className="px-4 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 font-semibold text-xs flex items-center space-x-2 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
-          <span>{language === 'vi' ? 'Quay lại Bước 1 (Sửa khảo sát)' : 'Back to Step 1 (Edit survey)'}</span>
+          <span>{'Quay lại Bước 1 (Sửa khảo sát)'}</span>
         </button>
 
         <button
@@ -252,7 +252,7 @@ export const Step2ProfileView: React.FC<Step2ProfileViewProps> = ({
           onClick={onAdvanceToStep3}
           className="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center space-x-2 transition-all shadow-sm hover:shadow-md cursor-pointer"
         >
-          <span>{language === 'vi' ? 'Xác nhận Hồ sơ ➡️ Khởi chạy Lõi Tính điểm (Bước 3)' : 'Confirm Profile ➡️ Run Engine (Step 3)'}</span>
+          <span>{'Xác nhận Hồ sơ ➡️ Khởi chạy Lõi Tính điểm (Bước 3)'}</span>
           <ArrowRight className="w-4 h-4" />
         </button>
       </div>

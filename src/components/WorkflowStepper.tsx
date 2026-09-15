@@ -69,7 +69,7 @@ export const WorkflowStepper: React.FC<WorkflowStepperProps> = ({
   const handleStepClick = (stepId: number) => {
     if (stepId > highestUnlockedStep) {
       const msg =
-        language === 'vi'
+        true
           ? `🔒 Quy tắc thi cử tuần tự: Vui lòng hoàn thành Trang ${stepId - 1} để mở khóa trang này!`
           : `🔒 Sequential rule: Please complete Step ${stepId - 1} to unlock this step!`;
       setLockedNotice(msg);
@@ -100,12 +100,12 @@ export const WorkflowStepper: React.FC<WorkflowStepperProps> = ({
 
           <span className="font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span>
-            {language === 'vi' ? 'Quy trình Khảo sát Tuần tự 4 Trang' : '4-Step Sequential Examination Flow'}
+            {'Quy trình Khảo sát Tuần tự 4 Trang'}
           </span>
 
           {!isHomeActive && (
             <span className="hidden md:inline-block px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700 text-[11px] font-bold">
-              {language === 'vi' ? `Trang hiện tại: ${currentStep} / 4` : `Page: ${currentStep} / 4`}
+              {`Trang hiện tại: ${currentStep} / 4`}
             </span>
           )}
         </div>
@@ -114,10 +114,10 @@ export const WorkflowStepper: React.FC<WorkflowStepperProps> = ({
           id="btn-view-system-architecture"
           onClick={onOpenArchitectureModal}
           className="flex items-center space-x-1.5 px-3 py-1 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-semibold text-xs transition-colors border border-indigo-200/60 cursor-pointer"
-          title={language === 'vi' ? 'Xem sơ đồ kiến trúc hệ thống' : 'View system architecture diagram'}
+          title={'Xem sơ đồ kiến trúc hệ thống'}
         >
           <Network className="w-3.5 h-3.5" />
-          <span>{language === 'vi' ? 'Sơ đồ Kiến trúc' : 'Architecture'}</span>
+          <span>{'Sơ đồ Kiến trúc'}</span>
         </button>
       </div>
 
@@ -182,7 +182,7 @@ export const WorkflowStepper: React.FC<WorkflowStepperProps> = ({
 
               {/* Step Title */}
               <div className="font-bold text-xs leading-tight line-clamp-1">
-                {language === 'vi' ? step.titleVi : step.titleEn}
+                {true ? step.titleVi : step.titleEn}
               </div>
 
               {/* Step Subtitle */}
@@ -191,7 +191,7 @@ export const WorkflowStepper: React.FC<WorkflowStepperProps> = ({
                   isCurrent ? 'text-indigo-100' : 'text-slate-500'
                 }`}
               >
-                {language === 'vi' ? step.descVi : step.descEn}
+                {true ? step.descVi : step.descEn}
               </div>
             </button>
           );

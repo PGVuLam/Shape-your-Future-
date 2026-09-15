@@ -9,10 +9,7 @@ import {
   Cpu,
   Menu,
   X,
-  Languages,
-  ChevronRight,
-  UserCheck,
-  Sparkles
+  UserCheck
 } from 'lucide-react';
 import { UserProfile, AgeGroup, LLMConfig } from '../types';
 import { DEMO_PROFILES } from '../data/demoProfiles';
@@ -241,39 +238,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   </p>
                 </div>
 
-                {/* 4. Chỉnh Ngôn ngữ */}
-                <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 space-y-2">
-                  <div className="flex items-center space-x-2 text-slate-800 font-bold text-xs">
-                    <Languages className="w-4 h-4 text-sky-600" />
-                    <span>CHỈNH NGÔN NGỮ (LANGUAGE)</span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2 pt-1">
-                    <button
-                      onClick={() => setLanguage('vi')}
-                      className={`py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center space-x-2 transition-all cursor-pointer ${
-                        language === 'vi'
-                          ? 'bg-red-600 text-white shadow-xs'
-                          : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
-                      }`}
-                    >
-                      <span>🇻🇳</span>
-                      <span>Tiếng Việt</span>
-                    </button>
-                    <button
-                      onClick={() => setLanguage('en')}
-                      className={`py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center space-x-2 transition-all cursor-pointer ${
-                        language === 'en'
-                          ? 'bg-indigo-600 text-white shadow-xs'
-                          : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
-                      }`}
-                    >
-                      <span>🇬🇧</span>
-                      <span>English</span>
-                    </button>
-                  </div>
-                </div>
-
-                {/* 5. Tải Hồ sơ Kiểm thử Nhanh */}
+                {/* 4. Tải Hồ sơ Kiểm thử Nhanh */}
                 <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 space-y-2">
                   <div className="flex items-center space-x-2 text-slate-800 font-bold text-xs">
                     <UserCheck className="w-4 h-4 text-amber-600" />

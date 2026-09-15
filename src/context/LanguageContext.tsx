@@ -13,11 +13,8 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Default to Vietnamese ('vi') as requested by user
-  const [language, setLanguageState] = useState<Language>(() => {
-    const saved = localStorage.getItem('edupath_language');
-    return saved === 'en' ? 'en' : 'vi';
-  });
+  // Hardcode to Vietnamese as requested by user
+  const [language, setLanguageState] = useState<Language>('vi');
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
@@ -27,24 +24,15 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const t = TRANSLATIONS[language];
 
   const getCareerTitle = (careerId: string, fallbackTitle: string): string => {
-    if (language === 'vi' && CAREER_LOCALIZATION[careerId]?.title) {
-      return CAREER_LOCALIZATION[careerId].title;
-    }
-    return fallbackTitle;
+    return CAREER_LOCALIZATION[careerId]?.title || fallbackTitle;
   };
 
   const getCareerCluster = (careerId: string, fallbackCluster: string): string => {
-    if (language === 'vi' && CAREER_LOCALIZATION[careerId]?.cluster) {
-      return CAREER_LOCALIZATION[careerId].cluster;
-    }
-    return fallbackCluster;
+    return CAREER_LOCALIZATION[careerId]?.cluster || fallbackCluster;
   };
 
   const getCareerDesc = (careerId: string, fallbackDesc: string): string => {
-    if (language === 'vi' && CAREER_LOCALIZATION[careerId]?.desc) {
-      return CAREER_LOCALIZATION[careerId].desc;
-    }
-    return fallbackDesc;
+    return CAREER_LOCALIZATION[careerId]?.desc || fallbackDesc;
   };
 
   return (

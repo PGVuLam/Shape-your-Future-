@@ -150,13 +150,13 @@ export const Step1AssessmentView: React.FC<Step1AssessmentViewProps> = ({
         <div>
           <div className="flex items-center space-x-2 text-indigo-700 font-bold text-xs uppercase tracking-wider mb-1">
             <Compass className="w-4 h-4" />
-            <span>{language === 'vi' ? 'BƯỚC 1: KHẢO SÁT & ĐẦU VÀO NGƯỜI DÙNG' : 'STEP 1: USER INPUT / ASSESSMENT'}</span>
+            <span>{'BƯỚC 1: KHẢO SÁT & ĐẦU VÀO NGƯỜI DÙNG'}</span>
           </div>
           <h1 className="text-xl font-bold text-slate-900">
-            {language === 'vi' ? 'Thu thập Dữ liệu Năng lực & Tâm lý' : 'Collect Competency & Psychological Profile'}
+            {'Thu thập Dữ liệu Năng lực & Tâm lý'}
           </h1>
           <p className="text-xs text-slate-500 mt-0.5">
-            {language === 'vi'
+            {true
               ? 'Khảo sát 6 chiều Holland RIASEC, MBTI phụ trợ, môn học thế mạnh, kỹ năng và mục tiêu nghề nghiệp.'
               : 'Assessing RIASEC 6 dimensions, supplementary MBTI, subjects, skills and career goals.'}
           </p>
@@ -166,7 +166,7 @@ export const Step1AssessmentView: React.FC<Step1AssessmentViewProps> = ({
         <div className="flex flex-wrap items-center gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-200 text-xs">
           <span className="font-semibold text-slate-700 flex items-center gap-1">
             <Zap className="w-3.5 h-3.5 text-amber-500" />
-            {language === 'vi' ? 'Nạp hồ sơ mẫu thử nhanh:' : 'Quick demo profile:'}
+            {'Nạp hồ sơ mẫu thử nhanh:'}
           </span>
           <button
             onClick={() => {
@@ -193,7 +193,7 @@ export const Step1AssessmentView: React.FC<Step1AssessmentViewProps> = ({
       <div className="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-xs">
         <div className="flex items-center justify-between text-xs font-semibold mb-2">
           <span className="text-slate-700">
-            {language === 'vi'
+            {true
               ? `Tiến độ khảo sát: ${answeredCount}/${questions.length} tiêu chí`
               : `Survey progress: ${answeredCount}/${questions.length} criteria`}
           </span>
@@ -233,7 +233,7 @@ export const Step1AssessmentView: React.FC<Step1AssessmentViewProps> = ({
                   <div className="flex items-center space-x-2 text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">
                     <span>MÔ-ĐUN: {q.module.toUpperCase()}</span>
                     <span>•</span>
-                    <span>{isMulti ? (language === 'vi' ? 'Chọn nhiều' : 'Multi-choice') : (language === 'vi' ? 'Chọn một' : 'Single-choice')}</span>
+                    <span>{isMulti ? ('Chọn nhiều') : ('Chọn một')}</span>
                   </div>
                   <h3 className="text-base font-bold text-slate-900">{q.prompt}</h3>
                   {q.description && (
@@ -244,7 +244,7 @@ export const Step1AssessmentView: React.FC<Step1AssessmentViewProps> = ({
                 {isAnswered && (
                   <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold flex items-center gap-1 shrink-0">
                     <CheckCircle2 className="w-3 h-3" />
-                    {language === 'vi' ? 'Đã chọn' : 'Answered'}
+                    {'Đã chọn'}
                   </span>
                 )}
               </div>
@@ -282,15 +282,15 @@ export const Step1AssessmentView: React.FC<Step1AssessmentViewProps> = ({
       <div className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4 sticky bottom-4">
         <div className="text-xs text-slate-600">
           <span className="font-bold text-slate-900 block sm:inline">
-            {language === 'vi' ? 'Quy tắc thi cử:' : 'Examination Rule:'}
+            {'Quy tắc thi cử:'}
           </span>{' '}
           {isCompleted ? (
             <span className="text-emerald-700 font-semibold">
-              {language === 'vi' ? 'Đã đủ điều kiện dữ liệu để chuẩn hóa hồ sơ.' : 'Ready to compile structured profile.'}
+              {'Đã đủ điều kiện dữ liệu để chuẩn hóa hồ sơ.'}
             </span>
           ) : (
             <span className="text-amber-700 font-semibold">
-              {language === 'vi' ? 'Cần trả lời tối thiểu 4 câu hỏi để mở khóa Bước 2.' : 'Complete at least 4 questions to unlock Step 2.'}
+              {'Cần trả lời tối thiểu 4 câu hỏi để mở khóa Bước 2.'}
             </span>
           )}
         </div>
@@ -305,7 +305,7 @@ export const Step1AssessmentView: React.FC<Step1AssessmentViewProps> = ({
               : 'bg-slate-200 text-slate-400 cursor-not-allowed'
           }`}
         >
-          <span>{language === 'vi' ? 'Xác nhận & Chuyển sang Bước 2: Chuẩn hóa Hồ sơ' : 'Confirm & Proceed to Step 2: Structured Profile'}</span>
+          <span>{'Xác nhận & Chuyển sang Bước 2: Chuẩn hóa Hồ sơ'}</span>
           <ArrowRight className="w-4 h-4" />
         </button>
       </div>

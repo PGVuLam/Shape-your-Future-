@@ -137,7 +137,7 @@ export const AssessmentView: React.FC<AssessmentViewProps> = ({
             </h2>
           </div>
           <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200">
-            {t.ageGroup} {profile.ageGroup} ({profile.age} {language === 'vi' ? 'tuổi' : 'yrs'})
+            {t.ageGroup} {profile.ageGroup} ({profile.age} {'tuổi'})
           </span>
         </div>
         <p className="text-xs text-slate-500">
@@ -148,7 +148,7 @@ export const AssessmentView: React.FC<AssessmentViewProps> = ({
         <div className="pt-2 space-y-1">
           <div className="flex justify-between text-xs text-slate-500 font-medium">
             <span>
-              {language === 'vi'
+              {true
                 ? `Câu hỏi ${currentStep + 1} trên tổng số ${questions.length}`
                 : `Question ${currentStep + 1} of ${questions.length}`}
             </span>
@@ -168,7 +168,7 @@ export const AssessmentView: React.FC<AssessmentViewProps> = ({
         <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6 animate-in fade-in duration-200">
           <div className="space-y-1">
             <span className="text-[11px] font-bold text-indigo-600 uppercase tracking-wider">
-              {language === 'vi' ? 'HỌC PHẦN:' : 'MODULE:'} {activeQuestion.module.toUpperCase()}
+              {'HỌC PHẦN:'} {activeQuestion.module.toUpperCase()}
             </span>
             <h3 className="text-xl font-bold text-slate-900">{activeQuestion.prompt}</h3>
             {activeQuestion.description && (
@@ -255,10 +255,10 @@ export const AssessmentView: React.FC<AssessmentViewProps> = ({
       {/* Psychological Notice */}
       <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-600 space-y-1">
         <span className="font-semibold text-slate-800">
-          {language === 'vi' ? 'Khuyến cáo Khoa học Hướng nghiệp:' : 'Scientific Compass Notice:'}
+          {'Khuyến cáo Khoa học Hướng nghiệp:'}
         </span>
         <p>
-          {language === 'vi'
+          {true
             ? 'EduPath AI hoạt động như một kim chỉ nam khám phá. Hồ sơ năng lực và sở thích của bạn sẽ liên tục phát triển qua các dự án cọ xát thực tế, học tập và trải nghiệm cá nhân.'
             : 'EduPath AI operates as an exploratory guide. Your vocational profile is dynamic and evolves with practice, curiosity, and hands-on projects. No algorithm can dictate your life choices.'}
         </p>

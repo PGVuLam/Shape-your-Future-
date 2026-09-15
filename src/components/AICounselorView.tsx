@@ -55,7 +55,7 @@ export const AICounselorView: React.FC<AICounselorViewProps> = ({
 
   // Initialize welcoming message
   useEffect(() => {
-    if (language === 'vi') {
+    if (true) {
       setMessages([
         {
           id: 'welcome-1',
@@ -128,7 +128,7 @@ Feel free to ask me anything — such as why this was recommended, what to learn
       const errorMsg: ChatMessage = {
         id: (Date.now() + 1).toString(),
         sender: 'assistant',
-        text: language === 'vi'
+        text: true
           ? `Gặp sự cố kết nối dịch vụ đám mây. Theo dữ liệu định hướng, với nghề ${locTitle}, bước khởi đầu tốt nhất là bạn nên thử làm dự án "${selectedCareer.experiments[0]?.title || 'dự án nhỏ'}".`
           : `I encountered an unexpected issue contacting the cloud service. As a grounded recommendation, for ${selectedCareer.title}, your best starting point is to try the "${selectedCareer.experiments[0]?.title || 'introductory project'}".`,
         provider: 'Deterministic Fallback Engine',
@@ -140,7 +140,7 @@ Feel free to ask me anything — such as why this was recommended, what to learn
     }
   };
 
-  const quickPrompts = language === 'vi' ? [
+  const quickPrompts = true ? [
     `Tại sao ${locTitle} lại được gợi ý cho tôi?`,
     `Tôi nên bắt đầu học kỹ năng gì đầu tiên cho nghề này?`,
     `Nếu tôi lo lắng về môn Toán thì có thể theo đuổi được không?`,
@@ -201,26 +201,26 @@ Feel free to ask me anything — such as why this was recommended, what to learn
             className="text-indigo-600 hover:text-indigo-700 font-medium flex items-center space-x-1"
           >
             <Info className="w-3.5 h-3.5" />
-            <span>{showGroundingContext ? (language === 'vi' ? 'Ẩn hồ sơ dữ liệu RAG' : 'Hide Grounding Context') : (language === 'vi' ? 'Xem hồ sơ dữ liệu RAG' : 'Inspect Grounding Context')}</span>
+            <span>{showGroundingContext ? ('Ẩn hồ sơ dữ liệu RAG') : ('Xem hồ sơ dữ liệu RAG')}</span>
           </button>
         </div>
 
         {/* Grounding Context Drawer */}
         {showGroundingContext && (
           <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs space-y-2 text-slate-700">
-            <div className="font-bold text-slate-900">{language === 'vi' ? 'Ngữ cảnh được RAG đưa vào Prompt:' : 'Grounding Context Injected into Model:'}</div>
+            <div className="font-bold text-slate-900">{'Ngữ cảnh được RAG đưa vào Prompt:'}</div>
             <div className="grid sm:grid-cols-2 gap-2 text-[11px]">
               <div>
-                <span className="font-semibold text-slate-800">{language === 'vi' ? 'Hồ sơ người dùng:' : 'Student Profile:'}</span> {groundedContext.profileContext.age} {language === 'vi' ? 'tuổi' : 'yrs'}, {groundedContext.profileContext.educationLevel}, {language === 'vi' ? 'Môn:' : 'Subjects:'} {groundedContext.profileContext.favoriteSubjects.join(', ')}
+                <span className="font-semibold text-slate-800">{'Hồ sơ người dùng:'}</span> {groundedContext.profileContext.age} {'tuổi'}, {groundedContext.profileContext.educationLevel}, {'Môn:'} {groundedContext.profileContext.favoriteSubjects.join(', ')}
               </div>
               <div>
-                <span className="font-semibold text-slate-800">{language === 'vi' ? 'Mã Holland:' : 'Holland RIASEC:'}</span> {groundedContext.profileContext.riasecCode} ({groundedContext.riasecFitSummary})
+                <span className="font-semibold text-slate-800">{'Mã Holland:'}</span> {groundedContext.profileContext.riasecCode} ({groundedContext.riasecFitSummary})
               </div>
               <div>
-                <span className="font-semibold text-slate-800">{language === 'vi' ? 'Kỹ năng phù hợp:' : 'Matched Skills:'}</span> {groundedContext.userMatchedSkills.join(', ') || 'N/A'}
+                <span className="font-semibold text-slate-800">{'Kỹ năng phù hợp:'}</span> {groundedContext.userMatchedSkills.join(', ') || 'N/A'}
               </div>
               <div>
-                <span className="font-semibold text-slate-800">{language === 'vi' ? 'Kỹ năng cần bổ trợ:' : 'Missing Skills:'}</span> {groundedContext.userMissingSkills.join(', ') || 'None'}
+                <span className="font-semibold text-slate-800">{'Kỹ năng cần bổ trợ:'}</span> {groundedContext.userMissingSkills.join(', ') || 'None'}
               </div>
             </div>
           </div>
@@ -275,7 +275,7 @@ Feel free to ask me anything — such as why this was recommended, what to learn
               </div>
               <div className="bg-slate-50 border border-slate-200 rounded-2xl rounded-bl-none p-4 text-xs text-slate-500 flex items-center space-x-2">
                 <div className="w-2 h-2 rounded-full bg-indigo-600 animate-ping"></div>
-                <span>{language === 'vi' ? 'Cố vấn EduPath AI đang phân tích dữ liệu...' : 'Counselor is synthesizing grounded guidance...'}</span>
+                <span>{'Cố vấn EduPath AI đang phân tích dữ liệu...'}</span>
               </div>
             </div>
           )}

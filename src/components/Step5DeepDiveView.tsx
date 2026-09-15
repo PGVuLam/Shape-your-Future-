@@ -48,13 +48,13 @@ export const Step5DeepDiveView: React.FC<Step5DeepDiveViewProps> = ({
         <div>
           <div className="flex items-center space-x-2 text-rose-600 font-bold text-xs uppercase tracking-wider mb-1">
             <BrainCircuit className="w-4 h-4" />
-            <span>{language === 'vi' ? 'BƯỚC 5: TẦNG RAG & CỐ VẤN AI GIẢI THÍCH CHUYÊN SÂU' : 'STEP 5: RAG & AI COUNSELOR DEEP DIVE'}</span>
+            <span>{'BƯỚC 5: TẦNG RAG & CỐ VẤN AI GIẢI THÍCH CHUYÊN SÂU'}</span>
           </div>
           <h1 className="text-xl font-bold text-slate-900">
-            {language === 'vi' ? 'Giải thích Chuyên sâu, Lộ trình & Mô phỏng' : 'In-depth Explanation, Roadmap & Simulations'}
+            {'Giải thích Chuyên sâu, Lộ trình & Mô phỏng'}
           </h1>
           <p className="text-xs text-slate-500 mt-0.5">
-            {language === 'vi'
+            {true
               ? 'Mô hình RAG & Cố vấn AI phân tích vì sao nghề phù hợp, lập lộ trình 4 giai đoạn và giải đáp thắc mắc.'
               : 'RAG & AI Counselor explaining why careers fit, generating 4-phase roadmap and answering questions.'}
           </p>
@@ -63,7 +63,7 @@ export const Step5DeepDiveView: React.FC<Step5DeepDiveViewProps> = ({
         {/* Rule note: LLM does not decide */}
         <div className="px-3 py-1.5 bg-rose-50 border border-rose-200 text-rose-800 rounded-xl text-[11px] font-semibold flex items-center gap-1.5">
           <AlertCircle className="w-3.5 h-3.5 shrink-0" />
-          <span>{language === 'vi' ? 'LLM KHÔNG tự quyết định nghề từ đầu mà chỉ giải thích chuyên sâu' : 'LLM explains grounded data; does not decide ranking'}</span>
+          <span>{'LLM KHÔNG tự quyết định nghề từ đầu mà chỉ giải thích chuyên sâu'}</span>
         </div>
       </div>
 
@@ -78,7 +78,7 @@ export const Step5DeepDiveView: React.FC<Step5DeepDiveViewProps> = ({
           }`}
         >
           <Map className="w-3.5 h-3.5" />
-          <span>{language === 'vi' ? '1. Lộ trình Học tập (Roadmap)' : '1. Learning Roadmap'}</span>
+          <span>{'1. Lộ trình Học tập (Roadmap)'}</span>
         </button>
 
         <button
@@ -90,7 +90,7 @@ export const Step5DeepDiveView: React.FC<Step5DeepDiveViewProps> = ({
           }`}
         >
           <Scale className="w-3.5 h-3.5" />
-          <span>{language === 'vi' ? '2. So sánh Nghề nghiệp' : '2. Compare Careers'}</span>
+          <span>{'2. So sánh Nghề nghiệp'}</span>
         </button>
 
         <button
@@ -102,7 +102,7 @@ export const Step5DeepDiveView: React.FC<Step5DeepDiveViewProps> = ({
           }`}
         >
           <Sparkles className="w-3.5 h-3.5" />
-          <span>{language === 'vi' ? '3. Mô phỏng What-If' : '3. What-If Simulation'}</span>
+          <span>{'3. Mô phỏng What-If'}</span>
         </button>
 
         <button
@@ -114,7 +114,7 @@ export const Step5DeepDiveView: React.FC<Step5DeepDiveViewProps> = ({
           }`}
         >
           <MessageSquare className="w-3.5 h-3.5" />
-          <span>{language === 'vi' ? '4. Cố vấn AI RAG ("Vì sao phù hợp?")' : '4. AI Counselor RAG'}</span>
+          <span>{'4. Cố vấn AI RAG ("Vì sao phù hợp?")'}</span>
         </button>
 
         <button
@@ -126,7 +126,7 @@ export const Step5DeepDiveView: React.FC<Step5DeepDiveViewProps> = ({
           }`}
         >
           <Users className="w-3.5 h-3.5" />
-          <span>{language === 'vi' ? '5. Góc Cha Mẹ & Thầy Cô' : '5. Parent & Teacher'}</span>
+          <span>{'5. Góc Cha Mẹ & Thầy Cô'}</span>
         </button>
       </div>
 
@@ -181,7 +181,7 @@ export const Step5DeepDiveView: React.FC<Step5DeepDiveViewProps> = ({
           className="px-4 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 font-semibold text-xs flex items-center space-x-2 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
-          <span>{language === 'vi' ? 'Quay lại Bước 4 (Báo cáo Kết quả)' : 'Back to Step 4'}</span>
+          <span>{'Quay lại Bước 4 (Báo cáo Kết quả)'}</span>
         </button>
 
         <button
@@ -190,7 +190,7 @@ export const Step5DeepDiveView: React.FC<Step5DeepDiveViewProps> = ({
           className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs flex items-center space-x-2 transition-all shadow-sm cursor-pointer"
         >
           <RotateCcw className="w-4 h-4 text-slate-300" />
-          <span>{language === 'vi' ? '🔄 Khởi động lại Quy trình Khảo sát Mới' : '🔄 Start New Examination Cycle'}</span>
+          <span>{'🔄 Khởi động lại Quy trình Khảo sát Mới'}</span>
         </button>
       </div>
     </div>

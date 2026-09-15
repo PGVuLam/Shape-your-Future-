@@ -1,0 +1,1381 @@
+[
+  {
+    "id": "ux-designer",
+    "title": "UI/UX Product Designer",
+    "aliases": [
+      "User Experience Designer",
+      "Interaction Designer",
+      "Product Designer"
+    ],
+    "description": "Researches user behaviors and crafts intuitive, accessible, and visually captivating digital interfaces for websites, mobile applications, and software tools.",
+    "careerCluster": "Design",
+    "industry": "Design & Creative Technology",
+    "tasks": [
+      "Conduct user interviews, usability testing, and persona research",
+      "Create wireframes, user flow diagrams, and interactive clickable prototypes in Figma",
+      "Build and maintain scalable design systems with reusable components, typography, and color tokens",
+      "Collaborate with developers to ensure pixel-perfect design implementation",
+      "Advocate for digital accessibility (WCAG) and seamless cognitive clarity"
+    ],
+    "responsibilities": [
+      "Transforming complex technical workflows into effortless user experiences",
+      "Validating design hypotheses with empirical usability testing",
+      "Maintaining brand aesthetic consistency across digital touchpoints"
+    ],
+    "workEnvironment": [
+      "Creative design studio or tech office",
+      "High collaborative design reviews",
+      "Remote / freelance friendly",
+      "Visual dual-monitor setups"
+    ],
+    "requiredSkills": [
+      "UI Design (Figma, Sketch)",
+      "User Research & Usability Testing",
+      "Interaction Design & Wireframing",
+      "Information Architecture"
+    ],
+    "recommendedSkills": [
+      "Design Systems & Component Libraries",
+      "Basic HTML/CSS/JS knowledge",
+      "Motion & Micro-interactions",
+      "Accessibility Standards (WCAG)"
+    ],
+    "softSkills": [
+      "Deep Empathy",
+      "Aesthetic Sensitivity",
+      "Active Listening",
+      "Giving & Receiving Constructive Critique"
+    ],
+    "technicalSkills": [
+      "Figma",
+      "Prototyping",
+      "Design Systems",
+      "HTML/CSS Basics",
+      "User Journey Mapping",
+      "Miro"
+    ],
+    "relevantSubjects": [
+      "Art & Graphic Design",
+      "Psychology",
+      "Computer Science",
+      "Communication",
+      "English"
+    ],
+    "relevantInterests": [
+      "Drawing & Visual Arts",
+      "Technology & Mobile Apps",
+      "Human Psychology",
+      "Graphic Layouts",
+      "Creativity & Aesthetics"
+    ],
+    "riaSecProfile": {
+      "R": 0.25,
+      "I": 0.65,
+      "A": 0.95,
+      "S": 0.65,
+      "E": 0.45,
+      "C": 0.5
+    },
+    "mbtiCompatibility": [
+      "INFP",
+      "ENFP",
+      "ISFP",
+      "INFJ"
+    ],
+    "educationPaths": [
+      {
+        "type": "University",
+        "duration": "4 Years (B.Des. in Interaction Design, Human-Computer Interaction (HCI), or Graphic Design)",
+        "description": "Comprehensive design studio critiques, cognitive psychology, typography, and portfolio synthesis.",
+        "tradeoffs": "Strong conceptual foundation and peer network; portfolio quality remains the ultimate hiring gatekeeper."
+      },
+      {
+        "type": "Self-Taught / Portfolio",
+        "duration": "6-12 Months intensive portfolio development",
+        "description": "Mastering Figma tutorials, completing real client redesigns, and publishing case studies on Behance/Dribbble.",
+        "tradeoffs": "High viability in design industry where demonstrable portfolio outshines traditional degrees."
+      }
+    ],
+    "relatedMajors": [
+      "Interaction Design",
+      "Human-Computer Interaction (HCI)",
+      "Graphic Design",
+      "Cognitive Psychology",
+      "Digital Media"
+    ],
+    "vocationalPaths": [
+      "Junior UI Designer",
+      "Graphic & Web Designer",
+      "Design Production Specialist"
+    ],
+    "certifications": [
+      "Google UX Design Professional Certificate",
+      "Nielsen Norman Group UX Master Certified",
+      "Interaction Design Foundation Certifications"
+    ],
+    "portfolioExamples": [
+      "Case study redesigning a municipal transport ticketing mobile app with user testing metrics",
+      "E-commerce mobile checkout flow with 30% fewer taps",
+      "Comprehensive dark/light design system with 50+ Figma variants"
+    ],
+    "beginnerProjects": [
+      "Pick a bad website and redesign its homepage layout in Figma",
+      "Create a 5-screen mobile app for tracking daily water intake with smooth interactions",
+      "Conduct a 15-minute usability test on a family member navigating a shopping website and document their struggles"
+    ],
+    "progressionPath": {
+      "entry": "Junior UX/UI Designer (wireframing, UI asset production, user test notes)",
+      "mid": "Product Designer (owning complete user journeys, managing design system)",
+      "senior": "Staff Designer / Head of Design (design strategy, brand language, creative direction)"
+    },
+    "workStyle": "Visual, iterative, high empathy, sketching and testing continuously",
+    "challenges": [
+      "Subjective aesthetic feedback from stakeholders",
+      "Keeping up with changing platform design guidelines (iOS/Android)",
+      "Advocating for user needs against commercial pressures"
+    ],
+    "advantages": [
+      "Tangible creative output that millions of people touch every day",
+      "Thriving freelance and global remote opportunities",
+      "High career satisfaction"
+    ],
+    "futureTrends": "Generative AI design tools, spatial computing (AR/VR) interface design, conversational and voice UI, adaptive dynamic layouts.",
+    "salaryInfo": {
+      "rangeDescription": "Strong compensation in tech, with senior designers commanding parity with senior software engineers.",
+      "disclaimer": "Example / illustrative information - requires local verification.",
+      "levelIndicator": "High"
+    },
+    "experiments": [
+      {
+        "title": "Create Your First Interactive Mobile Prototype in Figma",
+        "duration": "2 Hours",
+        "difficulty": "Beginner",
+        "description": "Sign up for free at Figma.com. Follow a 30-minute tutorial to design 2 mobile app screens and connect them with an interactive click transition.",
+        "steps": [
+          "Open Figma",
+          "Use an iPhone frame template",
+          "Add buttons, text, and an image",
+          "Use Prototype tab to connect Screen 1 to Screen 2 and hit Play"
+        ],
+        "expectedOutcome": "Feel the magic of tapping a screen and having an app you created respond."
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "product-manager",
+        "title": "Product Manager",
+        "similarityReason": "Both champion user needs and design interfaces",
+        "distinction": "Designers focus on visual interaction and usability; PMs manage the overall business viability, schedule, and revenue."
+      },
+      {
+        "careerId": "game-designer",
+        "title": "Game Designer & Developer",
+        "similarityReason": "Both design interactive digital experiences",
+        "distinction": "Game designers focus on player fun, emotional game mechanics, and world rules rather than utility productivity."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 27-1024.00)",
+    "lastUpdated": "2026-09"
+  },
+  {
+    "id": "game-designer",
+    "title": "Game Designer & Developer",
+    "aliases": [
+      "Video Game Designer",
+      "Gameplay Programmer",
+      "Level Designer"
+    ],
+    "description": "Conceptualizes and programs gameplay mechanics, rules, balance, narrative worlds, and interactive audio-visual systems for video games on PC, console, and mobile.",
+    "careerCluster": "Arts",
+    "industry": "Video Game Entertainment & Interactive Media",
+    "tasks": [
+      "Design core game mechanics, reward loops, and progression systems",
+      "Script gameplay logic and character movement in Unity (C#) or Unreal Engine (C++/Blueprints)",
+      "Design levels, encounter layouts, and environmental storytelling",
+      "Conduct playtesting sessions and analyze player telemetry to tune game balance",
+      "Collaborate with concept artists, 3D animators, and sound designers"
+    ],
+    "responsibilities": [
+      "Creating fun, engaging, and memorable interactive player experiences",
+      "Balancing game difficulty and pacing to avoid player boredom or frustration",
+      "Optimizing game performance to maintain smooth frame rates on target devices"
+    ],
+    "workEnvironment": [
+      "Game development studio",
+      "Creative collaborative setting",
+      "High screen time with gamepad/keyboard testing",
+      "Game jams and demo milestones"
+    ],
+    "requiredSkills": [
+      "Game Engine (Unity or Unreal Engine)",
+      "Scripting (C# or C++)",
+      "Game Balance & Systems Design",
+      "Level Design & Spatial Awareness"
+    ],
+    "recommendedSkills": [
+      "3D Math & Physics for Games",
+      "Shaders & Visual Effects",
+      "Sound Design Integration",
+      "Narrative Storytelling"
+    ],
+    "softSkills": [
+      "Creative Imagination",
+      "Patience with Bug Fixing",
+      "Receptive to Player Feedback",
+      "Passionate Drive"
+    ],
+    "technicalSkills": [
+      "Unity",
+      "C#",
+      "Unreal Engine",
+      "Blender Basics",
+      "Git",
+      "Photoshop Basics"
+    ],
+    "relevantSubjects": [
+      "Computer Science",
+      "Art & Design",
+      "Mathematics & Physics",
+      "Literature & Creative Writing",
+      "Music"
+    ],
+    "relevantInterests": [
+      "Video Games",
+      "Storytelling & Worldbuilding",
+      "Drawing & Animation",
+      "Coding & Math",
+      "Puzzles & Board Games"
+    ],
+    "riaSecProfile": {
+      "R": 0.5,
+      "I": 0.65,
+      "A": 0.95,
+      "S": 0.35,
+      "E": 0.5,
+      "C": 0.4
+    },
+    "mbtiCompatibility": [
+      "INFP",
+      "INTP",
+      "ENFP",
+      "ENTP"
+    ],
+    "educationPaths": [
+      {
+        "type": "University",
+        "duration": "4 Years (B.S. in Game Design, Computer Science, or Interactive Media)",
+        "description": "Combines rigorous programming with game history, 3D graphics theory, and multi-semester group game production.",
+        "tradeoffs": "Great environment for shipping team capstone games; a finished playable game is the true ticket to employment."
+      },
+      {
+        "type": "Self-Taught / Portfolio",
+        "duration": "1-2 Years participating in Global Game Jams and publishing on Itch.io",
+        "description": "Building small complete games in Godot, Unity, or Pico-8 and publishing them online.",
+        "tradeoffs": "Proven path in indie game development where shipped playable games speak louder than diplomas."
+      }
+    ],
+    "relatedMajors": [
+      "Game Design & Development",
+      "Computer Science",
+      "Interactive Media Arts",
+      "Animation & Digital Arts"
+    ],
+    "vocationalPaths": [
+      "Game QA Playtester",
+      "Junior Level Scripter",
+      "3D Asset Integrator"
+    ],
+    "certifications": [
+      "Unity Certified User / Professional Programmer",
+      "Unreal Engine Certified Creator"
+    ],
+    "portfolioExamples": [
+      "Playable 2D platformer published on Itch.io with custom mechanics",
+      "Unity puzzle game demonstrating procedural level generation",
+      "Game Design Document (GDD) with economy balance spreadsheet"
+    ],
+    "beginnerProjects": [
+      "Create a Flappy Bird clone in Scratch or Unity following a beginner tutorial",
+      "Design a playable tabletop board game using index cards and test it with 3 friends",
+      "Participate in a 48-hour weekend online Game Jam (e.g. Ludum Dare)"
+    ],
+    "progressionPath": {
+      "entry": "Junior Gameplay Programmer / Assistant Level Designer (scripting events, fixing collision bugs)",
+      "mid": "Game Designer / Senior Programmer (owning core combat or economy systems)",
+      "senior": "Creative Director / Game Director (overall vision, art style, franchise leadership)"
+    },
+    "workStyle": "High creativity blended with rigorous logic, frequent playtest iterations",
+    "challenges": [
+      "Competitive industry with intense release cycles (crunch)",
+      "Balancing creative ambition with technical budget",
+      "Harsh online player reviews"
+    ],
+    "advantages": [
+      "Immense joy seeing players emotionally engaged in worlds you created",
+      "Billion-dollar global industry surpassing film and music",
+      "Endless room for artistic innovation"
+    ],
+    "futureTrends": "Procedural world generation with generative AI, virtual reality experiences, cross-platform cloud streaming games.",
+    "salaryInfo": {
+      "rangeDescription": "Wide variance between indie self-publishing and major AAA corporate studios.",
+      "disclaimer": "Example / illustrative information - requires local verification.",
+      "levelIndicator": "Above Average"
+    },
+    "experiments": [
+      {
+        "title": "Make a 2D Game in Scratch or Godot in One Afternoon",
+        "duration": "3 Hours",
+        "difficulty": "Beginner",
+        "description": "Go to scratch.mit.edu and build a simple game where a character dodges falling objects and tracks score.",
+        "steps": [
+          "Create sprite character and backdrop",
+          "Code arrow keys for movement",
+          "Code falling apples with clone blocks",
+          "Add game over condition and score counter"
+        ],
+        "expectedOutcome": "Discover how game mechanics, rules, and instant player feedback loop together."
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "software-engineer",
+        "title": "Software Engineer",
+        "similarityReason": "Both write clean code and build digital systems",
+        "distinction": "Software engineers focus on enterprise reliability and business logic; game devs focus on player sensation and 60fps rendering."
+      },
+      {
+        "careerId": "ux-designer",
+        "title": "UI/UX Product Designer",
+        "similarityReason": "Both care about user interaction and cognitive feedback",
+        "distinction": "UX designers remove friction; game designers deliberately introduce fun challenges and calibrated friction."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 15-1255.01)",
+    "lastUpdated": "2026-09"
+  },
+  {
+    "id": "environmental-scientist",
+    "title": "Environmental & Climate Scientist",
+    "aliases": [
+      "Environmental Specialist",
+      "Conservation Scientist",
+      "Climate Data Analyst"
+    ],
+    "description": "Studies the natural environment, analyzes pollutants, assesses climate change impacts, and designs conservation and remediation strategies for a sustainable planet.",
+    "careerCluster": "Environment",
+    "industry": "Environmental Science & Sustainability",
+    "tasks": [
+      "Collect soil, water, air, and plant samples during field expeditions",
+      "Perform chemical and biological assays in analytical laboratories",
+      "Analyze geospatial satellite imagery and climate models using GIS",
+      "Draft Environmental Impact Assessments (EIA) for infrastructure projects",
+      "Advise government agencies and corporations on environmental compliance and carbon reduction"
+    ],
+    "responsibilities": [
+      "Protecting public ecosystems, wildlife habitats, and human drinking water",
+      "Delivering scientifically defensible environmental audit reports",
+      "Communicating urgent climate findings objectively to policy makers"
+    ],
+    "workEnvironment": [
+      "Field expeditions (rivers, forests, industrial sites)",
+      "Analytical chemistry laboratory",
+      "Office workstation with GIS mapping software"
+    ],
+    "requiredSkills": [
+      "Ecology & Environmental Chemistry",
+      "Fieldwork & Sampling Protocols",
+      "GIS (Geographic Information Systems)",
+      "Data Analysis & Statistics"
+    ],
+    "recommendedSkills": [
+      "Remote Sensing & Satellite Imagery",
+      "Environmental Law & Policy",
+      "Hydrology Modeling",
+      "Python/R for Environmental Data"
+    ],
+    "softSkills": [
+      "Scientific Rigor",
+      "Passion for Nature & Conservation",
+      "Clear Technical Writing",
+      "Physical Resilience Outdoors"
+    ],
+    "technicalSkills": [
+      "QGIS / ArcGIS",
+      "R / Python",
+      "Spectrophotometry",
+      "Water Quality Meters",
+      "GPS Mapping"
+    ],
+    "relevantSubjects": [
+      "Biology",
+      "Chemistry",
+      "Geography",
+      "Physics",
+      "Mathematics"
+    ],
+    "relevantInterests": [
+      "Nature & Outdoors",
+      "Climate Action & Conservation",
+      "Science Experiments",
+      "Wildlife Protection",
+      "Geography & Maps"
+    ],
+    "riaSecProfile": {
+      "R": 0.75,
+      "I": 0.9,
+      "A": 0.35,
+      "S": 0.6,
+      "E": 0.4,
+      "C": 0.65
+    },
+    "mbtiCompatibility": [
+      "INFJ",
+      "INFP",
+      "INTJ",
+      "ISFP"
+    ],
+    "educationPaths": [
+      {
+        "type": "University",
+        "duration": "4-6 Years (B.S. or M.S. in Environmental Science, Ecology, or Earth Sciences)",
+        "description": "Comprehensive study of earth systems, geochemical cycles, environmental policy, and field ecology research.",
+        "tradeoffs": "Core pathway for scientific credibility and consulting licenses; M.S. often preferred for senior research."
+      }
+    ],
+    "relatedMajors": [
+      "Environmental Science",
+      "Ecology",
+      "Earth & Planetary Sciences",
+      "Environmental Engineering",
+      "Geography"
+    ],
+    "vocationalPaths": [
+      "Environmental Sampling Technician",
+      "Wastewater Treatment Operator",
+      "Forest Ranger Assistant"
+    ],
+    "certifications": [
+      "Certified Environmental Scientist (CES)",
+      "OSHA HAZWOPER Certification",
+      "GIS Professional (GISP)"
+    ],
+    "portfolioExamples": [
+      "Local watershed nitrate pollution investigation report with GIS maps",
+      "Urban heat island analysis using satellite thermal bands in Google Earth Engine",
+      "Biodiversity census of native pollinators in a regional park"
+    ],
+    "beginnerProjects": [
+      "Test tap water and local pond water using a home pH and chemical test kit",
+      "Map tree canopy coverage in your neighborhood using Google Earth Engine",
+      "Conduct a 1-week home plastic waste audit and calculate carbon footprint"
+    ],
+    "progressionPath": {
+      "entry": "Junior Field Scientist / Environmental Technician (collecting samples, lab testing, data logging)",
+      "mid": "Environmental Consultant / Project Scientist (managing EIA reports, remediation plans)",
+      "senior": "Principal Environmental Scientist / Director of Sustainability"
+    },
+    "workStyle": "Splits time between outdoor fieldwork in natural elements, clean lab analysis, and geospatial report writing",
+    "challenges": [
+      "Fieldwork in harsh weather conditions",
+      "Frustrations with slow policy implementation",
+      "Balancing commercial development with conservation"
+    ],
+    "advantages": [
+      "Working outdoors in nature",
+      "Deep moral alignment with safeguarding the planet for future generations",
+      "Rapidly growing ESG corporate demand"
+    ],
+    "futureTrends": "Carbon credit verification, satellite drone ecological monitoring, climate risk modeling for financial markets.",
+    "salaryInfo": {
+      "rangeDescription": "Solid public sector and expanding corporate sustainability consulting compensation.",
+      "disclaimer": "Example / illustrative information - requires local verification.",
+      "levelIndicator": "Moderate"
+    },
+    "experiments": [
+      {
+        "title": "Investigate Local Water Quality with a Test Kit",
+        "duration": "2 Hours",
+        "difficulty": "Beginner",
+        "description": "Use a low-cost aquarium test strip kit to test tap water, bottled water, and local stream water for pH, hardness, and nitrates.",
+        "steps": [
+          "Dip test strips in 3 different water samples",
+          "Record values in a spreadsheet table",
+          "Compare results against WHO drinking water guidelines"
+        ],
+        "expectedOutcome": "Experience how environmental scientists collect physical data to monitor ecological health."
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "architect-urban-planner",
+        "title": "Architect & Sustainable Urban Planner",
+        "similarityReason": "Both focus on human impact on habitats and sustainability",
+        "distinction": "Architects design built structures; environmental scientists study and protect natural ecosystems."
+      },
+      {
+        "careerId": "biomedical-scientist",
+        "title": "Biomedical & Genomics Researcher",
+        "similarityReason": "Both conduct rigorous laboratory assays and research",
+        "distinction": "Biomedical scientists focus on human disease mechanisms; environmental scientists on ecological ecosystems."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 19-2041.00)",
+    "lastUpdated": "2026-09"
+  },
+  {
+    "id": "architect-urban-planner",
+    "title": "Architect & Sustainable Urban Planner",
+    "aliases": [
+      "Architect",
+      "Urban Designer",
+      "City Planner"
+    ],
+    "description": "Plans, designs, and oversees the construction of buildings, urban spaces, and transit networks balancing aesthetics, environmental sustainability, structural safety, and human community needs.",
+    "careerCluster": "Architecture",
+    "industry": "Architecture, Construction & Urban Planning",
+    "tasks": [
+      "Develop conceptual architectural drawings and physical/3D digital models",
+      "Coordinate with structural, mechanical, and civil engineers on building systems",
+      "Incorporate green building principles (solar orientation, natural ventilation, low-carbon materials)",
+      "Review municipal zoning laws, building codes, and accessibility compliance",
+      "Conduct site inspections during construction to ensure fidelity to blueprints"
+    ],
+    "responsibilities": [
+      "Ensuring life-safety, fire resistance, and structural integrity of inhabited spaces",
+      "Designing functional spaces that enhance community well-being and reduce energy consumption",
+      "Managing client budgets and contractor relationships"
+    ],
+    "workEnvironment": [
+      "Architectural design studio",
+      "Active construction sites with hard hats",
+      "City hall planning hearings"
+    ],
+    "requiredSkills": [
+      "Architectural Drawing & Spatial Visualization",
+      "CAD & BIM Software (Revit, AutoCAD, Rhino)",
+      "Sustainable Building Concepts (LEED/BREEAM)",
+      "Building Codes & Structural Basics"
+    ],
+    "recommendedSkills": [
+      "Parametric Design (Grasshopper)",
+      "3D Rendering (V-Ray, Lumion)",
+      "Urban GIS Mapping",
+      "Physical Model Making"
+    ],
+    "softSkills": [
+      "Creative Vision",
+      "Client Presentation",
+      "Diplomatic Collaboration",
+      "Spatial Intuition"
+    ],
+    "technicalSkills": [
+      "Revit",
+      "AutoCAD",
+      "Rhino",
+      "SketchUp",
+      "Photoshop",
+      "Lumion"
+    ],
+    "relevantSubjects": [
+      "Art & Design",
+      "Mathematics (Geometry)",
+      "Physics",
+      "Geography",
+      "History"
+    ],
+    "relevantInterests": [
+      "Drawing & Architecture",
+      "City Planning & Transit",
+      "Building Things",
+      "Sustainable Design",
+      "Art & Culture"
+    ],
+    "riaSecProfile": {
+      "R": 0.65,
+      "I": 0.7,
+      "A": 0.95,
+      "S": 0.4,
+      "E": 0.55,
+      "C": 0.55
+    },
+    "mbtiCompatibility": [
+      "INTJ",
+      "INFJ",
+      "INFP",
+      "ENTP"
+    ],
+    "educationPaths": [
+      {
+        "type": "University",
+        "duration": "5 Years (B.Arch professional degree) or 4+2 Years (B.A. + M.Arch)",
+        "description": "Accredited professional architectural degree with heavy studio design coursework, structural engineering, and history.",
+        "tradeoffs": "Mandatory pathway for licensed professional architect stamping rights; intensive studio hours."
+      }
+    ],
+    "relatedMajors": [
+      "Architecture",
+      "Urban Planning",
+      "Landscape Architecture",
+      "Interior Architecture",
+      "Civil Engineering"
+    ],
+    "vocationalPaths": [
+      "CAD Draftsperson",
+      "BIM Modeler",
+      "Construction Estimator"
+    ],
+    "certifications": [
+      "Licensed Registered Architect (AIA / RIBA / National Board)",
+      "LEED Green Associate / AP"
+    ],
+    "portfolioExamples": [
+      "Design portfolio featuring a community library with passive solar shading",
+      "Revit BIM model of a mixed-use apartment complex with material schedules",
+      "Urban redesign of a pedestrian street corridor with bike transit lanes"
+    ],
+    "beginnerProjects": [
+      "Draw scaled floor plans of your own bedroom and propose a creative furniture optimization",
+      "Build a 3D model of a modern house in free SketchUp or Minecraft Architecture mode",
+      "Photograph 5 historical and modern buildings in your town and analyze their structural style"
+    ],
+    "progressionPath": {
+      "entry": "Junior Architectural Intern (drafting detail sections, 3D renderings, site measure-ups)",
+      "mid": "Project Architect (managing complete building design packages, coordinating consultants)",
+      "senior": "Partner / Principal Architect (winning major commissions, firm leadership)"
+    },
+    "workStyle": "Studio design culture, sketching by hand and on computer, collaborating with engineering specialists",
+    "challenges": [
+      "Long studio hours and demanding licensing exams",
+      "Balancing artistic vision against strict construction budgets",
+      "Liable for building safety"
+    ],
+    "advantages": [
+      "Leaving lasting physical monuments on the city skyline that stand for generations",
+      "Rare fusion of high art and rigorous engineering",
+      "Prestigious profession"
+    ],
+    "futureTrends": "Net-zero energy buildings, mass timber construction, automated AI generative layouts, resilient urban sponge cities.",
+    "salaryInfo": {
+      "rangeDescription": "Steadily increasing compensation with licensure and firm partnership.",
+      "disclaimer": "Example / illustrative information - requires local verification.",
+      "levelIndicator": "Above Average"
+    },
+    "experiments": [
+      {
+        "title": "Design a Tiny House in Free SketchUp Web",
+        "duration": "3 Hours",
+        "difficulty": "Beginner",
+        "description": "Use the free browser version of SketchUp to design a 200 sq ft sustainable tiny house with a living room, loft bed, and solar roof.",
+        "steps": [
+          "Open SketchUp for Web",
+          "Draw the exterior foundation rectangle",
+          "Use Push/Pull tool to extrude 3D walls",
+          "Add windows, door, and solar panels"
+        ],
+        "expectedOutcome": "Experience how architects manipulate three-dimensional space and functional living layouts."
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "environmental-scientist",
+        "title": "Environmental & Climate Scientist",
+        "similarityReason": "Both promote ecological sustainability and resource conservation",
+        "distinction": "Architects design the built urban environment; environmental scientists analyze natural ecological systems."
+      },
+      {
+        "careerId": "ux-designer",
+        "title": "UI/UX Product Designer",
+        "similarityReason": "Both design human spaces and user interactions",
+        "distinction": "Architects build physical 3D spaces with concrete and glass; UX designers build digital 2D/spatial interfaces."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 17-1011.00)",
+    "lastUpdated": "2026-09"
+  },
+  {
+    "id": "financial-analyst",
+    "title": "Quantitative Financial Analyst",
+    "aliases": [
+      "Financial Analyst",
+      "Quant Trader",
+      "Investment Analyst"
+    ],
+    "description": "Applies mathematical models, statistical algorithms, and financial data analysis to evaluate investment risks, value assets, and optimize financial portfolios.",
+    "careerCluster": "Finance",
+    "industry": "Financial Services & Investment Banking",
+    "tasks": [
+      "Construct financial valuation models (DCF, Multiples) and algorithmic trading strategies",
+      "Analyze corporate balance sheets, quarterly earnings, and macroeconomic indicators",
+      "Write Python scripts to backtest trading hypotheses against historical market data",
+      "Present investment memoranda and risk assessment reports to portfolio managers",
+      "Monitor market volatility, interest rate fluctuations, and regulatory capital requirements"
+    ],
+    "responsibilities": [
+      "Guarding capital against downside risk and liquidity crises",
+      "Delivering rigorous, objective financial valuation numbers",
+      "Maintaining compliance with securities regulations (SEC, FINRA)"
+    ],
+    "workEnvironment": [
+      "Financial district office / Investment bank",
+      "Fast-paced trading floor or asset management office",
+      "Dual/triple Bloomberg terminal screens"
+    ],
+    "requiredSkills": [
+      "Financial Modeling & Accounting Principles",
+      "Advanced Excel (VBA, PowerQuery)",
+      "Python or R for Financial Data",
+      "Statistics & Probability"
+    ],
+    "recommendedSkills": [
+      "Bloomberg Terminal / FactSet",
+      "Stochastic Calculus & Time-Series Analysis",
+      "SQL Database Querying",
+      "Corporate Finance Law"
+    ],
+    "softSkills": [
+      "High Analytical Acumen",
+      "Emotional Discipline Under Market Volatility",
+      "High Attention to Detail",
+      "Articulate Financial Presentation"
+    ],
+    "technicalSkills": [
+      "Excel",
+      "Python",
+      "SQL",
+      "Bloomberg Terminal",
+      "PowerBI",
+      "Pandas"
+    ],
+    "relevantSubjects": [
+      "Mathematics",
+      "Economics",
+      "Business Studies",
+      "Computer Science",
+      "Statistics"
+    ],
+    "relevantInterests": [
+      "Stock Market & Investing",
+      "Mathematics & Probability",
+      "Business & Economics",
+      "Strategic Decision Making",
+      "Puzzles & Odds"
+    ],
+    "riaSecProfile": {
+      "R": 0.3,
+      "I": 0.85,
+      "A": 0.25,
+      "S": 0.35,
+      "E": 0.9,
+      "C": 0.85
+    },
+    "mbtiCompatibility": [
+      "ENTJ",
+      "INTJ",
+      "ESTJ",
+      "INTP"
+    ],
+    "educationPaths": [
+      {
+        "type": "University",
+        "duration": "4-5 Years (B.S. in Finance, Economics, Financial Mathematics, or Computer Science)",
+        "description": "Rigorous coursework in corporate valuation, options pricing, econometric statistics, and portfolio theory.",
+        "tradeoffs": "High recruiting intensity from major financial institutions; intense initial analyst work hours."
+      }
+    ],
+    "relatedMajors": [
+      "Finance",
+      "Quantitative Finance",
+      "Economics",
+      "Applied Mathematics",
+      "Actuarial Science"
+    ],
+    "vocationalPaths": [
+      "Junior Bookkeeper",
+      "Credit Risk Assistant",
+      "Accounts Analyst"
+    ],
+    "certifications": [
+      "Chartered Financial Analyst (CFA)",
+      "Financial Risk Manager (FRM)",
+      "Series 7 / 63 Securities Licenses"
+    ],
+    "portfolioExamples": [
+      "Discounted Cash Flow (DCF) valuation model for Apple with sensitivity table",
+      "Python algorithmic backtester evaluating moving-average crossover strategies on S&P 500",
+      "Macroeconomic research note on inflation effects on technology equities"
+    ],
+    "beginnerProjects": [
+      "Build a personal budget and investment compound-interest spreadsheet in Google Sheets",
+      "Participate in a free online stock market simulator (Investopedia Simulator) with $100k virtual money",
+      "Analyze 1 public company annual report (10-K) and calculate revenue growth and gross margins"
+    ],
+    "progressionPath": {
+      "entry": "Financial Analyst (data gathering, model updating, pitch book creation)",
+      "mid": "Senior Associate / Portfolio Analyst (independent sector coverage, thesis generation)",
+      "senior": "Portfolio Manager / Chief Investment Officer (CIO) (allocating millions in capital)"
+    },
+    "workStyle": "Data-intensive, fast-paced, high intellectual pressure during market hours",
+    "challenges": [
+      "High stress tied to market swings and financial losses",
+      "Long hours during quarterly reporting cycles",
+      "High competition"
+    ],
+    "advantages": [
+      "Among the highest compensation ceilings in the corporate world",
+      "Deep understanding of global economies and wealth generation",
+      "Meritocratic performance feedback"
+    ],
+    "futureTrends": "AI-driven sentiment analysis of financial filings, automated quantitative execution, decentralized finance risk modeling.",
+    "salaryInfo": {
+      "rangeDescription": "Very high compensation with substantial performance-based bonus structures.",
+      "disclaimer": "Example / illustrative information - requires local verification.",
+      "levelIndicator": "Very High"
+    },
+    "experiments": [
+      {
+        "title": "Run a Virtual Stock Portfolio for 2 Weeks",
+        "duration": "1 Hour setup + daily check",
+        "difficulty": "Beginner",
+        "description": "Create a free paper-trading account on Investopedia.com. Research 3 companies in different sectors and track their performance.",
+        "steps": [
+          "Pick 1 tech company, 1 healthcare company, and 1 retail company",
+          "Read recent news on why their stock moved",
+          "Log your rationales in a journal"
+        ],
+        "expectedOutcome": "Understand how market psychology, company earnings, and numbers connect."
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "ai-data-scientist",
+        "title": "AI & Data Scientist",
+        "similarityReason": "Both use advanced statistical modeling and Python scripts",
+        "distinction": "Quants focus exclusively on financial capital and risk arbitrage; data scientists solve broad tech problems."
+      },
+      {
+        "careerId": "corporate-lawyer",
+        "title": "Corporate & Tech IP Lawyer",
+        "similarityReason": "Both advise corporate executives on high-stakes transactions",
+        "distinction": "Financial analysts focus on numbers, valuation, and market risk; lawyers focus on legal liability and contract structure."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 13-2051.00)",
+    "lastUpdated": "2026-09"
+  },
+  {
+    "id": "clinical-psychologist",
+    "title": "Clinical Child & Adolescent Psychologist",
+    "aliases": [
+      "Child Psychologist",
+      "School Psychologist",
+      "Behavioral Therapist"
+    ],
+    "description": "Assesses, diagnoses, and treats mental health challenges, emotional difficulties, learning disabilities, and behavioral disorders in children and adolescents.",
+    "careerCluster": "Social Services",
+    "industry": "Mental Health & Healthcare",
+    "tasks": [
+      "Conduct psychological evaluations, cognitive assessments, and behavioral observations",
+      "Provide evidence-based psychotherapy (CBT, Play Therapy, Family Therapy)",
+      "Formulate tailored treatment plans in collaboration with parents, pediatricians, and schools",
+      "Crisis intervention and suicide risk assessment for distressed youth",
+      "Write comprehensive clinical assessment reports with accommodation recommendations"
+    ],
+    "responsibilities": [
+      "Protecting the emotional well-being and safety of vulnerable children",
+      "Maintaining strict patient confidentiality and mandatory reporting ethics",
+      "Empathic de-escalation of acute emotional distress"
+    ],
+    "workEnvironment": [
+      "Private clinical therapy practice",
+      "Children hospital / pediatric mental health ward",
+      "Schools and youth counseling centers"
+    ],
+    "requiredSkills": [
+      "Child Psychological Development Theories",
+      "Cognitive Behavioral Therapy (CBT)",
+      "Diagnostic Assessment (DSM-5)",
+      "Active Empathetic Listening"
+    ],
+    "recommendedSkills": [
+      "Play Therapy Techniques",
+      "Neurodivergence (ADHD / Autism) Assessment",
+      "Crisis Counseling",
+      "Family Systems Therapy"
+    ],
+    "softSkills": [
+      "Profound Empathy",
+      "Patience & Non-judgmental Warmth",
+      "Strong Emotional Boundaries",
+      "Perceptive Observation"
+    ],
+    "technicalSkills": [
+      "Standardized IQ/Cognitive Testing (WISC)",
+      "Play Therapy Tools",
+      "Electronic Clinical Notes",
+      "Behavioral Rating Scales"
+    ],
+    "relevantSubjects": [
+      "Psychology",
+      "Biology",
+      "English & Literature",
+      "Sociology",
+      "Statistics"
+    ],
+    "relevantInterests": [
+      "Understanding Human Behavior",
+      "Helping Troubled Children",
+      "Mental Health & Well-being",
+      "Listening & Counseling",
+      "Child Development"
+    ],
+    "riaSecProfile": {
+      "R": 0.2,
+      "I": 0.85,
+      "A": 0.45,
+      "S": 0.95,
+      "E": 0.45,
+      "C": 0.5
+    },
+    "mbtiCompatibility": [
+      "INFJ",
+      "ENFJ",
+      "INFP",
+      "ISFJ"
+    ],
+    "educationPaths": [
+      {
+        "type": "University",
+        "duration": "7-9 Years (B.A./B.S. in Psychology + Ph.D./Psy.D. in Clinical Psychology + Clinical Internship)",
+        "description": "Doctoral level clinical training, dissertation research, and 2,000+ hours of supervised clinical psychotherapy practice.",
+        "tradeoffs": "Required for licensed clinical psychologist status and independent diagnostic authority."
+      },
+      {
+        "type": "University",
+        "duration": "5-6 Years (B.S. + M.S. in School Counseling or Social Work LMFT/LCSW)",
+        "description": "Focus on school counseling, youth mental health support, and community therapy.",
+        "tradeoffs": "Faster entry into practice with lower tuition, though with slightly restricted scope compared to doctoral psychologists."
+      }
+    ],
+    "relatedMajors": [
+      "Psychology",
+      "Child Development",
+      "Social Work",
+      "Cognitive Science",
+      "Neuroscience"
+    ],
+    "vocationalPaths": [
+      "Mental Health Technician",
+      "Behavioral Aide / Paraprofessional",
+      "Youth Center Coordinator"
+    ],
+    "certifications": [
+      "Licensed Clinical Psychologist (State Licensing Board)",
+      "Board Certified Behavior Analyst (BCBA)"
+    ],
+    "portfolioExamples": [
+      "Undergraduate honors thesis on peer relationship effects on adolescent anxiety",
+      "Published psychoeducational guide for parents supporting ADHD teenagers",
+      "Supervised 100-hour practicum portfolio at a children community center"
+    ],
+    "beginnerProjects": [
+      "Volunteer with a supervised youth mentoring or crisis peer-support helpline",
+      "Read Viktor Frankl \"Man Search for Meaning\" or Daniel Kahneman \"Thinking, Fast and Slow\"",
+      "Conduct an observational study (ethically anonymous) on playground social dynamics during recess"
+    ],
+    "progressionPath": {
+      "entry": "Clinical Psychology Intern / Resident (supervised psychotherapy sessions, diagnostic testing)",
+      "mid": "Licensed Clinical Psychologist (independent therapy practice, school district consultant)",
+      "senior": "Clinical Director / Professor of Child Psychology"
+    },
+    "workStyle": "Deep 1-on-1 human connection, careful emotional attunement, thoughtful clinical documentation",
+    "challenges": [
+      "Secondary traumatic stress and compassion fatigue",
+      "Navigating complicated and resistant family dynamics",
+      "Strict ethical responsibilities"
+    ],
+    "advantages": [
+      "Profoundly transforming a young person life trajectory and mental health",
+      "Deeply meaningful work",
+      "High autonomy in private practice"
+    ],
+    "futureTrends": "Digital mental health apps and tele-therapy, trauma-informed schooling, neurodivergence-affirming therapeutic models.",
+    "salaryInfo": {
+      "rangeDescription": "Strong compensation especially in established private practice and specialized pediatric centers.",
+      "disclaimer": "Example / illustrative information - requires local verification.",
+      "levelIndicator": "Above Average"
+    },
+    "experiments": [
+      {
+        "title": "Practice Active Listening and Empathy Mapping",
+        "duration": "2 Hours",
+        "difficulty": "Beginner",
+        "description": "Have a 15-minute conversation with a friend going through stress without giving any advice. Practice reflective listening (\"What I hear you saying is...\") and note how it changes their demeanor.",
+        "steps": [
+          "Choose a quiet setting",
+          "Ask open questions without interrupting",
+          "Reflect emotions and summarize",
+          "Reflect on your own emotional state after the session"
+        ],
+        "expectedOutcome": "Discover whether holding emotional space for others energizes you or drains your energy."
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "physician-doctor",
+        "title": "Physician / Clinical Doctor",
+        "similarityReason": "Both care for human health and diagnose conditions",
+        "distinction": "Psychologists specialize in psychological therapy and cognitive behavior without prescribing surgeries or bodily medications."
+      },
+      {
+        "careerId": "educational-technologist",
+        "title": "Educational Technologist",
+        "similarityReason": "Both seek to optimize youth learning and development",
+        "distinction": "Educational technologists focus on digital learning tools; psychologists focus on deep emotional and cognitive well-being."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 19-3031.00)",
+    "lastUpdated": "2026-09"
+  },
+  {
+    "id": "educational-technologist",
+    "title": "Educational Technologist & Instructional Designer",
+    "aliases": [
+      "Learning Experience Designer (LXD)",
+      "Instructional Technologist",
+      "EdTech Specialist"
+    ],
+    "description": "Designs effective digital learning experiences, interactive curricula, and educational software integrating pedagogy with modern technology for schools, universities, and corporate training.",
+    "careerCluster": "Education",
+    "industry": "Education Technology & Online Learning",
+    "tasks": [
+      "Analyze learner profiles and pedagogical needs to design curriculum structures",
+      "Create interactive e-learning modules, quizzes, and simulations using modern authoring tools",
+      "Integrate Learning Management Systems (Canvas, Blackboard, Moodle) with adaptive learning software",
+      "Train teachers, university professors, and corporate mentors on effective digital teaching methodologies",
+      "Evaluate learning analytics to identify where students struggle and refine educational content"
+    ],
+    "responsibilities": [
+      "Ensuring learning materials are cognitively engaging and pedagogically sound",
+      "Adhering to universal design for learning (UDL) and accessibility standards",
+      "Maximizing learner completion, retention, and skill mastery"
+    ],
+    "workEnvironment": [
+      "Universities and school districts",
+      "EdTech startups (Duolingo, Khan Academy, Coursera)",
+      "Remote / hybrid friendly",
+      "Creative multimedia production spaces"
+    ],
+    "requiredSkills": [
+      "Instructional Design Models (ADDIE, SAM)",
+      "Learning Management Systems (LMS)",
+      "E-learning Authoring Tools (Articulate Storyline, Rise)",
+      "Pedagogical Learning Theory"
+    ],
+    "recommendedSkills": [
+      "Multimedia Production (Video, Audio, Graphics)",
+      "Basic Web Development (HTML/CSS/JS)",
+      "Gamification in Education",
+      "Learning Analytics (xAPI / SCORM)"
+    ],
+    "softSkills": [
+      "Empathy for Diverse Learners",
+      "Pedagogical Clarity",
+      "Creative Communication",
+      "Patience & Mentorship"
+    ],
+    "technicalSkills": [
+      "Articulate Storyline",
+      "Canvas LMS",
+      "Camtasia / Premiere",
+      "Figma",
+      "Moodle",
+      "HTML/CSS"
+    ],
+    "relevantSubjects": [
+      "Education",
+      "Psychology",
+      "Computer Science",
+      "English & Communication",
+      "Art & Media"
+    ],
+    "relevantInterests": [
+      "Teaching & Explaining",
+      "Education & Technology",
+      "Making Learning Fun",
+      "Creative Writing & Multimedia",
+      "Helping Others Learn"
+    ],
+    "riaSecProfile": {
+      "R": 0.3,
+      "I": 0.7,
+      "A": 0.8,
+      "S": 0.9,
+      "E": 0.55,
+      "C": 0.6
+    },
+    "mbtiCompatibility": [
+      "ENFJ",
+      "INFJ",
+      "ENFP",
+      "INFP"
+    ],
+    "educationPaths": [
+      {
+        "type": "University",
+        "duration": "4-6 Years (B.A. in Education or Multimedia + M.S. in Instructional Design / EdTech)",
+        "description": "Comprehensive study of cognitive learning sciences, digital media creation, and educational measurement.",
+        "tradeoffs": "Gold standard for university instructional design jobs and senior corporate EdTech leadership."
+      }
+    ],
+    "relatedMajors": [
+      "Instructional Design",
+      "Educational Technology",
+      "Education / Pedagogy",
+      "Cognitive Science",
+      "Digital Media"
+    ],
+    "vocationalPaths": [
+      "E-Learning Content Developer",
+      "LMS Administrator",
+      "Corporate Training Coordinator"
+    ],
+    "certifications": [
+      "Certified Professional in Learning and Performance (CPLP)",
+      "ATD Instructional Design Certificate"
+    ],
+    "portfolioExamples": [
+      "Gamified interactive biology module on cell mitosis built in Articulate Storyline",
+      "Complete 4-week micro-learning course designed for mobile corporate training",
+      "Instructional design evaluation report on student dropout rates in an online math course"
+    ],
+    "beginnerProjects": [
+      "Create a 5-minute interactive video lesson teaching a topic you love (e.g. guitar basics or chess)",
+      "Build a fun interactive educational quiz on Kahoot! or Quizizz with feedback explanations",
+      "Redesign a confusing textbook chapter into a clear visual infographic summary"
+    ],
+    "progressionPath": {
+      "entry": "Junior Instructional Designer / E-learning Developer (authoring modules, graphic assets)",
+      "mid": "Senior Learning Experience Designer (curriculum architecture, pedagogical consulting)",
+      "senior": "Director of Learning Innovation / Head of EdTech"
+    },
+    "workStyle": "Collaborative, creative, focused on breaking down complex knowledge into joyful simple steps",
+    "challenges": [
+      "Educator resistance to new digital tools",
+      "Balancing flashy tech against genuine pedagogical efficacy",
+      "Tight production schedules"
+    ],
+    "advantages": [
+      "Direct impact on how future generations acquire knowledge",
+      "Rapidly growing global e-learning market",
+      "Creative and meaningful daily work"
+    ],
+    "futureTrends": "AI-personalized adaptive tutors, immersive VR educational field trips, micro-credential skill verification.",
+    "salaryInfo": {
+      "rangeDescription": "Competitive compensation in corporate training and EdTech tech companies.",
+      "disclaimer": "Example / illustrative information - requires local verification.",
+      "levelIndicator": "Above Average"
+    },
+    "experiments": [
+      {
+        "title": "Design an Interactive Micro-Lesson on a Free Tool",
+        "duration": "2 Hours",
+        "difficulty": "Beginner",
+        "description": "Use a free tool like Genially or Canva to design a 5-slide interactive lesson on any subject (e.g. how photosynthesis works). Add interactive clickable hotspots and a final check-for-understanding quiz.",
+        "steps": [
+          "Define 1 clear learning objective",
+          "Write concise explanatory text with visuals",
+          "Add a 3-question quiz with feedback explanations for wrong answers",
+          "Share with a friend and see if they learn the concept"
+        ],
+        "expectedOutcome": "Experience how instructional designers architect mental understanding through structured digital media."
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "ux-designer",
+        "title": "UI/UX Product Designer",
+        "similarityReason": "Both design human digital interfaces and reduce cognitive friction",
+        "distinction": "UX designers focus on app utility and ease of use; EdTech specialists focus on long-term cognitive learning and knowledge retention."
+      },
+      {
+        "careerId": "clinical-psychologist",
+        "title": "Clinical Child & Adolescent Psychologist",
+        "similarityReason": "Both understand child development and cognitive barriers",
+        "distinction": "EdTech specialists build curriculum technology; psychologists provide clinical mental health therapy."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 25-9031.00)",
+    "lastUpdated": "2026-09"
+  },
+  {
+    "id": "precision-automation-technician",
+    "title": "Precision Automation & CNC Specialist",
+    "aliases": [
+      "CNC Machinist / Programmer",
+      "Advanced Manufacturing Technician",
+      "Industrial Robotics Technician"
+    ],
+    "description": "Sets up, programs, and operates computer numerically controlled (CNC) machines, laser cutters, and automated fabrication systems to produce high-precision aerospace, medical, and automotive components.",
+    "careerCluster": "Manufacturing",
+    "industry": "Advanced Precision Manufacturing & Skilled Trades",
+    "tasks": [
+      "Interpret engineering blueprints and geometric dimensioning & tolerancing (GD&T)",
+      "Program multi-axis CNC mills and lathes using CAM software (Mastercam, Fusion 360)",
+      "Set up cutting tools, work-holding fixtures, and calibrate automated robotic part loaders",
+      "Inspect machined parts using micrometers, calipers, and coordinate measuring machines (CMM)",
+      "Perform preventative maintenance on high-speed spindles and hydraulic systems"
+    ],
+    "responsibilities": [
+      "Maintaining microscopic tolerances (often within 0.005 millimeters / 5 microns)",
+      "Preventing expensive machine tool crashes through thorough simulation verification",
+      "Upholding workshop safety and personal protective equipment standards"
+    ],
+    "workEnvironment": [
+      "High-tech climate-controlled manufacturing facility",
+      "Precision machine shop",
+      "Surrounded by multi-axis robotic machines and cutting fluid"
+    ],
+    "requiredSkills": [
+      "Blueprint Reading & GD&T",
+      "G-code & M-code Programming",
+      "Precision Measurement (Micrometers, CMM)",
+      "Machining Physics & Material Speeds/Feeds"
+    ],
+    "recommendedSkills": [
+      "CAM Software (Mastercam, Fusion 360)",
+      "5-Axis Machining",
+      "Industrial Hydraulics & Pneumatics",
+      "Toolpath Optimization"
+    ],
+    "softSkills": [
+      "Spatial Visualization",
+      "Meticulous Attention to Detail",
+      "Problem Solving on the Shop Floor",
+      "Physical Reliability"
+    ],
+    "technicalSkills": [
+      "G-Code",
+      "Fusion 360 CAM",
+      "Mastercam",
+      "Micrometer / Caliper",
+      "CNC Mill / Lathe Operation"
+    ],
+    "relevantSubjects": [
+      "Design & Technology",
+      "Mathematics (Geometry & Trig)",
+      "Physics",
+      "Metalworking / Woodworking"
+    ],
+    "relevantInterests": [
+      "Hands-on Making",
+      "Machines & Tools",
+      "Metalworking & Fabrication",
+      "Precision Engineering",
+      "Car Engines & Mechanics"
+    ],
+    "riaSecProfile": {
+      "R": 0.95,
+      "I": 0.6,
+      "A": 0.25,
+      "S": 0.2,
+      "E": 0.35,
+      "C": 0.85
+    },
+    "mbtiCompatibility": [
+      "ISTP",
+      "ISTJ",
+      "ESTP"
+    ],
+    "educationPaths": [
+      {
+        "type": "College/Vocational",
+        "duration": "1-2 Years (Vocational Certificate or Associate Degree in Precision Machining & CNC)",
+        "description": "Hands-on training in machine operation, tooling selection, CAM programming, and shop math.",
+        "tradeoffs": "Fastest path to debt-free, high-paying skilled trade employment with immense hiring demand."
+      },
+      {
+        "type": "Apprenticeship",
+        "duration": "2-4 Years (Paid Apprenticeship combining on-the-job training with evening classes)",
+        "description": "Earn while you learn under the guidance of master toolmakers and machinists.",
+        "tradeoffs": "Zero student debt, immediate wage earnings, but requires physical stamina and reliable workshop attendance."
+      }
+    ],
+    "relatedMajors": [
+      "Precision Machining Technology",
+      "Manufacturing Engineering Technology",
+      "Industrial Automation",
+      "Mechanical Technology"
+    ],
+    "vocationalPaths": [
+      "Entry-level Machine Operator",
+      "Quality Control Inspector",
+      "Tool & Die Apprentice"
+    ],
+    "certifications": [
+      "NIMS (National Institute for Metalworking Skills) Certifications",
+      "HAAS CNC Operator Certification"
+    ],
+    "portfolioExamples": [
+      "Finished precision aluminum chess piece machined on a 4-axis mill with 0.01mm tolerance",
+      "Custom titanium medical bone screw prototype with thread inspection sheet",
+      "Complete CAM toolpath simulation video showing collision-free cutting strategy"
+    ],
+    "beginnerProjects": [
+      "Visit a local maker space or vocational school and watch a CNC mill cut a part",
+      "Learn basic G-Code commands (G00, G01, G02) using a free online G-code simulator",
+      "Model a mechanical bracket in Fusion 360 and generate a 2D engineering drawing with dimensions"
+    ],
+    "progressionPath": {
+      "entry": "CNC Operator (loading parts, deburring, checking dimensions with calipers)",
+      "mid": "CNC Programmer / Setup Specialist (writing CAM toolpaths, building custom fixtures)",
+      "senior": "Shop Floor Manager / Lead Manufacturing Engineer"
+    },
+    "workStyle": "Hands-on, tangible, pride in physical craftsmanship and mathematical precision",
+    "challenges": [
+      "Physical standing and shop noise (managed with PPE)",
+      "High cost of mistakes if a spindle crashes",
+      "Continuous need to keep up with automated robotic cells"
+    ],
+    "advantages": [
+      "Immense pride in fabricating tangible physical hardware that flies into space or goes into human bodies",
+      "Outstanding job security with huge shortages of skilled machinists",
+      "Rapid debt-free career launch"
+    ],
+    "futureTrends": "Lights-out autonomous manufacturing, hybrid additive (3D printing) + subtractive CNC machines, cobot automated loading.",
+    "salaryInfo": {
+      "rangeDescription": "High starting wages for skilled programmers with overtime potential.",
+      "disclaimer": "Example / illustrative information - requires local verification.",
+      "levelIndicator": "Above Average"
+    },
+    "experiments": [
+      {
+        "title": "Run a Virtual G-Code Simulator Online",
+        "duration": "1.5 Hours",
+        "difficulty": "Beginner",
+        "description": "Use a free browser tool like ncviewer.com to write 10 lines of G-code to carve your initials into a virtual metal plate and watch the toolpath trace.",
+        "steps": [
+          "Open NCViewer.com",
+          "Write G00 X0 Y0 (rapid move), G01 Z-1 F200 (cut down), G01 X20 (cut line)",
+          "Trace your letter and inspect the 3D toolpath"
+        ],
+        "expectedOutcome": "Discover the satisfaction of using coordinates and code to shape physical materials."
+      }
+    ],
+    "alternativeCareers": [
+      {
+        "careerId": "robotics-engineer",
+        "title": "Robotics & Automation Engineer",
+        "similarityReason": "Both work with automated factory systems and motors",
+        "distinction": "Technicians specialize in precision tooling, physical fabrication, and direct machine setup; engineers design the wider systems."
+      },
+      {
+        "careerId": "architect-urban-planner",
+        "title": "Architect & Sustainable Urban Planner",
+        "similarityReason": "Both read blueprints and manipulate geometric shapes",
+        "distinction": "Machinists fabricate metal components with micron accuracy; architects design buildings."
+      }
+    ],
+    "source": "EduPath Career Knowledge Base v2.4 (O*NET 51-4041.00)",
+    "lastUpdated": "2026-09"
+  }
+]
