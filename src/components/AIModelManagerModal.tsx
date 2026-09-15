@@ -321,15 +321,14 @@ export const AIModelManagerModal: React.FC<AIModelManagerModalProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="font-semibold text-slate-700 block mb-1">Chọn phiên bản Gemini:</label>
+                  <label className="font-semibold text-slate-700 block mb-1">Mô hình hoạt động:</label>
                   <select
                     value={localConfig.modelName || 'gemini-3.8-flash'}
                     onChange={e => setLocalConfig({ ...localConfig, modelName: e.target.value })}
                     className="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   >
-                    <option value="gemini-3.8-flash">Gemini 3.8 Flash (Mặc định - Thông minh & Nhanh)</option>
-                    <option value="gemini-2.5-flash">Gemini 2.5 Flash (Ổn định, phản hồi tức thì)</option>
-                    <option value="gemini-2.5-pro">Gemini 2.5 Pro (Tối ưu hóa lập luận học thuật sâu)</option>
+                    <option value="gemini-3.8-flash">Gemini 3.8 Flash (Tối ưu tốc độ cao & Suy luận sâu)</option>
+                    <option value="gemini-flash-latest">Gemini Flash Latest</option>
                   </select>
                 </div>
 
@@ -351,6 +350,22 @@ export const AIModelManagerModal: React.FC<AIModelManagerModalProps> = ({
                     <span>Sáng tạo & Đa dạng</span>
                   </div>
                 </div>
+              </div>
+
+              <div>
+                <label className="font-semibold text-slate-700 block mb-1">
+                  Khóa API Tăng cường (Tùy chọn - Groq API Key hoặc Gemini Key):
+                </label>
+                <input
+                  type="password"
+                  value={localConfig.apiKey || ''}
+                  onChange={e => setLocalConfig({ ...localConfig, apiKey: e.target.value })}
+                  placeholder="Dán khóa Groq (gsk_...) miễn phí không giới hạn RPM/TPM, hoặc Gemini Key mới"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-xs font-mono"
+                />
+                <p className="text-[11px] text-slate-500 mt-1 leading-relaxed">
+                  💡 <strong>Gợi ý:</strong> Bạn có thể lấy API key miễn phí tại <a href="https://console.groq.com/keys" target="_blank" rel="noreferrer" className="text-indigo-600 underline font-semibold">console.groq.com/keys</a> (miễn phí 30 yêu cầu/phút, 14.400 lượt/ngày). Hệ thống sẽ dùng Groq siêu tốc để xử lý tư vấn mượt mà nhưng vẫn giữ giao diện chuẩn Gemini 3.8 Flash!
+                </p>
               </div>
             </div>
           )}

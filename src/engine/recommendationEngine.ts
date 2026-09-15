@@ -2,17 +2,20 @@ import { Career, UserProfile, RecommendationScore, ScoringWeights, ScoreBreakdow
 import { CAREER_DATABASE } from '../data/careers';
 
 export const DEFAULT_SCORING_WEIGHTS: ScoringWeights = {
-  wRIASEC: 0.35,      // 35%
-  wSkills: 0.25,      // 25%
-  wInterests: 0.15,   // 15%
-  wSubjects: 0.10,    // 10%
-  wGoals: 0.05,       // 5%
-  wPreferences: 0.05, // 5%
-  wMBTI: 0.05         // 5% (Strictly secondary)
+  wRIASEC: 0.30,      // 30% - Thiên hướng sở thích tâm lý Holland
+  wAcademic: 0.30,    // 30% - Năng lực học tập, điểm thi & môn thế mạnh
+  wSkills: 0.25,      // 25% - Năng lực kỹ năng chuyên môn & kỹ năng mềm
+  wMBTI: 0.05,        // 5%  - Phong cách làm việc bổ trợ MBTI (không quyết định tuyệt đối)
+  wExpectation: 0.10, // 10% - Mục tiêu nghề nghiệp & môi trường làm việc kỳ vọng
+  // Legacy weights for backwards compatibility
+  wInterests: 0.10,
+  wSubjects: 0.15,
+  wGoals: 0.05,
+  wPreferences: 0.05
 };
 
 /**
- * Calculates cosine similarity between two 6-dimensional RIASEC vectors
+ * Calculates cosine similarity between two 6-dimensional RIASEC vectors (0 to 100)
  */
 function calculateRIASECSimilarity(userScores: Record<string, number> | undefined, careerScores: Record<string, number> | undefined): number {
   const dimensions = ['R', 'I', 'A', 'S', 'E', 'C'];
@@ -21,8 +24,8 @@ function calculateRIASECSimilarity(userScores: Record<string, number> | undefine
   let careerMagnitudeSq = 0;
 
   for (const dim of dimensions) {
-    const u = userScores?.[dim] || 0.1;
-    const c = careerScores?.[dim] || 0.1;
+    const u = userScores?.[dim] !== undefined ? userScores[dim] : 0.2;
+    const c = careerScores?.[dim] !== undefined ? careerScores[dim] : 0.2;
     dotProduct += u * c;
     userMagnitudeSq += u * u;
     careerMagnitudeSq += c * c;
@@ -32,28 +35,26 @@ function calculateRIASECSimilarity(userScores: Record<string, number> | undefine
   if (denominator === 0) return 50;
 
   const cosine = dotProduct / denominator;
-  // Map cosine (typically 0.3 to 1.0 in positive space) smoothly to 0-100
-  return Math.min(100, Math.max(0, Math.round(cosine * 100)));
+  // Map cosine smoothly to 0-100 scale
+  return Math.min(100, Math.max(10, Math.round(cosine * 100)));
 }
 
 /**
- * Calculates skill compatibility accounting for skill levels
+ * Calculates skill compatibility accounting for skill levels and required priority (0 to 100)
  */
 function calculateSkillCompatibility(profile: UserProfile, career: Career): { score: number; missing: string[]; matched: string[] } {
   const allCareerSkills = [...(career.requiredSkills || []), ...(career.technicalSkills || [])];
   if (allCareerSkills.length === 0) return { score: 70, missing: [], matched: [] };
 
   const userSkillMap = new Map<string, number>();
-  // Base skills list
   (profile.skills || []).forEach(s => {
-    if (s) userSkillMap.set(s.toLowerCase(), 0.75);
+    if (s) userSkillMap.set(s.toLowerCase().trim(), 0.75);
   });
 
-  // Self rated skills
   profile.selfRatedSkills?.forEach(s => {
     if (s?.skill) {
-      const weight = s.level === 'Expert' ? 1.0 : s.level === 'Strong' ? 0.9 : s.level === 'Developing' ? 0.6 : 0.3;
-      userSkillMap.set(s.skill.toLowerCase(), weight);
+      const weight = s.level === 'Expert' ? 1.0 : s.level === 'Strong' ? 0.9 : s.level === 'Developing' ? 0.6 : 0.35;
+      userSkillMap.set(s.skill.toLowerCase().trim(), weight);
     }
   });
 
@@ -62,11 +63,11 @@ function calculateSkillCompatibility(profile: UserProfile, career: Career): { sc
   const matched: string[] = [];
 
   for (const reqSkill of career.requiredSkills) {
-    const reqLower = reqSkill.toLowerCase();
+    const reqLower = reqSkill.toLowerCase().trim();
     let found = false;
     for (const [uSkill, uWeight] of userSkillMap.entries()) {
       if (uSkill.includes(reqLower) || reqLower.includes(uSkill)) {
-        earnedPoints += uWeight * 1.5; // Required skills weighted higher
+        earnedPoints += uWeight * 1.5;
         matched.push(reqSkill);
         found = true;
         break;
@@ -77,9 +78,8 @@ function calculateSkillCompatibility(profile: UserProfile, career: Career): { sc
     }
   }
 
-  // Check technical skills
   for (const techSkill of career.technicalSkills) {
-    const techLower = techSkill.toLowerCase();
+    const techLower = techSkill.toLowerCase().trim();
     let found = false;
     for (const [uSkill, uWeight] of userSkillMap.entries()) {
       if (uSkill.includes(techLower) || techLower.includes(uSkill)) {
@@ -102,68 +102,144 @@ function calculateSkillCompatibility(profile: UserProfile, career: Career): { sc
 }
 
 /**
- * Calculates interest overlap
+ * Calculates subject alignment (0 to 100)
  */
-function calculateInterestCompatibility(userInterests: string[], careerInterests: string[]): { score: number; matched: string[] } {
-  if (!userInterests || userInterests.length === 0) return { score: 50, matched: [] };
-  const matched: string[] = [];
-
-  for (const uInt of userInterests) {
-    const uLower = uInt.toLowerCase();
-    for (const cInt of careerInterests) {
-      if (cInt.toLowerCase().includes(uLower) || uLower.includes(cInt.toLowerCase())) {
-        if (!matched.includes(cInt)) matched.push(cInt);
-      }
-    }
-  }
-
-  const ratio = matched.length / Math.max(1, Math.min(4, careerInterests.length));
-  const score = Math.min(100, Math.max(20, Math.round(ratio * 100)));
-  return { score, matched };
-}
-
-/**
- * Calculates subject overlap
- */
-function calculateSubjectCompatibility(userSubjects: string[], careerSubjects: string[]): { score: number; matched: string[] } {
+function calculateSubjectCompatibility(
+  userSubjects: string[],
+  careerSubjects: string[],
+  confidentSubjects?: string[]
+): { score: number; matched: string[] } {
   if (!userSubjects || userSubjects.length === 0) return { score: 50, matched: [] };
   const matched: string[] = [];
 
   for (const uSub of userSubjects) {
-    const uLower = uSub.toLowerCase();
+    const uLower = uSub.toLowerCase().trim();
     for (const cSub of careerSubjects) {
-      if (cSub.toLowerCase().includes(uLower) || uLower.includes(cSub.toLowerCase())) {
+      const cLower = cSub.toLowerCase().trim();
+      if (cLower.includes(uLower) || uLower.includes(cLower)) {
         if (!matched.includes(cSub)) matched.push(cSub);
       }
     }
   }
 
+  let bonus = 0;
+  if (confidentSubjects && confidentSubjects.length > 0) {
+    for (const cSub of confidentSubjects) {
+      const cLower = cSub.toLowerCase().trim();
+      for (const carSub of careerSubjects) {
+        if (carSub.toLowerCase().trim().includes(cLower)) {
+          bonus += 10;
+          break;
+        }
+      }
+    }
+  }
+
   const ratio = matched.length / Math.max(1, Math.min(3, careerSubjects.length));
-  const score = Math.min(100, Math.max(15, Math.round(ratio * 100)));
+  const score = Math.min(100, Math.max(20, Math.round(ratio * 85 + bonus)));
   return { score, matched };
 }
 
 /**
- * Calculates goal and priority compatibility
+ * Calculates academic score (0 to 100): Combines subjects affinity + GPA + standardized test scores
+ */
+function calculateAcademicMatch(profile: UserProfile, career: Career): { score: number; subjectResult: { score: number; matched: string[] } } {
+  const subjectResult = calculateSubjectCompatibility(
+    profile.favoriteSubjects || [],
+    career.relevantSubjects || [],
+    profile.confidentSubjects || []
+  );
+
+  let gpaScore = 70; // baseline moderate
+  let hasGpa = false;
+
+  if (profile.academicGPA) {
+    hasGpa = true;
+    const gpaStr = profile.academicGPA.toLowerCase();
+    if (gpaStr.includes('xuất sắc') || gpaStr.includes('giỏi') || gpaStr.includes('>8.0') || gpaStr.includes('9.')) {
+      gpaScore = 92;
+    } else if (gpaStr.includes('khá') || gpaStr.includes('6.5') || gpaStr.includes('7.')) {
+      gpaScore = 76;
+    } else if (gpaStr.includes('trung bình') || gpaStr.includes('5.')) {
+      gpaScore = 58;
+    } else {
+      const num = parseFloat(gpaStr.replace(/[^0-9.]/g, ''));
+      if (!isNaN(num)) {
+        if (num <= 10) gpaScore = Math.min(100, Math.max(30, Math.round(num * 10)));
+        else if (num <= 4.0) gpaScore = Math.min(100, Math.max(30, Math.round((num / 4.0) * 100)));
+      }
+    }
+  }
+
+  // Check standardized exam scores if available
+  let examScore = 0;
+  let examCount = 0;
+  const exams = profile.examScores;
+
+  if (exams) {
+    if (exams.thptScore && exams.thptScore > 0) {
+      examScore += Math.min(100, Math.round((exams.thptScore / 30) * 100));
+      examCount++;
+    }
+    if (exams.hsaScore && exams.hsaScore > 0) {
+      examScore += Math.min(100, Math.round((exams.hsaScore / 150) * 100));
+      examCount++;
+    }
+    if (exams.tsaScore && exams.tsaScore > 0) {
+      examScore += Math.min(100, Math.round(exams.tsaScore));
+      examCount++;
+    }
+    if (exams.vactScore && exams.vactScore > 0) {
+      examScore += Math.min(100, Math.round((exams.vactScore / 1200) * 100));
+      examCount++;
+    }
+  }
+
+  let finalAcademic = subjectResult.score;
+
+  if (hasGpa && examCount > 0) {
+    const avgExam = Math.round(examScore / examCount);
+    finalAcademic = Math.round(subjectResult.score * 0.45 + gpaScore * 0.25 + avgExam * 0.30);
+  } else if (hasGpa) {
+    finalAcademic = Math.round(subjectResult.score * 0.60 + gpaScore * 0.40);
+  } else if (examCount > 0) {
+    const avgExam = Math.round(examScore / examCount);
+    finalAcademic = Math.round(subjectResult.score * 0.55 + avgExam * 0.45);
+  }
+
+  return {
+    score: Math.min(100, Math.max(15, finalAcademic)),
+    subjectResult
+  };
+}
+
+/**
+ * Calculates career goals & priorities compatibility (0 to 100)
  */
 function calculateGoalCompatibility(priorities: string[], career: Career): number {
   if (!priorities || priorities.length === 0) return 60;
   let score = 50;
 
   for (const prio of priorities) {
-    if (prio === 'High income' && (career.salaryInfo.levelIndicator === 'Very High' || career.salaryInfo.levelIndicator === 'High')) {
+    const p = prio.toLowerCase();
+    if ((p.includes('thu nhập') || p.includes('tiền') || p.includes('income')) &&
+        (career.salaryInfo.levelIndicator === 'Very High' || career.salaryInfo.levelIndicator === 'High')) {
       score += 20;
     }
-    if (prio === 'Intellectual Impact' && career.riaSecProfile.I >= 0.8) {
+    if ((p.includes('tri thức') || p.includes('nghiên cứu') || p.includes('intellectual')) &&
+        career.riaSecProfile.I >= 0.7) {
       score += 20;
     }
-    if (prio === 'Social Purpose' && career.riaSecProfile.S >= 0.7) {
+    if ((p.includes('xã hội') || p.includes('giúp đỡ') || p.includes('social')) &&
+        career.riaSecProfile.S >= 0.7) {
       score += 20;
     }
-    if (prio === 'Creativity' && career.riaSecProfile.A >= 0.8) {
+    if ((p.includes('sáng tạo') || p.includes('nghệ thuật') || p.includes('creativity')) &&
+        career.riaSecProfile.A >= 0.7) {
       score += 20;
     }
-    if (prio === 'Work-life balance' && career.workStyle.toLowerCase().includes('balance')) {
+    if ((p.includes('ổn định') || p.includes('cân bằng') || p.includes('balance')) &&
+        career.workStyle.toLowerCase().includes('balance')) {
       score += 15;
     }
   }
@@ -172,7 +248,7 @@ function calculateGoalCompatibility(priorities: string[], career: Career): numbe
 }
 
 /**
- * Calculates work preference compatibility (teamwork, remote, physical)
+ * Calculates work preference compatibility (teamwork, remote, physical) (0 to 100)
  */
 function calculatePreferenceCompatibility(profile: UserProfile, career: Career): number {
   let score = 70;
@@ -180,21 +256,22 @@ function calculatePreferenceCompatibility(profile: UserProfile, career: Career):
   if (!prefs) return 70;
 
   if (prefs.remotePreference === 'Remote') {
-    const hasRemote = career.workEnvironment.some(e => e.toLowerCase().includes('remote'));
-    score += hasRemote ? 15 : -15;
+    const hasRemote = career.workEnvironment.some(e => e.toLowerCase().includes('remote') || e.toLowerCase().includes('linh hoạt'));
+    score += hasRemote ? 15 : -10;
   }
 
   if (prefs.handsOnVsAbstract === 'Hands-on') {
     score += career.riaSecProfile.R >= 0.6 ? 15 : -10;
   } else if (prefs.handsOnVsAbstract === 'Theoretical') {
-    score += career.riaSecProfile.I >= 0.8 ? 15 : -10;
+    score += career.riaSecProfile.I >= 0.7 ? 15 : -10;
   }
 
   return Math.min(100, Math.max(25, score));
 }
 
 /**
- * Calculates supplementary MBTI compatibility (max 5-8% total weight impact)
+ * Calculates supplementary MBTI compatibility (0 to 100).
+ * Weighted at 5% in overall formula: strictly supplementary, not absolute.
  */
 function calculateMBTICompatibility(userMbti: string | undefined, careerCompatibleMbti: string[]): number {
   if (!userMbti || careerCompatibleMbti.length === 0) return 60;
@@ -204,7 +281,6 @@ function calculateMBTICompatibility(userMbti: string | undefined, careerCompatib
     return 95;
   }
 
-  // Partial match: count shared letters
   let maxMatchLetters = 0;
   for (const cType of careerCompatibleMbti) {
     let matchCount = 0;
@@ -220,7 +296,13 @@ function calculateMBTICompatibility(userMbti: string | undefined, careerCompatib
 }
 
 /**
- * Deterministic recommendation engine function
+ * Deterministic recommendation engine function with the 30/30/25/5/10 formula:
+ * Overall Career Score =
+ *   0.30 × RIASEC Match
+ * + 0.30 × Academic Match
+ * + 0.25 × Skill Match
+ * + 0.05 × MBTI Match
+ * + 0.10 × Expectation Match
  */
 export function generateRecommendations(
   profile: UserProfile,
@@ -248,89 +330,112 @@ export function generateRecommendations(
   };
 
   const scoredCareers: RecommendationScore[] = careers.map(career => {
-    // 1. Subscores
+    // 1. Five normalized sub-scores (0-100 each)
     const riasecScore = calculateRIASECSimilarity(safeProfile.riaSecScores, career.riaSecProfile);
+    const academicResult = calculateAcademicMatch(safeProfile, career);
     const skillResult = calculateSkillCompatibility(safeProfile, career);
-    const interestResult = calculateInterestCompatibility(safeProfile.interests, career.relevantInterests);
-    const subjectResult = calculateSubjectCompatibility(safeProfile.favoriteSubjects, career.relevantSubjects);
-    const goalScore = calculateGoalCompatibility(safeProfile.careerPriorities, career);
-    const prefScore = calculatePreferenceCompatibility(safeProfile, career);
     const mbtiScore = calculateMBTICompatibility(safeProfile.mbtiType, career.mbtiCompatibility);
 
+    const goalScore = calculateGoalCompatibility(safeProfile.careerPriorities, career);
+    const prefScore = calculatePreferenceCompatibility(safeProfile, career);
+    const expectationScore = Math.round(goalScore * 0.5 + prefScore * 0.5);
+
+    // Breakdown object
     const breakdown: ScoreBreakdown = {
       riasec: riasecScore,
+      academic: academicResult.score,
       skills: skillResult.score,
-      interests: interestResult.score,
-      subjects: subjectResult.score,
+      mbti: mbtiScore,
+      expectation: expectationScore,
+      // Backwards compatibility
+      interests: riasecScore,
+      subjects: academicResult.score,
       goals: goalScore,
-      preferences: prefScore,
-      mbti: mbtiScore
+      preferences: prefScore
     };
 
-    // 2. Weighted Sum
-    const totalWeight =
-      weights.wRIASEC +
-      weights.wSkills +
-      weights.wInterests +
-      weights.wSubjects +
-      weights.wGoals +
-      weights.wPreferences +
-      weights.wMBTI;
+    // 2. Strict 30/30/25/5/10 Weighted Sum
+    const wRIASEC = weights.wRIASEC ?? 0.30;
+    const wAcademic = weights.wAcademic ?? 0.30;
+    const wSkills = weights.wSkills ?? 0.25;
+    const wMBTI = weights.wMBTI ?? 0.05;
+    const wExpectation = weights.wExpectation ?? 0.10;
+
+    const totalWeight = wRIASEC + wAcademic + wSkills + wMBTI + wExpectation;
 
     const rawOverall =
-      (breakdown.riasec * weights.wRIASEC +
-        breakdown.skills * weights.wSkills +
-        breakdown.interests * weights.wInterests +
-        breakdown.subjects * weights.wSubjects +
-        breakdown.goals * weights.wGoals +
-        breakdown.preferences * weights.wPreferences +
-        breakdown.mbti * weights.wMBTI) / (totalWeight || 1);
+      (breakdown.riasec * wRIASEC +
+        breakdown.academic * wAcademic +
+        breakdown.skills * wSkills +
+        breakdown.mbti * wMBTI +
+        breakdown.expectation * wExpectation) / (totalWeight || 1);
 
     const overallScore = Math.min(100, Math.max(10, Math.round(rawOverall)));
 
-    // 3. Positive Contributors
+    // 3. Positive Contributors in Vietnamese
     const positiveContributors: string[] = [];
     if (breakdown.riasec >= 80) {
-      positiveContributors.push(`Strong RIASEC Holland alignment (score: ${breakdown.riasec}%)`);
+      positiveContributors.push(`Sở thích Holland rất tương thích với tính chất ngành (${breakdown.riasec}%)`);
     }
-    if (interestResult.matched.length > 0) {
-      positiveContributors.push(`Direct interest in ${interestResult.matched.slice(0, 2).join(', ')}`);
+    if (breakdown.academic >= 75) {
+      positiveContributors.push(`Năng lực học tập & môn thế mạnh đáp ứng tốt (${breakdown.academic}%)`);
     }
-    if (subjectResult.matched.length > 0) {
-      positiveContributors.push(`Strong affinity for core subjects: ${subjectResult.matched.slice(0, 2).join(', ')}`);
+    if (academicResult.subjectResult.matched.length > 0) {
+      positiveContributors.push(`Môn học sở trường phù hợp: ${academicResult.subjectResult.matched.slice(0, 2).join(', ')}`);
     }
     if (skillResult.matched.length > 0) {
-      positiveContributors.push(`Demonstrated proficiency in ${skillResult.matched.slice(0, 2).join(', ')}`);
+      positiveContributors.push(`Đã có nền tảng kỹ năng: ${skillResult.matched.slice(0, 2).join(', ')}`);
     }
-    if (breakdown.goals >= 80) {
-      positiveContributors.push(`Matches career priorities (${profile.careerPriorities?.slice(0, 2).join(', ')})`);
+    if (breakdown.expectation >= 75) {
+      positiveContributors.push(`Phù hợp với kỳ vọng nghề nghiệp và môi trường làm việc`);
+    }
+    if (breakdown.mbti >= 80 && safeProfile.mbtiType) {
+      positiveContributors.push(`Phong cách làm việc MBTI (${safeProfile.mbtiType}) hòa hợp tự nhiên`);
     }
 
-    // 4. Negative / Challenging Contributors
+    // 4. Negative / Improvement Contributors in Vietnamese
     const negativeContributors: string[] = [];
     if (skillResult.missing.length > 0) {
-      negativeContributors.push(`Missing key required competencies: ${skillResult.missing.slice(0, 2).join(', ')}`);
+      negativeContributors.push(`Cần bồi dưỡng bổ sung: ${skillResult.missing.slice(0, 2).join(', ')}`);
     }
-    if (breakdown.riasec < 60) {
-      negativeContributors.push(`Divergent interest profile in daily work tasks`);
+    if (breakdown.riasec < 55) {
+      negativeContributors.push(`Sở thích tự nhiên có độ phân tán so với công việc thực tế`);
     }
-    if (subjectResult.matched.length === 0 && career.relevantSubjects.length > 0) {
-      negativeContributors.push(`No reported background in primary subject: ${career.relevantSubjects[0]}`);
+    if (breakdown.academic < 60 && career.relevantSubjects.length > 0) {
+      negativeContributors.push(`Cần chú trọng nâng cao học lực môn: ${career.relevantSubjects.slice(0, 2).join(', ')}`);
     }
 
-    // 5. Confidence Calculation
+    // 5. Educational Pathway Guidance (Đại học không phải là con đường duy nhất)
+    let recommendedPathway: 'University' | 'VocationalCollege' | 'CertificationAndWork' | 'Flexible' = 'University';
+    let pathwayAdvice = 'Phù hợp với lộ trình Đại học chính quy kết hợp thực tập chuyên sâu.';
+
+    const isPracticalOriented = (safeProfile.riaSecScores?.R || 0) >= 0.5 || safeProfile.workPreferences?.handsOnVsAbstract === 'Hands-on';
+    const isAcademicModerate = breakdown.academic < 70;
+
+    if (isPracticalOriented && isAcademicModerate) {
+      recommendedPathway = 'VocationalCollege';
+      pathwayAdvice = 'Đại học không phải là con đường duy nhất. Chương trình Cao đẳng Nghề chất lượng cao (2 - 2.5 năm) tập trung 70% thực hành thực chiến sẽ giúp bạn đi làm sớm, tiết kiệm chi phí và phát triển kỹ năng nhanh chóng.';
+    } else if (isAcademicModerate) {
+      recommendedPathway = 'Flexible';
+      pathwayAdvice = 'Nên cân nhắc song song giữa Đại học ứng dụng hoặc Cao đẳng chuyên ngành chất lượng cao để đảm bảo cơ hội việc làm thực tế vững vàng.';
+    } else if (isPracticalOriented) {
+      recommendedPathway = 'CertificationAndWork';
+      pathwayAdvice = 'Lộ trình phát triển mạnh mẽ qua chứng chỉ nghề chuyên sâu kết hợp dự án thực tế và đồ án cá nhân (portfolio).';
+    }
+
+    // 6. Confidence Calculation
     let confidence: 'High' | 'Medium' | 'Low' = 'Medium';
-    let confidenceReason = 'Standard recommendation based on partial assessment inputs.';
+    let confidenceReason = 'Khuyến nghị tiêu chuẩn dựa trên thông tin đánh giá ban đầu.';
 
     const completeness = profile.completenessPercentage || 60;
     const hasDetailedSkills = profile.selfRatedSkills && profile.selfRatedSkills.length >= 3;
 
-    if (completeness >= 85 && hasDetailedSkills) {
+    if (completeness >= 80 && hasDetailedSkills) {
       confidence = 'High';
-      confidenceReason = 'High confidence: comprehensive RIASEC data, detailed self-rated skills, and subject preferences present.';
-    } else if (completeness < 60 || !hasDetailedSkills) {
+      confidenceReason = 'Độ tin cậy cao: Đầy đủ dữ liệu RIASEC, kỹ năng tự đánh giá và môn học thế mạnh.';
+    } else if (completeness < 55 || !hasDetailedSkills) {
       confidence = 'Medium';
-      confidenceReason = 'Moderate confidence: interest and RIASEC alignment is solid, but skill levels require deeper assessment.';
+      confidenceReason = 'Độ tin cậy trung bình: Dữ liệu sở thích tốt nhưng cần bổ sung mức độ kỹ năng thực tế.';
     }
 
     return {
@@ -343,7 +448,9 @@ export function generateRecommendations(
       positiveContributors,
       negativeContributors,
       missingSkills: skillResult.missing,
-      rank: 0 // Assigned after sorting
+      rank: 0,
+      recommendedPathway,
+      pathwayAdvice
     };
   });
 

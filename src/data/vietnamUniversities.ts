@@ -4,15 +4,16 @@ export interface UniversityInfo {
   shortName: string;
   location: string;
   region: 'Bắc' | 'Trung' | 'Nam';
-  tier: 'Top 1' | 'Top 2' | 'Chuyên ngành';
-  category: 'Kỹ thuật - Công nghệ' | 'Kinh tế - Quản lý' | 'Y Dược' | 'Sư phạm' | 'Khoa học Xã hội' | 'Đa ngành';
+  tier: 'Top 1' | 'Top 2' | 'Chuyên ngành' | 'Cao đẳng nghề';
+  category: 'Kỹ thuật - Công nghệ' | 'Kinh tế - Quản lý' | 'Y Dược' | 'Sư phạm' | 'Khoa học Xã hội' | 'Đa ngành' | 'Nghề thực hành';
   website: string;
-  benchmarkScoreTHPT: string; // e.g. "25.5 - 28.5"
-  benchmarkHSA?: string; // HSA ĐHQG HN: e.g. "90 - 115"
-  benchmarkVACT?: string; // V-ACT ĐHQG HCM: e.g. "800 - 980"
-  benchmarkTSA?: string; // TSA Bách Khoa: e.g. "65 - 82"
+  benchmarkScoreTHPT: string; // e.g. "25.5 - 28.5" or "Xét học bạ / Tốt nghiệp THPT"
+  benchmarkHSA?: string; // HSA ĐHQG HN
+  benchmarkVACT?: string; // V-ACT ĐHQG HCM
+  benchmarkTSA?: string; // TSA Bách Khoa
   prominentMajors: string[];
   description: string;
+  isVocational?: boolean;
 }
 
 export const VIETNAM_UNIVERSITIES: UniversityInfo[] = [
@@ -227,5 +228,77 @@ export const VIETNAM_UNIVERSITIES: UniversityInfo[] = [
     benchmarkScoreTHPT: '22.0 - 26.5',
     prominentMajors: ['Công nghệ thông tin', 'Kỹ thuật Điện', 'Xây dựng cầu đường', 'Kỹ thuật điều khiển'],
     description: 'Trường đại học kỹ thuật trọng điểm hàng đầu miền Trung - Tây Nguyên.'
+  },
+
+  // Nhóm Trường Cao đẳng & Học nghề thực hành chất lượng cao (Đại học không phải là con đường duy nhất)
+  {
+    id: 'caothang',
+    name: 'Trường Cao đẳng Kỹ thuật Cao Thắng',
+    shortName: 'Cao Thắng (CKC)',
+    location: 'TP. Hồ Chí Minh',
+    region: 'Nam',
+    tier: 'Cao đẳng nghề',
+    category: 'Nghề thực hành',
+    website: 'https://caothang.edu.vn',
+    benchmarkScoreTHPT: 'Xét học bạ THPT / Tốt nghiệp',
+    prominentMajors: ['Công nghệ Kỹ thuật Ô tô', 'Kỹ thuật Cơ điện tử', 'Kỹ thuật Điện - Điện tử', 'Công nghệ Thông tin', 'Kỹ thuật Nhiệt (Điện lạnh)'],
+    description: 'Trường cao đẳng kỹ thuật danh tiếng hơn 115 năm lịch sử tại TP.HCM; 70% thời lượng thực hành xưởng máy, sinh viên ra trường được doanh nghiệp săn đón ngay.',
+    isVocational: true
+  },
+  {
+    id: 'fpt-poly',
+    name: 'Trường Cao đẳng FPT Polytechnic',
+    shortName: 'FPT Poly',
+    location: 'Hà Nội / TP.HCM / Đà Nẵng / Cần Thơ / Tây Nguyên',
+    region: 'Bắc',
+    tier: 'Cao đẳng nghề',
+    category: 'Nghề thực hành',
+    website: 'https://caodang.fpt.edu.vn',
+    benchmarkScoreTHPT: 'Xét tuyển tốt nghiệp THPT',
+    prominentMajors: ['Lập trình Web/Mobile', 'Ứng dụng Phần mềm', 'Thiết kế Đồ họa', 'Digital Marketing', 'Logistics'],
+    description: 'Triết lý "Thực học - Thực nghiệp", đào tạo 2 năm (6 học kỳ) tập trung dự án doanh nghiệp thực tế, cam kết cơ hội việc làm và làm việc sớm.',
+    isVocational: true
+  },
+  {
+    id: 'bk-hanoi-voc',
+    name: 'Trường Cao đẳng Nghề Bách Khoa Hà Nội',
+    shortName: 'HACTECH',
+    location: 'Hà Nội',
+    region: 'Bắc',
+    tier: 'Cao đẳng nghề',
+    category: 'Nghề thực hành',
+    website: 'https://hactech.edu.vn',
+    benchmarkScoreTHPT: 'Xét học bạ lớp 12',
+    prominentMajors: ['Cơ điện tử', 'Kỹ thuật Cơ khí', 'Công nghệ Kỹ thuật Máy tính', 'Điện tử viễn thông', 'Công nghệ Ô tô'],
+    description: 'Trực thuộc hệ sinh thái Bách Khoa Hà Nội, đào tạo kỹ thuật viên tay nghề cao làm việc tại các tập đoàn cơ điện tử, tự động hóa hàng đầu.',
+    isVocational: true
+  },
+  {
+    id: 'tdc-thuduc',
+    name: 'Trường Cao đẳng Công nghệ Thủ Đức',
+    shortName: 'TDC',
+    location: 'TP. Hồ Chí Minh',
+    region: 'Nam',
+    tier: 'Cao đẳng nghề',
+    category: 'Nghề thực hành',
+    website: 'https://tdc.edu.vn',
+    benchmarkScoreTHPT: 'Xét tốt nghiệp THPT',
+    prominentMajors: ['Công nghệ Thông tin', 'Quản trị Khách sạn - Nhà hàng', 'Logistics', 'Tự động hóa', 'Tiếng Nhật thương mại'],
+    description: 'Cơ sở đào tạo thực hành quy mô lớn tại TP. Thủ Đức, liên kết chặt chẽ với các khu công nghệ cao và doanh nghiệp Nhật Bản.',
+    isVocational: true
+  },
+  {
+    id: 'hht-voc',
+    name: 'Trường Cao đẳng Nghề Công nghệ Cao Hà Nội',
+    shortName: 'HHT',
+    location: 'Hà Nội',
+    region: 'Bắc',
+    tier: 'Cao đẳng nghề',
+    category: 'Nghề thực hành',
+    website: 'https://hht.edu.vn',
+    benchmarkScoreTHPT: 'Xét học bạ THPT',
+    prominentMajors: ['Cơ khí chính xác CNC', 'Hàn công nghệ cao', 'Tự động hóa công nghiệp', 'Thiết kế đồ họa', 'Chăm sóc sắc đẹp & Dược'],
+    description: 'Trường nghề công lập kiểu mẫu chất lượng cao đạt chuẩn kiểm định quốc tế, sở hữu nhiều huy chương kỹ năng nghề quốc gia và ASEAN.',
+    isVocational: true
   }
 ];

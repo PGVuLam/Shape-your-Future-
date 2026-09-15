@@ -73,6 +73,8 @@ export interface LLMConfig {
   customEndpoint?: string;
   apiKey?: string;
   temperature?: number;
+  maxTokens?: number;
+  maxOutputTokens?: number;
   systemPromptStyle?: 'empathetic' | 'analytical' | 'strategic';
   connectionStatus?: 'unknown' | 'connected' | 'error';
   lastPingMs?: number;
@@ -204,13 +206,16 @@ export interface CareerCluster {
 }
 
 export interface ScoreBreakdown {
-  riasec: number; // 0 to 100
-  skills: number;
-  interests: number;
-  subjects: number;
-  goals: number;
-  preferences: number;
-  mbti: number;
+  riasec: number; // 0 to 100 (30% weight)
+  academic: number; // 0 to 100 (30% weight - Học tập & điểm thi)
+  skills: number; // 0 to 100 (25% weight - Kỹ năng)
+  mbti: number; // 0 to 100 (5% weight - Phong cách MBTI bổ trợ)
+  expectation: number; // 0 to 100 (10% weight - Kỳ vọng & môi trường)
+  // Optional backwards compatibility fields
+  interests?: number;
+  subjects?: number;
+  goals?: number;
+  preferences?: number;
 }
 
 export interface RecommendationScore {
@@ -224,16 +229,21 @@ export interface RecommendationScore {
   negativeContributors: string[];
   missingSkills: string[];
   rank: number;
+  recommendedPathway?: 'University' | 'VocationalCollege' | 'CertificationAndWork' | 'Flexible';
+  pathwayAdvice?: string;
 }
 
 export interface ScoringWeights {
-  wRIASEC: number;
-  wSkills: number;
-  wInterests: number;
-  wSubjects: number;
-  wGoals: number;
-  wPreferences: number;
-  wMBTI: number;
+  wRIASEC: number; // 0.30
+  wAcademic: number; // 0.30
+  wSkills: number; // 0.25
+  wMBTI: number; // 0.05
+  wExpectation: number; // 0.10
+  // Optional backwards compatibility fields
+  wInterests?: number;
+  wSubjects?: number;
+  wGoals?: number;
+  wPreferences?: number;
 }
 
 export interface SkillGapItem {

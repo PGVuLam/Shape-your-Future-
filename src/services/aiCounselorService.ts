@@ -15,7 +15,8 @@ export async function askAICounselor(
   profile: UserProfile,
   topCareers: Career[],
   llmConfig: LLMConfig,
-  chatHistory: ChatMessage[]
+  chatHistory: ChatMessage[],
+  recommendations?: any[]
 ): Promise<{ reply: string; modelUsed: string; suggestedQuestions: string[] }> {
   const isLocal = llmConfig.provider === 'local';
   const age = Number(profile.age || 17);
@@ -23,8 +24,8 @@ export async function askAICounselor(
   const ageMeta = getAgeGroupMeta(ageGroup);
   const topCareerTitles = topCareers.slice(0, 3).map(c => c.title).join(', ');
 
-  // 1. If Gemini cloud or custom local endpoint is selected, try the backend /api/ai/counselor
-  if (llmConfig.provider === 'gemini' || llmConfig.provider === 'custom') {
+  // 1. Try Gemini 3.8 Flash backend API first unless user explicitly selects 'local'
+  if (llmConfig.provider === 'gemini' || llmConfig.provider === 'custom' || !llmConfig.provider) {
     try {
       const res = await fetch('/api/ai/counselor', {
         method: 'POST',
@@ -32,33 +33,68 @@ export async function askAICounselor(
         body: JSON.stringify({
           userQuestion,
           language: 'vi',
-          llmConfig,
-          chatHistory: chatHistory.map(m => ({ role: m.sender === 'user' ? 'user' : 'model', parts: m.content })),
+          llmConfig: {
+            ...llmConfig,
+            provider: llmConfig.provider || 'gemini',
+            modelName: llmConfig.modelName || 'gemini-3.8-flash',
+            maxOutputTokens: 800,
+            maxTokens: 800
+          },
+          chatHistory: chatHistory.map(m => ({
+            role: m.sender === 'user' ? 'user' : 'model',
+            parts: m.content,
+            content: m.content
+          })),
           context: {
             careerTitle: topCareers[0]?.title || 'Chuyên viên Công nghệ & Phân tích',
             cluster: topCareers[0]?.careerCluster || 'Khoa học Kỹ thuật',
             tasks: topCareers[0]?.tasks || [],
             requiredSkills: topCareers[0]?.requiredSkills || [],
             userMatchedSkills: profile.skills || [],
-            userMissingSkills: [],
             educationPaths: topCareers[0]?.educationPaths?.map(p => p.duration) || [],
-            experiments: topCareers[0]?.experiments?.map(e => e.title) || [],
             salaryLevel: topCareers[0]?.salaryInfo?.rangeDescription || '15 - 25 triệu VNĐ/tháng',
             riasecFitSummary: `Mã Holland: ${profile.riaSecProfile?.code || 'Chưa hoàn tất'}`,
+            surveyRecommendations: (recommendations && recommendations.length > 0)
+              ? recommendations.slice(0, 5).map(r => ({
+                  title: r.career?.title || r.title,
+                  careerCluster: r.career?.careerCluster || r.careerCluster,
+                  overallScore: r.overallScore,
+                  requiredSkills: r.career?.requiredSkills || r.requiredSkills,
+                  salaryInfo: r.career?.salaryInfo || r.salaryInfo
+                }))
+              : topCareers.slice(0, 5).map(c => ({
+                  title: c.title,
+                  careerCluster: c.careerCluster,
+                  requiredSkills: c.requiredSkills,
+                  salaryInfo: c.salaryInfo
+                })),
             profileContext: {
               name: profile.name,
               age: profile.age,
+              gender: profile.gender,
               ageGroup,
               province: profile.province,
+              grade: profile.grade,
               educationLevel: profile.grade || profile.educationLevel,
               favoriteSubjects: profile.favoriteSubjects,
+              confidentSubjects: profile.confidentSubjects,
               academicGPA: profile.academicGPA,
-              userInterests: profile.interests,
+              strengths: profile.strengths,
+              interests: profile.interests,
+              skills: profile.skills,
+              selfRatedSkills: profile.selfRatedSkills,
               riasecCode: profile.riaSecProfile?.code,
+              riaSecScores: profile.riaSecScores || profile.riaSecProfile?.scores,
+              riaSecProfile: profile.riaSecProfile,
               mbtiType: profile.mbtiType,
+              mbtiResult: profile.mbtiResult,
               examScores: profile.examScores,
+              workPreferences: profile.workPreferences,
               careerPriorities: profile.careerPriorities,
-              interestedMajorInput: profile.interestedMajorInput
+              careerReadiness: profile.careerReadiness,
+              interestedMajorInput: profile.interestedMajorInput,
+              financialConsiderations: profile.financialConsiderations,
+              educationPreferences: profile.educationPreferences
             }
           }
         })
@@ -66,18 +102,20 @@ export async function askAICounselor(
 
       if (res.ok) {
         const data = await res.json();
-        return {
-          reply: data.reply,
-          modelUsed: data.provider || (llmConfig.provider === 'gemini' ? (llmConfig.modelName || 'Gemini 3.8 Flash') : `Local: ${llmConfig.modelName || 'Custom'}`),
-          suggestedQuestions: data.suggestedFollowUps || [
-            'Lộ trình cụ thể trong 6 tháng tới?',
-            'Cách khắc phục những kỹ năng còn thiếu?',
-            'Cơ hội việc làm trong 3-5 năm tới ra sao?'
-          ]
-        };
+        if (data && data.reply) {
+          return {
+            reply: data.reply,
+            modelUsed: data.provider || 'Gemini 3.8 Flash (Cloud)',
+            suggestedQuestions: data.suggestedFollowUps || [
+              'Lộ trình rèn luyện cụ thể trong 6 tháng tới?',
+              'Cách đăng ký nguyện vọng đại học an toàn?',
+              'Kỹ năng quan trọng nhất cần tích lũy là gì?'
+            ]
+          };
+        }
       }
     } catch (e) {
-      console.warn('Backend LLM API call failed, continuing to internal reasoning engine:', e);
+      console.warn('Backend Gemini API call failed, continuing to internal reasoning engine:', e);
     }
   }
 
@@ -153,8 +191,12 @@ export async function askAICounselor(
    - *Học viện Bưu chính Viễn thông (PTIT)*: Đào tạo công nghệ thực chiến, điểm chuẩn 25 - 26.5, tỷ lệ có việc làm cao.
    - *ĐH Sư phạm Kỹ thuật TP.HCM (HCMUTE)*: Thế mạnh cơ điện tử, kỹ thuật ô tô, robot.
    - *ĐH FPT / Bách Khoa Đà Nẵng / ĐH Cần Thơ*: Môi trường năng động, liên kết doanh nghiệp chặt chẽ.
+3. **Nhóm 3 - Cao đẳng & Trường Nghề Uy tín (Đại học không phải là con đường duy nhất):**
+   - *Cao đẳng Kỹ thuật Cao Thắng (TP.HCM)* / *Cao đẳng Nghề Bách Khoa Hà Nội (HACTECH)*: 70% thời lượng thực hành xưởng máy, học 2 - 2.5 năm, kỹ năng tay nghề vững vàng, ra trường doanh nghiệp tuyển dụng ngay.
+   - *Cao đẳng FPT Polytechnic*: Đào tạo dự án thực chiến, đi làm sớm, chú trọng CNTT, Thiết kế, Marketing.
+   - *Cao đẳng Công nghệ Thủ Đức (TDC) / Cao đẳng Nghề Công nghệ Cao Hà Nội (HHT)*: Chi phí tiết kiệm, xét tuyển học bạ THPT, học liên thông lên đại học khi cần.
 
-💡 **Chiến thuật đăng ký nguyện vọng:** Đặt 1-2 nguyện vọng trường Top 1 làm mục tiêu phấn đấu, 2-3 nguyện vọng trường Top 2 có điểm chuẩn dưới mức của em 1 - 1.5 điểm làm phương án an toàn tuyệt đối!`;
+💡 **Lời khuyên hướng nghiệp:** Hãy nhớ rằng **Đại học không phải là con đường duy nhất để thành công**. Nếu bạn yêu thích thực hành, muốn tự chủ tài chính sớm hoặc điểm thi chưa như ý, học Cao đẳng Nghề hoặc chứng chỉ chuyên sâu là bước đi vô cùng thông minh và thực tế!`;
 
       followUps = [
         'Cách kết hợp xét tuyển sớm (học bạ + HSA/TSA) và thi tốt nghiệp?',

@@ -26,7 +26,10 @@ import {
   Download,
   Loader2,
   Check,
-  RotateCcw
+  RotateCcw,
+  Wrench,
+  Lightbulb,
+  Layers
 } from 'lucide-react';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
@@ -131,27 +134,28 @@ export const Step4ComprehensiveReportView: React.FC<Step4ComprehensiveReportView
   }, [uniRegionFilter]);
 
   const top1Universities = matchedUniversities.filter(u => u.tier === 'Top 1');
-  const top2Universities = matchedUniversities.filter(u => u.tier !== 'Top 1');
+  const top2Universities = matchedUniversities.filter(u => u.tier === 'Top 2' || u.tier === 'Chuyên ngành');
+  const vocationalColleges = matchedUniversities.filter(u => u.tier === 'Cao đẳng nghề' || u.isVocational);
 
   // Interactive Deep-Dive AI Counselor Chatbot
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>(() => [
     {
       id: 'welcome',
       sender: 'assistant',
-      content: `Xin chào **${profile?.name?.trim() || 'bạn'}**! Tôi là Trợ lý Cố vấn Hướng nghiệp Trí tuệ Nhân tạo EduPath AI.
+      content: `Xin chào **${profile?.name?.trim() || 'bạn'}**! Tôi là Trợ lý Cố vấn Hướng nghiệp AI cấp cao (vận hành bởi **Gemini 3.8 Flash**).
 
-Tôi đã phân tích toàn diện hồ sơ của bạn:
-- **Đặc trưng tâm lý & tính cách:** Mã Holland **${profile?.riaSecProfile?.code || 'IRC'}** và Nhóm tính cách **${profile?.mbtiType || 'INTJ'}**.
-- **Năng lực học tập:** Học lực **${profile?.academicGPA || 'Khá - Giỏi'}** | Kỳ thi: ${
+Tôi đã tiếp nhận và phân tích toàn bộ kết quả khảo sát của bạn:
+- **Đặc trưng tâm lý & xu hướng:** Mã Holland **${profile?.riaSecProfile?.code || 'IRC'}** và Nhóm tính cách MBTI **${profile?.mbtiType || 'INTJ'}**.
+- **Năng lực học tập:** Học lực **${profile?.academicGPA || 'Khá - Giỏi'}** | Kết quả kỳ thi: ${
         profile?.examScores?.hsaScore ? `HSA ${profile.examScores.hsaScore}/150, ` : ''
       }${profile?.examScores?.tsaScore ? `TSA ${profile.examScores.tsaScore}/100, ` : ''}${
-        profile?.examScores?.thptScore ? `THPTQG ${profile.examScores.thptScore}đ` : 'Đang cập nhật điểm'
+        profile?.examScores?.thptScore ? `THPTQG ${profile.examScores.thptScore}đ` : 'Đang chuẩn bị thi'
       }.
-- **Ngành nghề tương thích hàng đầu:** **${topCareers[0]?.title || 'Khoa học Máy tính & Kỹ thuật'}** (${topScoredCareers[0]?.overallScore || 94}%).
+- **Ngành nghề tương thích hàng đầu:** **${topCareers[0]?.title || 'Khoa học Máy tính & Kỹ thuật'}** (${topScoredCareers[0]?.overallScore || 94}% phù hợp).
 
-Bạn có thắc mắc gì về điểm chuẩn các trường, phương thức xét tuyển hay kỹ năng cần chuẩn bị không? Hãy hỏi tôi ngay bên dưới nhé!`,
+Bạn cần tư vấn về chiến lược đăng ký trường đại học, phương thức xét tuyển sớm (học bạ, HSA/TSA, IELTS), hay lộ trình phát triển kỹ năng cụ thể? Hãy đặt câu hỏi cho tôi ngay bên dưới nhé!`,
       timestamp: Date.now(),
-      modelUsed: 'Local LLM',
+      modelUsed: 'Gemini 3.8 Flash',
       suggestedQuestions: [
         'Với điểm số và tính cách này, em nên chọn Đại học Bách Khoa hay ĐHQG?',
         'Em cần rèn luyện thêm kỹ năng gì để có lợi thế khi học đại học?',
@@ -194,7 +198,7 @@ Bạn có thắc mắc gì về điểm chuẩn các trường, phương thức 
     setIsThinking(true);
 
     try {
-      const result = await askAICounselor(q, profile, topCareers, llmConfig, chatMessages);
+      const result = await askAICounselor(q, profile, topCareers, llmConfig, chatMessages, recommendations);
       const botMsg: ChatMessage = {
         id: `bot-${Date.now()}`,
         sender: 'assistant',
@@ -493,6 +497,74 @@ Bạn có thắc mắc gì về điểm chuẩn các trường, phương thức 
         </div>
       </div>
 
+      {/* BANNER NGUYÊN TẮC HƯỚNG NGHIỆP: ĐẠI HỌC KHÔNG PHẢI LÀ CON ĐƯỜNG DUY NHẤT */}
+      <div className="bg-gradient-to-br from-emerald-50 via-teal-50/60 to-white rounded-3xl p-6 border border-emerald-200/80 shadow-xs space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-emerald-100 pb-3">
+          <div className="flex items-center space-x-2.5">
+            <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+              <Lightbulb className="w-5 h-5" />
+            </div>
+            <div>
+              <h2 className="text-base font-bold text-emerald-950">
+                Đa Dạng Hóa Con Đường Phát Triển Nghề Nghiệp
+              </h2>
+              <p className="text-xs text-emerald-800 font-medium mt-0.5">
+                Đại học không phải là con đường duy nhất để thành công và khẳng định giá trị bản thân.
+              </p>
+            </div>
+          </div>
+          <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold border border-emerald-200 self-start sm:self-center">
+            Định hướng Thực tế & Toàn diện
+          </span>
+        </div>
+
+        <p className="text-xs text-emerald-900 leading-relaxed">
+          Mỗi người có một thế mạnh riêng biệt về trí tuệ, tính cách và hoàn cảnh. Nếu bạn có thiên hướng thực hành cao hoặc điểm thi chưa đạt nguyện vọng đại học top đầu, thị trường lao động luôn rộng mở với các con đường học tập thực chiến, tích lũy kỹ năng và tự chủ tài chính sớm:
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+          <div className="p-3.5 rounded-2xl bg-white/90 border border-emerald-200/80 shadow-2xs space-y-1.5">
+            <div className="flex items-center space-x-1.5 text-emerald-700 font-bold text-xs">
+              <Wrench className="w-4 h-4 text-emerald-600 shrink-0" />
+              <span>1. Cao đẳng Nghề chất lượng cao</span>
+            </div>
+            <p className="text-[11px] text-slate-600 leading-relaxed">
+              Thời gian đào tạo 2 - 2.5 năm, 70% thời lượng thực hành xưởng và dự án doanh nghiệp. Ra trường có việc làm ngay và dễ liên thông lên đại học khi cần.
+            </p>
+          </div>
+
+          <div className="p-3.5 rounded-2xl bg-white/90 border border-teal-200/80 shadow-2xs space-y-1.5">
+            <div className="flex items-center space-x-1.5 text-teal-700 font-bold text-xs">
+              <TrendingUp className="w-4 h-4 text-teal-600 shrink-0" />
+              <span>2. Học nghề & Đi làm sớm</span>
+            </div>
+            <p className="text-[11px] text-slate-600 leading-relaxed">
+              Mô hình vừa học vừa làm (Apprenticeship) giúp tích lũy kinh nghiệm cọ xát thực tế, tự chủ tài chính sớm và xây dựng mạng lưới quan hệ trong ngành.
+            </p>
+          </div>
+
+          <div className="p-3.5 rounded-2xl bg-white/90 border border-sky-200/80 shadow-2xs space-y-1.5">
+            <div className="flex items-center space-x-1.5 text-sky-700 font-bold text-xs">
+              <Award className="w-4 h-4 text-sky-600 shrink-0" />
+              <span>3. Chứng chỉ chuyên môn quốc tế</span>
+            </div>
+            <p className="text-[11px] text-slate-600 leading-relaxed">
+              Các chứng chỉ IT, thiết kế đồ họa, digital marketing, kế toán thực hành được doanh nghiệp công nhận trực tiếp qua sản phẩm (portfolio) cụ thể.
+            </p>
+          </div>
+
+          <div className="p-3.5 rounded-2xl bg-white/90 border border-indigo-200/80 shadow-2xs space-y-1.5">
+            <div className="flex items-center space-x-1.5 text-indigo-700 font-bold text-xs">
+              <GraduationCap className="w-4 h-4 text-indigo-600 shrink-0" />
+              <span>4. Đại học Nghiên cứu & Ứng dụng</span>
+            </div>
+            <p className="text-[11px] text-slate-600 leading-relaxed">
+              Đào tạo 4 - 5 năm chuyên sâu nền tảng học thuật, phương pháp nghiên cứu và tư duy hệ thống phục vụ các công việc đòi hỏi chứng chỉ hành nghề hoặc bằng cấp học thuật.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* MỤC 2: TOP NGÀNH NGHỀ PHÙ HỢP NHẤT (TÍNH ĐIỂM KHOA HỌC) */}
       <div className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
@@ -502,7 +574,7 @@ Bạn có thắc mắc gì về điểm chuẩn các trường, phương thức 
               <span>2. Top Ngành Nghề Tương Thích Hàng Đầu</span>
             </h2>
             <p className="text-xs text-slate-500 mt-0.5">
-              Tính điểm khoa học dựa trên: RIASEC (30%) + Năng lực học tập & Điểm thi (25%) + Kỹ năng (20%) + MBTI (15%) + Kỳ vọng (10%).
+              Tính điểm khoa học dựa trên trọng số chuẩn hóa: <strong>RIASEC (30%) + Năng lực học tập & Điểm thi (30%) + Kỹ năng (25%) + MBTI bổ trợ (5%) + Kỳ vọng & Môi trường (10%)</strong>.
             </p>
           </div>
           <span className="px-3 py-1 rounded-xl bg-indigo-50 text-indigo-700 text-xs font-bold border border-indigo-200 self-start sm:self-center">
@@ -514,52 +586,95 @@ Bạn có thắc mắc gì về điểm chuẩn các trường, phương thức 
           {topScoredCareers.map((item, index) => {
             const c = item.career;
             const score = item.overallScore;
+            const b = item.breakdown;
             return (
               <div
                 key={c.id}
-                className="p-4 rounded-2xl bg-slate-50/80 border border-slate-200/80 hover:border-indigo-300 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4 text-xs"
+                className="p-4.5 rounded-2xl bg-slate-50/80 border border-slate-200/80 hover:border-indigo-300 transition-all flex flex-col gap-3 text-xs"
               >
-                <div className="space-y-1.5 flex-1">
-                  <div className="flex items-center space-x-2">
-                    <span className="w-6 h-6 rounded-lg bg-indigo-600 text-white font-black text-xs flex items-center justify-center shrink-0">
-                      #{index + 1}
-                    </span>
-                    <h3 className="text-sm font-bold text-slate-900">{c.title}</h3>
-                    <span className="px-2 py-0.5 rounded-md bg-slate-200/70 text-slate-700 text-[10px] font-semibold">
-                      {c.careerCluster}
-                    </span>
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
+                  <div className="space-y-1.5 flex-1">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="w-6 h-6 rounded-lg bg-indigo-600 text-white font-black text-xs flex items-center justify-center shrink-0">
+                        #{index + 1}
+                      </span>
+                      <h3 className="text-sm font-bold text-slate-900">{c.title}</h3>
+                      <span className="px-2 py-0.5 rounded-md bg-slate-200/70 text-slate-700 text-[10px] font-semibold">
+                        {c.careerCluster}
+                      </span>
+                      {item.recommendedPathway === 'VocationalCollege' && (
+                        <span className="px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 text-[10px] font-bold border border-emerald-200 flex items-center gap-1">
+                          <Wrench className="w-3 h-3" />
+                          Cao đẳng Nghề / Thực hành Đề xuất
+                        </span>
+                      )}
+                    </div>
+
+                    <p className="text-slate-600 text-[11px] line-clamp-2 leading-relaxed">
+                      {c.description}
+                    </p>
+
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] text-slate-500 pt-0.5">
+                      <span>Mức lương khởi điểm: <strong className="text-emerald-700">{c.salaryInfo?.rangeDescription || '15 - 25 triệu VNĐ/tháng'}</strong></span>
+                      <span>•</span>
+                      <span>Mã Holland: <strong>{profile.riaSecProfile?.code}</strong> tương hợp cao</span>
+                      <span>•</span>
+                      <span>Kỹ năng cần: {c.requiredSkills.slice(0, 3).join(', ')}</span>
+                    </div>
                   </div>
 
-                  <p className="text-slate-600 text-[11px] line-clamp-2 leading-relaxed">
-                    {c.description}
-                  </p>
+                  {/* Score & View Button */}
+                  <div className="flex items-center justify-between md:justify-end space-x-4 shrink-0 border-t md:border-t-0 pt-2 md:pt-0 border-slate-200">
+                    <div className="text-right">
+                      <span className="text-[10px] font-bold text-slate-400 block uppercase">Độ phù hợp:</span>
+                      <div className="text-xl font-black text-indigo-600">{score}%</div>
+                    </div>
 
-                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] text-slate-500 pt-1">
-                    <span>Mức lương khởi điểm: <strong className="text-emerald-700">{c.salaryInfo?.rangeDescription || '15 - 25 triệu VNĐ/tháng'}</strong></span>
-                    <span>•</span>
-                    <span>Mã Holland: <strong>{profile.riaSecProfile?.code}</strong> tương hợp cao</span>
-                    <span>•</span>
-                    <span>Kỹ năng cần: {c.requiredSkills.slice(0, 3).join(', ')}</span>
+                    {onViewCareerDetail && (
+                      <button
+                        onClick={() => onViewCareerDetail(c)}
+                        className="px-3.5 py-2 rounded-xl bg-white border border-slate-200 hover:border-indigo-500 hover:text-indigo-600 text-slate-700 font-bold text-xs flex items-center space-x-1.5 transition-colors shadow-2xs cursor-pointer"
+                      >
+                        <span>Chi tiết lộ trình</span>
+                        <ChevronRight className="w-3.5 h-3.5" />
+                      </button>
+                    )}
                   </div>
                 </div>
 
-                {/* Score & View Button */}
-                <div className="flex items-center justify-between md:justify-end space-x-4 shrink-0 border-t md:border-t-0 pt-2 md:pt-0 border-slate-200">
-                  <div className="text-right">
-                    <span className="text-[10px] font-bold text-slate-400 block uppercase">Độ phù hợp:</span>
-                    <div className="text-xl font-black text-indigo-600">{score}%</div>
+                {/* 5-Factor Score Breakdown Bar & Pills */}
+                {b && (
+                  <div className="pt-2 border-t border-slate-200/60 grid grid-cols-2 sm:grid-cols-5 gap-2 text-[11px]">
+                    <div className="p-2 rounded-xl bg-blue-50/70 border border-blue-100">
+                      <span className="text-[10px] text-blue-700 font-semibold block">RIASEC (30%)</span>
+                      <span className="font-bold text-blue-950 text-xs">{b.riasec}%</span>
+                    </div>
+                    <div className="p-2 rounded-xl bg-emerald-50/70 border border-emerald-100">
+                      <span className="text-[10px] text-emerald-700 font-semibold block">Học tập & Điểm (30%)</span>
+                      <span className="font-bold text-emerald-950 text-xs">{b.academic}%</span>
+                    </div>
+                    <div className="p-2 rounded-xl bg-purple-50/70 border border-purple-100">
+                      <span className="text-[10px] text-purple-700 font-semibold block">Kỹ năng (25%)</span>
+                      <span className="font-bold text-purple-950 text-xs">{b.skills}%</span>
+                    </div>
+                    <div className="p-2 rounded-xl bg-amber-50/70 border border-amber-100">
+                      <span className="text-[10px] text-amber-700 font-semibold block">MBTI Bổ trợ (5%)</span>
+                      <span className="font-bold text-amber-950 text-xs">{b.mbti}%</span>
+                    </div>
+                    <div className="p-2 rounded-xl bg-slate-100/70 border border-slate-200">
+                      <span className="text-[10px] text-slate-600 font-semibold block">Kỳ vọng (10%)</span>
+                      <span className="font-bold text-slate-900 text-xs">{b.expectation}%</span>
+                    </div>
                   </div>
+                )}
 
-                  {onViewCareerDetail && (
-                    <button
-                      onClick={() => onViewCareerDetail(c)}
-                      className="px-3.5 py-2 rounded-xl bg-white border border-slate-200 hover:border-indigo-500 hover:text-indigo-600 text-slate-700 font-bold text-xs flex items-center space-x-1.5 transition-colors shadow-2xs cursor-pointer"
-                    >
-                      <span>Chi tiết lộ trình</span>
-                      <ChevronRight className="w-3.5 h-3.5" />
-                    </button>
-                  )}
-                </div>
+                {/* Educational Pathway Advice Banner */}
+                {item.pathwayAdvice && (
+                  <div className="p-2.5 rounded-xl bg-emerald-50/60 border border-emerald-200/60 text-[11px] text-emerald-900 flex items-start gap-2">
+                    <Lightbulb className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>Lời khuyên con đường phát triển:</strong> {item.pathwayAdvice}</span>
+                  </div>
+                )}
               </div>
             );
           })}
@@ -744,6 +859,91 @@ Bạn có thắc mắc gì về điểm chuẩn các trường, phương thức 
             ))}
           </div>
         </div>
+
+        {/* NHÓM 3: TRƯỜNG CAO ĐẲNG & HỌC NGHỀ THỰC HÀNH UY TÍN (ĐẠI HỌC KHÔNG PHẢI LÀ CON ĐƯỜNG DUY NHẤT) */}
+        <div className="space-y-3 pt-4 border-t border-slate-100">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div className="flex items-center space-x-2">
+              <span className="px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-800 text-[11px] font-bold border border-emerald-200">
+                NHÓM 3
+              </span>
+              <h3 className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                <Wrench className="w-4 h-4 text-emerald-600" />
+                <span>Trường Cao đẳng & Cơ sở Đào tạo Thực hành Uy tín (Đi làm sớm & Thực chiến)</span>
+              </h3>
+            </div>
+            <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200 self-start sm:self-center">
+              70% Thực hành • 2 - 2.5 Năm • Dễ Liên thông
+            </span>
+          </div>
+
+          <p className="text-xs text-slate-500">
+            Dành cho học sinh muốn tự chủ tài chính sớm, thích thực hành thao tác xưởng máy hoặc điểm thi chưa phù hợp với các trường đại học top đầu:
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+            {vocationalColleges.map(uni => (
+              <div
+                key={uni.id}
+                className="p-4 rounded-2xl bg-gradient-to-br from-emerald-50/30 to-white border border-emerald-200/80 shadow-2xs space-y-2 text-xs hover:border-emerald-400 transition-colors"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <span className="font-extrabold text-slate-900 text-sm block">
+                      {uni.name} ({uni.shortName})
+                    </span>
+                    <span className="text-[11px] text-slate-500 flex items-center gap-1 mt-0.5">
+                      <MapPin className="w-3 h-3 text-slate-400" />
+                      {uni.location} • Miền {uni.region}
+                    </span>
+                  </div>
+                  <span className="px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 text-[10px] font-bold shrink-0">
+                    Cao đẳng nghề
+                  </span>
+                </div>
+
+                <p className="text-slate-600 text-[11px] leading-relaxed line-clamp-2">
+                  {uni.description}
+                </p>
+
+                <div className="p-2.5 rounded-xl bg-emerald-50/50 space-y-1 text-[11px]">
+                  <div className="flex items-center justify-between">
+                    <span className="text-emerald-800 font-medium">Tiêu chí tuyển sinh:</span>
+                    <span className="font-bold text-emerald-950">{uni.benchmarkScoreTHPT}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-500 font-medium">Thời gian & Bằng cấp:</span>
+                    <span className="font-semibold text-slate-800">2 - 2.5 năm • Cử nhân/Kỹ sư thực hành</span>
+                  </div>
+                </div>
+
+                <div className="pt-1 flex items-center justify-between gap-2">
+                  <div className="flex-1 min-w-0">
+                    <span className="text-[10px] font-bold text-slate-400 block mb-1">NGÀNH THỰC CHIẾN NỔI BẬT:</span>
+                    <div className="flex flex-wrap gap-1">
+                      {uni.prominentMajors.slice(0, 3).map(m => (
+                        <span key={m} className="px-2 py-0.5 rounded-md bg-white border border-emerald-200/70 text-emerald-900 text-[10px] font-medium">
+                          {m}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  {uni.website && (
+                    <a
+                      href={uni.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] flex items-center gap-1 transition-colors shrink-0"
+                    >
+                      <span>Website</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* MỤC 4: BỘ CHỌN MODEL LLM TƯ VẤN & HỎI ĐÁP CHUYÊN SÂU CHI TIẾT (CHATBOT NHƯ CHATGPT) */}
@@ -783,8 +983,8 @@ Bạn có thắc mắc gì về điểm chuẩn các trường, phương thức 
               }}
               className="px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-slate-900 font-bold text-xs shadow-xs focus:outline-none"
             >
+              <option value="gemini">✨ Gemini 3.8 Flash (Mặc định)</option>
               <option value="local">🟢 Local LLM (Cục bộ / Offline)</option>
-              <option value="gemini">🔵 Gemini 3.8 Flash (Cloud)</option>
               <option value="custom">🟣 Custom / Ollama Endpoint</option>
             </select>
 

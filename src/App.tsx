@@ -139,8 +139,10 @@ export default function App() {
         currentStep={currentStep}
         highestUnlockedStep={highestUnlockedStep}
         onSelectStep={step => {
-          setViewMode('exam');
-          setCurrentStep(step);
+          if (step <= highestUnlockedStep) {
+            setViewMode('exam');
+            setCurrentStep(step);
+          }
         }}
         activeProfile={activeProfile}
         onSelectProfile={handleLoadDemoProfile}
