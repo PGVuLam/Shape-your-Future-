@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import {
   Compass,
   ArrowRight,
@@ -15,6 +16,7 @@ import {
 import { UserProfile } from '../types';
 import { DEMO_PROFILES } from '../data/demoProfiles';
 import { useLanguage } from '../context/LanguageContext';
+import { playClickSound } from '../utils/soundUtils';
 
 interface HomeLandingViewProps {
   onStartExam: () => void;
@@ -67,7 +69,7 @@ export const HomeLandingView: React.FC<HomeLandingViewProps> = ({
             <button
               id="btn-start-examination"
               type="button"
-              onClick={onStartExam}
+              onClick={() => { playClickSound(); onStartExam(); }}
               className="relative px-10 sm:px-12 py-4 sm:py-4.5 rounded-2xl bg-gradient-to-r from-indigo-600 via-indigo-600 to-sky-600 hover:from-indigo-500 hover:to-sky-500 text-white font-extrabold text-base sm:text-lg flex items-center justify-center space-x-3 shadow-xl shadow-indigo-600/25 hover:shadow-2xl hover:shadow-indigo-600/35 transition-all duration-300 transform hover:scale-[1.025] active:scale-[0.985] cursor-pointer overflow-hidden"
             >
               {/* Subtle inner sheen light highlight */}
@@ -98,9 +100,23 @@ export const HomeLandingView: React.FC<HomeLandingViewProps> = ({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.1, delayChildren: 0.4 } }
+          }}
+        >
           {/* Card Step 1 */}
-          <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-3 relative group hover:border-indigo-300 transition-colors">
+          <motion.div 
+            className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-3 relative group hover:border-indigo-300 transition-colors"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } }
+            }}
+          >
             <div className="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-700 font-black flex items-center justify-center text-sm">
               1
             </div>
@@ -113,10 +129,16 @@ export const HomeLandingView: React.FC<HomeLandingViewProps> = ({
             <div className="text-[11px] font-semibold text-indigo-600 pt-1 flex items-center gap-1">
               <span>Đầu vào toàn diện</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card Step 2 */}
-          <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-3 relative group hover:border-indigo-300 transition-colors">
+          <motion.div 
+            className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-3 relative group hover:border-indigo-300 transition-colors"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } }
+            }}
+          >
             <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-700 font-black flex items-center justify-center text-sm">
               2
             </div>
@@ -129,10 +151,16 @@ export const HomeLandingView: React.FC<HomeLandingViewProps> = ({
             <div className="text-[11px] font-semibold text-blue-600 pt-1 flex items-center gap-1">
               <span>Mã Holland & Radar</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card Step 3 */}
-          <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-3 relative group hover:border-indigo-300 transition-colors">
+          <motion.div 
+            className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-3 relative group hover:border-indigo-300 transition-colors"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } }
+            }}
+          >
             <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-700 font-black flex items-center justify-center text-sm">
               3
             </div>
@@ -145,10 +173,16 @@ export const HomeLandingView: React.FC<HomeLandingViewProps> = ({
             <div className="text-[11px] font-semibold text-purple-600 pt-1 flex items-center gap-1">
               <span>16 Nhóm Tính cách</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card Step 4 */}
-          <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-3 relative group hover:border-indigo-300 transition-colors">
+          <motion.div 
+            className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-3 relative group hover:border-indigo-300 transition-colors"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } }
+            }}
+          >
             <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-700 font-black flex items-center justify-center text-sm">
               4
             </div>
@@ -161,8 +195,8 @@ export const HomeLandingView: React.FC<HomeLandingViewProps> = ({
             <div className="text-[11px] font-semibold text-emerald-600 pt-1 flex items-center gap-1">
               <span>Top Nghề, Trường & AI Chat</span>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Key Core Guarantees & Features */}

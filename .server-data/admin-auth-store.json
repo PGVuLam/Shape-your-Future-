@@ -1,0 +1,683 @@
+{
+  "users": [
+    {
+      "id": "admin-d408802eba6c",
+      "username": "admin",
+      "passwordHash": "$2b$10$gEFOMuGQp0ITl5X5OsqOR.jxKBzyPvs9YV8nTfduxoxq41kxY/4aC",
+      "role": "ADMIN",
+      "isActive": true,
+      "createdAt": "2026-09-16T11:44:23.773Z",
+      "updatedAt": "2026-09-16T13:22:36.664Z",
+      "lastLoginAt": "2026-09-16T15:32:07.773Z",
+      "failedLoginAttempts": 0,
+      "lockedUntil": null,
+      "securityMetadata": {
+        "lastPasswordChange": "2026-09-16T13:22:36.664Z",
+        "loginCount": 12,
+        "lastFailedLoginAt": "2026-09-16T13:40:48.646Z"
+      }
+    }
+  ],
+  "sessions": [
+    {
+      "id": "sess-9d5e279cde9b952e",
+      "token": "9c7d94b342980f22e4648c9bed6faeb8932cfdc8b4477fb675f200563f56d138fe25d17e",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "role": "ADMIN",
+      "createdAt": "2026-09-16T11:44:37.535Z",
+      "lastActivityAt": "2026-09-16T11:44:37.535Z",
+      "expiresAt": "2026-09-16T19:44:37.535Z",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1"
+    },
+    {
+      "id": "sess-213f51f545081136",
+      "token": "bb469ddc9024384cb8b2dd73aa72fbf29c696775cbf8f618b54c2eedac1288509a45eb97",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "role": "ADMIN",
+      "createdAt": "2026-09-16T11:44:40.288Z",
+      "lastActivityAt": "2026-09-16T11:44:40.313Z",
+      "expiresAt": "2026-09-16T19:44:40.288Z",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1"
+    },
+    {
+      "id": "sess-d5ffc89c0723cd32",
+      "token": "f5e8fd99db54538e877bcbb94fd14fe8161a5555e9f607237cc1b22a5e860759fa236ee4",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "role": "ADMIN",
+      "createdAt": "2026-09-16T11:44:46.971Z",
+      "lastActivityAt": "2026-09-16T11:44:46.997Z",
+      "expiresAt": "2026-09-16T19:44:46.971Z",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1"
+    },
+    {
+      "id": "sess-ebeb91560e053e48",
+      "token": "77c97b9e5a5bd1b30a613fad27483c810182e5b4cb6919d09e0ef5677c4e7ce6c5f14d6f",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "role": "ADMIN",
+      "createdAt": "2026-09-16T13:19:47.811Z",
+      "lastActivityAt": "2026-09-16T13:19:47.947Z",
+      "expiresAt": "2026-09-16T21:19:47.811Z",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+    },
+    {
+      "id": "sess-2cddb83f5a27db90",
+      "token": "f3ae5b1ea2a8e18935efc8163d443030f8b005ad7254de01c900ca1bbbda0681a05d3def",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "role": "ADMIN",
+      "createdAt": "2026-09-16T13:29:08.222Z",
+      "lastActivityAt": "2026-09-16T13:29:08.335Z",
+      "expiresAt": "2026-09-16T21:29:08.222Z",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+    },
+    {
+      "id": "sess-6c43858b3c55e011",
+      "token": "4d0c8c192e1b20e4ced822c7b3a92db3a8288350740474c6020eae6353880da3258c0e83",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "role": "ADMIN",
+      "createdAt": "2026-09-16T15:32:02.934Z",
+      "lastActivityAt": "2026-09-16T15:32:02.934Z",
+      "expiresAt": "2026-09-16T23:32:02.934Z",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1"
+    },
+    {
+      "id": "sess-dbef176b43b9a8a7",
+      "token": "a6b5c1f63d38c36f2640afceca9b51f137fac32d5d7055b7af1788edcd52240d9682068b",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "role": "ADMIN",
+      "createdAt": "2026-09-16T15:32:07.773Z",
+      "lastActivityAt": "2026-09-16T15:32:07.773Z",
+      "expiresAt": "2026-09-16T23:32:07.773Z",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "audit-5a28822ac577",
+      "timestamp": "2026-09-16T15:32:07.774Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGIN_SUCCESS",
+      "resource": "admin_auth",
+      "result": "SUCCESS",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": {
+        "sessionId": "sess-dbef176b43b9a8a7"
+      }
+    },
+    {
+      "id": "audit-59db74fb2b89",
+      "timestamp": "2026-09-16T15:32:02.934Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGIN_SUCCESS",
+      "resource": "admin_auth",
+      "result": "SUCCESS",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": {
+        "sessionId": "sess-6c43858b3c55e011"
+      }
+    },
+    {
+      "id": "audit-f1c9167cc315",
+      "timestamp": "2026-09-16T14:08:27.928Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGOUT",
+      "resource": "admin_auth",
+      "result": "SUCCESS",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+      "details": {
+        "sessionId": "sess-9c7c96986219aa7c"
+      }
+    },
+    {
+      "id": "audit-12716918510c",
+      "timestamp": "2026-09-16T14:08:23.690Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGIN_SUCCESS",
+      "resource": "admin_auth",
+      "result": "SUCCESS",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+      "details": {
+        "sessionId": "sess-9c7c96986219aa7c"
+      }
+    },
+    {
+      "id": "audit-4b08357d0753",
+      "timestamp": "2026-09-16T13:40:48.646Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGIN_FAILURE",
+      "resource": "admin_auth",
+      "result": "FAILURE",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": {
+        "failedAttempts": 1
+      }
+    },
+    {
+      "id": "audit-e0203ae7ff6d",
+      "timestamp": "2026-09-16T13:29:25.163Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGOUT",
+      "resource": "admin_auth",
+      "result": "SUCCESS",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+      "details": {
+        "sessionId": "sess-54060a1e07462d44"
+      }
+    },
+    {
+      "id": "audit-3c71897fccfb",
+      "timestamp": "2026-09-16T13:29:10.302Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGIN_SUCCESS",
+      "resource": "admin_auth",
+      "result": "SUCCESS",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+      "details": {
+        "sessionId": "sess-54060a1e07462d44"
+      }
+    },
+    {
+      "id": "audit-5c638e0997b6",
+      "timestamp": "2026-09-16T13:29:08.223Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGIN_SUCCESS",
+      "resource": "admin_auth",
+      "result": "SUCCESS",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+      "details": {
+        "sessionId": "sess-2cddb83f5a27db90"
+      }
+    },
+    {
+      "id": "audit-58ec959ad538",
+      "timestamp": "2026-09-16T13:28:33.273Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGOUT",
+      "resource": "admin_auth",
+      "result": "SUCCESS",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+      "details": {
+        "sessionId": "sess-4c17bc4a267e3481"
+      }
+    },
+    {
+      "id": "audit-44396bc1b525",
+      "timestamp": "2026-09-16T13:22:36.664Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "PASSWORD_CHANGE",
+      "resource": "admin_account",
+      "result": "SUCCESS",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+      "details": {
+        "changedAt": "2026-09-16T13:22:36.664Z"
+      }
+    },
+    {
+      "id": "audit-17c4cbf53f4b",
+      "timestamp": "2026-09-16T13:19:58.370Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGIN_SUCCESS",
+      "resource": "admin_auth",
+      "result": "SUCCESS",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+      "details": {
+        "sessionId": "sess-4c17bc4a267e3481"
+      }
+    },
+    {
+      "id": "audit-e7e3a0ace3de",
+      "timestamp": "2026-09-16T13:19:47.812Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGIN_SUCCESS",
+      "resource": "admin_auth",
+      "result": "SUCCESS",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+      "details": {
+        "sessionId": "sess-ebeb91560e053e48"
+      }
+    },
+    {
+      "id": "audit-ddf9e4a2515d",
+      "timestamp": "2026-09-16T13:17:42.014Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGIN_FAILURE",
+      "resource": "admin_auth",
+      "result": "FAILURE",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+      "details": {
+        "failedAttempts": 1
+      }
+    },
+    {
+      "id": "audit-a56459f7e56e",
+      "timestamp": "2026-09-16T11:49:10.918Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGOUT",
+      "resource": "admin_auth",
+      "result": "SUCCESS",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": {
+        "sessionId": "sess-1f734e5f54898e77"
+      }
+    },
+    {
+      "id": "audit-5f5e4a49b35f",
+      "timestamp": "2026-09-16T11:49:03.287Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGIN_SUCCESS",
+      "resource": "admin_auth",
+      "result": "SUCCESS",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": {
+        "sessionId": "sess-1f734e5f54898e77"
+      }
+    },
+    {
+      "id": "audit-d6493b8fc76e",
+      "timestamp": "2026-09-16T11:49:00.379Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGIN_FAILURE",
+      "resource": "admin_auth",
+      "result": "FAILURE",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": {
+        "failedAttempts": 1
+      }
+    },
+    {
+      "id": "audit-58764fb52c7d",
+      "timestamp": "2026-09-16T11:44:46.972Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGIN_SUCCESS",
+      "resource": "admin_auth",
+      "result": "SUCCESS",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": {
+        "sessionId": "sess-d5ffc89c0723cd32"
+      }
+    },
+    {
+      "id": "audit-e86acd9d1baa",
+      "timestamp": "2026-09-16T11:44:43.841Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGOUT",
+      "resource": "admin_auth",
+      "result": "SUCCESS",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": {
+        "sessionId": "sess-41a8d194ea447a78"
+      }
+    },
+    {
+      "id": "audit-090147036154",
+      "timestamp": "2026-09-16T11:44:43.813Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGIN_SUCCESS",
+      "resource": "admin_auth",
+      "result": "SUCCESS",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": {
+        "sessionId": "sess-41a8d194ea447a78"
+      }
+    },
+    {
+      "id": "audit-ada1ad33f4b2",
+      "timestamp": "2026-09-16T11:44:40.288Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGIN_SUCCESS",
+      "resource": "admin_auth",
+      "result": "SUCCESS",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": {
+        "sessionId": "sess-213f51f545081136"
+      }
+    },
+    {
+      "id": "audit-edc094668e89",
+      "timestamp": "2026-09-16T11:44:37.535Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGIN_SUCCESS",
+      "resource": "admin_auth",
+      "result": "SUCCESS",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": {
+        "sessionId": "sess-9d5e279cde9b952e"
+      }
+    },
+    {
+      "id": "audit-b51403e80216",
+      "timestamp": "2026-09-16T11:44:34.307Z",
+      "adminId": "admin-d408802eba6c",
+      "username": "admin",
+      "action": "LOGIN_FAILURE",
+      "resource": "admin_auth",
+      "result": "FAILURE",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": {
+        "failedAttempts": 1
+      }
+    }
+  ],
+  "securityEvents": [
+    {
+      "id": "sec-93d9e1de7507",
+      "timestamp": "2026-09-16T15:32:07.774Z",
+      "type": "LOGIN_SUCCESS",
+      "severity": "LOW",
+      "ip": "127.0.0.1",
+      "details": "Admin admin đăng nhập thành công."
+    },
+    {
+      "id": "sec-a2d9bb4bdf33",
+      "timestamp": "2026-09-16T15:32:02.935Z",
+      "type": "LOGIN_SUCCESS",
+      "severity": "LOW",
+      "ip": "127.0.0.1",
+      "details": "Admin admin đăng nhập thành công."
+    },
+    {
+      "id": "sec-ab7827a0d2db",
+      "timestamp": "2026-09-16T14:08:23.690Z",
+      "type": "LOGIN_SUCCESS",
+      "severity": "LOW",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Admin admin đăng nhập thành công."
+    },
+    {
+      "id": "sec-fe77dfe934ca",
+      "timestamp": "2026-09-16T13:29:25.292Z",
+      "type": "UNAUTHORIZED_ADMIN_API_ACCESS",
+      "severity": "MEDIUM",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Yêu cầu truy cập trái phép vào GET /api/admin/audit-logs"
+    },
+    {
+      "id": "sec-81b30ff85b89",
+      "timestamp": "2026-09-16T13:29:25.290Z",
+      "type": "UNAUTHORIZED_ADMIN_API_ACCESS",
+      "severity": "MEDIUM",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Yêu cầu truy cập trái phép vào GET /api/admin/data/versions"
+    },
+    {
+      "id": "sec-5ae7599b00a6",
+      "timestamp": "2026-09-16T13:29:25.289Z",
+      "type": "UNAUTHORIZED_ADMIN_API_ACCESS",
+      "severity": "MEDIUM",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Yêu cầu truy cập trái phép vào GET /api/admin/data/sources"
+    },
+    {
+      "id": "sec-f965cb345305",
+      "timestamp": "2026-09-16T13:29:25.287Z",
+      "type": "UNAUTHORIZED_ADMIN_API_ACCESS",
+      "severity": "MEDIUM",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Yêu cầu truy cập trái phép vào GET /api/admin/ai/config"
+    },
+    {
+      "id": "sec-7c7b476425bc",
+      "timestamp": "2026-09-16T13:29:25.286Z",
+      "type": "UNAUTHORIZED_ADMIN_API_ACCESS",
+      "severity": "MEDIUM",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Yêu cầu truy cập trái phép vào GET /api/admin/sessions"
+    },
+    {
+      "id": "sec-7ca012638a0d",
+      "timestamp": "2026-09-16T13:29:25.284Z",
+      "type": "UNAUTHORIZED_ADMIN_API_ACCESS",
+      "severity": "MEDIUM",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Yêu cầu truy cập trái phép vào GET /api/admin/data/conflicts"
+    },
+    {
+      "id": "sec-8d3c17118ccd",
+      "timestamp": "2026-09-16T13:29:25.281Z",
+      "type": "UNAUTHORIZED_ADMIN_API_ACCESS",
+      "severity": "MEDIUM",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Yêu cầu truy cập trái phép vào GET /api/admin/data/status"
+    },
+    {
+      "id": "sec-0dd3ac5838b3",
+      "timestamp": "2026-09-16T13:29:10.302Z",
+      "type": "LOGIN_SUCCESS",
+      "severity": "LOW",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Admin admin đăng nhập thành công."
+    },
+    {
+      "id": "sec-0cdbb8a14cef",
+      "timestamp": "2026-09-16T13:29:08.223Z",
+      "type": "LOGIN_SUCCESS",
+      "severity": "LOW",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Admin admin đăng nhập thành công."
+    },
+    {
+      "id": "sec-2c04fd752c29",
+      "timestamp": "2026-09-16T13:28:33.394Z",
+      "type": "UNAUTHORIZED_ADMIN_API_ACCESS",
+      "severity": "MEDIUM",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Yêu cầu truy cập trái phép vào GET /api/admin/data/conflicts"
+    },
+    {
+      "id": "sec-8b670566abf2",
+      "timestamp": "2026-09-16T13:28:33.393Z",
+      "type": "UNAUTHORIZED_ADMIN_API_ACCESS",
+      "severity": "MEDIUM",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Yêu cầu truy cập trái phép vào GET /api/admin/data/status"
+    },
+    {
+      "id": "sec-b48ae8101971",
+      "timestamp": "2026-09-16T13:28:33.390Z",
+      "type": "UNAUTHORIZED_ADMIN_API_ACCESS",
+      "severity": "MEDIUM",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Yêu cầu truy cập trái phép vào GET /api/admin/data/sources"
+    },
+    {
+      "id": "sec-20a98d304616",
+      "timestamp": "2026-09-16T13:28:33.389Z",
+      "type": "UNAUTHORIZED_ADMIN_API_ACCESS",
+      "severity": "MEDIUM",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Yêu cầu truy cập trái phép vào GET /api/admin/audit-logs"
+    },
+    {
+      "id": "sec-9c96d780d425",
+      "timestamp": "2026-09-16T13:28:33.387Z",
+      "type": "UNAUTHORIZED_ADMIN_API_ACCESS",
+      "severity": "MEDIUM",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Yêu cầu truy cập trái phép vào GET /api/admin/ai/config"
+    },
+    {
+      "id": "sec-563a22fe75ac",
+      "timestamp": "2026-09-16T13:28:33.385Z",
+      "type": "UNAUTHORIZED_ADMIN_API_ACCESS",
+      "severity": "MEDIUM",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Yêu cầu truy cập trái phép vào GET /api/admin/data/versions"
+    },
+    {
+      "id": "sec-d747ed9ae243",
+      "timestamp": "2026-09-16T13:28:33.383Z",
+      "type": "UNAUTHORIZED_ADMIN_API_ACCESS",
+      "severity": "MEDIUM",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Yêu cầu truy cập trái phép vào GET /api/admin/sessions"
+    },
+    {
+      "id": "sec-3128f74c14fb",
+      "timestamp": "2026-09-16T13:19:58.370Z",
+      "type": "LOGIN_SUCCESS",
+      "severity": "LOW",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Admin admin đăng nhập thành công."
+    },
+    {
+      "id": "sec-535c602a8187",
+      "timestamp": "2026-09-16T13:19:47.812Z",
+      "type": "LOGIN_SUCCESS",
+      "severity": "LOW",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Admin admin đăng nhập thành công."
+    },
+    {
+      "id": "sec-dcbde0316f02",
+      "timestamp": "2026-09-16T13:18:45.271Z",
+      "type": "LOGIN_ATTEMPT_UNKNOWN_USER",
+      "severity": "MEDIUM",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Thử đăng nhập tài khoản không tồn tại: PG_PTVuLam"
+    },
+    {
+      "id": "sec-9ff3b641caab",
+      "timestamp": "2026-09-16T13:17:25.138Z",
+      "type": "LOGIN_ATTEMPT_UNKNOWN_USER",
+      "severity": "MEDIUM",
+      "ip": "2001:ee0:4e1c:e770:e155:56fb:326b:3f3c, 169.254.169.126",
+      "details": "Thử đăng nhập tài khoản không tồn tại: PG_PTVuLam"
+    },
+    {
+      "id": "sec-48eca132c3fe",
+      "timestamp": "2026-09-16T11:49:12.932Z",
+      "type": "UNAUTHORIZED_ADMIN_API_ACCESS",
+      "severity": "MEDIUM",
+      "ip": "127.0.0.1",
+      "details": "Yêu cầu truy cập trái phép vào GET /api/admin/data/status"
+    },
+    {
+      "id": "sec-b4653382fa0c",
+      "timestamp": "2026-09-16T11:49:03.287Z",
+      "type": "LOGIN_SUCCESS",
+      "severity": "LOW",
+      "ip": "127.0.0.1",
+      "details": "Admin admin đăng nhập thành công."
+    },
+    {
+      "id": "sec-7a34dc0c151a",
+      "timestamp": "2026-09-16T11:48:57.902Z",
+      "type": "UNAUTHORIZED_ADMIN_API_ACCESS",
+      "severity": "MEDIUM",
+      "ip": "127.0.0.1",
+      "details": "Yêu cầu truy cập trái phép vào GET /api/admin/data/status"
+    },
+    {
+      "id": "sec-9301a9445bea",
+      "timestamp": "2026-09-16T11:44:46.972Z",
+      "type": "LOGIN_SUCCESS",
+      "severity": "LOW",
+      "ip": "127.0.0.1",
+      "details": "Admin admin đăng nhập thành công."
+    },
+    {
+      "id": "sec-646ae18516e8",
+      "timestamp": "2026-09-16T11:44:43.865Z",
+      "type": "INVALID_ADMIN_SESSION",
+      "severity": "MEDIUM",
+      "ip": "127.0.0.1",
+      "details": "Session token không hợp lệ hoặc đã hết hạn tại GET /api/admin/data/status"
+    },
+    {
+      "id": "sec-883ff40ca6d8",
+      "timestamp": "2026-09-16T11:44:43.813Z",
+      "type": "LOGIN_SUCCESS",
+      "severity": "LOW",
+      "ip": "127.0.0.1",
+      "details": "Admin admin đăng nhập thành công."
+    },
+    {
+      "id": "sec-3d6164123bb6",
+      "timestamp": "2026-09-16T11:44:40.288Z",
+      "type": "LOGIN_SUCCESS",
+      "severity": "LOW",
+      "ip": "127.0.0.1",
+      "details": "Admin admin đăng nhập thành công."
+    },
+    {
+      "id": "sec-21c8461f93d0",
+      "timestamp": "2026-09-16T11:44:37.536Z",
+      "type": "LOGIN_SUCCESS",
+      "severity": "LOW",
+      "ip": "127.0.0.1",
+      "details": "Admin admin đăng nhập thành công."
+    },
+    {
+      "id": "sec-e9b4fcaab333",
+      "timestamp": "2026-09-16T11:44:29.252Z",
+      "type": "UNAUTHORIZED_ADMIN_API_ACCESS",
+      "severity": "MEDIUM",
+      "ip": "127.0.0.1",
+      "details": "Yêu cầu truy cập trái phép vào POST /api/admin/data/update"
+    },
+    {
+      "id": "sec-9ae15a41f5a6",
+      "timestamp": "2026-09-16T11:44:27.068Z",
+      "type": "UNAUTHORIZED_ADMIN_API_ACCESS",
+      "severity": "MEDIUM",
+      "ip": "127.0.0.1",
+      "details": "Yêu cầu truy cập trái phép vào GET /api/admin/data/status"
+    }
+  ]
+}

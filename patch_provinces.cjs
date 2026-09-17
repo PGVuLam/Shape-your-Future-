@@ -1,4 +1,5 @@
-export interface ProvinceItem {
+const fs = require('fs');
+const content = `export interface ProvinceItem {
   id: string;
   name: string;
   region: 'Bắc' | 'Trung' | 'Nam';
@@ -42,3 +43,5 @@ export const VIETNAM_PROVINCES: ProvinceItem[] = [
   { id: 'tay-ninh', name: 'Tây Ninh', region: 'Nam' },
   { id: 'thanh-hoa', name: 'Thanh Hóa', region: 'Trung' }
 ];
+`;
+fs.writeFileSync('src/data/vietnamProvinces.ts', content);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle2, Lock, ArrowRight, Network, Home } from 'lucide-react';
+import { CheckCircle2, Lock, ArrowRight, Home } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export interface WorkflowStep {
@@ -109,16 +109,6 @@ export const WorkflowStepper: React.FC<WorkflowStepperProps> = ({
             </span>
           )}
         </div>
-
-        <button
-          id="btn-view-system-architecture"
-          onClick={onOpenArchitectureModal}
-          className="flex items-center space-x-1.5 px-3 py-1 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-semibold text-xs transition-colors border border-indigo-200/60 cursor-pointer"
-          title={'Xem sơ đồ kiến trúc hệ thống'}
-        >
-          <Network className="w-3.5 h-3.5" />
-          <span>{'Sơ đồ Kiến trúc'}</span>
-        </button>
       </div>
 
       {/* Locked step notification toast */}

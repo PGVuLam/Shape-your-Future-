@@ -101,7 +101,7 @@ export interface UserProfile {
   preferredWorkEnvironment: string[];
   preferredActivities: string[];
   careerPriorities: string[];
-  careerReadiness?: 'clear' | 'undecided' | 'exploring'; // Trạng thái định hướng nghề
+  careerReadiness?: 'clear' | 'undecided' | 'considering' | 'exploring'; // Trạng thái định hướng nghề
   interestedMajorInput?: string; // Các ngành người dùng tự nhập quan tâm
   examScores?: ExamProfile; // Các kỳ thi HSA, V-ACT, TSA, Sư phạm, THPT
   workPreferences: {

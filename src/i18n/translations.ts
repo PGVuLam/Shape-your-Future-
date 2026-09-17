@@ -206,8 +206,8 @@ export interface Translations {
 
 export const TRANSLATIONS: Record<Language, Translations> = {
   vi: {
-    appName: 'EduPath AI',
-    appSubtitle: 'Hệ thống Định hướng Nghề nghiệp & Lộ trình Học tập Toàn diện',
+    appName: 'Shape Your Future!',
+    appSubtitle: 'Hệ thống hỗ trợ khám phá sở thích & xu hướng nghề nghiệp',
     tabDashboard: 'Tổng quan & Khuyến nghị',
     tabAssessment: 'Đánh giá RIASEC',
     tabExplorer: 'Kho Nghề nghiệp (16)',
@@ -396,7 +396,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     riasecCDesc: 'Thích hệ thống ngăn nắp, quy trình chuẩn mực, kiểm soát dữ liệu, thống kê và kế hoạch rõ ràng.'
   },
   en: {
-    appName: 'EduPath AI',
+    appName: 'Shape Your Future!',
     appSubtitle: 'Comprehensive Career Exploration & Adaptive Learning Platform',
     tabDashboard: 'Overview & Recommendations',
     tabAssessment: 'RIASEC Assessment',

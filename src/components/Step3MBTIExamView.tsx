@@ -1,3 +1,4 @@
+import { playClickSound } from '../utils/soundUtils';
 import React, { useState, useMemo } from 'react';
 import {
   Brain,

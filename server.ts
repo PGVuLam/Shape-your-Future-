@@ -1,8 +1,12 @@
 import express from 'express';
 import path from 'path';
+import cookieParser from 'cookie-parser';
 import { createServer as createViteServer } from 'vite';
 import { GoogleGenAI } from '@google/genai';
 import dotenv from 'dotenv';
+import { adminRouter } from './server/adminRoutes';
+import { publicRouter } from './server/publicRoutes';
+import { adminDataService } from './server/adminDataService';
 
 dotenv.config();
 
@@ -11,6 +15,21 @@ async function startServer() {
   const PORT = 3000;
 
   app.use(express.json({ limit: '10mb' }));
+  app.use(cookieParser());
+
+  // Security Headers Middleware
+  app.use((req, res, next) => {
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    res.setHeader('X-XSS-Protection', '1; mode=block');
+    next();
+  });
+
+  // Mount Admin API Router (Protected with requireAdmin, except /login)
+  app.use('/api/admin', adminRouter);
+
+  // Mount Public API Router (Transparent data info, no authentication needed)
+  app.use('/api/public', publicRouter);
 
   // Initialize Gemini client lazily
   let aiClient: GoogleGenAI | null = null;
@@ -33,8 +52,8 @@ async function startServer() {
     res.json({
       status: 'ok',
       hasApiKey: Boolean(process.env.GEMINI_API_KEY),
-      service: 'EduPath AI Career Guidance Engine',
-      version: '2.4.0'
+      service: 'Shape Your Future! Career Guidance Engine',
+      version: '2026.1.0'
     });
   });
 
@@ -822,7 +841,7 @@ Tôi luôn ở đây để đồng hành cùng bạn. Bạn có muốn đi sâu 
   }
 
   app.listen(PORT, '0.0.0.0', () => {
-    console.log(`EduPath AI Full-Stack Server running at http://0.0.0.0:${PORT}`);
+    console.log(`Shape Your Future! Full-Stack Server running at http://0.0.0.0:${PORT}`);
   });
 }
 

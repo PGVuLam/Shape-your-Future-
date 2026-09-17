@@ -831,16 +831,30 @@ Bạn cần tư vấn về chiến lược đăng ký trường đại học, ph
                   )}
                 </div>
 
-                {/* Prominent majors */}
-                <div className="pt-1">
-                  <span className="text-[10px] font-bold text-slate-400 block mb-1">NGÀNH NỔI BẬT:</span>
-                  <div className="flex flex-wrap gap-1">
-                    {uni.prominentMajors.slice(0, 3).map(m => (
-                      <span key={m} className="px-2 py-0.5 rounded-md bg-slate-200/60 text-slate-800 text-[10px] font-medium">
-                        {m}
-                      </span>
-                    ))}
+                {/* Prominent majors & Admissions Link */}
+                <div className="pt-1 flex items-end justify-between gap-2">
+                  <div className="flex-1 min-w-0">
+                    <span className="text-[10px] font-bold text-slate-400 block mb-1">NGÀNH NỔI BẬT:</span>
+                    <div className="flex flex-wrap gap-1">
+                      {uni.prominentMajors.slice(0, 3).map(m => (
+                        <span key={m} className="px-2 py-0.5 rounded-md bg-slate-200/60 text-slate-800 text-[10px] font-medium">
+                          {m}
+                        </span>
+                      ))}
+                    </div>
                   </div>
+                  {(uni.admissionWebsite || uni.website) && (
+                    <a
+                      href={uni.admissionWebsite || uni.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-2.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-[11px] flex items-center gap-1 transition-colors shrink-0 shadow-2xs"
+                      title="Truy cập cổng tuyển sinh chính thức của trường"
+                    >
+                      <span>Cổng TS</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
@@ -902,15 +916,29 @@ Bạn cần tư vấn về chiến lược đăng ký trường đại học, ph
                   )}
                 </div>
 
-                <div className="pt-1">
-                  <span className="text-[10px] font-bold text-slate-400 block mb-1">NGÀNH NỔI BẬT:</span>
-                  <div className="flex flex-wrap gap-1">
-                    {uni.prominentMajors.slice(0, 3).map(m => (
-                      <span key={m} className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-800 text-[10px] font-medium">
-                        {m}
-                      </span>
-                    ))}
+                <div className="pt-1 flex items-end justify-between gap-2">
+                  <div className="flex-1 min-w-0">
+                    <span className="text-[10px] font-bold text-slate-400 block mb-1">NGÀNH NỔI BẬT:</span>
+                    <div className="flex flex-wrap gap-1">
+                      {uni.prominentMajors.slice(0, 3).map(m => (
+                        <span key={m} className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-800 text-[10px] font-medium">
+                          {m}
+                        </span>
+                      ))}
+                    </div>
                   </div>
+                  {(uni.admissionWebsite || uni.website) && (
+                    <a
+                      href={uni.admissionWebsite || uni.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-2.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-[11px] flex items-center gap-1 transition-colors shrink-0 shadow-2xs"
+                      title="Truy cập cổng tuyển sinh chính thức của trường"
+                    >
+                      <span>Cổng TS</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
                 </div>
               </div>
             ))}

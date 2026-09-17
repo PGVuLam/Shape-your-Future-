@@ -37,8 +37,8 @@ export const DebugResearchModal: React.FC<DebugResearchModalProps> = ({
   if (!isOpen) return null;
 
   const exportData = {
-    platform: 'EduPath AI Career Exploration Platform',
-    version: '2.4.0',
+    platform: 'Shape Your Future! - Nền tảng Hướng nghiệp & Đánh giá Thuật toán KHKT',
+    version: '2026.1.0',
     timestamp: new Date().toISOString(),
     profile,
     weights,
@@ -65,7 +65,7 @@ export const DebugResearchModal: React.FC<DebugResearchModalProps> = ({
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `edupath-evaluation-${profile.id}-${Date.now()}.json`;
+    a.download = `shape-your-future-evaluation-${profile.id}-${Date.now()}.json`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -81,13 +81,13 @@ export const DebugResearchModal: React.FC<DebugResearchModalProps> = ({
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <h3 className="font-bold text-lg text-white">Scientific Evaluation & Algorithm Inspector</h3>
+                <h3 className="font-bold text-lg text-white">Kiểm định Thuật toán & Bằng chứng Khoa học KHKT</h3>
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-400/30">
-                  Competition Jury Mode
+                  Chế độ Giám khảo KHKT (Chỉ Quản trị viên)
                 </span>
               </div>
               <p className="text-xs text-slate-400">
-                Transparent inspection of mathematical scoring vectors, empirical study metrics, and RAG architecture.
+                Minh bạch công thức toán học, vector điểm số tương thích, dữ liệu thực nghiệm mẫu và kiến trúc bảo vệ RAG.
               </p>
             </div>
           </div>
@@ -95,44 +95,45 @@ export const DebugResearchModal: React.FC<DebugResearchModalProps> = ({
           <button
             onClick={onClose}
             className="p-2 rounded-full text-slate-400 hover:text-white hover:bg-white/10"
+            title="Đóng bảng kiểm định"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Tab switcher */}
-        <div className="flex border-b border-slate-200 bg-slate-50 px-6 text-xs">
+        <div className="flex border-b border-slate-200 bg-slate-50 px-6 text-xs overflow-x-auto">
           <button
             onClick={() => setActiveTab('formula')}
-            className={`py-3 px-4 font-semibold border-b-2 ${
-              activeTab === 'formula' ? 'border-purple-600 text-purple-600 bg-white' : 'text-slate-600'
+            className={`py-3 px-4 font-semibold border-b-2 whitespace-nowrap transition-colors ${
+              activeTab === 'formula' ? 'border-purple-600 text-purple-600 bg-white' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            Mathematical Formulation
+            Công thức Toán học & Vector MCDM
           </button>
           <button
             onClick={() => setActiveTab('weights')}
-            className={`py-3 px-4 font-semibold border-b-2 ${
-              activeTab === 'weights' ? 'border-purple-600 text-purple-600 bg-white' : 'text-slate-600'
+            className={`py-3 px-4 font-semibold border-b-2 whitespace-nowrap transition-colors ${
+              activeTab === 'weights' ? 'border-purple-600 text-purple-600 bg-white' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            Weight Calibrator
+            Hiệu chuẩn Trọng số Điểm
           </button>
           <button
             onClick={() => setActiveTab('study')}
-            className={`py-3 px-4 font-semibold border-b-2 ${
-              activeTab === 'study' ? 'border-purple-600 text-purple-600 bg-white' : 'text-slate-600'
+            className={`py-3 px-4 font-semibold border-b-2 whitespace-nowrap transition-colors ${
+              activeTab === 'study' ? 'border-purple-600 text-purple-600 bg-white' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            Empirical Cohort Study (320 Students)
+            Nghiên cứu Thực nghiệm (320 Học sinh)
           </button>
           <button
             onClick={() => setActiveTab('json')}
-            className={`py-3 px-4 font-semibold border-b-2 ${
-              activeTab === 'json' ? 'border-purple-600 text-purple-600 bg-white' : 'text-slate-600'
+            className={`py-3 px-4 font-semibold border-b-2 whitespace-nowrap transition-colors ${
+              activeTab === 'json' ? 'border-purple-600 text-purple-600 bg-white' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            Raw JSON Audit Export
+            Xuất Dữ liệu Kiểm toán JSON
           </button>
         </div>
 
@@ -153,19 +154,21 @@ export const DebugResearchModal: React.FC<DebugResearchModalProps> = ({
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                  <span className="font-bold text-slate-900 block text-sm">Deterministic Core Guarantee</span>
-                  <p className="leading-relaxed">
-                    The recommendation ranking is calculated completely deterministically via vector cosine similarity
-                    and weighted set intersection. The LLM (Gemini 3.8 Flash) is used strictly downstream to explain the
-                    reasons and generate conversational guidance—guaranteeing 100% reproducibility and preventing hallucination.
+                  <span className="font-bold text-slate-900 block text-sm">Cam kết Cốt lõi Xác định (Deterministic Guarantee)</span>
+                  <p className="leading-relaxed text-slate-600">
+                    Thứ hạng khuyến nghị nghề nghiệp được tính toán hoàn toàn tất định (100% deterministic) thông qua
+                    Cosine Similarity trên không gian vector đa chiều và phép giao tập hợp có trọng số. Mô hình ngôn ngữ lớn
+                    (Gemini 3.8 Flash) chỉ được sử dụng nghiêm ngặt ở tầng hạ nguồn để diễn giải lý do và hỗ trợ đối thoại—đảm bảo
+                    tính tái lập tuyệt đối và ngăn chặn hoàn toàn hiện tượng ảo giác (hallucination).
                   </p>
                 </div>
 
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                  <span className="font-bold text-slate-900 block text-sm">Secondary MBTI Treatment</span>
-                  <p className="leading-relaxed">
-                    In compliance with vocational psychology standards, MBTI is constrained to a strictly minor weight
-                    (5%), functioning only as a supplementary self-reflection signal rather than a determinant of ability.
+                  <span className="font-bold text-slate-900 block text-sm">Xử lý Chỉ số MBTI Phụ trợ</span>
+                  <p className="leading-relaxed text-slate-600">
+                    Tuân thủ các tiêu chuẩn tâm lý học hướng nghiệp thực chứng quốc tế, chỉ số MBTI được giới hạn nghiêm ngặt ở
+                    tỷ trọng phụ (5%), chỉ đóng vai trò như một tín hiệu tự phản chiếu bổ sung cho người học, tuyệt đối không được
+                    dùng làm yếu tố quyết định năng lực hay định kiến nghề nghiệp.
                   </p>
                 </div>
               </div>
@@ -176,18 +179,18 @@ export const DebugResearchModal: React.FC<DebugResearchModalProps> = ({
           {activeTab === 'weights' && (
             <div className="space-y-4">
               <p className="text-slate-500">
-                Adjust the normalized scoring weights to test sensitivity across evaluation criteria:
+                Điều chỉnh các trọng số điểm chuẩn hóa để kiểm thử phân tích độ nhạy (sensitivity analysis) trên từng tiêu chí đánh giá:
               </p>
 
               <div className="space-y-3">
                 {[
-                  { key: 'wRIASEC', label: 'Holland RIASEC Profile (Default 35%)', val: weights.wRIASEC },
-                  { key: 'wSkills', label: 'Verified & Self-Rated Skills (Default 25%)', val: weights.wSkills },
-                  { key: 'wInterests', label: 'Natural Curiosity & Interests (Default 15%)', val: weights.wInterests },
-                  { key: 'wSubjects', label: 'Favorite Academic Subjects (Default 10%)', val: weights.wSubjects },
-                  { key: 'wGoals', label: 'Priorities & Career Values (Default 5%)', val: weights.wGoals },
-                  { key: 'wPreferences', label: 'Work Style & Remote Preference (Default 5%)', val: weights.wPreferences },
-                  { key: 'wMBTI', label: 'Supplementary Personality Preference (Default 5%)', val: weights.wMBTI }
+                  { key: 'wRIASEC', label: 'Hồ sơ Hướng nghiệp Holland RIASEC (Mặc định 35%)', val: weights.wRIASEC },
+                  { key: 'wSkills', label: 'Kỹ năng Xác thực & Tự đánh giá (Mặc định 25%)', val: weights.wSkills },
+                  { key: 'wInterests', label: 'Hứng thú & Sở thích Tự nhiên (Mặc định 15%)', val: weights.wInterests },
+                  { key: 'wSubjects', label: 'Môn học THPT Yêu thích & Điểm thế mạnh (Mặc định 10%)', val: weights.wSubjects },
+                  { key: 'wGoals', label: 'Mục tiêu & Giá trị Nghề nghiệp Ưu tiên (Mặc định 5%)', val: weights.wGoals },
+                  { key: 'wPreferences', label: 'Phong cách Làm việc & Môi trường Mong muốn (Mặc định 5%)', val: weights.wPreferences },
+                  { key: 'wMBTI', label: 'Xu hướng Tính cách Bổ trợ MBTI (Mặc định 5%)', val: weights.wMBTI }
                 ].map(item => (
                   <div key={item.key} className="flex items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-200">
                     <span className="font-semibold text-slate-800">{item.label}</span>
@@ -198,9 +201,9 @@ export const DebugResearchModal: React.FC<DebugResearchModalProps> = ({
 
               <button
                 onClick={() => onUpdateWeights(DEFAULT_SCORING_WEIGHTS)}
-                className="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 font-semibold text-slate-700"
+                className="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 font-semibold text-slate-700 transition-colors cursor-pointer"
               >
-                Reset Weights to Baseline (35-25-15-10-5-5-5)
+                Khôi phục Trọng số Tiêu chuẩn Ban đầu (35-25-15-10-5-5-5)
               </button>
             </div>
           )}
@@ -211,25 +214,25 @@ export const DebugResearchModal: React.FC<DebugResearchModalProps> = ({
               <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-xl space-y-2 text-emerald-950">
                 <div className="flex items-center space-x-2 font-bold text-sm text-emerald-900">
                   <Award className="w-4 h-4 text-emerald-600" />
-                  <span>Empirical Validation Cohort: 320 High-School Students (Ages 15–18)</span>
+                  <span>Mẫu Nghiên cứu Thực nghiệm: 320 Học sinh THPT (Độ tuổi 15–18)</span>
                 </div>
                 <p className="leading-relaxed text-xs text-emerald-900">
-                  Conducted across selected high school cohorts in Vietnam (STEM & Social Science tracks).
+                  Thực hiện khảo sát trên các nhóm học sinh THPT tại Việt Nam (theo định hướng Ban Khoa học Tự nhiên - STEM và Ban Khoa học Xã hội).
                 </p>
               </div>
 
               <div className="grid sm:grid-cols-3 gap-3">
                 <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center">
                   <span className="text-2xl font-extrabold text-indigo-600">88.4%</span>
-                  <span className="text-[11px] text-slate-500 block mt-1">Satisfaction with Top 3 Matches</span>
+                  <span className="text-[11px] text-slate-500 block mt-1">Độ hài lòng với Top 3 ngành nghề gợi ý</span>
                 </div>
                 <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center">
                   <span className="text-2xl font-extrabold text-indigo-600">91.2%</span>
-                  <span className="text-[11px] text-slate-500 block mt-1">Roadmap Clarity & Feasibility</span>
+                  <span className="text-[11px] text-slate-500 block mt-1">Tính rõ ràng & Khả thi của Lộ trình học</span>
                 </div>
                 <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center">
                   <span className="text-2xl font-extrabold text-indigo-600">94.7%</span>
-                  <span className="text-[11px] text-slate-500 block mt-1">Experiment Helpfulness Rating</span>
+                  <span className="text-[11px] text-slate-500 block mt-1">Mức độ hữu ích với quyết định chọn ngành</span>
                 </div>
               </div>
             </div>
@@ -238,22 +241,22 @@ export const DebugResearchModal: React.FC<DebugResearchModalProps> = ({
           {/* TAB 4: RAW JSON AUDIT */}
           {activeTab === 'json' && (
             <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-slate-500">Live JSON Payload for Competition Judges:</span>
+              <div className="flex items-center justify-between flex-wrap gap-2">
+                <span className="text-slate-500">Dữ liệu JSON thời gian thực phục vụ Ban Giám khảo KHKT đối soát:</span>
                 <div className="flex items-center space-x-2">
                   <button
                     onClick={handleCopyJson}
-                    className="px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 flex items-center space-x-1 font-semibold text-slate-700"
+                    className="px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 flex items-center space-x-1 font-semibold text-slate-700 cursor-pointer transition-colors"
                   >
                     {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-                    <span>{copied ? 'Copied' : 'Copy JSON'}</span>
+                    <span>{copied ? 'Đã sao chép' : 'Sao chép JSON'}</span>
                   </button>
                   <button
                     onClick={handleDownloadJson}
-                    className="px-3 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-700 text-white flex items-center space-x-1 font-semibold"
+                    className="px-3 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-700 text-white flex items-center space-x-1 font-semibold cursor-pointer transition-colors"
                   >
                     <Download className="w-3.5 h-3.5" />
-                    <span>Download JSON</span>
+                    <span>Tải tệp JSON</span>
                   </button>
                 </div>
               </div>

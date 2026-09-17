@@ -13,6 +13,7 @@ import {
   Lock
 } from 'lucide-react';
 import { UserProfile, RIASECScores, RIASECDimension } from '../types';
+import { playClickSound } from '../utils/soundUtils';
 import { RIASECRadarChart } from './RIASECRadarChart';
 import { useLanguage } from '../context/LanguageContext';
 import {

@@ -1,4 +1,3 @@
-import { playClickSound } from '../utils/soundUtils';
 import React, { useState, useEffect } from 'react';
 import {
   User,
@@ -58,7 +57,7 @@ export const Step1ComprehensiveInfoView: React.FC<Step1ComprehensiveInfoViewProp
     awards: string[];
     preferredWorkEnvironment: string[];
     careerPriorities: string[];
-    careerReadiness: 'clear' | 'undecided' | 'considering' | 'exploring';
+    careerReadiness: 'clear' | 'undecided' | 'exploring';
     interestedMajorInput: string;
     currentOccupation: string;
     yearsOfExperience: string;
@@ -192,18 +191,22 @@ export const Step1ComprehensiveInfoView: React.FC<Step1ComprehensiveInfoViewProp
 
   // Grade options based on age group
   const getGradeOptions = () => {
-    return [
-      'Trước lớp 1 (Mẫu giáo)',
-      'Lớp 1', 'Lớp 2', 'Lớp 3', 'Lớp 4', 'Lớp 5',
-      'Lớp 6', 'Lớp 7', 'Lớp 8', 'Lớp 9',
-      'Lớp 10', 'Lớp 11', 'Lớp 12',
-      'Sinh viên Năm 1', 'Sinh viên Năm 2', 'Sinh viên Năm 3', 'Sinh viên Năm 4+',
-      'Cao đẳng / Học nghề',
-      'Đã tốt nghiệp (1-3 năm)',
-      'Người đi làm (>3 năm)',
-      'Chuyên gia / Quản lý',
-      'Kinh doanh / Tự do'
-    ];
+    switch (formData.ageGroup) {
+      case '6-10':
+        return ['Lớp 1', 'Lớp 2', 'Lớp 3', 'Lớp 4', 'Lớp 5'];
+      case '11-14':
+        return ['Lớp 6', 'Lớp 7', 'Lớp 8', 'Lớp 9'];
+      case '15-18':
+        return ['Lớp 10', 'Lớp 11', 'Lớp 12'];
+      case '19-24':
+        return ['Sinh viên Năm 1', 'Sinh viên Năm 2', 'Sinh viên Năm 3', 'Sinh viên Năm 4', 'Cao đẳng / Học nghề', 'Vừa tốt nghiệp'];
+      case '25-35':
+        return ['Đã tốt nghiệp ĐH/CĐ (1 - 3 năm)', 'Người đi làm (3 - 7 năm)', 'Đang muốn chuyển ngành', 'Kinh doanh tự do'];
+      case '35+':
+        return ['Chuyên gia thâm niên (>8 năm)', 'Quản lý / Trưởng bộ phận', 'Chủ doanh nghiệp / Khởi nghiệp', 'Tư vấn độc lập'];
+      default:
+        return ['Lớp 10', 'Lớp 11', 'Lớp 12', 'Đại học', 'Đi làm'];
+    }
   };
 
   const subjectList = formData.ageGroup === '6-10'
@@ -216,25 +219,22 @@ export const Step1ComprehensiveInfoView: React.FC<Step1ComprehensiveInfoViewProp
       ];
 
   const interestList = formData.ageGroup === '6-10'
-    ? ['Lắp ráp LEGO & Mô hình', 'Vẽ tranh & Sáng tác truyện', 'Khám phá thế giới động vật', 'Trò chơi điện tử trí tuệ', 'Làm thí nghiệm khoa học', 'Bơi lội & Thể thao', 'Ca hát & Biểu diễn', 'Toán học vui', 'Kể chuyện & Đóng kịch', 'Trồng cây & Làm vườn']
+    ? ['Lắp ráp LEGO & Mô hình', 'Vẽ tranh & Sáng tác truyện', 'Khám phá thế giới động vật', 'Trò chơi điện tử trí tuệ', 'Làm thí nghiệm khoa học', 'Bơi lội & Thể thao']
     : formData.ageGroup === '11-14'
-    ? ['Lập trình Scratch/Python', 'Robotics & Chế tạo', 'Đọc sách khoa học & Lịch sử', 'Vẽ tranh kỹ thuật số', 'Tham gia hoạt động Đội/Nhóm', 'Hùng biện tiếng Anh', 'Chơi nhạc cụ (Piano, Guitar...)', 'Nhiếp ảnh & Quay video', 'Thể thao cạnh tranh (Bóng đá, Cầu lông...)', 'Thiết kế thời trang', 'Sáng tạo nội dung (Tiktok/Youtube)']
+    ? ['Lập trình Scratch/Python', 'Robotics & Chế tạo', 'Đọc sách khoa học & Lịch sử', 'Vẽ tranh kỹ thuật số', 'Tham gia hoạt động Đội/Nhóm', 'Hùng biện tiếng Anh']
     : [
         'Lập trình phần mềm & Thuật toán', 'Trí tuệ nhân tạo (AI)', 'Nghiên cứu khoa học & Tự nhiên',
         'Thiết kế đồ họa & Giao diện UI/UX', 'Kinh doanh & Khởi nghiệp', 'Tài chính & Đầu tư',
         'Giao tiếp, Đàm phán & Thuyết trình', 'Hoạt động xã hội & Tình nguyện', 'Chế tạo máy & Điện tử vi mạch',
-        'Y học & Chăm sóc sức khỏe', 'Tâm lý học con người', 'Truyền thông số & Báo chí',
-        'Luật & Pháp lý', 'Du lịch & Quản trị khách sạn', 'Ngoại ngữ & Biên phiên dịch', 'Nghệ thuật biểu diễn (Âm nhạc, Điện ảnh)', 'Thể thao thành tích cao & Huấn luyện'
+        'Y học & Chăm sóc sức khỏe', 'Tâm lý học con người', 'Truyền thông số & Báo chí'
       ];
 
   const skillList = formData.ageGroup === '6-10' || formData.ageGroup === '11-14'
-    ? ['Tư duy logic', 'Tự học và tìm tòi', 'Giao tiếp hòa đồng', 'Làm việc nhóm', 'Sáng tạo ý tưởng', 'Sử dụng máy tính', 'Trình bày trôi chảy', 'Quan sát tinh tế', 'Khéo tay hay làm', 'Nhớ lâu & Ghi nhớ nhanh']
+    ? ['Tư duy logic', 'Tự học và tìm tòi', 'Giao tiếp hòa đồng', 'Làm việc nhóm', 'Sáng tạo ý tưởng', 'Sử dụng máy tính']
     : [
         'Lập trình (Python, C++, Java)', 'Tư duy logic & Toán ứng dụng', 'Giải quyết vấn đề phức tạp',
         'Thuyết trình & Hùng biện', 'Làm việc nhóm & Phối hợp', 'Tiếng Anh giao tiếp & Học thuật',
-        'Thiết kế đồ họa / Video', 'Phân tích dữ liệu & Excel', 'Quản lý thời gian & Kế hoạch',
-        'Lãnh đạo & Tổ chức sự kiện', 'Sáng tạo & Viết lách (Copywriting)', 'Giao tiếp ngoại ngữ (Trung, Nhật, Hàn...)',
-        'Thích nghi nhanh với công nghệ', 'Lắng nghe & Thấu cảm', 'Đàm phán & Xử lý tình huống'
+        'Thiết kế đồ họa / Video', 'Phân tích dữ liệu & Excel', 'Quản lý thời gian & Kế hoạch'
       ];
 
   const envList = [
@@ -250,12 +250,8 @@ export const Step1ComprehensiveInfoView: React.FC<Step1ComprehensiveInfoViewProp
   ];
 
   const thptCombos = [
-    'A00 (Toán, Lý, Hóa)', 'A01 (Toán, Lý, Anh)', 'A02 (Toán, Lý, Sinh)', 
-    'B00 (Toán, Hóa, Sinh)', 'B08 (Toán, Sinh, Anh)', 
-    'C00 (Văn, Sử, Địa)', 'C03 (Toán, Văn, Sử)', 'C19 (Văn, Sử, GDCD)',
-    'D01 (Toán, Văn, Anh)', 'D07 (Toán, Hóa, Anh)', 'D04 (Toán, Văn, Trung)',
-    'H00 (Văn, Vẽ NT, Vẽ TT)', 'V00 (Toán, Lý, Vẽ KT)', 'M00 (Toán, Văn, Đọc kể diễn cảm)',
-    'N00 (Văn, Kiến thức Âm nhạc, Năng khiếu Âm nhạc)', 'T00 (Toán, Sinh, Năng khiếu TDTT)'
+    'A00 (Toán, Lý, Hóa)', 'A01 (Toán, Lý, Anh)', 'B00 (Toán, Hóa, Sinh)',
+    'C00 (Văn, Sử, Địa)', 'D01 (Toán, Văn, Anh)', 'D07 (Toán, Hóa, Anh)'
   ];
 
   // Tag toggle helper
@@ -484,7 +480,7 @@ export const Step1ComprehensiveInfoView: React.FC<Step1ComprehensiveInfoViewProp
             <label className="font-semibold text-slate-700 block mb-1">Số tuổi cụ thể:</label>
             <input
               type="number"
-              min="4"
+              min="6"
               max="70"
               value={formData.age}
               onChange={e => handleAgeChange(e.target.value)}
@@ -826,8 +822,8 @@ export const Step1ComprehensiveInfoView: React.FC<Step1ComprehensiveInfoViewProp
             <div>
               <label className="font-semibold text-purple-900 block mb-1">Mục tiêu ưu tiên hàng đầu:</label>
               <select
-                value={formData.careerPriorities[0] || 'exploring'}
-                onChange={e => setFormData({ ...formData, careerPriorities: [e.target.value] })}
+                value={formData.careerReadiness}
+                onChange={e => setFormData({ ...formData, careerReadiness: e.target.value as any })}
                 className="w-full px-3 py-2 rounded-xl border border-purple-200 bg-white text-xs"
               >
                 <option value="exploring">Chuyển hướng sang ngành nghề mới (Reskilling)</option>
@@ -928,24 +924,6 @@ export const Step1ComprehensiveInfoView: React.FC<Step1ComprehensiveInfoViewProp
           </div>
         </div>
 
-
-        {/* Career Readiness */}
-        <div className="pt-2 text-xs">
-          <label className="font-semibold text-slate-700 block mb-1">
-            Trạng thái định hướng nghề nghiệp hiện tại của bạn:
-          </label>
-          <select
-            value={formData.careerReadiness}
-            onChange={e => setFormData({ ...formData, careerReadiness: e.target.value as any })}
-            className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 text-xs"
-          >
-            <option value="exploring">Chưa có định hướng (Đang tìm hiểu hoàn toàn mới)</option>
-            <option value="undecided">Đang phân vân (Giữa nhiều lựa chọn khác nhau)</option>
-            <option value="considering">Có một vài định hướng (Cần xác nhận lại xem có phù hợp không)</option>
-            <option value="clear">Đã xác định rõ (Chỉ cần lộ trình thực hiện chi tiết)</option>
-          </select>
-        </div>
-
         {/* Major input */}
         <div className="pt-2 text-xs">
           <label className="font-semibold text-slate-700 block mb-1">
@@ -969,7 +947,7 @@ export const Step1ComprehensiveInfoView: React.FC<Step1ComprehensiveInfoViewProp
 
         <button
           type="button"
-          onClick={() => { playClickSound(); handleSaveAndAdvance(); }}
+          onClick={handleSaveAndAdvance}
           className="px-6 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm flex items-center space-x-2 transition-all shadow-md cursor-pointer group"
         >
           <span>Lưu Hồ Sơ & Sang Trang 2 (Bài Test RIASEC)</span>

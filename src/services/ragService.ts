@@ -1,5 +1,6 @@
 import { Career, UserProfile, RecommendationScore, SkillGapAnalysis } from '../types';
 import { analyzeSkillGap } from '../engine/skillGapEngine';
+import { DataUpdateService } from './data/dataUpdateService';
 
 export interface RetrievedCareerContext {
   careerId: string;
@@ -13,6 +14,7 @@ export interface RetrievedCareerContext {
   experiments: string[];
   salaryLevel: string;
   riasecFitSummary: string;
+  verifiedAdmissionContext?: string[];
   profileContext: {
     age: number;
     ageGroup: string;
@@ -26,7 +28,7 @@ export interface RetrievedCareerContext {
 }
 
 /**
- * Retrieves and formats structured grounding context from Career Knowledge Base & Profile
+ * Retrieves and formats structured grounding context from Career Knowledge Base & Verified Pipeline Data
  */
 export function retrieveContextForCareer(
   profile: UserProfile,
@@ -54,6 +56,21 @@ export function retrieveContextForCareer(
     ? `Holland RIASEC Match: ${recScore.breakdown.riasec}%. Top positive signals: ${recScore.positiveContributors.join('; ')}`
     : `Career RIASEC: R=${career.riaSecProfile.R}, I=${career.riaSecProfile.I}, A=${career.riaSecProfile.A}, S=${career.riaSecProfile.S}, E=${career.riaSecProfile.E}, C=${career.riaSecProfile.C}`;
 
+  // Retrieve verified university admission benchmarks from RAG Integration
+  let verifiedDocs: string[] = [];
+  try {
+    const pipeline = DataUpdateService.getInstance();
+    const searchDocs = pipeline.ragIntegration.searchGroundedContext(
+      `${career.title} ${career.careerCluster} đại học`,
+      3
+    );
+    verifiedDocs = searchDocs.map(
+      d => `[${d.publisher} (Năm ${d.year})]: ${d.content}`
+    );
+  } catch (e) {
+    // Graceful fallback if pipeline singleton initializing
+  }
+
   return {
     careerId: career.id,
     careerTitle: career.title,
@@ -66,6 +83,7 @@ export function retrieveContextForCareer(
     experiments: experimentSummaries,
     salaryLevel: `${career.salaryInfo.levelIndicator} (${career.salaryInfo.disclaimer})`,
     riasecFitSummary: riasecFit,
+    verifiedAdmissionContext: verifiedDocs,
     profileContext: {
       age: profile.age,
       ageGroup: profile.ageGroup,
@@ -87,7 +105,7 @@ export function buildCounselorPrompt(
   userQuestion: string,
   chatHistory: Array<{ role: string; content: string }>
 ): string {
-  return `You are the EduPath AI Career Exploration Counselor, a supportive, scientifically grounded educational guide for students and lifelong learners.
+  return `You are the EduPath AI Career Exploration Counselor, a supportive, scientifically grounded educational guide for students and lifelong learners in Vietnam.
 
 === GROUNDED FACTUAL CAREER CONTEXT (FROM KNOWLEDGE BASE) ===
 Career: ${context.careerTitle} (${context.cluster})
@@ -100,6 +118,9 @@ Career Experiments ("Try before you decide"): ${context.experiments.join(' | ')}
 Salary Benchmark: ${context.salaryLevel}
 RIASEC Holland Fit: ${context.riasecFitSummary}
 
+=== VERIFIED UNIVERSITY & ADMISSION BENCHMARK DATA (OFFICIAL PIPELINE) ===
+${context.verifiedAdmissionContext && context.verifiedAdmissionContext.length > 0 ? context.verifiedAdmissionContext.join('\n') : 'Cơ sở dữ liệu điểm chuẩn chuẩn hóa từ Bộ GD&ĐT và các trường ĐH.'}
+
 === STUDENT / USER PROFILE ===
 Age: ${context.profileContext.age} (Cohort: ${context.profileContext.ageGroup})
 Education Level: ${context.profileContext.educationLevel}
@@ -110,12 +131,13 @@ Career Priorities: ${context.profileContext.careerPriorities.join(', ')}
 Supplementary MBTI: ${context.profileContext.mbtiType || 'Not specified'}
 
 === STRICT GUIDELINES ===
-1. Tone: Warm, constructive, empowering, and objective. Adapt vocabulary to age ${context.profileContext.age}.
+1. Tone: Warm, constructive, empowering, and objective. Adapt vocabulary to Vietnamese students.
 2. Scientific Position: NEVER claim "this is your destiny" or "AI guarantees this is the right job". Position yourself as an exploration assistant helping the user test their interests and make their own informed choices.
-3. No Hallucination: Stick strictly to the provided knowledge base facts. If admission criteria or salary figures are unverified, explicitly state they require checking with local institutions.
+3. No Hallucination & Citation: Stick strictly to the provided knowledge base facts. If referencing benchmark scores, MUST state the admission year and official source. If admission criteria or tuition figures are unverified, explicitly state "Chưa có dữ liệu xác minh chính thức từ nhà trường" instead of guessing.
 4. MBTI Disclaimer: If discussing personality, treat MBTI strictly as a secondary preference, never a determinant of competence.
 5. Action-Oriented: Recommend small hands-on experiments or beginner steps whenever asked "What should I do?".
 
 Student's Question: "${userQuestion}"
 `;
 }
+
