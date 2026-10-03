@@ -1,283 +1,72 @@
-import { UserProfile, Career, LLMConfig } from '../types';
-import { getAgeGroupMeta, detectAgeGroupFromNumber } from '../utils/ageGroupUtils';
+import { UserProfile, Career, LLMConfig, RecommendationScore } from '../types';
+import { ChatMessage, NormalizedAIResponse } from './ai/types';
+import { buildCounselorContext } from './ai/contextBuilder';
+import { executeLLMRequest } from './ai/llmProvider';
 
-export interface ChatMessage {
-  id: string;
-  sender: 'user' | 'assistant' | 'system';
-  content: string;
-  timestamp: number;
-  modelUsed?: string;
-  suggestedQuestions?: string[];
-}
+export type { ChatMessage, NormalizedAIResponse };
 
+/**
+ * High-Level AI Counselor Orchestrator
+ * Connects Context Builder → Grounding / RAG → LLM Provider Interface
+ *
+ * Supports overloaded calling conventions for 100% backward compatibility:
+ * - Style 1 (Step 4 Report): (userQuestion, profile, topCareers, llmConfig, chatHistory, recommendations)
+ * - Style 2 (Legacy View):   (profile, career, userQuestion, chatHistory, recScore, language)
+ */
 export async function askAICounselor(
-  userQuestion: string,
-  profile: UserProfile,
-  topCareers: Career[],
-  llmConfig: LLMConfig,
-  chatHistory: ChatMessage[],
-  recommendations?: any[]
-): Promise<{ reply: string; modelUsed: string; suggestedQuestions: string[] }> {
-  const isLocal = llmConfig.provider === 'local';
-  const age = Number(profile.age || 17);
-  const ageGroup = profile.ageGroup || detectAgeGroupFromNumber(age);
-  const ageMeta = getAgeGroupMeta(ageGroup);
-  const topCareerTitles = topCareers.slice(0, 3).map(c => c.title).join(', ');
+  arg1: string | UserProfile,
+  arg2: UserProfile | Career,
+  arg3: Career[] | string,
+  arg4?: LLMConfig | Array<{ role: string; content: string }>,
+  arg5?: ChatMessage[] | RecommendationScore,
+  arg6?: any[] | ('vi' | 'en'),
+  arg7?: Career[]
+): Promise<NormalizedAIResponse> {
+  // Case A: Style 1 - (userQuestion, profile, topCareers, llmConfig, chatHistory, recommendations, comparedCareers)
+  if (typeof arg1 === 'string') {
+    const userQuestion = arg1;
+    const profile = arg2 as UserProfile;
+    const topCareers = (Array.isArray(arg3) ? arg3 : []) as Career[];
+    const llmConfig = (arg4 && !Array.isArray(arg4) ? arg4 : { provider: 'gemini', modelName: 'gemini-3.8-flash' }) as LLMConfig;
+    const chatHistory = (Array.isArray(arg5) ? arg5 : []) as ChatMessage[];
+    const recommendations = (Array.isArray(arg6) ? arg6 : []) as any[];
+    const comparedCareers = (Array.isArray(arg7) ? arg7 : undefined) as Career[] | undefined;
 
-  // 1. Try Gemini 3.8 Flash backend API first unless user explicitly selects 'local'
-  if (llmConfig.provider === 'gemini' || llmConfig.provider === 'custom' || !llmConfig.provider) {
-    try {
-      const res = await fetch('/api/ai/counselor', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          userQuestion,
-          language: 'vi',
-          llmConfig: {
-            ...llmConfig,
-            provider: llmConfig.provider || 'gemini',
-            modelName: llmConfig.modelName || 'gemini-3.8-flash',
-            maxOutputTokens: 800,
-            maxTokens: 800
-          },
-          chatHistory: chatHistory.map(m => ({
-            role: m.sender === 'user' ? 'user' : 'model',
-            parts: m.content,
-            content: m.content
-          })),
-          context: {
-            careerTitle: topCareers[0]?.title || 'Chuyên viên Công nghệ & Phân tích',
-            cluster: topCareers[0]?.careerCluster || 'Khoa học Kỹ thuật',
-            tasks: topCareers[0]?.tasks || [],
-            requiredSkills: topCareers[0]?.requiredSkills || [],
-            userMatchedSkills: profile.skills || [],
-            educationPaths: topCareers[0]?.educationPaths?.map(p => p.duration) || [],
-            salaryLevel: topCareers[0]?.salaryInfo?.rangeDescription || '15 - 25 triệu VNĐ/tháng',
-            riasecFitSummary: `Mã Holland: ${profile.riaSecProfile?.code || 'Chưa hoàn tất'}`,
-            surveyRecommendations: (recommendations && recommendations.length > 0)
-              ? recommendations.slice(0, 5).map(r => ({
-                  title: r.career?.title || r.title,
-                  careerCluster: r.career?.careerCluster || r.careerCluster,
-                  overallScore: r.overallScore,
-                  requiredSkills: r.career?.requiredSkills || r.requiredSkills,
-                  salaryInfo: r.career?.salaryInfo || r.salaryInfo
-                }))
-              : topCareers.slice(0, 5).map(c => ({
-                  title: c.title,
-                  careerCluster: c.careerCluster,
-                  requiredSkills: c.requiredSkills,
-                  salaryInfo: c.salaryInfo
-                })),
-            profileContext: {
-              name: profile.name,
-              age: profile.age,
-              gender: profile.gender,
-              ageGroup,
-              province: profile.province,
-              grade: profile.grade,
-              educationLevel: profile.grade || profile.educationLevel,
-              favoriteSubjects: profile.favoriteSubjects,
-              confidentSubjects: profile.confidentSubjects,
-              academicGPA: profile.academicGPA,
-              strengths: profile.strengths,
-              interests: profile.interests,
-              skills: profile.skills,
-              selfRatedSkills: profile.selfRatedSkills,
-              riasecCode: profile.riaSecProfile?.code,
-              riaSecScores: profile.riaSecScores || profile.riaSecProfile?.scores,
-              riaSecProfile: profile.riaSecProfile,
-              mbtiType: profile.mbtiType,
-              mbtiResult: profile.mbtiResult,
-              examScores: profile.examScores,
-              workPreferences: profile.workPreferences,
-              careerPriorities: profile.careerPriorities,
-              careerReadiness: profile.careerReadiness,
-              interestedMajorInput: profile.interestedMajorInput,
-              financialConsiderations: profile.financialConsiderations,
-              educationPreferences: profile.educationPreferences
-            }
-          }
-        })
-      });
+    const context = buildCounselorContext(profile, topCareers[0], topCareers, recommendations, undefined, comparedCareers, userQuestion);
 
-      if (res.ok) {
-        const data = await res.json();
-        if (data && data.reply) {
-          return {
-            reply: data.reply,
-            modelUsed: data.provider || 'Gemini 3.8 Flash (Cloud)',
-            suggestedQuestions: data.suggestedFollowUps || [
-              'Lộ trình rèn luyện cụ thể trong 6 tháng tới?',
-              'Cách đăng ký nguyện vọng đại học an toàn?',
-              'Kỹ năng quan trọng nhất cần tích lũy là gì?'
-            ]
-          };
-        }
-      }
-    } catch (e) {
-      console.warn('Backend Gemini API call failed, continuing to internal reasoning engine:', e);
-    }
+    return executeLLMRequest({
+      userQuestion,
+      context,
+      chatHistory: chatHistory.map(m => ({
+        role: (m.sender === 'user' ? 'user' : 'model') as 'user' | 'model',
+        content: m.content
+      })),
+      language: 'vi',
+      llmConfig
+    });
   }
 
-  // 2. High-IQ Deterministic Domain Reasoning Engine (100% offline, privacy-safe, instantaneous)
-  await new Promise(r => setTimeout(r, 450));
+  // Case B: Style 2 - (profile, career, userQuestion, chatHistory, recScore, language)
+  const profile = arg1 as UserProfile;
+  const career = arg2 as Career;
+  const userQuestion = typeof arg3 === 'string' ? arg3 : '';
+  const chatHistory = (Array.isArray(arg4) ? arg4 : []) as Array<{ role: string; content: string }>;
+  const recScore = (arg5 && typeof arg5 === 'object' && 'overallScore' in arg5 ? arg5 : undefined) as RecommendationScore | undefined;
+  const language = (typeof arg6 === 'string' && (arg6 === 'vi' || arg6 === 'en') ? arg6 : 'vi') as 'vi' | 'en';
 
-  const primaryHolland = profile.riaSecProfile?.code || 'I-R-C';
-  const mbti = profile.mbtiType || 'INTJ';
-  const gpa = profile.academicGPA || 'Khá - Giỏi';
-  const hsa = profile.examScores?.hsaScore ? `HSA: ${profile.examScores.hsaScore}/150` : '';
-  const tsa = profile.examScores?.tsaScore ? `TSA: ${profile.examScores.tsaScore}/100` : '';
-  const vact = profile.examScores?.vactScore ? `V-ACT: ${profile.examScores.vactScore}/1200` : '';
-  const thpt = profile.examScores?.thptScore ? `THPTQG (${profile.examScores.thptCombo || 'Khối xét tuyển'}): ${profile.examScores.thptScore} điểm` : '';
-  const examsList = [hsa, tsa, vact, thpt].filter(Boolean).join(', ') || 'Chưa cập nhật điểm thi cụ thể';
+  const context = buildCounselorContext(profile, career, [career], undefined, recScore, undefined, userQuestion);
 
-  const qLower = userQuestion.toLowerCase();
-  let responseContent = '';
-  let followUps: string[] = [];
-
-  // Age group conditional answers
-  if (ageGroup === '6-10') {
-    responseContent = `Chào bạn nhỏ và quý phụ huynh! Ở lứa tuổi **${age} tuổi (${ageMeta.stageVi})**, mục tiêu quan trọng nhất không phải là chọn sớm một nghề nghiệp cố định, mà là **nuôi dưỡng trí tò mò tự nhiên và đam mê khám phá**.
-
-🌱 **Phân tích thiên hướng ban đầu:**
-- **Đặc trưng sở thích:** Bé thể hiện xu hướng nổi trội ở các hoạt động mang tính logic, tò mò khám phá (${profile.interests.slice(0, 3).join(', ') || 'khoa học đời thường'}).
-- **Môn học yêu thích:** ${profile.favoriteSubjects.slice(0, 3).join(', ') || 'Toán học, Khoa học & Nghệ thuật'}.
-
-🎈 **Gợi ý hoạt động phù hợp nhất ở lứa tuổi này:**
-1. **Trải nghiệm qua trò chơi:** Tham gia lắp ráp mô hình LEGO kỹ thuật, các thí nghiệm khoa học vui tại nhà hoặc câu lạc bộ STEM thiếu nhi.
-2. **Kỹ năng tương tác:** Khuyến khích bé kể lại những điều vừa học, đặt câu hỏi "Vì sao?" cho các hiện tượng xung quanh.
-3. **Giữ tinh thần thoải mái:** Không cần lo lắng về điểm số thi cử hay áp lực chọn trường sớm. Hãy để bé tự do trải nghiệm đa dạng lĩnh vực!`;
-
-    followUps = [
-      'Có những cuốn sách hoặc kênh khoa học thiếu nhi nào bổ ích?',
-      'Làm thế nào để giúp con tập trung và kiên trì hơn?',
-      'Khi nào thì nên bắt đầu cho con học lập trình hoặc STEM?'
-    ];
-  } else if (ageGroup === '11-14') {
-    responseContent = `Chào em! Ở lứa tuổi **${age} tuổi (${ageMeta.stageVi})**, đây là giai đoạn bản lề để em khám phá thế mạnh học tập và **chuẩn bị vững chắc cho kỳ thi chuyển cấp vào Lớp 10**.
-
-🎯 **Phân tích hồ sơ THCS:**
-- **Xu hướng tư duy:** Mã Holland **${primaryHolland}** và phong cách **${mbti}** cho thấy em có khả năng tập trung và tư duy phân tích tốt.
-- **Môn học thế mạnh:** ${profile.favoriteSubjects.join(', ') || 'Toán học, Tin học, Ngoại ngữ'}.
-
-📌 **Kế hoạch hành động trọng tâm cho em:**
-1. **Chiến lược thi vào Lớp 10:** 
-   - Xác định sớm mục tiêu trường THPT (Trường Chuyên, Công lập Top đầu hoặc Lớp chuyên ngữ / Toán).
-   - Duy trì học lực ${gpa} và cân đối các môn điều kiện (Toán, Văn, Ngoại ngữ).
-2. **Xây dựng phương pháp tự học:** Tập thói quen tự tóm tắt sơ đồ tư duy (Mindmap) và tìm tòi lời giải cho các bài toán mở.
-3. **Hoạt động trải nghiệm:** Thử tham gia cuộc thi Nghiên cứu Khoa học Kỹ thuật (KHKT) cấp trường hoặc câu lạc bộ học thuật để phát hiện thêm năng khiếu!`;
-
-    followUps = [
-      'Em nên chuẩn bị thi vào lớp 10 trường chuyên từ thời điểm nào?',
-      'Cách cải thiện các môn chưa tự tin để nâng cao GPA?',
-      'Nên chọn học khối Tự nhiên hay Xã hội cho cấp 3?'
-    ];
-  } else if (ageGroup === '15-18') {
-    if (qLower.includes('trường') || qLower.includes('đại học') || qLower.includes('điểm') || qLower.includes('hsa') || qLower.includes('tsa')) {
-      responseContent = `Chào em! Ở độ tuổi **${age} tuổi (Học sinh THPT)**, việc đối chiếu điểm thi với chuẩn đầu vào các trường Đại học là yếu tố quyết định:
-
-📊 **Tổng quan năng lực & điểm thi của em:**
-- **Điểm thi khảo sát:** ${examsList} | Học lực GPA: ${gpa}
-- **Thiên hướng nghề nghiệp:** Holland **${primaryHolland}** | MBTI **${mbti}**
-- **Ngành đề xuất cao nhất:** ${topCareerTitles}
-
-🏛️ **Chiến lược chọn trường Đại học đối sánh:**
-1. **Nhóm 1 - Các Trường Đại học TOP 1 Trọng điểm Quốc gia:**
-   - *Đại học Bách Khoa Hà Nội (HUST)*: Yêu cầu điểm TSA từ 68 - 85+ (tùy ngành), điểm thi THPT 26 - 29+.
-   - *Trường ĐH Công nghệ (UET - ĐHQG Hà Nội)*: HSA từ 95 - 115+, rất mạnh về CNTT, Tự động hóa & Vi mạch.
-   - *Đại học Bách Khoa / ĐH Công nghệ Thông tin (UIT - ĐHQG TP.HCM)*: V-ACT từ 820 - 950+.
-   - *ĐH Ngoại thương (FTU) / ĐH Kinh tế Quốc dân (NEU)*: Khối D01/A00 từ 26.5 - 28.5+.
-2. **Nhóm 2 - Các Trường Chuyên sâu & Thực hành Uy tín:**
-   - *Học viện Bưu chính Viễn thông (PTIT)*: Đào tạo công nghệ thực chiến, điểm chuẩn 25 - 26.5, tỷ lệ có việc làm cao.
-   - *ĐH Sư phạm Kỹ thuật TP.HCM (HCMUTE)*: Thế mạnh cơ điện tử, kỹ thuật ô tô, robot.
-   - *ĐH FPT / Bách Khoa Đà Nẵng / ĐH Cần Thơ*: Môi trường năng động, liên kết doanh nghiệp chặt chẽ.
-3. **Nhóm 3 - Cao đẳng & Trường Nghề Uy tín (Đại học không phải là con đường duy nhất):**
-   - *Cao đẳng Kỹ thuật Cao Thắng (TP.HCM)* / *Cao đẳng Nghề Bách Khoa Hà Nội (HACTECH)*: 70% thời lượng thực hành xưởng máy, học 2 - 2.5 năm, kỹ năng tay nghề vững vàng, ra trường doanh nghiệp tuyển dụng ngay.
-   - *Cao đẳng FPT Polytechnic*: Đào tạo dự án thực chiến, đi làm sớm, chú trọng CNTT, Thiết kế, Marketing.
-   - *Cao đẳng Công nghệ Thủ Đức (TDC) / Cao đẳng Nghề Công nghệ Cao Hà Nội (HHT)*: Chi phí tiết kiệm, xét tuyển học bạ THPT, học liên thông lên đại học khi cần.
-
-💡 **Lời khuyên hướng nghiệp:** Hãy nhớ rằng **Đại học không phải là con đường duy nhất để thành công**. Nếu bạn yêu thích thực hành, muốn tự chủ tài chính sớm hoặc điểm thi chưa như ý, học Cao đẳng Nghề hoặc chứng chỉ chuyên sâu là bước đi vô cùng thông minh và thực tế!`;
-
-      followUps = [
-        'Cách kết hợp xét tuyển sớm (học bạ + HSA/TSA) và thi tốt nghiệp?',
-        'Ngành em chọn có nhiều học bổng doanh nghiệp không?',
-        'Nên chuẩn bị thêm chứng chỉ IELTS ở mức mấy chấm để được cộng điểm?'
-      ];
-    } else {
-      responseContent = `Chào em! Dựa trên phân tích toàn diện hồ sơ:
-- **Đặc trưng tâm lý học tập:** Holland **${primaryHolland}** cho thấy em có xu hướng nghiên cứu và giải quyết bài toán phức tạp.
-- **Phong cách MBTI:** **${mbti}** thể hiện em là người độc lập, có tư duy chiến lược và tinh thần cầu tiến.
-- **Ngành thế mạnh hàng đầu:** ${topCareerTitles}.
-
-🚀 **Lộ trình rèn luyện kỹ năng trong năm học:**
-1. **Năng lực chuyên môn:** Tập trung làm vững căn bản các môn ${profile.favoriteSubjects.slice(0, 3).join(', ')}.
-2. **Hồ sơ năng lực:** Nếu có nguyện vọng xét tuyển sớm, hãy chuẩn bị chứng chỉ ngoại ngữ và các giải thưởng học sinh giỏi (${profile.examScores?.awards?.join(', ') || 'HSG / KHKT'}).
-3. **Thử nghiệm thực tế:** Dành 2-3 giờ/tuần tìm hiểu giáo trình năm nhất đại học của ngành em quan tâm để kiểm chứng độ yêu thích!`;
-
-      followUps = [
-        'Cơ hội việc làm của ngành này khi em ra trường năm 2030?',
-        'Em cần rèn luyện kỹ năng mềm nào để không bị bỡ ngỡ ở Đại học?',
-        'Mức học phí và chi phí sinh hoạt trung bình của ngành này?'
-      ];
+  return executeLLMRequest({
+    userQuestion,
+    context,
+    chatHistory: chatHistory.map(m => ({
+      role: (m.role === 'user' ? 'user' : 'model') as 'user' | 'model',
+      content: m.content
+    })),
+    language,
+    llmConfig: {
+      provider: 'gemini',
+      modelName: 'gemini-3.8-flash'
     }
-  } else if (ageGroup === '19-24') {
-    responseContent = `Chào bạn! Ở độ tuổi **${age} tuổi (${ageMeta.stageVi})**, trọng tâm chuyển từ "học lý thuyết" sang **"tạo ra giá trị thực chiến và chuẩn bị việc làm"**:
-
-💼 **Phân tích năng lực chuyên nghiệp:**
-- **Thế mạnh cá nhân:** Holland **${primaryHolland}** kết hợp phong cách làm việc **${mbti}**.
-- **Kỹ năng đã có:** ${profile.skills.slice(0, 4).join(', ') || 'Tư duy logic, giải quyết vấn đề'}.
-- **Hướng đi mục tiêu:** ${topCareerTitles}.
-
-🔥 **3 Bước bứt phá để sẵn sàng ra trường có việc làm ngay:**
-1. **Xây dựng Portfolio / GitHub / Dự án thực tế:** Doanh nghiệp ngày nay đánh giá cao sản phẩm bạn đã từng làm hơn là điểm số trên giảng đường. Hãy đóng gói 2-3 dự án hoàn chỉnh.
-2. **Chứng chỉ nghề nghiệp giá trị cao:** Bổ sung chứng chỉ chuyên ngành quốc tế phù hợp với định hướng ${topCareers[0]?.title || 'ngành học'}.
-3. **Chiến lược Thực tập (Internship):** Tìm kiếm cơ hội thực tập ngay từ năm 3. Chủ động tham gia các hội thảo tuyển dụng và kết nối với mạng lưới cựu sinh viên (Alumni).`;
-
-    followUps = [
-      'Cách viết CV cho sinh viên chưa có nhiều kinh nghiệm?',
-      'Nên chọn thực tập tại công ty khởi nghiệp (Startup) hay tập đoàn lớn (Corporation)?',
-      'Mức lương khởi điểm thực tế của ngành này trên thị trường hiện nay?'
-    ];
-  } else if (ageGroup === '25-35') {
-    responseContent = `Chào anh/chị! Ở giai đoạn **${age} tuổi (${ageMeta.stageVi})**, bài toán định hướng thường gắn liền với **chuyển ngành (Reskilling) hoặc bứt phá thăng tiến lên nấc thang mới**:
-
-📈 **Đánh giá chuyển đổi nghề nghiệp:**
-- **Năng lực cốt lõi (Transferable Skills):** Phong cách **${mbti}** và mã Holland **${primaryHolland}** cho thấy anh/chị có lợi thế ở tư duy hệ thống và khả năng tự nghiên cứu sâu.
-- **Mục tiêu tương thích:** ${topCareerTitles}.
-
-🧭 **Chiến lược chuyển đổi an toàn & hiệu quả:**
-1. **Tận dụng kỹ năng sẵn có:** Kết hợp kinh nghiệm thực tế trong lĩnh vực cũ với kiến thức mới của ngành ${topCareers[0]?.title || 'mục tiêu'} để tạo ra lợi thế cạnh tranh lai (Hybrid Advantage).
-2. **Học tập không gián đoạn thu nhập:** Ưu tiên các khóa học chứng chỉ buổi tối, cuối tuần hoặc học từ xa trong 6 - 9 tháng đầu trước khi chuyển đổi toàn thời gian.
-3. **Quản trị rủi ro tài chính:** Chuẩn bị quỹ dự phòng sinh hoạt từ 3 - 6 tháng để an tâm trong giai đoạn thử việc hoặc chuyển đổi vị trí mới.`;
-
-    followUps = [
-      'Làm thế nào để ứng tuyển vị trí mới khi chưa có bằng cấp chính quy ngành đó?',
-      'Cách thuyết phục nhà tuyển dụng về giá trị của người chuyển ngành?',
-      'Nên học chứng chỉ ngắn hạn hay học văn bằng 2 / Thạc sĩ?'
-    ];
-  } else {
-    // 35+
-    responseContent = `Chào anh/chị! Ở độ tuổi **${age} tuổi (${ageMeta.stageVi})**, định hướng nghề nghiệp hướng tới **tầm nhìn chiến lược, vị trí cố vấn/lãnh đạo và sự cân bằng bền vững**:
-
-👑 **Định vị giá trị thâm niên:**
-- **Thế mạnh độc bản:** Sự kết hợp giữa kinh nghiệm sống phong phú, tư duy **${mbti}** và mã tính cách **${primaryHolland}**.
-- **Lĩnh vực phát huy tối đa:** ${topCareerTitles}.
-
-🌟 **Lộ trình phát triển bền vững:**
-1. **Chuyển dịch sang vai trò Lãnh đạo / Cố vấn (Mentorship / Advisory):** Chia sẻ kiến thức, đào tạo thế hệ kế cận và đóng góp vào các quyết định chiến lược vĩ mô.
-2. **Cân nhắc khởi nghiệp độc lập hoặc tư vấn tự do:** Tận dụng mạng lưới quan hệ sâu rộng để xây dựng mô hình dịch vụ tư vấn chuyên môn.
-3. **Cân bằng Cuộc sống & Sức khỏe (Work-Life Harmony):** Ưu tiên các môi trường làm việc linh hoạt, tôn trọng giá trị gia đình và bảo vệ năng lượng cá nhân.`;
-
-    followUps = [
-      'Cách xây dựng thương hiệu cá nhân ở vị trí chuyên gia cố vấn?',
-      'Làm thế nào để duy trì năng lượng và bắt kịp xu thế AI công nghệ mới?',
-      'Chiến lược chuyển giao và cân bằng thời gian cho bản thân và gia đình?'
-    ];
-  }
-
-  return {
-    reply: responseContent,
-    modelUsed: isLocal ? 'EduPath In-Browser AI Reasoning Engine' : `${llmConfig.modelName || 'Local Model'}`,
-    suggestedQuestions: followUps
-  };
+  });
 }

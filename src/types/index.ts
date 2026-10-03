@@ -253,6 +253,14 @@ export interface SkillGapItem {
   priority: 'High' | 'Medium' | 'Low';
   category: 'Technical' | 'Soft' | 'Domain';
   recommendedAction: string;
+  // Extended structured dimensions
+  currentStatus?: 'Strong' | 'Developing' | 'Missing';
+  requiredLevel?: string;
+  gap?: string;
+  reason?: string;
+  improvementMethod?: string;
+  suggestedPractice?: string;
+  suggestedProject?: string;
 }
 
 export interface SkillGapAnalysis {
@@ -265,15 +273,29 @@ export interface SkillGapAnalysis {
   highPriorityCount: number;
 }
 
+export interface RoadmapMilestoneStep {
+  skill: string;
+  currentStatus: 'Strong' | 'Developing' | 'Missing';
+  requiredLevel: string;
+  gap: string;
+  priority: 'High' | 'Medium' | 'Low';
+  learningConcept: string;
+  smallExercises: string[];
+  miniProject: string;
+  milestoneGoal: string;
+}
+
 export interface RoadmapPhase {
   phaseNumber: number;
   name: string;
   duration: string;
+  timeframe?: '0–3 months' | '3–6 months' | '6–12 months' | string;
   objectives: string[];
   skillsToLearn: string[];
   projects: string[];
   recommendedActivities: string[];
   milestone: string;
+  actionSteps?: RoadmapMilestoneStep[];
 }
 
 export interface LearningRoadmap {
@@ -282,6 +304,40 @@ export interface LearningRoadmap {
   targetAgeGroup: AgeGroup;
   phases: RoadmapPhase[];
   tailoredNote: string;
+}
+
+export interface AIImpactAnalysis {
+  careerId: string;
+  careerTitle: string;
+  timeHorizon: '3–5 năm';
+  aiAutomation: {
+    hasData: boolean;
+    directAiImpact?: string;
+    assistableTasks: string[];
+    automatedAspectsSummary: string;
+  };
+  humanAdvantage: {
+    hasData: boolean;
+    coreAbilities: string[];
+    irreplaceableAspectsSummary: string;
+  };
+  skillDemand: {
+    hasData: boolean;
+    emergingSkills: string[];
+    marketTrendSummary: string;
+  };
+  preparation: {
+    hasData: boolean;
+    tailoredAdvice: string[];
+    keyFocusAreas: string[];
+    progressionAdvice: string;
+  };
+  groundingAndUncertainty: {
+    knownData: string[];
+    inferences: string[];
+    uncertainties: string[];
+    disclaimer: string;
+  };
 }
 
 export interface WhatIfAdjustments {

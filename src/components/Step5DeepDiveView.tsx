@@ -143,6 +143,7 @@ export const Step5DeepDiveView: React.FC<Step5DeepDiveViewProps> = ({
         {subTab === 'compare' && (
           <CareerComparisonView
             profile={profile}
+            recommendations={recommendations}
             selectedCareerIds={[
               recommendations[0]?.career.id || 'software-engineer',
               recommendations[1]?.career.id || 'robotics-engineer'

@@ -6,10 +6,19 @@ import {
   DollarSign,
   Sparkles,
   FlaskConical,
-  GraduationCap
+  GraduationCap,
+  Map,
+  TrendingUp,
+  Bot,
+  Milestone,
+  Brain,
+  ShieldCheck,
+  Target
 } from 'lucide-react';
 import { Career, UserProfile, RecommendationScore } from '../types';
 import { analyzeSkillGap } from '../engine/skillGapEngine';
+import { generateLearningRoadmap } from '../engine/roadmapEngine';
+import { analyzeAIImpactAndFutureTrends } from '../engine/aiImpactEngine';
 import { RIASECRadarChart } from './RIASECRadarChart';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -33,11 +42,13 @@ export const CareerDetailModal: React.FC<CareerDetailModalProps> = ({
   isCompared
 }) => {
   const { language, t, getCareerTitle, getCareerCluster, getCareerDesc } = useLanguage();
-  const [activeTab, setActiveTab] = useState<'overview' | 'skills' | 'education' | 'experiments'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'skills' | 'roadmap' | 'education' | 'experiments'>('overview');
 
   if (!career) return null;
 
   const skillGap = analyzeSkillGap(profile, career);
+  const roadmap = generateLearningRoadmap(profile, career, skillGap);
+  const aiImpactAnalysis = analyzeAIImpactAndFutureTrends(career, profile, skillGap);
   const locTitle = getCareerTitle(career.id, career.title);
   const locCluster = getCareerCluster(career.id, career.careerCluster);
   const locDesc = getCareerDesc(career.id, career.description);
@@ -94,6 +105,17 @@ export const CareerDetailModal: React.FC<CareerDetailModalProps> = ({
             }`}
           >
             {`Kiểm toán Kỹ năng (${skillGap.overallReadiness}%)`}
+          </button>
+          <button
+            onClick={() => setActiveTab('roadmap')}
+            className={`py-3.5 px-4 text-xs font-semibold border-b-2 transition-colors whitespace-nowrap inline-flex items-center gap-1.5 ${
+              activeTab === 'roadmap'
+                ? 'border-indigo-600 text-indigo-600 bg-white font-bold'
+                : 'border-transparent text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
+            }`}
+          >
+            <Map className="w-3.5 h-3.5" />
+            {'Lộ trình Rèn luyện (Roadmap)'}
           </button>
           <button
             onClick={() => setActiveTab('education')}
@@ -190,6 +212,158 @@ export const CareerDetailModal: React.FC<CareerDetailModalProps> = ({
                   </div>
                 </div>
               </div>
+
+              {/* AI Impact & Future Market Trends (3-5 Years Outlook) */}
+              <div className="p-4 bg-slate-50/90 rounded-2xl border border-slate-200/90 space-y-4">
+                <div className="flex items-center justify-between border-b border-slate-200/60 pb-2">
+                  <div className="flex items-center space-x-2">
+                    <Bot className="w-4 h-4 text-indigo-600" />
+                    <span className="font-extrabold text-xs text-slate-900 uppercase tracking-wide">
+                      Phân tích Tác động AI & Triển vọng 3–5 năm
+                    </span>
+                  </div>
+                  <span className="text-[10px] text-slate-500 font-medium">
+                    Định hướng kỹ năng thích ứng
+                  </span>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-3 text-xs">
+                  {/* 1. AI Automation */}
+                  <div className="p-3 bg-white rounded-xl border border-slate-200/80 space-y-1.5">
+                    <div className="flex items-center space-x-1.5 text-slate-900 font-bold text-[11px]">
+                      <Bot className="w-3.5 h-3.5 text-indigo-600" />
+                      <span>1. Tự động hóa & Tác vụ AI hỗ trợ</span>
+                    </div>
+                    {aiImpactAnalysis.aiAutomation.hasData ? (
+                      <div className="space-y-1 text-[11px] text-slate-700">
+                        <p className="leading-relaxed">
+                          {aiImpactAnalysis.aiAutomation.automatedAspectsSummary}
+                        </p>
+                        {aiImpactAnalysis.aiAutomation.assistableTasks.length > 0 && (
+                          <div className="pt-1 text-[10px] text-slate-500">
+                            <strong>Tác vụ AI hỗ trợ đẩy nhanh:</strong> {aiImpactAnalysis.aiAutomation.assistableTasks.slice(0, 3).join('; ')}
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <span className="text-slate-400 text-[11px]">Dữ liệu tự động hóa chưa có trong hệ thống</span>
+                    )}
+                  </div>
+
+                  {/* 2. Human Advantage */}
+                  <div className="p-3 bg-white rounded-xl border border-amber-200/80 space-y-1.5">
+                    <div className="flex items-center space-x-1.5 text-amber-950 font-bold text-[11px]">
+                      <Brain className="w-3.5 h-3.5 text-amber-700" />
+                      <span>2. Lợi thế Con người (Khó thay thế)</span>
+                    </div>
+                    <p className="text-[11px] text-amber-900 leading-relaxed">
+                      {aiImpactAnalysis.humanAdvantage.irreplaceableAspectsSummary}
+                    </p>
+                    {aiImpactAnalysis.humanAdvantage.coreAbilities.length > 0 && (
+                      <div className="text-[10px] text-amber-800 pt-1 space-y-0.5">
+                        {aiImpactAnalysis.humanAdvantage.coreAbilities.slice(0, 2).map((ab, idx) => (
+                          <div key={idx}>• {ab}</div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* 3. Skill Demand */}
+                  <div className="p-3 bg-white rounded-xl border border-blue-200/80 space-y-1.5">
+                    <div className="flex items-center space-x-1.5 text-blue-950 font-bold text-[11px]">
+                      <TrendingUp className="w-3.5 h-3.5 text-blue-600" />
+                      <span>3. Nhu cầu Kỹ năng 3–5 năm</span>
+                    </div>
+                    <p className="text-[11px] text-blue-900 leading-relaxed">
+                      {aiImpactAnalysis.skillDemand.marketTrendSummary}
+                    </p>
+                    {aiImpactAnalysis.skillDemand.emergingSkills.length > 0 && (
+                      <div className="flex flex-wrap gap-1 pt-1">
+                        {aiImpactAnalysis.skillDemand.emergingSkills.slice(0, 3).map((sk, idx) => (
+                          <span key={idx} className="px-2 py-0.5 rounded bg-blue-50 text-blue-800 text-[10px] font-medium border border-blue-100">
+                            {sk}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* 4. Student Preparation */}
+                  <div className="p-3 bg-white rounded-xl border border-indigo-200/80 space-y-1.5">
+                    <div className="flex items-center space-x-1.5 text-indigo-950 font-bold text-[11px]">
+                      <Target className="w-3.5 h-3.5 text-indigo-600" />
+                      <span>4. Chuẩn bị cho học sinh</span>
+                    </div>
+                    <ul className="text-[10px] text-indigo-900 space-y-1 leading-tight">
+                      {aiImpactAnalysis.preparation.tailoredAdvice.slice(0, 2).map((adv, idx) => (
+                        <li key={idx}>• {adv}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* 5. Uncertainty Disclaimer */}
+                <div className="p-2.5 rounded-xl bg-amber-50/60 border border-amber-200/60 text-[10px] text-amber-900 leading-relaxed flex items-start gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-amber-700 shrink-0 mt-0.5" />
+                  <div>
+                    <strong>Phân định căn cứ:</strong> Dữ liệu đã xác thực: {aiImpactAnalysis.groundingAndUncertainty.knownData[0]}. {aiImpactAnalysis.groundingAndUncertainty.disclaimer}
+                  </div>
+                </div>
+              </div>
+
+              {/* Career Progression Ladder */}
+              {career.progressionPath && (
+                <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-3">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-600">
+                    {'Lộ trình Thăng tiến & Nấc thang Sự nghiệp'}
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                    <div className="p-3 bg-white rounded-lg border border-slate-200 space-y-1">
+                      <span className="text-[10px] font-bold text-slate-500 uppercase">Khởi đầu (Entry-level):</span>
+                      <p className="text-slate-800 font-medium">{career.progressionPath.entry}</p>
+                    </div>
+                    <div className="p-3 bg-white rounded-lg border border-indigo-200 space-y-1">
+                      <span className="text-[10px] font-bold text-indigo-600 uppercase">Trung cấp (Mid-level):</span>
+                      <p className="text-indigo-950 font-medium">{career.progressionPath.mid}</p>
+                    </div>
+                    <div className="p-3 bg-white rounded-lg border border-emerald-200 space-y-1">
+                      <span className="text-[10px] font-bold text-emerald-600 uppercase">Chuyên gia / Quản lý (Senior):</span>
+                      <p className="text-emerald-950 font-medium">{career.progressionPath.senior}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Advantages & Challenges */}
+              <div className="grid sm:grid-cols-2 gap-4 text-xs">
+                {career.advantages && career.advantages.length > 0 && (
+                  <div className="p-4 bg-emerald-50/50 border border-emerald-200 rounded-xl space-y-2">
+                    <h5 className="font-bold text-emerald-900 flex items-center gap-1.5">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                      <span>Điểm mạnh & Lợi thế của ngành:</span>
+                    </h5>
+                    <ul className="list-disc list-inside text-emerald-950 space-y-1 text-[11px]">
+                      {career.advantages.map((adv, i) => (
+                        <li key={i}>{adv}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {career.challenges && career.challenges.length > 0 && (
+                  <div className="p-4 bg-amber-50/50 border border-amber-200 rounded-xl space-y-2">
+                    <h5 className="font-bold text-amber-900 flex items-center gap-1.5">
+                      <AlertTriangle className="w-4 h-4 text-amber-600" />
+                      <span>Thách thức cần lưu ý:</span>
+                    </h5>
+                    <ul className="list-disc list-inside text-amber-950 space-y-1 text-[11px]">
+                      {career.challenges.map((ch, i) => (
+                        <li key={i}>{ch}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
             </div>
           )}
 
@@ -268,7 +442,93 @@ export const CareerDetailModal: React.FC<CareerDetailModalProps> = ({
             </div>
           )}
 
-          {/* TAB 3: EDUCATION */}
+          {/* TAB 3: ROADMAP */}
+          {activeTab === 'roadmap' && (
+            <div className="space-y-6 pt-2">
+              <div className="p-4 bg-indigo-50 border border-indigo-100 rounded-xl space-y-1">
+                <div className="flex items-center justify-between">
+                  <h4 className="text-xs font-bold text-indigo-950 flex items-center gap-1.5 uppercase tracking-wide">
+                    <Map className="w-4 h-4 text-indigo-600" />
+                    <span>Lộ trình Rèn luyện Cá nhân hóa theo Lứa tuổi</span>
+                  </h4>
+                  <span className="px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800 text-[10px] font-bold">
+                    {roadmap.phases.length} giai đoạn rèn luyện
+                  </span>
+                </div>
+                <p className="text-xs text-indigo-800 leading-relaxed">
+                  {roadmap.tailoredNote}
+                </p>
+              </div>
+
+              {/* Roadmap Phases */}
+              <div className="space-y-4">
+                {roadmap.phases.map((phase) => (
+                  <div
+                    key={phase.phaseNumber}
+                    className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-3"
+                  >
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-200/80 pb-2">
+                      <div className="flex items-center space-x-2">
+                        <span className="w-6 h-6 rounded-full bg-indigo-600 text-white font-bold text-xs flex items-center justify-center">
+                          {phase.phaseNumber}
+                        </span>
+                        <h5 className="font-bold text-slate-900 text-xs sm:text-sm">
+                          {phase.name}
+                        </h5>
+                      </div>
+                      <span className="text-[11px] font-semibold text-slate-500 bg-white px-2.5 py-0.5 rounded-full border border-slate-200 self-start sm:self-center">
+                        Thời lượng: {phase.duration}
+                      </span>
+                    </div>
+
+                    {/* Objectives */}
+                    <div className="space-y-1">
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">MỤC TIÊU GIAI ĐOẠN:</span>
+                      <ul className="list-disc list-inside text-xs text-slate-700 space-y-0.5">
+                        {phase.objectives.map((obj, i) => (
+                          <li key={i}>{obj}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Skills to Learn */}
+                    <div className="space-y-1">
+                      <span className="text-[10px] font-bold text-indigo-600 uppercase tracking-wider block">KỸ NĂNG CẦN TÍCH LŨY:</span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {phase.skillsToLearn.map((s, i) => (
+                          <span key={i} className="px-2 py-0.5 rounded-md bg-white border border-indigo-200 text-indigo-900 text-[11px] font-medium">
+                            {s}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Projects or Recommended Activities */}
+                    {phase.projects && phase.projects.length > 0 && (
+                      <div className="p-3 bg-white rounded-lg border border-slate-200 text-xs space-y-1">
+                        <span className="font-bold text-slate-800 text-[11px]">Dự án rèn luyện thực tế:</span>
+                        <ul className="list-disc list-inside text-slate-600 space-y-0.5 text-[11px]">
+                          {phase.projects.map((proj, i) => (
+                            <li key={i}>{proj}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Milestone */}
+                    {phase.milestone && (
+                      <div className="p-2.5 bg-emerald-50 rounded-lg border border-emerald-200 text-xs flex items-center space-x-2 text-emerald-900">
+                        <Milestone className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span><strong>Cột mốc hoàn thành:</strong> {phase.milestone}</span>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* TAB 4: EDUCATION */}
           {activeTab === 'education' && (
             <div className="space-y-6 pt-2">
               <div className="space-y-2">
